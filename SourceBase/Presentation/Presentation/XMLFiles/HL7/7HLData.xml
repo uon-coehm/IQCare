@@ -1,0 +1,483 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <patientinfo>
+    <FacilityName>Delhi_Location</FacilityName>
+    <PatientClinicNumber>7</PatientClinicNumber>
+    <UniquePatNumber>IQ-000000PL198207017547</UniquePatNumber>
+    <FirstName>Paritosh</FirstName>
+    <LastName>ll</LastName>
+    <DOB>1982-07-01T00:00:00+05:30</DOB>
+    <Age>29</Age>
+    <Gender>Female</Gender>
+    <Address>454545</Address>
+    <TelContact>676767</TelContact>
+    <District>District</District>
+    <SubLocation>Testing</SubLocation>
+    <Location>District</Location>
+    <LandMark>Vilage1</LandMark>
+    <MaritalStatus>Divorced</MaritalStatus>
+    <ptn_pk>7</ptn_pk>
+  </patientinfo>
+  <patientinfo>
+    <FacilityName>Delhi_Location</FacilityName>
+    <PatientClinicNumber>7</PatientClinicNumber>
+    <UniquePatNumber>IQ-000000PL198207017547</UniquePatNumber>
+    <FirstName>Paritosh</FirstName>
+    <LastName>ll</LastName>
+    <DOB>1982-07-01T00:00:00+05:30</DOB>
+    <Age>29</Age>
+    <Gender>Female</Gender>
+    <Address>454545</Address>
+    <TelContact>676767</TelContact>
+    <District>District</District>
+    <SubLocation>Testing</SubLocation>
+    <Location>District</Location>
+    <LandMark>Vilage1</LandMark>
+    <MaritalStatus>Divorced</MaritalStatus>
+    <ptn_pk>7</ptn_pk>
+  </patientinfo>
+  <EmergContact>
+    <TSName>Contact</TSName>
+    <TSRelation>Parent</TSRelation>
+    <TSPhone>1234</TSPhone>
+    <TSAddress>Address</TSAddress>
+  </EmergContact>
+  <Referred>
+    <ReferredFrom>Other facility</ReferredFrom>
+    <ReferredFacilityName>Kenya</ReferredFacilityName>
+    <Transfered>1</Transfered>
+    <Transfered_x0020_From_x0020_Facility>Kenya</Transfered_x0020_From_x0020_Facility>
+    <TransferInDate>01 Jun 2011</TransferInDate>
+    <ARTStartDate>02 Jul 2011</ARTStartDate>
+  </Referred>
+  <Referred>
+    <ReferredFrom>Other facility</ReferredFrom>
+    <ReferredFacilityName>Kenya</ReferredFacilityName>
+    <Transfered>1</Transfered>
+    <Transfered_x0020_From_x0020_Facility>Kenya</Transfered_x0020_From_x0020_Facility>
+    <TransferInDate>01 Jun 2011</TransferInDate>
+    <ARTStartDate>02 Jul 2011</ARTStartDate>
+  </Referred>
+  <PrevARV>
+    <PrevARVExposure>1</PrevARVExposure>
+    <PrevARV1>DLV/IDV</PrevARV1>
+    <PrevARV1dtUsed>01 Dec 2008</PrevARV1dtUsed>
+    <PrevARV2>3TC/AZT</PrevARV2>
+    <PrevARV2dtUsed>30 Nov 2008</PrevARV2dtUsed>
+    <PrevARV3>DDI</PrevARV3>
+    <PrevARV3dtUsed>06 Dec 2007</PrevARV3dtUsed>
+  </PrevARV>
+  <PrevARV />
+  <HIVDiagnosis>
+    <DtConfirmHIVPositive>01 Jul 2011</DtConfirmHIVPositive>
+    <dtEnrolledHIVCare>01 Jun 2011</dtEnrolledHIVCare>
+    <WHOStage>N/A</WHOStage>
+  </HIVDiagnosis>
+  <HIVDiagnosis>
+    <dtEnrolledHIVCare>01 Jun 2011</dtEnrolledHIVCare>
+    <WHOStage>I</WHOStage>
+  </HIVDiagnosis>
+  <HIVDiagnosis>
+    <DtConfirmHIVPositive>01 Jul 2011</DtConfirmHIVPositive>
+    <dtEnrolledHIVCare>01 Jun 2011</dtEnrolledHIVCare>
+    <WHOStage>N/A</WHOStage>
+  </HIVDiagnosis>
+  <HIVDiagnosis>
+    <dtEnrolledHIVCare>01 Jun 2011</dtEnrolledHIVCare>
+    <WHOStage>I</WHOStage>
+  </HIVDiagnosis>
+  <patientAllergy>
+    <Allergy>Sulfa drugs,Other-testing</Allergy>
+  </patientAllergy>
+  <FamilyInfo>
+    <RName>qq qq</RName>
+    <AgeYear>1</AgeYear>
+    <Relation>Aunt/Uncle</Relation>
+    <HIVStatus>Positive</HIVStatus>
+    <InCare>No</InCare>
+  </FamilyInfo>
+  <FamilyInfo>
+    <RName>Auto Patient</RName>
+    <AgeYear>30</AgeYear>
+    <Relation>Brother/Sister</Relation>
+    <HIVStatus>Unknown</HIVStatus>
+    <InCare>Yes</InCare>
+    <CCCNumber>IQ-000000AP198107107544</CCCNumber>
+  </FamilyInfo>
+  <patientlabresults>
+    <CD4Count>44.00</CD4Count>
+    <WHOStage>I</WHOStage>
+  </patientlabresults>
+  <firstgegimen>
+    <RegDate>01 Jul 2011</RegDate>
+    <RegimenType />
+  </firstgegimen>
+  <firstgegimen>
+    <RegDate>11 Jul 2011</RegDate>
+    <RegimenType>3TC</RegimenType>
+  </firstgegimen>
+  <firstgegimen>
+    <RegDate>13 Jul 2011</RegDate>
+    <RegimenType>3TC/AZT</RegimenType>
+  </firstgegimen>
+  <firstgegimen>
+    <RegDate>02 Jul 2011</RegDate>
+    <RegimenType>3TC/AZT/TDF/FTC/EFV/NVP/LOPr</RegimenType>
+  </firstgegimen>
+  <IEFuinfopervisit>
+    <Visit_id>60</Visit_id>
+    <visitdate>01 Jul 2011</visitdate>
+    <Visit_x0020_Type>Initial Evaluation</Visit_x0020_Type>
+    <ptn_pk>7</ptn_pk>
+    <DateHIVDiagnosis>2011-07-01T00:00:00+05:30</DateHIVDiagnosis>
+    <Pregnancy_x0020_Status>Yes</Pregnancy_x0020_Status>
+    <Pregnancy_x0020_EDD>01 Jul 2011</Pregnancy_x0020_EDD>
+    <RR>67</RR>
+    <HR>67</HR>
+    <BP>67/67</BP>
+    <Height>67.0</Height>
+    <Weight>67.0</Weight>
+    <Pain>0</Pain>
+    <BMI>149.25</BMI>
+    <WHOStage>N/A</WHOStage>
+    <ClinicalNotes />
+    <TherapyPlan>Treatment not indicated now</TherapyPlan>
+    <HistoricalART>DLV/IDV</HistoricalART>
+    <HistoricalARTStDate>01 Dec 2008</HistoricalARTStDate>
+    <PrevARVExposure>Yes</PrevARVExposure>
+    <PrevNVPExposure>1</PrevNVPExposure>
+    <PrevNVPDate1>2008-12-01T00:00:00+05:30</PrevNVPDate1>
+    <PrevARVRegimen1Name>3TC/AZT</PrevARVRegimen1Name>
+    <PrevARVRegimen1Months>12</PrevARVRegimen1Months>
+    <PrevARVRegimen2Name>DDI</PrevARVRegimen2Name>
+    <PrevARVRegimen2Months>5</PrevARVRegimen2Months>
+    <PreviousARVRegimen>Yes</PreviousARVRegimen>
+    <PrevMostRecentCD4>34</PrevMostRecentCD4>
+    <PrevMostRecentCD4Percent>34</PrevMostRecentCD4Percent>
+    <PrevMostRecentCD4Date>2011-07-01T00:00:00+05:30</PrevMostRecentCD4Date>
+    <CD4PriorStARV>23</CD4PriorStARV>
+    <CD4PriorStARVPercent>34</CD4PriorStARVPercent>
+    <CD4PriorStARVDate>2011-07-01T00:00:00+05:30</CD4PriorStARVDate>
+    <longTermMedsSulfa>0</longTermMedsSulfa>
+    <longTermMedsOther1>0</longTermMedsOther1>
+    <longTermMedsOther2>0</longTermMedsOther2>
+    <longTermTBMed>0</longTermTBMed>
+  </IEFuinfopervisit>
+  <IEFuinfopervisit>
+    <Visit_id>64</Visit_id>
+    <visitdate>02 Jul 2011</visitdate>
+    <Visit_x0020_Type>Initial Evaluation</Visit_x0020_Type>
+    <ptn_pk>7</ptn_pk>
+    <Pain>0</Pain>
+    <WHOStage>I</WHOStage>
+    <TherapyPlan>Continue current treatment</TherapyPlan>
+    <PrevARVExposure>No</PrevARVExposure>
+    <PrevNVPExposure>0</PrevNVPExposure>
+    <PreviousARVRegimen>No</PreviousARVRegimen>
+    <PrevMostRecentCD4>34</PrevMostRecentCD4>
+    <PrevMostRecentCD4Percent>34</PrevMostRecentCD4Percent>
+    <PrevMostRecentCD4Date>2011-07-01T00:00:00+05:30</PrevMostRecentCD4Date>
+    <CD4PriorStARV>34</CD4PriorStARV>
+    <CD4PriorStARVPercent>34</CD4PriorStARVPercent>
+    <CD4PriorStARVDate>2011-07-01T00:00:00+05:30</CD4PriorStARVDate>
+    <longTermMedsSulfa>1</longTermMedsSulfa>
+    <longTermMedsSulfaDesc>test</longTermMedsSulfaDesc>
+    <longTermMedsOther1>0</longTermMedsOther1>
+    <longTermMedsOther2>0</longTermMedsOther2>
+    <longTermTBMed>1</longTermTBMed>
+    <longTermTBMedDesc>e445</longTermTBMedDesc>
+    <longTermTBStartDate>2008-12-01T00:00:00+05:30</longTermTBStartDate>
+    <longTermMedsOther1Desc />
+    <longTermMedsOther2Desc />
+  </IEFuinfopervisit>
+  <IEFuinfopervisit>
+    <Visit_id>62</Visit_id>
+    <visitdate>03 Jul 2011</visitdate>
+    <Visit_x0020_Type>ART Follow-Up</Visit_x0020_Type>
+    <ptn_pk>7</ptn_pk>
+    <Pain>0</Pain>
+    <WABStage>Working</WABStage>
+    <WHOStage>I</WHOStage>
+    <TherapyPlan>Treatment not indicated now</TherapyPlan>
+    <Adherence_Missed_x0020_Last_x0020_Week>99999</Adherence_Missed_x0020_Last_x0020_Week>
+    <Adherence_Missed_x0020_Last_month>11</Adherence_Missed_x0020_Last_month>
+    <Adherence_support_Group>0</Adherence_support_Group>
+    <Adherence_HerbalsMeds>0</Adherence_HerbalsMeds>
+    <Adherence_Reason />
+    <AppDate>02 Aug 2011</AppDate>
+    <Appointment_x0020_Status>Pending</Appointment_x0020_Status>
+    <PrevARVExposure>No</PrevARVExposure>
+    <PreviousARVRegimen>No</PreviousARVRegimen>
+  </IEFuinfopervisit>
+  <IEFuinfopervisit>
+    <Visit_id>65</Visit_id>
+    <visitdate>05 Jul 2011</visitdate>
+    <Visit_x0020_Type>ART Follow-Up</Visit_x0020_Type>
+    <ptn_pk>7</ptn_pk>
+    <Pain>0</Pain>
+    <TherapyPlan>Treatment not indicated now</TherapyPlan>
+    <Adherence_Missed_x0020_Last_x0020_Week>99999</Adherence_Missed_x0020_Last_x0020_Week>
+    <Adherence_Missed_x0020_Last_month>99999</Adherence_Missed_x0020_Last_month>
+    <Adherence_support_Group>0</Adherence_support_Group>
+    <Adherence_HerbalsMeds>0</Adherence_HerbalsMeds>
+    <AppDate>01 Jan 2012</AppDate>
+    <Appointment_x0020_Status>Pending</Appointment_x0020_Status>
+    <PrevARVExposure>No</PrevARVExposure>
+    <PreviousARVRegimen>No</PreviousARVRegimen>
+  </IEFuinfopervisit>
+  <NewOisOtherProblems>
+    <Visit_Pk>3</Visit_Pk>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>4</Visit_Pk>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>11</Visit_Pk>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>13</Visit_Pk>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>41</Visit_Pk>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>46</Visit_Pk>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>47</Visit_Pk>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>51</Visit_Pk>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>52</Visit_Pk>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>56</Visit_Pk>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>60</Visit_Pk>
+    <patientdisease>Not Documented-Med History</patientdisease>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>62</Visit_Pk>
+    <patientdisease>Cryptococcal Meningitis,Encephalopathy/Dementia</patientdisease>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>64</Visit_Pk>
+    <patientdisease>Not Documented-Med History</patientdisease>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>65</Visit_Pk>
+    <patientdisease>Chronic Diarrhoea/Wasting</patientdisease>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>69</Visit_Pk>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>71</Visit_Pk>
+  </NewOisOtherProblems>
+  <NewOisOtherProblems>
+    <Visit_Pk>81</Visit_Pk>
+  </NewOisOtherProblems>
+  <CotrimoxazoleAdherence>
+    <Visit_Id>60</Visit_Id>
+    <visitdate>2011-07-01T00:00:00+05:30</visitdate>
+    <genericname>Sulfa/TMX</genericname>
+  </CotrimoxazoleAdherence>
+  <CotrimoxazoleAdherence>
+    <Visit_Id>60</Visit_Id>
+    <visitdate>2011-07-01T00:00:00+05:30</visitdate>
+    <genericname>Sulfa/TMX</genericname>
+  </CotrimoxazoleAdherence>
+  <CotrimoxazoleAdherence>
+    <Visit_Id>64</Visit_Id>
+    <visitdate>2011-07-02T00:00:00+05:30</visitdate>
+    <genericname>Fluconazole</genericname>
+  </CotrimoxazoleAdherence>
+  <CotrimoxazoleAdherence>
+    <Visit_Id>64</Visit_Id>
+    <visitdate>2011-07-02T00:00:00+05:30</visitdate>
+    <genericname>Fluconazole</genericname>
+  </CotrimoxazoleAdherence>
+  <CotrimoxazoleAdherence>
+    <Visit_Id>64</Visit_Id>
+    <visitdate>2011-07-02T00:00:00+05:30</visitdate>
+    <genericname>Sulfa/TMX</genericname>
+  </CotrimoxazoleAdherence>
+  <CotrimoxazoleAdherence>
+    <Visit_Id>64</Visit_Id>
+    <visitdate>2011-07-02T00:00:00+05:30</visitdate>
+    <genericname>Sulfa/TMX</genericname>
+  </CotrimoxazoleAdherence>
+  <INHdrug>
+    <Visit_Id>64</Visit_Id>
+    <visitdate>2011-07-02T00:00:00+05:30</visitdate>
+    <DrugName>INH</DrugName>
+  </INHdrug>
+  <INHdrug>
+    <Visit_Id>64</Visit_Id>
+    <visitdate>2011-07-02T00:00:00+05:30</visitdate>
+    <DrugName>INH</DrugName>
+  </INHdrug>
+  <sideeffect>
+    <Visit_Pk>4</Visit_Pk>
+  </sideeffect>
+  <sideeffect>
+    <Visit_Pk>13</Visit_Pk>
+  </sideeffect>
+  <sideeffect>
+    <Visit_Pk>41</Visit_Pk>
+  </sideeffect>
+  <sideeffect>
+    <Visit_Pk>47</Visit_Pk>
+  </sideeffect>
+  <sideeffect>
+    <Visit_Pk>52</Visit_Pk>
+  </sideeffect>
+  <sideeffect>
+    <Visit_Pk>62</Visit_Pk>
+    <symptom>Anemia,Headache</symptom>
+  </sideeffect>
+  <sideeffect>
+    <Visit_Pk>65</Visit_Pk>
+    <symptom>Headache</symptom>
+  </sideeffect>
+  <sideeffect>
+    <Visit_Pk>71</Visit_Pk>
+  </sideeffect>
+  <Patientvisitinfo>
+    <Visit_Id>60</Visit_Id>
+    <PatientEnrollmentID>7</PatientEnrollmentID>
+    <IQNumber>IQ-000000PL198207017547</IQNumber>
+    <VisitType>1</VisitType>
+    <ARTStartDate>2008-12-01T00:00:00+05:30</ARTStartDate>
+  </Patientvisitinfo>
+  <Patientvisitinfo>
+    <Visit_Id>64</Visit_Id>
+    <PatientEnrollmentID>7</PatientEnrollmentID>
+    <IQNumber>IQ-000000PL198207017547</IQNumber>
+    <VisitType>1</VisitType>
+  </Patientvisitinfo>
+  <Patientvisitinfo>
+    <signature>Piyush Khana                                             </signature>
+    <Visit_Id>62</Visit_Id>
+    <PatientEnrollmentID>7</PatientEnrollmentID>
+    <IQNumber>IQ-000000PL198207017547</IQNumber>
+    <VisitType>2</VisitType>
+    <ARTStartDate>2011-07-02T00:00:00+05:30</ARTStartDate>
+  </Patientvisitinfo>
+  <Patientvisitinfo>
+    <signature>Piyush Khana                                             </signature>
+    <Visit_Id>65</Visit_Id>
+    <PatientEnrollmentID>7</PatientEnrollmentID>
+    <IQNumber>IQ-000000PL198207017547</IQNumber>
+    <VisitType>2</VisitType>
+    <ARTStartDate>2011-07-02T00:00:00+05:30</ARTStartDate>
+  </Patientvisitinfo>
+  <Tuberclulosis>
+    <Visit_Id>60</Visit_Id>
+    <visitdate>2011-07-01T00:00:00+05:30</visitdate>
+    <TBStatus>Yes</TBStatus>
+    <TBRegimen>2RHZ/4RH</TBRegimen>
+  </Tuberclulosis>
+  <Tuberclulosis>
+    <Visit_Id>64</Visit_Id>
+    <visitdate>2011-07-02T00:00:00+05:30</visitdate>
+    <TBStatus>Yes</TBStatus>
+    <TBRegimen>2RHZE/6EH</TBRegimen>
+  </Tuberclulosis>
+  <Tuberclulosis>
+    <Visit_Id>60</Visit_Id>
+    <visitdate>2011-07-01T00:00:00+05:30</visitdate>
+    <TBStatus>Yes</TBStatus>
+    <TBRegimen>2RHZ/4RH</TBRegimen>
+  </Tuberclulosis>
+  <Tuberclulosis>
+    <Visit_Id>64</Visit_Id>
+    <visitdate>2011-07-02T00:00:00+05:30</visitdate>
+    <TBStatus>Yes</TBStatus>
+    <TBRegimen>2RHZE/6EH</TBRegimen>
+  </Tuberclulosis>
+  <otherMedication>
+    <visit_Id>60</visit_Id>
+    <visitdate>2011-07-01T00:00:00+05:30</visitdate>
+    <OtherMeds />
+  </otherMedication>
+  <otherMedication>
+    <visit_Id>60</visit_Id>
+    <visitdate>2011-07-01T00:00:00+05:30</visitdate>
+    <OtherMeds />
+  </otherMedication>
+  <otherMedication>
+    <visit_Id>64</visit_Id>
+    <visitdate>2011-07-02T00:00:00+05:30</visitdate>
+    <OtherMeds>3TC/AZT/TDF/FTC/EFV/NVP/LOPr</OtherMeds>
+  </otherMedication>
+  <otherMedication>
+    <visit_Id>64</visit_Id>
+    <visitdate>2011-07-02T00:00:00+05:30</visitdate>
+    <OtherMeds>3TC/AZT/TDF/FTC/EFV/NVP/LOPr</OtherMeds>
+  </otherMedication>
+  <labinvestigation>
+    <visit_Id>60</visit_Id>
+    <visitdate>2011-07-01T00:00:00+05:30</visitdate>
+    <LabTestId>1</LabTestId>
+    <ParameterId>1</ParameterId>
+    <TestResults>44.00</TestResults>
+  </labinvestigation>
+  <labinvestigation>
+    <visit_Id>60</visit_Id>
+    <visitdate>2011-07-01T00:00:00+05:30</visitdate>
+    <LabTestId>6</LabTestId>
+    <ParameterId>6</ParameterId>
+    <TestResults>2.00</TestResults>
+  </labinvestigation>
+  <labinvestigation>
+    <visit_Id>60</visit_Id>
+    <visitdate>2011-07-01T00:00:00+05:30</visitdate>
+    <LabTestId>17</LabTestId>
+    <ParameterId>17</ParameterId>
+    <TestResults>Negative</TestResults>
+  </labinvestigation>
+  <labinvestigation>
+    <visit_Id>60</visit_Id>
+    <visitdate>2011-07-01T00:00:00+05:30</visitdate>
+    <LabTestId>18</LabTestId>
+    <ParameterId>18</ParameterId>
+    <TestResults>Positive</TestResults>
+  </labinvestigation>
+  <labinvestigation>
+    <visit_Id>60</visit_Id>
+    <visitdate>2011-07-01T00:00:00+05:30</visitdate>
+    <LabTestId>19</LabTestId>
+    <ParameterId>19</ParameterId>
+    <TestResults>Negative</TestResults>
+  </labinvestigation>
+  <labinvestigation>
+    <visit_Id>60</visit_Id>
+    <visitdate>2011-07-01T00:00:00+05:30</visitdate>
+    <LabTestId>75</LabTestId>
+    <ParameterId>75</ParameterId>
+    <TestResults>Negative</TestResults>
+  </labinvestigation>
+  <ArvdrugAdherence>
+    <Visit_Pk>7</Visit_Pk>
+  </ArvdrugAdherence>
+  <ArvdrugAdherence>
+    <Visit_Pk>41</Visit_Pk>
+  </ArvdrugAdherence>
+  <ArvdrugAdherence>
+    <Visit_Pk>47</Visit_Pk>
+  </ArvdrugAdherence>
+  <ArvdrugAdherence>
+    <Visit_Pk>52</Visit_Pk>
+  </ArvdrugAdherence>
+  <ArvdrugAdherence>
+    <Visit_Pk>62</Visit_Pk>
+    <Adherence_Missed_Reason>Forgot,Side effects</Adherence_Missed_Reason>
+  </ArvdrugAdherence>
+  <ArvdrugAdherence>
+    <Visit_Pk>71</Visit_Pk>
+  </ArvdrugAdherence>
+</NewDataSet>

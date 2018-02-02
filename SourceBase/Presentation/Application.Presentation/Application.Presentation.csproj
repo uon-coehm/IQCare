@@ -42,9 +42,6 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ajax">
-      <HintPath>..\..\External Dlls\Ajax.dll</HintPath>
-    </Reference>
     <Reference Include="AjaxControlToolkit">
       <HintPath>..\..\External Dlls\AjaxControlToolkit.dll</HintPath>
     </Reference>
@@ -56,14 +53,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\References\Application.Interface.dll</HintPath>
     </Reference>
-    <Reference Include="BusinessProcess.Laboratory, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\References\BusinessProcess.Laboratory.dll</HintPath>
-    </Reference>
-    <Reference Include="Interface.Clinical, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\References\Interface.Clinical.dll</HintPath>
-    </Reference>
     <Reference Include="Interface.Laboratory, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\References\Interface.Laboratory.dll</HintPath>
@@ -72,20 +61,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\References\Interface.Pharmacy.dll</HintPath>
     </Reference>
-    <Reference Include="Interop.Microsoft.Office.Interop.Excel">
-      <HintPath>..\PresentationApp\bin\Interop.Microsoft.Office.Interop.Excel.dll</HintPath>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Microsoft.Office.Interop.Owc11">
-      <HintPath>..\PresentationApp\bin\Microsoft.Office.Interop.Owc11.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="netchartdir">
-      <HintPath>..\..\External Dlls\netchartdir.dll</HintPath>
-    </Reference>
-    <Reference Include="Sand.Security.Cryptography, Version=1.0.1958.25137, Culture=neutral">
+    <Reference Include="Microsoft.Office.Interop.Owc11, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DataAccess\Sand.Security.Cryptography.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\Windows\assembly\GAC\Microsoft.Office.Interop.Owc11\11.0.0.0__71e9bce111e9429c\Microsoft.Office.Interop.Owc11.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -109,24 +91,6 @@
     <Compile Include="ObjectFactory.cs" />
     <Compile Include="PMTCTConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="ADODB">
-      <Guid>{00000205-0000-0010-8000-00AA006D2EA4}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>5</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="stdole">
-      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

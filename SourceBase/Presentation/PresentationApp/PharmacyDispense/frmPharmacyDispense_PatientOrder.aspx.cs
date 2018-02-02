@@ -742,9 +742,11 @@ namespace PresentationApp.PharmacyDispense
                 gvDispenseDrugs.DataSource = theDS.Tables[0];
                 gvDispenseDrugs.DataBind();
 
-                ddlPrescribedBy.SelectedValue = theDS.Tables[1].Rows[0]["OrderedBy"].ToString();
-                txtprescriptionDate.Text = theDS.Tables[1].Rows[0]["OrderedByDate"].ToString();
-
+                if (theDS.Tables[1].Rows.Count > 0)
+                {
+                    ddlPrescribedBy.SelectedValue = theDS.Tables[1].Rows[0]["OrderedBy"].ToString();
+                    txtprescriptionDate.Text = theDS.Tables[1].Rows[0]["OrderedByDate"].ToString();
+                }
                 HttpContext.Current.Session["PartialDispense"] = 1;
 
                 foreach (GridViewRow gvRow in gvDispenseDrugs.Rows)

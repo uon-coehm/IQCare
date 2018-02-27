@@ -139,15 +139,6 @@ namespace PresentationApp.Laboratory {
         protected global::System.Web.UI.WebControls.Panel orderDateImg;
         
         /// <summary>
-        /// trReported control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trReported;
-        
-        /// <summary>
         /// ddlreportedby control.
         /// </summary>
         /// <remarks>

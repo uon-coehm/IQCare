@@ -4,7 +4,7 @@
 
 <%@ Register src="../ClinicalForms/UserControl/UserControlKNH_Extruder.ascx" tagname="UserControlKNH_Extruder" tagprefix="uc2" %>
 
-<div runat="server">
+<div runat="server" id="leveltwonav">
 <script type="text/javascript">
 
     function ClearSession() {
@@ -105,6 +105,7 @@
         <asp:MenuItem Text="ANC Form" Value="mnuMEIForm" NavigateUrl="~/ClinicalForms/frmClinical_KNH_MEI.aspx"></asp:MenuItem>
         <asp:MenuItem Text="Pharmacy" Value="mnuPharmacy" NavigateUrl="~/Pharmacy/frmPharmacyForm.aspx?Prog=ART"></asp:MenuItem> 
         <asp:MenuItem Text="Laboratory" Value="mnuLabOrder" ></asp:MenuItem>
+        <asp:MenuItem Text="Phlebotomy and Test Results" Value="mnuLabTest" NavigateUrl="~/Laboratory/frm_LabTestResults.aspx"></asp:MenuItem>
         <asp:MenuItem Text="Laboratory" Value="mnuOrderLabTest" ></asp:MenuItem>
         <asp:MenuItem Text="Home Visit" Value="mnuHomeVisit" NavigateUrl="~/Scheduler/frmScheduler_HomeVisit.aspx"></asp:MenuItem>
         <asp:MenuItem Text="Pharmacy" Value="mnuPharmacyPMTCT" NavigateUrl="~/Pharmacy/frmPharmacyForm.aspx?Prog=PMTCT"></asp:MenuItem>  

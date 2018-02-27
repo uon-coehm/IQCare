@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"
     Inherits="MasterPage_levelOneNavigationUserControl" Codebehind="levelOneNavigationUserControl.ascx.cs" %>
 
-<div runat="server">
+<div runat="server" id ="levelnavone">
 <script type="text/javascript">
 
     function openWin() {

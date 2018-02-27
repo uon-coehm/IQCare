@@ -311,6 +311,16 @@ namespace BusinessProcess.Laboratory
                 return (DataSet)UserManager.ReturnObject(oUtility.theParams, "Pr_Laboratory_GetLabOrder_Constella", ClsUtility.ObjectEnum.DataSet);
             }
         }
+        public DataSet GetPreviousOrderedLabs(int PatientId)
+        {
+            lock (this)
+            {
+                oUtility.Init_Hashtable();
+                ClsUtility.AddParameters("@PatientId", SqlDbType.VarChar, PatientId.ToString());
+                ClsObject UserManager = new ClsObject();
+                return (DataSet)UserManager.ReturnObject(oUtility.theParams, "pr_Clinical_GetPatientLabOrderHistory", ClsUtility.ObjectEnum.DataSet);
+            }
+        }
         public DataTable ReturnLabQuery(string theQuery)
         {
             lock (this)
@@ -609,7 +619,7 @@ namespace BusinessProcess.Laboratory
 
 
 
-        public int IQTouchSaveLabOrderTests(BIQTouchLabFields objLabFields, List<BIQTouchLabFields> labIds, List<BIQTouchLabFields> ArvMutationFields, DataTable theDTGenXpert, DataTable theCustomFieldData)
+        public int IQTouchSaveLabOrderTests(BIQTouchLabFields objLabFields, List<BIQTouchLabFields> labIds, List<BIQTouchLabFields> ArvMutationFields, DataTable theDTGenXpert, DataTable theCustomFieldData,DataTable dtspecimen)
         {
             ClsObject labManagerTest = new ClsObject();
             int theRowAffected = 0;
@@ -655,6 +665,7 @@ namespace BusinessProcess.Laboratory
                 oUtility.AddParameters("@DeleteFlag", SqlDbType.VarChar, "N");
                 oUtility.AddParameters("@SystemId", SqlDbType.Int, objLabFields.SystemId.ToString());
                 
+                
                 DataTable thedt = (DataTable)labManagerTest.ReturnObject(oUtility.theParams, "Pr_IQTouch_Laboratory_AddLabOrderTests", ClsUtility.ObjectEnum.DataTable);
                 totalRowInserted = totalRowInserted + thedt.Rows.Count;
                 if (thedt.Rows.Count > 0)
@@ -671,7 +682,16 @@ namespace BusinessProcess.Laboratory
                         oUtility.AddParameters("@UserId", SqlDbType.Int, Value.UserId.ToString());
                         oUtility.AddParameters("@ParameterID", SqlDbType.Int, Value.SubTestID.ToString());
                         oUtility.AddParameters("@OrderedByName", SqlDbType.Int, Value.OrderedByName.ToString());
-                        oUtility.AddParameters("@Justification", SqlDbType.VarChar, Value.justification.ToString());
+                        if (Value.justification == null)
+                        {
+                            string justification = "";
+                            oUtility.AddParameters("@Justification", SqlDbType.VarChar, justification);
+
+                        }
+                        else
+                        {
+                            oUtility.AddParameters("@Justification", SqlDbType.VarChar, Value.justification.ToString());
+                        }
                         if (Value.OrderedByDate.Year.ToString() != "1900")
                         {
                             oUtility.AddParameters("@OrderedByDate", SqlDbType.VarChar, String.Format("{0:dd-MMM-yyyy}", Value.OrderedByDate));
@@ -696,6 +716,15 @@ namespace BusinessProcess.Laboratory
                         oUtility.AddParameters("@SystemId", SqlDbType.Int, Value.SystemId.ToString());
                         if(Value.urgent != null)
                             oUtility.AddParameters("@urgent", SqlDbType.Int, Value.urgent.ToString());
+
+                        if (Value.LabReportByDate.Year.ToString() != "1900")
+                        {
+                            oUtility.AddParameters("@LabReportByDate", SqlDbType.VarChar, String.Format("{0:dd-MMM-yyyy}", Value.OrderedByDate));
+                        }
+                        oUtility.AddParameters("@LabReportByName", SqlDbType.Int, Value.LabReportByName.ToString());
+
+                        oUtility.AddParameters("@Confirmed", SqlDbType.Int, Value.Confirmed.ToString());
+                        oUtility.AddParameters("@Confirmedby", SqlDbType.Int, Value.Confirmedby.ToString());
 
                         theRowAffected = (int)labManagerTest.ReturnObject(oUtility.theParams, "Pr_IQTouch_Laboratory_AddLabOrderTests", ClsUtility.ObjectEnum.ExecuteNonQuery);
                         totalRowInserted = totalRowInserted + theRowAffected;
@@ -734,6 +763,25 @@ namespace BusinessProcess.Laboratory
                         oUtility.AddParameters("@ParameterID", SqlDbType.Int, theDR["ParameterID"].ToString());
                         theRowAffected = (int)labManagerTest.ReturnObject(oUtility.theParams, "Pr_IQTouch_Laboratory_AddGenXpertDetails", ClsUtility.ObjectEnum.ExecuteNonQuery);
                         totalRowInserted = totalRowInserted + theRowAffected;
+                    }
+                }
+
+
+                if (dtspecimen.Rows.Count > 0)
+                {
+                    foreach (DataRow theDR in dtspecimen.Rows)
+                    {
+                        ClsUtility.Init_Hashtable();
+                        ClsUtility.AddParameters("@LabID", SqlDbType.Int, theDR["LabID"].ToString());
+                        ClsUtility.AddParameters("@LabTestID", SqlDbType.Int, theDR["LabTestID"].ToString());
+                        ClsUtility.AddParameters("@SpecimenID", SqlDbType.Int, theDR["SpecimenID"].ToString());
+                        ClsUtility.AddParameters("@CustomSpecimenName", SqlDbType.Int, theDR["CustomSpecimenName"].ToString());
+                        ClsUtility.AddParameters("@StateId", SqlDbType.Int, theDR["StateId"].ToString());
+                        ClsUtility.AddParameters("@StatusId", SqlDbType.Int, theDR["StatusId"].ToString());
+                        ClsUtility.AddParameters("@RejectedReasonId", SqlDbType.Int, theDR["RejectedReasonId"].ToString());
+                        ClsUtility.AddParameters("@OtherReason", SqlDbType.Int, theDR["OtherReason"].ToString());
+                        ClsUtility.AddParameters("@UserId", SqlDbType.Int, objLabFields.UserId.ToString());
+                        DataTable theReturnDT = (DataTable)labManagerTest.ReturnObject(ClsUtility.theParams, "Pr_InsertTestInitTableValues", ClsUtility.ObjectEnum.DataTable);
                     }
                 }
                 //// Custom Fields //////////////
@@ -878,7 +926,97 @@ namespace BusinessProcess.Laboratory
         
         
         }
-           
+       public int SaveUpdateSpecimenDetails(DataTable SpecimenTable, int UserID)
+        {
+            int TotalNoRowsAffected = 0;
+            DataSet theReturnDT = new DataSet();
+            try
+            {
+                this.Connection = DataMgr.GetConnection();
+                this.Transaction = DataMgr.BeginTransaction(this.Connection);
+
+                ClsObject LabManager = new ClsObject();
+                LabManager.Connection = this.Connection;
+                LabManager.Transaction = this.Transaction;
+
+
+                ClsUtility.Init_Hashtable();               
+                ClsUtility.AddParameters("@UserId", SqlDbType.Int, UserID.ToString());
+                theReturnDT = (DataSet)LabManager.ReturnObject(ClsUtility.theParams, "Pr_InsertSpecimenTableValues", ClsUtility.ObjectEnum.DataSet, SpecimenTable, "@TableVar");
+
+
+                TotalNoRowsAffected = theReturnDT.Tables[1].Rows.Count;
+
+                LabManager = null;
+                DataMgr.CommitTransaction(this.Transaction);
+                DataMgr.ReleaseConnection(this.Connection);
+
+            }
+
+            catch
+            {
+                DataMgr.RollBackTransation(this.Transaction);
+                //throw;
+
+            }
+            finally
+            {
+                if (this.Connection != null)
+                    DataMgr.ReleaseConnection(this.Connection);
+            }
+            return (TotalNoRowsAffected);
+        }
+        public DataTable GetLabSpecimen(int LabId)
+        {
+            lock (this)
+            {
+                ClsUtility.Init_Hashtable();
+                ClsUtility.AddParameters("@LabID", SqlDbType.VarChar, LabId.ToString());
+                ClsObject UserManager = new ClsObject();
+                return (DataTable)UserManager.ReturnObject(ClsUtility.theParams, "pr_GetLabSpecimen", ClsUtility.ObjectEnum.DataTable);
+            }
+        }
+        public int SaveUpdateTestInitDetails(DataTable TestInitTable, int UserID)
+        {
+            int TotalNoRowsAffected = 0;
+            DataTable theReturnDT = new DataTable();
+            try
+            {
+                this.Connection = DataMgr.GetConnection();
+                this.Transaction = DataMgr.BeginTransaction(this.Connection);
+
+                ClsObject LabManager = new ClsObject();
+                LabManager.Connection = this.Connection;
+                LabManager.Transaction = this.Transaction;
+
+
+                ClsUtility.Init_Hashtable();
+                ClsUtility.AddParameters("@UserId", SqlDbType.Int, UserID.ToString());
+                theReturnDT = (DataTable)LabManager.ReturnObject(ClsUtility.theParams, "Pr_InsertTestInitTableValues", ClsUtility.ObjectEnum.DataTable, TestInitTable, "@TableVar");
+
+
+                TotalNoRowsAffected = theReturnDT.Rows.Count;
+
+                LabManager = null;
+                DataMgr.CommitTransaction(this.Transaction);
+                DataMgr.ReleaseConnection(this.Connection);
+
+            }
+
+            catch
+            {
+                DataMgr.RollBackTransation(this.Transaction);
+                //throw;
+
+            }
+            finally
+            {
+                if (this.Connection != null)
+                    DataMgr.ReleaseConnection(this.Connection);
+            }
+            return (TotalNoRowsAffected);
+        }
+        
  
     }
 }

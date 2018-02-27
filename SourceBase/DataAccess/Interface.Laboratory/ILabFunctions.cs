@@ -10,6 +10,7 @@ namespace Interface.Laboratory
         DataTable SaveNewLabOrder(Hashtable ht, DataTable dt, string strCustomField, string paperless, DataTable theCustomFieldData);
         DataSet GetPatientInfo(string patientid);
         DataSet GetPatientLabOrder(string PatientID);
+        DataSet GetPreviousOrderedLabs(int PatientId);
         DataSet GetPatientLab(String LabId);
         DataSet GetLabValues();
         int DeleteLabForms(string FormName, int OrderNo, int PatientId,int UserID);
@@ -44,6 +45,7 @@ namespace Interface.Laboratory
         void SaveDynamicLabResults(int labID, int userID, int ReportedByName, DateTime reportedByDate, DataTable LabResults);
         int ImportCD4Results(DataTable cd4DT, string userID);
         int ImportALTResults(DataTable altDT, string userID);
+        
 
 
         #region IQTouch Methord Declaration
@@ -53,7 +55,10 @@ namespace Interface.Laboratory
         DataSet IQTouchLaboratoryGetArvMutationMasterList(BIQTouchLabFields labFields);
         DataSet IQTouchLaboratoryGetArvMutationDetails(BIQTouchLabFields labFields);
         DataSet IQTouchLaboratoryGetGenXpertDetails(BIQTouchLabFields objLabFields, int TestId);
-        int IQTouchSaveLabOrderTests(BIQTouchLabFields labFields, List<BIQTouchLabFields> labIds, List<BIQTouchLabFields> ArvMutationFields, DataTable DTGenXpert, DataTable theCustomFieldData);
+        int IQTouchSaveLabOrderTests(BIQTouchLabFields labFields, List<BIQTouchLabFields> labIds, List<BIQTouchLabFields> ArvMutationFields, DataTable DTGenXpert, DataTable theCustomFieldData, DataTable dtspecimen);
+        int SaveUpdateSpecimenDetails(DataTable SpecimenTable, int UserID);
+        DataTable GetLabSpecimen(int LabId);
+        int SaveUpdateTestInitDetails(DataTable TestInitTable, int UserID);
         #endregion
 
     }
@@ -79,13 +84,15 @@ namespace Interface.Laboratory
         public int TestResultId { get; set; }
         public int ReportedByName { get; set; }
         public DateTime ReportedByDate { get; set; }
+        public int LabReportByName { get; set; }
+        public DateTime LabReportByDate { get; set; }
         public int SystemId { get; set; }
         private int _arvTypeID = 0;
         private int _MutationID = 0;
         private string _OtherMutation = "";
         public string urgent { get; set; }
-
-
+        public int Confirmed { get; set; }
+        public int Confirmedby { get; set; }
 
         public int ArvTypeID
         {

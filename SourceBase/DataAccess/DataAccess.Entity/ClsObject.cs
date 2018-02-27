@@ -330,5 +330,170 @@ namespace DataAccess.Entity
 
         }
 
+     public object ReturnObject(Hashtable Params, string CommandText, ClsUtility.ObjectEnum Obj, DataTable theDataTable, string tablename)
+        {
+            int i;
+            string cmdpara, cmdvalue, cmddbtype;
+            ParameterDirection cmdDirection;
+            SqlCommand theCmd = new SqlCommand();
+            SqlTransaction theTran = (SqlTransaction)this.Transaction;
+            SqlConnection cnn = null;
+            StringBuilder strParam = new StringBuilder();
+
+            try
+            {
+                if (null == this.Connection)
+                {
+                    cnn = (SqlConnection)DataMgr.GetConnection();
+                }
+                else
+                {
+                    cnn = (SqlConnection)this.Connection;
+                }
+
+                if (null == this.Transaction)
+                {
+                    theCmd = new SqlCommand(CommandText, cnn);
+                }
+                else
+                {
+                    theCmd = new SqlCommand(CommandText, cnn, theTran);
+                }
+
+                for (i = 1; i < Params.Count; )
+                {
+                    cmdpara = Params[i].ToString();
+                    cmddbtype = Params[i + 1].ToString();
+                    if (Params[i + 2] != null)
+                    {
+                        if (Params[i + 2].GetType() != ParameterDirection.Output.GetType())
+                        {
+                            cmdvalue = Params[i + 2].ToString();
+                            theCmd.Parameters.AddWithValue(cmdpara, cmddbtype).Value = cmdvalue;
+                        }
+                        else
+                        {
+                            cmdDirection = (ParameterDirection)Params[i + 2];
+                            theCmd.Parameters.AddWithValue(cmdpara, (SqlDbType)Params[i + 1]).Direction = cmdDirection;
+                        }
+                    }
+                    else
+                    {
+                        cmdvalue = string.Empty;
+                        theCmd.Parameters.AddWithValue(cmdpara, cmddbtype).Value = cmdvalue;
+                    }
+                    i = i + 3;
+                }
+                if (theDataTable != null)
+                {
+                    if (theDataTable.Rows.Count > 0)
+                    {
+                        theCmd.Parameters.AddWithValue(tablename, theDataTable);
+                    }
+                }
+
+                theCmd.CommandType = CommandType.StoredProcedure;
+                theCmd.CommandTimeout = DataMgr.CommandTimeOut();
+                string theSubstring = CommandText.Substring(0, 6).ToUpper();
+                switch (theSubstring)
+                {
+                    case "SELECT":
+                        theCmd.CommandType = CommandType.Text;
+                        break;
+                    case "UPDATE":
+                        theCmd.CommandType = CommandType.Text;
+                        break;
+                    case "INSERT":
+                        theCmd.CommandType = CommandType.Text;
+                        break;
+                    case "DELETE":
+                        theCmd.CommandType = CommandType.Text;
+                        break;
+                }
+
+                theCmd.Connection = cnn;
+
+                if (Obj == ClsUtility.ObjectEnum.DataSet)
+                {
+
+                    SqlDataAdapter theAdpt = new SqlDataAdapter(theCmd);
+                    DataSet theDS = new DataSet();
+                    theAdpt.Fill(theDS);
+                    theAdpt.Dispose();
+                    return theDS;
+                }
+
+                if (Obj == ClsUtility.ObjectEnum.DataTable)
+                {
+                    SqlDataAdapter theAdpt = new SqlDataAdapter(theCmd);
+                    DataTable theDT = new DataTable();
+                    theAdpt.Fill(theDT);
+                    theAdpt.Dispose();
+                    return theDT;
+                }
+
+                if (Obj == ClsUtility.ObjectEnum.DataRow)
+                {
+                    SqlDataAdapter theAdpt = new SqlDataAdapter(theCmd);
+                    DataTable theDT = new DataTable();
+                    theAdpt.Fill(theDT);
+                    theAdpt.Dispose();
+                    return theDT.Rows[0];
+                }
+
+
+                if (Obj == ClsUtility.ObjectEnum.ExecuteNonQuery)
+                {
+                    int NoRowsAffected = 0;
+                    NoRowsAffected = theCmd.ExecuteNonQuery();
+                    if (theCmd.Parameters.Contains("@idNEW"))
+                    {
+                        if ((int)theCmd.Parameters["@idNEW"].Value > 0)
+                            NoRowsAffected = (int)theCmd.Parameters["@idNEW"].Value;
+                    }
+
+                    return NoRowsAffected;
+                }
+                return 0;
+            }
+            catch (Exception err)
+            {
+                for (i = 1; i < Params.Count; )
+                {
+                    cmdpara = Params[i].ToString();
+                    cmddbtype = Params[i + 1].ToString();
+                    if (Params[i + 2] != null)
+                    {
+                        if (Params[i + 2].GetType() != ParameterDirection.Output.GetType())
+                        {
+                            cmdvalue = Params[i + 2].ToString();
+                            strParam.Append("Name: " + cmdpara + ", Type: " + cmddbtype + ", Value: " + cmdvalue + ", Direction: Input");
+                            strParam.Append(Environment.NewLine);
+                        }
+                        else
+                        {
+                            cmdDirection = (ParameterDirection)Params[i + 2];
+                            strParam.Append("Name: " + cmdpara + ", Type: " + cmddbtype + ", Direction: Output");
+                            strParam.Append(Environment.NewLine);
+                        }
+
+                    }
+                    i = i + 3;
+                }
+
+                CLogger.WriteLog("Namespace: DataAccess.Entity, Class: ClsObject, Method: ReturnObject - Call started.", CommandText, strParam.ToString(), err.ToString());
+
+                throw err;
+            }
+            finally
+            {
+                if (null != cnn)
+                    if (null == this.Connection)
+                        DataMgr.ReleaseConnection(cnn);
+            }
+
+        }
+    
+
     }
 }

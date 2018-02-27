@@ -437,23 +437,22 @@
                                     
                                 </td>
                             </tr>
-                            <tr id="trReported" runat="server"></tr>
-                            <tr runat="server">
-                                <td class="form pad7" style="width: 50%" align="center">
+                            <tr runat="server" Visible="false">
+                                <td align="center" class="form pad7" style="width: 50%">
                                     <label>
-                                        Reviewed by:</label>
+                                    Reviewed by:</label>
                                     <asp:DropDownList ID="ddlreportedby" runat="Server">
                                     </asp:DropDownList>
                                 </td>
-                                <td class="form pad7" style="width: 50%" align="center">
+                                <td align="center" class="form pad7" style="width: 50%">
                                     <label for="repordtedbydate">
-                                        Date Reviewed:</label>
-                                    <asp:TextBox ID="txtrepordtedbydate" MaxLength="12" size="11" runat="server"></asp:TextBox>
-                                    <img id="Img1" onclick="w_displayDatePicker('<%=txtrepordtedbydate.ClientID%>');"
-                                        height="22" alt="Date Helper" hspace="5" src="../images/cal_icon.gif" width="22"
-                                        border="0" name="appdateimg">
-                                    <span class="smallerlabel" id="Span1">(DD-MMM-YYYY)</span>
-                                </td>
+                                    Date Reviewed:</label>
+                                    <asp:TextBox ID="txtrepordtedbydate" runat="server" MaxLength="12" size="11"></asp:TextBox>
+                                    <img ID="Img1" alt="Date Helper" border="0" height="22" hspace="5" 
+                                        name="appdateimg" 
+                                        onclick="w_displayDatePicker('<%=txtrepordtedbydate.ClientID%>');" 
+                                        src="../images/cal_icon.gif" width="22"> <span ID="Span1" 
+                                        class="smallerlabel">(DD-MMM-YYYY)</span> </img></td>
                             </tr>
                             <tr>
                                 <td class="pad5 center" colspan="2">

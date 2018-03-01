@@ -580,6 +580,9 @@ namespace BusinessProcess.Clinical
                 oUtility.AddParameters("@SputumSmear", SqlDbType.Int, theHT["SputumSmear"].ToString());
                 oUtility.AddParameters("@SputumDST", SqlDbType.Int, theHT["SputumDST"].ToString());
                 oUtility.AddParameters("@GeneExpert", SqlDbType.Int, theHT["GeneExpert"].ToString());
+                /*** update to save lam and other result ***/
+                oUtility.AddParameters("@Lam", SqlDbType.VarChar, theHT["Lam"].ToString());
+                oUtility.AddParameters("@TestOther", SqlDbType.VarChar, theHT["TestOther"].ToString());
                 if (theHT["chestXRay"] != null)
                     if (!String.IsNullOrEmpty(theHT["chestXRay"].ToString()))
                     oUtility.AddParameters("@ChestXRay", SqlDbType.Int, theHT["chestXRay"].ToString());
@@ -604,6 +607,12 @@ namespace BusinessProcess.Clinical
 
                 if (!String.IsNullOrEmpty(theHT["chestXRayDate"].ToString()))
                     oUtility.AddParameters("@ChestXRayDate", SqlDbType.VarChar, theHT["chestXRayDate"].ToString());
+                //LAM and other dates
+                if (!String.IsNullOrEmpty(theHT["LamDate"].ToString()))
+                    oUtility.AddParameters("@LamDate", SqlDbType.VarChar, theHT["LamDate"].ToString());
+
+                if (!String.IsNullOrEmpty(theHT["TestOtherDate"].ToString()))
+                    oUtility.AddParameters("@TestOtherDate", SqlDbType.VarChar, theHT["TestOtherDate"].ToString());
 
                 if (!String.IsNullOrEmpty(theHT["PyridoxineEndDate"].ToString()))
                     oUtility.AddParameters("@PyridoxineEndDate", SqlDbType.VarChar, theHT["PyridoxineEndDate"].ToString());

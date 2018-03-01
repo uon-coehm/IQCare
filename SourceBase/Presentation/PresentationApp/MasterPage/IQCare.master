@@ -49,6 +49,10 @@
 
             window.open(urlp);
         }
+
+        function fnCloseStatus() {
+            document.getElementById('tbstatus').style.display = "none";
+        }
     </script>
     <%--<script language="javascript" type="text/javascript">    buildWeeklyCalendar(0, 1);</script>--%>
     <script language="javascript" type="text/javascript">
@@ -98,7 +102,9 @@
             text-align: center;
         }
         
-     
+        .tbstatus{padding: 30px;color: #fff;background: #D95F5F;position: fixed;bottom: 70px;right: 10px;border: 1px solid #b72224;width: 250px;text-align: center;border-radius: 3px;}
+        .closetbstatus{width: 18px;height: 18px;display: block;cursor: pointer;top: -9px;left: -9px;
+    background: transparent url(../images/growl-close.png) no-repeat center center scroll;}
     </style>
 </head>
 <body>
@@ -182,6 +188,12 @@
         </div>
         <br />
         <br />
+    </div>
+    <div class="tbstatus" id="tbstatus">
+        <span class="delete-bubble" title="Notifications" onclick="fnCloseStatus()" style="display: inline;position: absolute;top: -10px;left: -9px;
+    width: 18px;height: 18px;border-radius: 50%;border: 1px solid grey;color: grey;background: #fff;cursor: pointer;}">x</span>
+        TB STATUS
+        <asp:Label ID="lblTbStatus" runat="server" Font-Bold="True"></asp:Label>
     </div>
     </form>
 </body>

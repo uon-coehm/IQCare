@@ -107,6 +107,7 @@
 
     function show_hide(controlID, status) {
         var s = document.getElementById(controlID);
+
         if (status == "notvisible") {
             s.style.display = "none";
         }
@@ -116,12 +117,21 @@
     }
 
     function SelectOther(selectId, show_hide_control, otherControlID) {
+        var selectedVal = document.getElementById(selectId)[document.getElementById(selectId).selectedIndex].value;
+        if (selectedVal >= 894 && selectedVal <= 901) {
+            var cxrayval = document.getElementById(selectId)[document.getElementById(selectId).selectedIndex].text;
+            var cxrayvalrow = document.getElementById('rowchestxray');
+            cxrayvalrow.style.display = "table-row";
+            document.getElementById("cellchestxrayvalue").innerHTML = cxrayval;
+        }
+
         if (document.getElementById(selectId)[document.getElementById(selectId).selectedIndex].text == "Other") {
             show_hide(show_hide_control, 'visible');
         }
         else {
             document.getElementById(otherControlID).value = "";
             show_hide(show_hide_control, 'notvisible');
+
         }
     }
 
@@ -494,10 +504,402 @@
 
     }
 
+    function fnCheckSelectedTest(ddlcontrolId) {
+        var e = document.getElementById(ddlcontrolId);
+        var selectedindex = e.options[e.selectedIndex].value;
+        var resultsclassdiv = document.getElementsByClassName("resultdiv");
+        var resultdiv = document.getElementById('resultsputumsmear');
+        var datediv = document.getElementById('datesputumsmear');
+        if (selectedindex == 1391) {
+            for (var i = 0; i < resultsclassdiv.length; i += 1) {
+                resultsclassdiv[i].style.display = 'none';
+            }
+            resultdiv = document.getElementById('resultsputumsmear');
+            datediv = document.getElementById('datesputumsmear');
+            datediv.style.display = "block";
+            resultdiv.style.display = "block";
+        }
+        else if (selectedindex == 1392) {
+            for (var i = 0; i < resultsclassdiv.length; i += 1) {
+                resultsclassdiv[i].style.display = 'none';
+            }
+            resultdiv = document.getElementById('resultgeneexpress');
+            datediv = document.getElementById('dategeneexpress');
+            datediv.style.display = "block";
+            resultdiv.style.display = "block";
+        }
+        else if (selectedindex == 1393) {
+            for (var i = 0; i < resultsclassdiv.length; i += 1) {
+                resultsclassdiv[i].style.display = 'none';
+            }
+            resultdiv = document.getElementById('resultsputumfordst');
+            datediv = document.getElementById('datesputumfordst');
+            datediv.style.display = "block";
+            resultdiv.style.display = "block";
+        }
+        else if (selectedindex == 1394) {
+            for (var i = 0; i < resultsclassdiv.length; i += 1) {
+                resultsclassdiv[i].style.display = 'none';
+            }
+            resultdiv = document.getElementById('resultchestxray');
+            datediv = document.getElementById('datechestxray');
+            datediv.style.display = "block";
+            resultdiv.style.display = "block";
+        }
+        else if (selectedindex == 1395) {
+            for (var i = 0; i < resultsclassdiv.length; i += 1) {
+                resultsclassdiv[i].style.display = 'none';
+            }
+            resultdiv = document.getElementById('resulttissuebiopsy');
+            datediv = document.getElementById('datetissuebiopsy');
+            datediv.style.display = "block";
+            resultdiv.style.display = "block";
+        }
+        else if (selectedindex == 1396) {
+            for (var i = 0; i < resultsclassdiv.length; i += 1) {
+                resultsclassdiv[i].style.display = 'none';
+            }
+            resultdiv = document.getElementById('resultlam');
+            datediv = document.getElementById('datelam');
+            datediv.style.display = "block";
+            resultdiv.style.display = "block";
+        }
+        else if (selectedindex == 1397) {
+            for (var i = 0; i < resultsclassdiv.length; i += 1) {
+                resultsclassdiv[i].style.display = 'none';
+            }
+            resultdiv = document.getElementById('resultother');
+            datediv = document.getElementById('dateother');
+            datediv.style.display = "block";
+            resultdiv.style.display = "block";
+        }
+        else {
+            for (var i = 0; i < resultsclassdiv.length; i += 1) {
+                resultsclassdiv[i].style.display = 'none';
+            }
+            resultsclassdiv.style.display = "none";
+            datediv.style.display = "none";
+            resultdiv.style.display = "none";
+        }
+    }
+
+    function fnDisplaySputSmearValue(ddlsputumctl) {
+        var sputvalue = document.getElementById(ddlsputumctl).options[document.getElementById(ddlsputumctl).selectedIndex].text;
+        var sputrow = document.getElementById('rowsputumsmear');
+        sputrow.style.display = "table-row";
+        document.getElementById("cellsputsmearvalue").innerHTML = sputvalue;
+    }
+
+    function fnDisplayGenExpertvalue(ddlgenexpert) {
+        var genexpertvalue = document.getElementById(ddlgenexpert).options[document.getElementById(ddlgenexpert).selectedIndex].text;
+        var genexpertrow = document.getElementById('rowgeneexpert');
+        genexpertrow.style.display = "table-row";
+        document.getElementById("cellgenvalue").innerHTML = genexpertvalue;
+    }
+
+    function fnDisplaySputumDstValue(ddlsputumdst) {
+        var sputumdstvalue = document.getElementById(ddlsputumdst).options[document.getElementById(ddlsputumdst).selectedIndex].text;
+        var sputumdstrow = document.getElementById('rowsputumfordst');
+        sputumdstrow.style.display = "table-row";
+        document.getElementById("cellsputfordstvalue").innerHTML = sputumdstvalue;
+    }
+
+    function fnDisplayTbpsyes(rdoselectyes) {
+        //var sputumdstvalue = document.getElementById(rdoselectyes).options[document.getElementById(rdoselectyes).selectedIndex].text;
+        var lamrow = document.getElementById('rowtissuebiopsy');
+        lamrow.style.display = "table-row";
+        document.getElementById("celltissuevalue").innerHTML = "Yes";
+    }
+
+    function fnDisplayTbpsno(rdoselectno) {
+        //var sputumdstvalue = document.getElementById(rdoselectno).options[document.getElementById(rdoselectno).selectedIndex].text;
+        var lamrow = document.getElementById('rowtissuebiopsy');
+        lamrow.style.display = "table-row";
+        document.getElementById("celltissuevalue").innerHTML = "No";
+    }
+
+    function fnDisplayTblamvalue(txttblam){ 
+        var tblamvalue = document.getElementById(txttblam).options[document.getElementById(txttblam).selectedIndex].text;
+        var lamrow = document.getElementById('rowlam');
+        lamrow.style.display = "block";
+        document.getElementById("celllamvalue").innerHTML = tblamvalue;
+    }
+
+    /***function fnDisplayTbtestothervalue(txttestother) {
+        var testotherval = document.getElementById(txttestother).options[document.getElementById(txttestother).selectedIndex].text;
+        var otherrow = document.getElementById('rowother');
+        otherrow.style.display = "table-row";
+        document.getElementById("cellothervalue").innerHTML = testotherval;
+    }***/
+
+    function fnDisplayDatevalue(dateval) {
+        var datevalue = document.getElementById(dateval).options[document.getElementById(dateval).selectedIndex].value;
+        if(datevalue != ""){
+            document.getElementById("sputumsmeardate").innerHTML = datevalue;         
+        }       
+    }
+
+
+    function fnUpdateGrid(e) {
+        /*** rowsputumsmear,cellsputsmearvalue, cellsputumsmeardate,  rowgenexpert,cellgenvalue,cellgendate,  rowsputumfordst,rowsputfordstvalue,
+        cellsputfordstdate,   rowchestxray,cellchestxrayvalue,cellchestxraydate,  rowtissuebiopsy,celltissuevalue,celltissuedate,
+        rowlam,celllamvalue,celllamdate,   rowother,cellothervalue,cellotherdate****/
+        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
+        /*** update sputum values ***/ 
+        var sputumsmearid = inputprefix + "ddlSputumSmear";
+        var sputumsmeartext = document.getElementById(sputumsmearid).options[document.getElementById(sputumsmearid).selectedIndex].text;
+        var sputumsmearvalue = document.getElementById(sputumsmearid).options[document.getElementById(sputumsmearid).selectedIndex].value;
+        var sputsmeardate = document.querySelector('#' + inputprefix + "txtSputumSmearDate").value;
+        if (sputumsmeartext != "") {
+            document.getElementById("cellsputsmearvalue").innerHTML = sputumsmeartext;
+            document.getElementById(inputprefix+"hdnsputumsmear").value = sputumsmearvalue;
+        }
+        if (sputsmeardate != "") {
+            document.getElementById("cellsputumsmeardate").innerHTML = sputsmeardate;
+            document.getElementById(inputprefix+"hdnsputumsmeardate").value = sputsmeardate;
+        }
+
+        /*** update gene expert values ***/
+        var geneexpertid = inputprefix + "ddlGeneExpert";
+        var geneexperttext = document.getElementById(geneexpertid).options[document.getElementById(geneexpertid).selectedIndex].text;
+        var geneexpertvalue = document.getElementById(geneexpertid).options[document.getElementById(geneexpertid).selectedIndex].value;
+        var geneexpertdate = document.querySelector('#' + inputprefix + "txtGeneExpertDate").value;
+        if (geneexperttext != "") {
+            document.getElementById("cellgenvalue").innerHTML = geneexperttext;
+            document.getElementById(inputprefix + "hdngeneexpert").value = geneexpertvalue;
+        }
+        if (geneexpertdate != "") {
+            document.getElementById("cellgendate").innerHTML = geneexpertdate;
+            document.getElementById(inputprefix + "hdngeneexpertdate").value = geneexpertdate;
+        }
+
+        /*** update sputum for dst values ***/
+        var sputumdstid = inputprefix + "ddlSputumDST";
+        var sputumdsttext = document.getElementById(sputumdstid).options[document.getElementById(sputumdstid).selectedIndex].text;
+        var sputumdstvalue = document.getElementById(sputumdstid).options[document.getElementById(sputumdstid).selectedIndex].value;
+        var sputumdstdate = document.querySelector('#' + inputprefix + "txtSputumDSTDate").value;
+        if (sputumdsttext != "") {
+            document.getElementById("cellsputfordstvalue").innerHTML = sputumdsttext;
+            document.getElementById(inputprefix + "hdnsputumfordst").value = sputumdstvalue;
+        }
+        if (sputumdstdate != "") {
+            document.getElementById("cellsputfordstdate").innerHTML = sputumdstdate;
+            document.getElementById(inputprefix + "hdnsputumfordstdate").value = sputumdstdate;
+        }
+
+        /*** update chest x ray values ***/
+        var chestxrayid = inputprefix + "ddlCXRResults";
+        var chestxraytext = document.getElementById(chestxrayid).options[document.getElementById(chestxrayid).selectedIndex].text;
+        var chestxrayvalue = document.getElementById(chestxrayid).options[document.getElementById(chestxrayid).selectedIndex].value;
+        var chestxraydate = document.querySelector('#' + inputprefix + "txtChestXrayDate").value;
+        var chestxrayothertext = document.querySelector('#' + inputprefix + "txtOtherCXRResults").value;
+        if (chestxraytext != "") {
+            document.getElementById("cellchestxrayvalue").innerHTML = chestxraytext;
+            document.getElementById(inputprefix + "hdnchestxray").value = chestxrayvalue;
+        }
+        if (chestxraydate != "") {
+            document.getElementById("cellchestxraydate").innerHTML = chestxraydate;
+            document.getElementById(inputprefix + "hdnchestxraydate").value = chestxraydate;
+        }
+        if (chestxrayothertext != "") {
+            document.getElementById("cellchestxrayvalue").innerHTML = chestxraytext + ": " + chestxrayothertext;
+            document.getElementById(inputprefix + "hdnchestxray").value = chestxrayvalue;
+            document.getElementById(inputprefix + "hdnchestxrayother").value = chestxrayothertext;
+        }
+
+        /*** update tissue biopsy values ****/
+        var biopsyyesid = inputprefix + "rdoTissueBiopsyYes";
+        var biopsynoid = inputprefix + "rdoTissueBiopsyNo";
+        var biopsydate = document.querySelector('#' + inputprefix + "txtTissueBiopsyDate").value;
+        if (document.getElementById(biopsyyesid).checked) {
+            document.getElementById("celltissuevalue").innerHTML = "Yes";
+            document.getElementById(inputprefix + "hdntissuebiopsy").value = "1";
+        }
+        if (document.getElementById(biopsynoid).checked) {
+            document.getElementById("celltissuevalue").innerHTML = "No";
+            document.getElementById(inputprefix + "hdntissuebiopsy").value = "0";
+        }
+        if (biopsydate != "") {
+            document.getElementById("celltissuedate").innerHTML = biopsydate;
+            document.getElementById(inputprefix + "hdntissuebiopsydate").value = biopsydate;
+        }
+
+        /*** update lam values ****/
+        var lamrow = document.getElementById('rowlam');
+        var lamtext = document.querySelector('#' + inputprefix + "txtLam").value;
+        var lamdate = document.querySelector('#' + inputprefix + "txtLamDate").value;
+        if (lamtext != "") {
+            lamrow.style.display = "table-row";
+            document.getElementById("celllamvalue").innerHTML = lamtext;
+            document.getElementById(inputprefix + "hdnlam").value = lamtext;
+        }
+        if (lamdate != "") {
+            lamrow.style.display = "table-row";
+            document.getElementById("celllamdate").innerHTML = lamdate;
+            document.getElementById(inputprefix + "hdnlamdate").value = lamdate;
+        }
+
+        /*** update other values ***/
+        var otherrow = document.getElementById('rowother');
+        var othertext = document.querySelector('#' + inputprefix + "txtTestOther").value;
+        var otherdate = document.querySelector('#' + inputprefix + "txtOtherDate").value;
+        if (othertext != "") {
+            otherrow.style.display = "table-row";
+            document.getElementById("cellothervalue").innerHTML = othertext;
+            document.getElementById(inputprefix + "hdnother").value = othertext;
+        }
+        if (otherdate != "") {
+            otherrow.style.display = "table-row";
+            document.getElementById("cellotherdate").innerHTML = otherdate;
+            document.getElementById(inputprefix + "hdnotherdate").value = otherdate;
+        } 
+    }
+
+    window.addEventListener("load", function () {
+        /*** input prefix **/
+        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
+
+        /*** sputum smear row, display if there pre-existing values ***/
+        var sputumsmearid = inputprefix + "ddlSputumSmear";
+        var sputumsmeartext = document.querySelector('#' + inputprefix + "hdnsputumsmear").value;
+        var sputumsmearvalue = document.getElementById(sputumsmearid).options[document.getElementById(sputumsmearid).selectedIndex].value;
+        var cellsputumsmeartext = document.getElementById(sputumsmearid).options[document.getElementById(sputumsmearid).selectedIndex].text;
+        var sputrow = document.getElementById('rowsputumsmear');
+        var sputsmeardate = document.querySelector('#' + inputprefix + "txtSputumSmearDate").value;
+        if (sputumsmeartext != "") {
+            sputrow.style.display = "table-row";
+            document.getElementById(inputprefix + "hdnsputumsmear").value = sputumsmearvalue;
+            document.getElementById(inputprefix + "hdnsputumsmeardate").value = sputsmeardate;
+            document.getElementById("cellsputsmearvalue").innerHTML = cellsputumsmeartext;
+            document.getElementById("cellsputumsmeardate").innerHTML = sputsmeardate;
+        }
+
+        /**** gene expert row ***/
+        var geneexpertvalue = document.querySelector('#' + inputprefix + "hdngeneexpert").value;
+        var geneexpertid = inputprefix + "ddlGeneExpert";
+        var geneexperttext = document.getElementById(geneexpertid).options[document.getElementById(geneexpertid).selectedIndex].text;
+        var genexpertrow = document.getElementById('rowgeneexpert');
+        var geneexpertdate = document.querySelector('#' + inputprefix + "txtGeneExpertDate").value;
+        if (geneexpertvalue != "") {
+            genexpertrow.style.display = "table-row";
+            document.getElementById("cellgenvalue").innerHTML = geneexperttext;
+            document.getElementById("cellgendate").innerHTML = geneexpertdate;
+        }
+
+        /*** sputum for dst row ***/
+        var sputumdstvalue = document.querySelector('#' + inputprefix + "hdnsputumfordst").value;
+        var sputumdstid = inputprefix + "ddlSputumDST";
+        var sputumdsttext = document.getElementById(sputumdstid).options[document.getElementById(sputumdstid).selectedIndex].text;
+        var sputumdstrow = document.getElementById('rowsputumfordst');
+        var sputumdstdate = document.querySelector('#' + inputprefix + "txtSputumDSTDate").value;
+        if (sputumdstvalue != "") {
+            sputumdstrow.style.display = "table-row";
+            document.getElementById("cellsputfordstvalue").innerHTML = sputumdsttext;
+            document.getElementById("cellsputfordstdate").innerHTML = sputumdstdate;
+        }
+        /*** chest xray row **/
+        var chestxrayvalue = document.querySelector('#' + inputprefix + "hdnchestxray").value;
+        var chestxrayid = inputprefix + "ddlCXRResults";
+        var chestxraytext = document.getElementById(chestxrayid).options[document.getElementById(chestxrayid).selectedIndex].text;
+        var chestxrayrow = document.getElementById('rowchestxray');
+        var chestxraydate = document.querySelector('#' + inputprefix + "txtChestXrayDate").value;
+        if (chestxrayvalue != "") {
+            chestxrayrow.style.display = "table-row";
+            document.getElementById("cellchestxrayvalue").innerHTML = chestxraytext;
+            document.getElementById(inputprefix + "hdnchestxraydate").value = chestxraydate;
+        }
+        /*** tissue biopsy row **/
+        var tissuebiopsyvalue = document.querySelector('#' + inputprefix + "hdntissuebiopsy").value;
+        var tissuebiopsyrow = document.getElementById('rowtissuebiopsy');
+        var biopsydate = document.querySelector('#' + inputprefix + "txtTissueBiopsyDate").value;
+        if (tissuebiopsyvalue == 1) {
+            tissuebiopsyrow.style.display = "table-row";
+            document.getElementById("celltissuevalue").innerHTML = "Yes";
+            document.getElementById("celltissuedate").innerHTML = biopsydate;
+        }
+        else if (tissuebiopsyvalue == 0) {
+            tissuebiopsyrow.style.display = "table-row";
+            document.getElementById("celltissuevalue").innerHTML = "No";
+            document.getElementById("celltissuedate").innerHTML = biopsydate;
+        }
+        else {
+            tissuebiopsyrow.style.display = "none";
+            document.getElementById("celltissuevalue").innerHTML = "";
+            document.getElementById("celltissuedate").innerHTML = "";
+        }
+
+        /*** lam row ***/
+        var lamvalue = document.querySelector('#' + inputprefix + "hdnlam").value;
+        var lamtext = document.querySelector('#' + inputprefix + "txtLam").value;
+        var lamdate = document.querySelector('#' + inputprefix + "txtLamDate").value;
+        if (lamvalue != "") {
+            lamrow.style.display = "table-row";
+            document.getElementById("celllamvalue").innerHTML = lamtext;
+            document.getElementById(inputprefix + "hdnlamdate").value = lamdate;
+        }
+
+        /*** other row ***/
+        var othervalue = document.querySelector('#' + inputprefix + "hdnother").value;
+        var othertext = document.querySelector('#' + inputprefix + "txtTestOther").value;
+        var otherdate = document.querySelector('#' + inputprefix + "txtOtherDate").value;
+        if (othervalue != "") {
+            otherrow.style.display = "table-row";
+            document.getElementById("cellothervalue").innerHTML = othertext;
+            document.getElementById("cellotherdate").innerHTML = otherdate;
+        }
+    });
+
+    function functionDelSputumSmear() {
+        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
+        document.getElementById(inputprefix + "hdnsputumsmear").value = "";
+        document.getElementById(inputprefix + "hdnsputumsmeardate").value = "";
+        var sputrow = document.getElementById('rowsputumsmear');
+        sputrow.style.display = "none";
+    }
+
+    function fnDelGenExpert() {
+        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
+        document.getElementById(inputprefix + "hdngeneexpert").value = "";
+        document.getElementById(inputprefix + "hdngeneexpertdate").value = "";
+        var genexpertrow = document.getElementById('rowgeneexpert');
+        genexpertrow.style.display = "none";
+    }
+
+    function fnDelSputumDst() {
+        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
+        document.getElementById(inputprefix + "hdnsputumfordst").value = "";
+        document.getElementById(inputprefix + "hdnsputumfordstdate").value = "";
+        var sputumdstrow = document.getElementById('rowsputumfordst');
+        sputumdstrow.style.display = "none";
+    }
+
+    function fnDelTissueBiopsy() {
+        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
+        document.getElementById(inputprefix + "hdnchestxray").value = "";
+        document.getElementById(inputprefix + "hdnchestxraydate").value = "";
+        var chestxrayrow = document.getElementById('rowchestxray');
+        chestxrayrow.style.display = "none";
+    }
+
+    function fnDelLam() {
+        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
+        document.getElementById(inputprefix + "hdnlam").value = "";
+        document.getElementById(inputprefix + "hdnlamdate").value = "";
+        var lamrow = document.getElementById('rowlam');
+        lamrow.style.display = "none";
+    }
+
+    function fnDelOther() {
+        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
+        document.getElementById(inputprefix + "hdnother").value = "";
+        document.getElementById(inputprefix + "hdnotherdate").value = "";
+        var otherrow = document.getElementById('rowother');
+        otherrow.style.display = "none";
+    }
+
     function WindowPrint() {
         window.print();
     }
-
 </script>
 <%--<link href="../../Style/styles.css" rel="stylesheet" type="text/css" />
 <link href="../../Style/calendar.css" rel="stylesheet" type="text/css" />
@@ -511,6 +913,27 @@
     {
         height: 27px;
     }
+    
+    .delete-bubble {
+        height: 20px;
+        width: 20px;
+        padding: 2px 5px;
+        background: #f56c7e url(../images/notification-bg-clear.png) no-repeat center center scroll;
+        background-image: none\9;
+        color: #fff;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, .2);
+        text-align: center;
+        font-size: 9px;
+        line-height: 18px;
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .17), 0 1px 1px rgba(0, 0, 0, .2);
+        -moz-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .17), 0 1px 1px rgba(0, 0, 0, .2);
+        -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .17), 0 1px 1px rgba(0, 0, 0, .2);
+        border-radius: 9px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    #resultsgrid tr:nth-child(even){background-color: #f2f2f2;}
+    #resultsgrid th {background-color: #E1E1E1;color: #00007A;}
 </style>
 <table class="center formbg" cellspacing="6" cellpadding="0" width="100%" border="0">
     <tr>
@@ -625,12 +1048,21 @@
 <div id="AvailableTBResultsBodyDiv">
     <asp:Panel ID="AvailableTBResultsBody" runat="server">
         <table id="TBAvailableResults" cellspacing="6" cellpadding="0" width="100%" border="0">
-            <tr id="sputumSmear">
+            <!--- test selector table updated --->
+            <tr id="Tr3">
                 <td class="form" align="center" style="width: 100%" colspan="2">
                     <table width="100%">
                         <tr>
-                            <td width="20%" align="left">
-                                &nbsp;<asp:Label ID="lblSputumSmear" runat="server" Font-Bold="True" Text="Sputum smear:"></asp:Label>
+                            <td width="30%" align="left">
+                                <table width="100%">
+                                    <tr>
+                                        <td align="right" width="50%">&nbsp;<asp:Label ID="LBlTest" runat="server" Font-Bold="True" Text="Select Test:"></asp:Label></td>
+                                        <td align="left" width="50%">
+                                            <asp:DropDownList ID="DDLTest" runat="server">
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                </table>
                             </td>
                             <td width="40%">
                                 <table width="100%">
@@ -640,234 +1072,313 @@
                                                 Result:</label>&nbsp;
                                         </td>
                                         <td align="left" width="60%">
-                                            <asp:DropDownList ID="ddlSputumSmear" runat="server">
-                                            </asp:DropDownList>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td width="40%">
-                                <table width="100%">
-                                    <tr>
-                                        <td align="right" width="20%">
-                                            <label>
-                                                &nbsp;Date:
-                                            </label>
-                                        </td>
-                                        <td align="left" width="80%">
-                                            <label>
-                                                <asp:TextBox ID="txtSputumSmearDate" runat="server" MaxLength="11"></asp:TextBox>
-                                                <img alt="Date Helper" border="0" height="22" hspace="3" onclick="w_displayDatePicker('<%= txtSputumSmearDate.ClientID%>');"
-                                                    src="../Images/cal_icon.gif" width="22" />
-                                                <span class="smallerlabel">(DD-MMM-YYYY)</span>
-                                            </label>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr id="Tr1">
-                <td class="form" align="center" style="width: 100%" colspan="2">
-                    <table width="100%">
-                        <tr>
-                            <td width="20%" align="left">
-                                &nbsp;<asp:Label ID="lblGeneExpert" runat="server" Font-Bold="True" Text="GeneExpert:"></asp:Label>
-                            </td>
-                            <td width="40%">
-                                <table width="100%">
-                                    <tr>
-                                        <td align="right" width="40%">
-                                            <label>
-                                                Result:</label>&nbsp;
-                                        </td>
-                                        <td align="left" width="60%">
-                                            <asp:DropDownList ID="ddlGeneExpert" runat="server">
-                                            </asp:DropDownList>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td width="40%">
-                                <table width="100%">
-                                    <tr>
-                                        <td align="right" width="20%">
-                                            <label>
-                                                &nbsp;Date:
-                                            </label>
-                                        </td>
-                                        <td align="left" width="80%">
-                                            <label>
-                                                <asp:TextBox ID="txtGeneExpertDate" runat="server" MaxLength="11" onkeyup="DateFormat(this,this.value,event,false,'3');"></asp:TextBox>
-                                                <img alt="Date Helper" border="0" height="22" hspace="3" onclick="w_displayDatePicker('<%= txtGeneExpertDate.ClientID%>');"
-                                                    src="../Images/cal_icon.gif" width="22" />
-                                                <span class="smallerlabel">(DD-MMM-YYYY)</span>
-                                            </label>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr id="Tr2">
-                <td class="form" align="center" style="width: 100%" colspan="2">
-                    <table width="100%">
-                        <tr>
-                            <td width="20%" align="left">
-                                &nbsp;<asp:Label ID="lblSuptumDST" runat="server" Font-Bold="True" Text="Sputum for DST:"></asp:Label>
-                            </td>
-                            <td width="40%">
-                                <table width="100%">
-                                    <tr>
-                                        <td align="right" width="40%">
-                                            <label>
-                                                Result:</label>&nbsp;
-                                        </td>
-                                        <td align="left" width="60%">
-                                            <asp:DropDownList ID="ddlSputumDST" runat="server">
-                                            </asp:DropDownList>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td width="40%">
-                                <table width="100%">
-                                    <tr>
-                                        <td align="right" width="20%">
-                                            <label>
-                                                Date:
-                                            </label>
-                                        </td>
-                                        <td align="left" width="80%">
-                                            <label>
-                                                <asp:TextBox ID="txtSputumDSTDate" runat="server" MaxLength="11" onkeyup="DateFormat(this,this.value,event,false,'3');"></asp:TextBox>
-                                                <img alt="Date Helper" border="0" height="22" hspace="3" onclick="w_displayDatePicker('<%= txtSputumDSTDate.ClientID%>');"
-                                                    src="../Images/cal_icon.gif" width="22" />
-                                                <span class="smallerlabel">(DD-MMM-YYYY)</span>
-                                            </label>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr id="chestXRay">
-                <td class="form" align="center" style="width: 100%" colspan="2">
-                    <table width="100%">
-                        <tr>
-                            <td width="20%" align="left">
-                                &nbsp;<asp:Label ID="lblChestXRay" runat="server" Font-Bold="True" Text="Chest X-Ray:"></asp:Label>
-                            </td>
-                            <td width="40%">
-                                <table width="100%">
-                                    <tr>
-                                        <td align="right" width="40%">
-                                            <label>
-                                                Result:</label>
-                                        </td>
-                                        <td align="left" width="60%">
-                                            <asp:RadioButton ID="rdoChestXrayYes" runat="server" GroupName="rdoChestXray" Text="Yes"
+                                            <!--- sputum smear --->
+                                            <div id="resultsputumsmear" style="display:none;" class="resultdiv">
+                                                <asp:DropDownList ID="ddlSputumSmear" runat="server">
+                                                </asp:DropDownList>
+                                            </div>
+                                            <!--- gene express --->
+                                            <div id="resultgeneexpress" style="display:none;" class="resultdiv">
+                                                <asp:DropDownList ID="ddlGeneExpert" runat="server">
+                                                </asp:DropDownList>
+                                            </div>
+                                            <!--- sputum for DST --->
+                                            <div id="resultsputumfordst" style="display:none;" class="resultdiv">
+                                                <asp:DropDownList ID="ddlSputumDST" runat="server">
+                                                </asp:DropDownList>
+                                            </div>
+                                            <!--- chest xray --->
+                                            <div id="resultchestxray" style="display:none;" class="resultdiv">
+                                                <asp:RadioButton ID="rdoChestXrayYes" runat="server" GroupName="rdoChestXray" Text="Yes"
                                                 OnCheckedChanged="rdoChestXrayYes_CheckedChanged" />
-                                            <asp:RadioButton ID="rdoChestXrayNo" runat="server" GroupName="rdoChestXray" Text="No"
+                                                <asp:RadioButton ID="rdoChestXrayNo" runat="server" GroupName="rdoChestXray" Text="No"
                                                 OnCheckedChanged="rdoChestXrayNo_CheckedChanged" />
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td width="40%">
-                                <table width="100%">
-                                    <tr>
-                                        <td align="right" width="20%">
-                                            <label>
-                                                Date:
-                                            </label>
-                                        </td>
-                                        <td align="left" width="80%">
-                                            <label>
-                                                <asp:TextBox ID="txtChestXrayDate" runat="server" MaxLength="11"></asp:TextBox>
-                                                <img alt="Date Helper" border="0" height="22" hspace="3" onclick="w_displayDatePicker('<%= txtChestXrayDate.ClientID%>');"
-                                                    src="../Images/cal_icon.gif" width="22" />
-                                                <span class="smallerlabel">(DD-MMM-YYYY)</span>
-                                            </label>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr id="CXRResults" style="display: none">
-                <td align="center" class="form" colspan="2" width="50%">
-                    <table width="100%" style="table-layout: fixed">
-                        <tr>
-                            <td width="50%" align="left">
-                                <label>
-                                    CXR results :</label>
-                                <asp:DropDownList ID="ddlCXRResults" runat="server">
-                                </asp:DropDownList>
-                            </td>
-                            <td id="OtherCRXSpecify" style="display: none" width="100%">
-                                <label>
-                                    Other CXR (Specify):</label>
-                                <asp:TextBox ID="txtOtherCXRResults" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr id="tissueBiopsy">
-                <td class="form" align="center" style="width: 100%" colspan="2">
-                    <table width="100%">
-                        <tr>
-                            <td width="20%" align="left">
-                                &nbsp;<asp:Label ID="lblTissueBiopsy" runat="server" Font-Bold="True" Text="Tissue Biopsy:"></asp:Label>
-                            </td>
-                            <td width="40%">
-                                <table width="100%">
-                                    <tr>
-                                        <td align="right" width="40%">
-                                            <label>
-                                                Result:</label>&nbsp;
-                                        </td>
-                                        <td align="left" width="60%">
-                                            <asp:RadioButton ID="rdoTissueBiopsyYes" runat="server" GroupName="rdoTissueBiopsy"
+                                            </div>
+                                            <!--- tissue biopsy --->
+                                            <div id="resulttissuebiopsy" style="display:none;" class="resultdiv">
+                                                <asp:RadioButton ID="rdoTissueBiopsyYes" runat="server" GroupName="rdoTissueBiopsy"
                                                 Text="Yes" OnCheckedChanged="rdoTissueBiopsyYes_CheckedChanged" />
-                                            <asp:RadioButton ID="rdoTissueBiopsyNo" runat="server" GroupName="rdoTissueBiopsy"
+                                                <asp:RadioButton ID="rdoTissueBiopsyNo" runat="server" GroupName="rdoTissueBiopsy"
                                                 Text="No" OnCheckedChanged="rdoTissueBiopsyNo_CheckedChanged" />
+                                            </div>
+                                            <!--- LAM --->
+                                            <div id="resultlam" style="display:none;" class="resultdiv">
+                                                <asp:TextBox ID="txtLam" runat="server" MaxLength="11"></asp:TextBox>
+                                            </div>
+                                            <!--- other --->
+                                            <div id="resultother" style="display:none;" class="resultdiv">
+                                                <asp:TextBox ID="txtTestOther" runat="server" MaxLength="11"></asp:TextBox>
+                                            </div>
                                         </td>
                                     </tr>
                                 </table>
                             </td>
-                            <td width="40%">
-                                <table width="100%">
+                            <td width="30%">
+                                <div id="datesputumsmear" style="display:none;" class="resultdiv">
+                                    <table width="100%">
+                                        <tr>
+                                            <td align="right" width="20%">
+                                                <label>
+                                                    &nbsp;Date:
+                                                </label>
+                                            </td>
+                                            <td align="left" width="80%">
+                                                <label>
+                                                    <asp:TextBox ID="txtSputumSmearDate" runat="server" MaxLength="11"></asp:TextBox>
+                                                    <img alt="Date Helper" border="0" height="22" hspace="3" onclick="w_displayDatePicker('<%= txtSputumSmearDate.ClientID%>');"
+                                                        src="../Images/cal_icon.gif" width="22" />
+                                                    <span class="smallerlabel">(DD-MMM-YYYY)</span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="dategeneexpress" style="display:none;" class="resultdiv">
+                                    <table width="100%">
+                                        <tr>
+                                            <td align="right" width="20%">
+                                                <label>
+                                                    &nbsp;Date:
+                                                </label>
+                                            </td>
+                                            <td align="left" width="80%">
+                                                <label>
+                                                    <asp:TextBox ID="txtGeneExpertDate" runat="server" MaxLength="11" onkeyup="DateFormat(this,this.value,event,false,'3');"></asp:TextBox>
+                                                    <img alt="Date Helper" border="0" height="22" hspace="3" onclick="w_displayDatePicker('<%= txtGeneExpertDate.ClientID%>');"
+                                                        src="../Images/cal_icon.gif" width="22" />
+                                                    <span class="smallerlabel">(DD-MMM-YYYY)</span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="datesputumfordst" style="display:none;" class="resultdiv">
+                                    <table width="100%">
+                                        <tr>
+                                            <td align="right" width="20%">
+                                                <label>
+                                                    Date:
+                                                </label>
+                                            </td>
+                                            <td align="left" width="80%">
+                                                <label>
+                                                    <asp:TextBox ID="txtSputumDSTDate" runat="server" MaxLength="11" onkeyup="DateFormat(this,this.value,event,false,'3');"></asp:TextBox>
+                                                    <img alt="Date Helper" border="0" height="22" hspace="3" onclick="w_displayDatePicker('<%= txtSputumDSTDate.ClientID%>');"
+                                                        src="../Images/cal_icon.gif" width="22" />
+                                                    <span class="smallerlabel">(DD-MMM-YYYY)</span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="datechestxray" style="display:none;" class="resultdiv">
+                                    <table width="100%">
+                                        <tr>
+                                            <td align="right" width="20%">
+                                                <label>
+                                                    Date:
+                                                </label>
+                                            </td>
+                                            <td align="left" width="80%">
+                                                <label>
+                                                    <asp:TextBox ID="txtChestXrayDate" runat="server" MaxLength="11"></asp:TextBox>
+                                                    <img alt="Date Helper" border="0" height="22" hspace="3" onclick="w_displayDatePicker('<%= txtChestXrayDate.ClientID%>');"
+                                                        src="../Images/cal_icon.gif" width="22" />
+                                                    <span class="smallerlabel">(DD-MMM-YYYY)</span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="datetissuebiopsy" style="display:none;" class="resultdiv">
+                                    <table width="100%">
+                                        <tr>
+                                            <td align="right" width="20%">
+                                                <label>
+                                                    Date:
+                                                </label>
+                                            </td>
+                                            <td align="left" width="80%">
+                                                <label>
+                                                    <asp:TextBox ID="txtTissueBiopsyDate" runat="server" MaxLength="11"></asp:TextBox>
+                                                    <img alt="Date Helper" border="0" height="22" hspace="3" onclick="w_displayDatePicker('<%= txtTissueBiopsyDate.ClientID%>');"
+                                                        src="../Images/cal_icon.gif" width="22" />
+                                                    <span class="smallerlabel">(DD-MMM-YYYY)</span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="datelam" style="display:none;" class="resultdiv">
+                                    <table width="100%">
+                                        <tr>
+                                            <td align="right" width="20%">
+                                                <label>
+                                                    Date:
+                                                </label>
+                                            </td>
+                                            <td align="left" width="80%">
+                                                <label>
+                                                    <asp:TextBox ID="txtLamDate" runat="server" MaxLength="11"></asp:TextBox>
+                                                    <img alt="Date Helper" border="0" height="22" hspace="3" onclick="w_displayDatePicker('<%= txtLamDate.ClientID%>');"
+                                                        src="../Images/cal_icon.gif" width="22" />
+                                                    <span class="smallerlabel">(DD-MMM-YYYY)</span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="dateother" style="display:none;" class="resultdiv">
+                                    <table width="100%">
+                                        <tr>
+                                            <td align="right" width="20%">
+                                                <label>
+                                                    Date:
+                                                </label>
+                                            </td>
+                                            <td align="left" width="80%">
+                                                <label>
+                                                    <asp:TextBox ID="txtOtherDate" runat="server" MaxLength="11"></asp:TextBox>
+                                                    <img alt="Date Helper" border="0" height="22" hspace="3" onclick="w_displayDatePicker('<%= txtOtherDate.ClientID%>');"
+                                                        src="../Images/cal_icon.gif" width="22" />
+                                                    <span class="smallerlabel">(DD-MMM-YYYY)</span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        <!--- chest x ray other --->
+                        <tr id="CXRResults" style="display: none;width: 100%;">
+                            <td align="center" colspan="3" class="form" width="100%">
+                                <table width="100%" style="table-layout: fixed">
                                     <tr>
-                                        <td align="right" width="20%">
+                                        <td width="50%" align="left">
                                             <label>
-                                                Date:
-                                            </label>
+                                                CXR results :</label>
+                                            <asp:DropDownList ID="ddlCXRResults" runat="server">
+                                            </asp:DropDownList>
                                         </td>
-                                        <td align="left" width="80%">
+                                        <td id="OtherCRXSpecify" style="display: none" width="100%">
                                             <label>
-                                                <asp:TextBox ID="txtTissueBiopsyDate" runat="server" MaxLength="11"></asp:TextBox>
-                                                <img alt="Date Helper" border="0" height="22" hspace="3" onclick="w_displayDatePicker('<%= txtTissueBiopsyDate.ClientID%>');"
-                                                    src="../Images/cal_icon.gif" width="22" />
-                                                <span class="smallerlabel">(DD-MMM-YYYY)</span>
-                                            </label>
+                                                Other CXR (Specify):</label>
+                                            <asp:TextBox ID="txtOtherCXRResults" runat="server"></asp:TextBox>
                                         </td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
+                        <tr>
+                            <td colspan="3" align="center">
+                                <button type="button" onclick="fnUpdateGrid()">ADD</button>
+                            </td>
+                        </tr>
                     </table>
                 </td>
             </tr>
+            <tr>
+                <td width="100%" colspan="2">
+                    <table id="resultsgrid" width="100%">
+                        <tr>
+                            <th width="25%">
+                                TEST</th>
+                            <th width="25%">
+                                RESULT</th>
+                            <th width="25%">
+                                DATE</th>
+                            <th width="25%">
+                                DELETE</th>
+                        </tr>
+                        <tr id="rowsputumsmear" style="display:none;border: 1px solid #666699;">
+                            <td>
+                                Sputum Smear</td>
+                            <td id="cellsputsmearvalue">
+                                </td>
+                            <td id="cellsputumsmeardate">
+                                </td>
+                            <td>
+                            <span class="delete-bubble" title="Notifications" onclick="functionDelSputumSmear()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
+                                </td>
+                        </tr>
+                        <tr id="rowgeneexpert" style="display:none;border: 1px solid #666699;">
+                            <td>
+                                GeneExpert</td>
+                            <td id="cellgenvalue">
+                                </td>
+                            <td id="cellgendate">
+                                </td>
+                            <td>
+                            <span class="delete-bubble" title="Notifications" onclick="fnDelGenExpert()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
+                                </td>
+                        </tr>
+                        <tr id="rowsputumfordst" style="display:none;border: 1px solid #666699;">
+                            <td>
+                                Sputum for DST</td>
+                            <td id="cellsputfordstvalue">
+                                </td>
+                            <td id="cellsputfordstdate">
+                                </td>
+                            <td><span class="delete-bubble" title="Notifications" onclick="fnDelSputumDst()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
+                                </td>
+                        </tr>
+                        <tr id="rowchestxray" style="display:none;border: 1px solid #666699;">
+                            <td>
+                                Chest X-Ray</td>
+                            <td id="cellchestxrayvalue">
+                                </td>
+                            <td id="cellchestxraydate">
+                                </td>
+                            <td><span class="delete-bubble" title="Notifications" onclick="fnDelChestXray()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
+                                </td>
+                        </tr>
+                        <tr id="rowtissuebiopsy" style="display:none;border: 1px solid #666699;">
+                            <td>
+                                Tissue Biopsy</td>
+                            <td id="celltissuevalue">
+                                </td>
+                            <td id="celltissuedate">
+                                </td>
+                            <td><span class="delete-bubble" title="Notifications" onclick="fnDelTissueBiopsy()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
+                                </td>
+                        </tr>
+                        <tr id="rowlam" style="display:none;border: 1px solid #666699;">
+                            <td>
+                                LAM</td>
+                            <td id="celllamvalue">
+                                </td>
+                            <td id="celllamdate">
+                                </td>
+                            <td><span class="delete-bubble" title="Notifications" onclick="fnDelLam()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
+                                </td>
+                        </tr>
+                        <tr id="rowother" style="display:none;border: 1px solid #666699;">
+                            <td >
+                                Other</td>
+                            <td id="cellothervalue">
+                                </td>
+                            <td id="cellotherdate">
+                                </td>
+                            <td><span class="delete-bubble" title="Notifications" onclick="fnDelOther()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
+                                </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <asp:HiddenField ID="hdnsputumsmear" runat="server" /> 
+            <asp:HiddenField ID="hdngeneexpert" runat="server" />
+            <asp:HiddenField ID="hdnsputumfordst" runat="server" /> 
+            <asp:HiddenField ID="hdnchestxray" runat="server" /> 
+            <asp:HiddenField ID="hdntissuebiopsy" runat="server" /> 
+            <asp:HiddenField ID="hdnlam" runat="server" />
+            <asp:HiddenField ID="hdnother" runat="server" /> 
+            <asp:HiddenField ID="hdnsputumsmeardate" runat="server" />
+            <asp:HiddenField ID="hdngeneexpertdate" runat="server" /> 
+            <asp:HiddenField ID="hdnsputumfordstdate" runat="server" />
+            <asp:HiddenField ID="hdnchestxraydate" runat="server" /> 
+            <asp:HiddenField ID="hdntissuebiopsydate" runat="server" /> 
+            <asp:HiddenField ID="hdnlamdate" runat="server" /> 
+            <asp:HiddenField ID="hdnotherdate" runat="server" />
             <tr>
                 <td align="center" class="form" style="width: 50%">
                     <table width="100%">

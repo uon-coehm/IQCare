@@ -326,6 +326,56 @@ namespace BusinessProcess.Clinical
             return retval;
         }
 
+        public int Save_Update_ART(int patientID, int VisitID, int LocationID, Hashtable ht, int userID)
+        {
+            int retval = 0;
+            ClsObject KNHART = new ClsObject();
+            try
+            {
+                this.Connection = DataMgr.GetConnection();
+                this.Transaction = DataMgr.BeginTransaction(this.Connection);
+
+                KNHART.Connection = this.Connection;
+                KNHART.Transaction = this.Transaction;
+
+                oUtility.Init_Hashtable();
+                oUtility.AddParameters("@patientid", SqlDbType.Int, patientID.ToString());
+                oUtility.AddParameters("@locationid", SqlDbType.Int, LocationID.ToString());
+                oUtility.AddParameters("@Visit_ID", SqlDbType.Int, VisitID.ToString());
+                oUtility.AddParameters("@UserId", SqlDbType.Int, userID.ToString());
+
+                /*** ART Parameters ***/
+                oUtility.AddParameters("@UnderstandHiv", SqlDbType.VarChar, ht["UnderstandHiv"].ToString());
+                oUtility.AddParameters("@ScreenDrug", SqlDbType.VarChar, ht["ScreenDrug"].ToString());
+                oUtility.AddParameters("@ScreenDepression", SqlDbType.VarChar, ht["ScreenDepression"].ToString());
+                oUtility.AddParameters("@DiscloseStatus", SqlDbType.VarChar, ht["DiscloseStatus"].ToString());
+                oUtility.AddParameters("@ArtDemonstration", SqlDbType.VarChar, ht["ArtDemonstration"].ToString());
+                oUtility.AddParameters("@ReceivedInformation", SqlDbType.VarChar, ht["ReceivedInformation"].ToString());
+                oUtility.AddParameters("@CaregiverDependant", SqlDbType.VarChar, ht["CaregiverDependant"].ToString());
+                oUtility.AddParameters("@IdentifiedBarrier", SqlDbType.VarChar, ht["IdentifiedBarrier"].ToString());
+                oUtility.AddParameters("@CaregiverLocator", SqlDbType.VarChar, ht["CaregiverLocator"].ToString());
+                oUtility.AddParameters("@CaregiverReady", SqlDbType.VarChar, ht["CaregiverReady"].ToString());
+                oUtility.AddParameters("@TimeIdentified", SqlDbType.VarChar, ht["TimeIdentified"].ToString());
+                oUtility.AddParameters("@IdentifiedTreatmentSupporter", SqlDbType.VarChar, ht["IdentifiedTreatmentSupporter"].ToString());
+                oUtility.AddParameters("@GroupMeeting", SqlDbType.VarChar, ht["GroupMeeting"].ToString());
+                oUtility.AddParameters("@SmsReminder", SqlDbType.VarChar, ht["SmsReminder"].ToString());
+                oUtility.AddParameters("@PlannedSupport", SqlDbType.VarChar, ht["PlannedSupport"].ToString());
+                oUtility.AddParameters("@DeferArt", SqlDbType.VarChar, ht["DeferArt"].ToString());
+                oUtility.AddParameters("@MeningitisDiagnosed", SqlDbType.VarChar, ht["MeningitisDiagnosed"].ToString());
+
+                int temp = (int)KNHART.ReturnObject(oUtility.theParams, "pr_KNHPMTCTART_SaveData", ClsUtility.ObjectEnum.ExecuteNonQuery);
+                DataMgr.CommitTransaction(this.Transaction);
+                DataMgr.ReleaseConnection(this.Connection);
+                retval = VisitID;
+            }
+            catch
+            {
+                DataMgr.RollBackTransation(this.Transaction);
+                throw;
+            }
+            return retval;
+        }
+
         public DataTable GetPMTCTHEICurrentTreatment(int patientID)
         {
             lock (this)

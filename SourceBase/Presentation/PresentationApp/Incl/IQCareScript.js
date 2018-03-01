@@ -2713,7 +2713,7 @@ function fnUncheckallVitals(strcblcontrolId) {
     var arrayOfCheckBoxLabels = checkList.getElementsByTagName("label");
     var checkBoxSelectedItems = new Array();
 
-    if (checkBoxList[0].checked == true && arrayOfCheckBoxLabels[0].innerHTML == 'None') {
+    if (checkBoxList[0].checked == true && arrayOfCheckBoxLabels[0].innerHTML == 'No Signs and Symptoms') {
         for (var i = 1; i < checkBoxList.length; i++) {
             checkBoxList[i].checked = false;
             checkBoxList[i].disabled = true;

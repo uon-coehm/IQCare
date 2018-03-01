@@ -43,19 +43,19 @@
   <ItemGroup>
     <Reference Include="ActiveDatabaseSoftware.ActiveQueryBuilder, Version=1.13.2.230, Culture=neutral, PublicKeyToken=3cbcbcc9bf57ecde, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\ActiveDatabaseSoftware.ActiveQueryBuilder.dll</HintPath>
+      <HintPath>..\..\External Dlls\ActiveDatabaseSoftware.ActiveQueryBuilder.dll</HintPath>
     </Reference>
     <Reference Include="ActiveDatabaseSoftware.MSSQLMetadataProvider, Version=1.13.2.230, Culture=neutral, PublicKeyToken=3cbcbcc9bf57ecde, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\ActiveDatabaseSoftware.MSSQLMetadataProvider.dll</HintPath>
+      <HintPath>..\..\External Dlls\ActiveDatabaseSoftware.MSSQLMetadataProvider.dll</HintPath>
     </Reference>
     <Reference Include="ActiveDatabaseSoftware.OLEDBMetadataProvider, Version=1.13.2.230, Culture=neutral, PublicKeyToken=3cbcbcc9bf57ecde, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\ActiveDatabaseSoftware.OLEDBMetadataProvider.dll</HintPath>
+      <HintPath>..\..\External Dlls\ActiveDatabaseSoftware.OLEDBMetadataProvider.dll</HintPath>
     </Reference>
     <Reference Include="ActiveDatabaseSoftware.UniversalMetadataProvider, Version=1.13.2.230, Culture=neutral, PublicKeyToken=3cbcbcc9bf57ecde, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\ActiveDatabaseSoftware.UniversalMetadataProvider.dll</HintPath>
+      <HintPath>..\..\External Dlls\ActiveDatabaseSoftware.UniversalMetadataProvider.dll</HintPath>
     </Reference>
     <Reference Include="Ajax, Version=5.7.22.2, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
@@ -148,7 +148,7 @@
     </Reference>
     <Reference Include="itextsharp, Version=4.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\itextsharp.dll</HintPath>
+      <HintPath>..\..\External Dlls\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
@@ -790,6 +790,13 @@
     </Compile>
     <Compile Include="ClinicalForms\frmPatient_PharmacyNotes.aspx.designer.cs">
       <DependentUpon>frmPatient_PharmacyNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalForms\frm_ARTReadinessAssessment.aspx.cs">
+      <DependentUpon>frm_ARTReadinessAssessment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\frm_ARTReadinessAssessment.aspx.designer.cs">
+      <DependentUpon>frm_ARTReadinessAssessment.aspx</DependentUpon>
     </Compile>
     <Compile Include="ClinicalForms\frm_PriorArt_HivCare.aspx.designer.cs">
       <DependentUpon>frm_PriorArt_HivCare.aspx</DependentUpon>
@@ -2331,6 +2338,7 @@
     <Content Include="ClinicalForms\frmClinical_KNH_PediatricFollowup.aspx" />
     <Content Include="ClinicalForms\frmClinical_KNH_PEP.aspx" />
     <Content Include="ClinicalForms\frmClinical_RevisedAdultfollowup.aspx" />
+    <Content Include="ClinicalForms\frm_ARTReadinessAssessment.aspx" />
     <Content Include="ClinicalForms\UserControl\mbExtruder.css" />
     <Content Include="ClinicalForms\UserControl\UserControlKNHPresentingComplaints.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControlKNH_BackToTop.ascx" />

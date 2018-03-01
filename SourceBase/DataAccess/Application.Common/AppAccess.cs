@@ -30,6 +30,7 @@ using System;
         public static int Transfer = 56;
         public static int FamilyInfo = 59;
         public static int OrderLabTest = 83;
+        public static int OrderPhlebotomyTest = 238;
         public static int PMTCTEnrollment = 117;
         public static int ChildEnrollment = 118;
         public static int HEIForm = 265;

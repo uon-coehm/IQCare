@@ -267,7 +267,10 @@ public partial class MasterPage_levelTwoNavigationUserControl : System.Web.UI.Us
                 //mnuLabOrder.Visible = false;
                 //mnuLabOrderPMTCT.Visible = false;
             }
-
+            if (Authentication.HasFeatureRight(ApplicationAccess.OrderPhlebotomyTest, theDT) == false)
+            {
+                RemoveMenuItemByValue(patientLevelMenu.Items, "mnuLabTest");
+            }
             if (Authentication.HasFeatureRight(ApplicationAccess.NonARTFollowup, theDT) == false)
             {
                 //mnuNonARTFollowUp.Visible = false;
@@ -1553,13 +1556,21 @@ public partial class MasterPage_levelTwoNavigationUserControl : System.Web.UI.Us
         else
         {
             SetPatientId_Session();
-            //if (e.Item.Value.Substring(0, 15).ToString().Equals("mnuOrderLabTest") || e.Item.Value.Equals("../Laboratory/LabOrderForm.aspx?name=Add&sts=0"))
-            string strMenuValue = e.Item.Value.Substring(0, 15);
-            if (strMenuValue.Equals("mnuOrderLabTest") || strMenuValue.Equals("mnuLabOrderDynm") || e.Item.Value.Equals("../Laboratory/frm_Laboratory.aspx?name=Add&sts=0"))
-            {
+        
+            string value = e.Item.Value.ToString();
+            string length = value.Length.ToString();
 
-                //Redirect("../Laboratory/LabOrderForm.aspx", "_blank", "toolbars=no,location=no,directories=no,dependent=yes,top=100,left=30,maximize=no,resize=no,width=1000,height=800,scrollbars=yes");
-                Response.Redirect("../Laboratory/frm_Laboratory.aspx");
+            if (Convert.ToInt32(length) >= 15)
+            {
+                //if (e.Item.Value.Substring(0, 15).ToString().Equals("mnuOrderLabTest") || e.Item.Value.Equals("../Laboratory/LabOrderForm.aspx?name=Add&sts=0"))
+                string strMenuValue = e.Item.Value.Substring(0, 15);
+
+                if (strMenuValue.Equals("mnuOrderLabTest") || strMenuValue.Equals("mnuLabOrderDynm") || e.Item.Value.Equals("../Laboratory/frm_Laboratory.aspx?name=Add&sts=0"))
+                {
+
+                    //Redirect("../Laboratory/LabOrderForm.aspx", "_blank", "toolbars=no,location=no,directories=no,dependent=yes,top=100,left=30,maximize=no,resize=no,width=1000,height=800,scrollbars=yes");
+                    Response.Redirect("../Laboratory/frm_Laboratory.aspx");
+                }
             }
             else
             {

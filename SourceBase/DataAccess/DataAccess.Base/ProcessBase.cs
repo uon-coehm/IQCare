@@ -1,9 +1,11 @@
 using System;
-
+using DataAccess.Common;
 namespace DataAccess.Base
 {
     public class ProcessBase : MarshalByRefObject
     {
+
+        public ClsUtility ClsUtility = new ClsUtility(); 
         #region "Constructor"
         public ProcessBase()
         {

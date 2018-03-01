@@ -446,7 +446,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <act:TabContainer ID="tabControlKNHPEP" runat="server" ActiveTabIndex="0" 
+                <act:TabContainer ID="tabControlKNHPEP" runat="server" ActiveTabIndex="1" 
                     Width="100%">
                     <act:TabPanel ID="tbpnlTriage" runat="server" Font-Size="Medium" HeaderText="Triage">
                         <HeaderTemplate>
@@ -500,10 +500,11 @@
                                                                             <td style="width: 35%" align="left">
                                                                                 <input id="rdopatientcaregiverYes" runat="server" name="patientcaregiver" onclick="down(this);rblSelectedValue(1,'divcaregiver');"
                                                                                     onfocus="up(this);" onmouseup="up(this);" type="radio" /> 
-                                                                                 </input></input></input><label>Yes</label>
+                                                                                 &nbsp;</input></input></input><label>Yes</label>
                                                                                 <input ID="rdopatientcaregiverNo" runat="server" name="patientcaregiver" 
                                                                                     onclick="down(this);rblSelectedValue(0,'divcaregiver');fnReset('ctl00_IQCareContentPlaceHolder_tabControlKNHPEP_tbpnlTriage_ddlcaregiverrelationship','dd')" 
                                                                                     onfocus="up(this);" onmouseup="up(this);" type="radio"></input> </input>
+                                                                                </input>
                                                                                 </input>
                                                                                 </input>
                                                                                 </input>
@@ -557,11 +558,12 @@
                                                                                 <input id="rdorefferedfacilityYes" runat="server" name="refferedfromanotherfacility"
                                                                                     onclick="down(this);rblSelectedValue(1,'divspecity');" onfocus="up(this);" onmouseup="up(this);"
                                                                                     type="radio" />
-                                                                                 </input></input></input></input></input><label>Yes</label>
+                                                                                 &nbsp;</input></input></input></input></input><label>Yes</label>
                                                                                 <input ID="rdorefferedfacilityNO" runat="server" 
                                                                                     name="refferedfromanotherfacility" 
                                                                                     onclick="down(this);rblSelectedValue(0,'divspecity');fnReset('ctl00_IQCareContentPlaceHolder_tabControlKNHPEP_tbpnlTriage_txtspecity','txt');" 
                                                                                     onfocus="up(this);" onmouseup="up(this);" type="radio"></input> </input>
+                                                                                </input>
                                                                                 </input>
                                                                                 </input>
                                                                                 </input>
@@ -617,7 +619,7 @@
                                                                 <td style="width: 50%" align="left">
                                                                     <input id="txtdtLMP" runat="server" maxlength="11" onblur="DateFormat(this,this.value,event,false,'3')"
                                                                         onfocus="javascript:vDateType='3'" onkeyup="DateFormat(this,this.value,event,false,'3')"
-                                                                        size="11" type="text" /> </input></input> </input></input></input></input>  <img id="Img1"
+                                                                        size="11" type="text" /> &nbsp;</input></input></input></input></input></input><img id="Img1"
                                                                             alt="Date Helper" border="0" height="22 " hspace="5" name="appDateimg" onclick="w_displayDatePicker('<%=txtdtLMP.ClientID%>');"
                                                                             src="../images/cal_icon.gif" width="22" /><span id="Span1" class="smallerlabel">(DD-MMM-YYYY)</span>
                                                                 </td>
@@ -906,19 +908,35 @@
                                         <table id="Table3" class="border center formbg" cellspacing="6" cellpadding="0" width="100%"
                                             border="0">
                                             <tr>
-                                                <td class="border center pad5 whitebg" style="width: 100%" colspan="2">
+                                                <td>
+                                                    <tr>
+                                                        <caption>
+                                                            <label>
+                                                            Choose PEP Reason
+                                                            </label>
+                                                            <asp:DropDownList ID="DDLPepReason" runat="server">
+                                                            </asp:DropDownList>
+                                                        </caption>
+                                                    </tr>
+                                                </td>
+                                            </tr>
+                                            <!--- occupational reason --->
+                                            <tr ID="occupationalrow">
+                                                <td class="border center pad5 whitebg" colspan="2" 
+                                                    style="width: 100%;">
                                                     <table width="100%">
                                                         <tr>
                                                             <td align="left" width="50%">
                                                                 <table width="100%">
                                                                     <tbody>
+                                                                        <!--- reason selector --->
                                                                         <tr>
-                                                                            <td style="width: 40%" align="right">
+                                                                            <td align="right" style="width: 40%">
                                                                                 <label>
-                                                                                    <asp:Label ID="lblOccupational" runat="server" Text="Occupational:"></asp:Label>
+                                                                                <asp:Label ID="lblOccupational" runat="server" Text="Occupational:"></asp:Label>
                                                                                 </label>
                                                                             </td>
-                                                                            <td style="width: 60%" align="left">
+                                                                            <td align="left" style="width: 60%">
                                                                                 <asp:DropDownList ID="ddloccupational" runat="server">
                                                                                 </asp:DropDownList>
                                                                             </td>
@@ -927,16 +945,16 @@
                                                                 </table>
                                                             </td>
                                                             <td align="left" width="50%">
-                                                                <div id="divotheroccupational" style="display: none;">
+                                                                <div ID="divotheroccupational" style="display: none;">
                                                                     <table width="100%">
                                                                         <tbody>
                                                                             <tr>
-                                                                                <td style="width: 60%" align="right">
+                                                                                <td align="right" style="width: 60%">
                                                                                     <label>
-                                                                                        Specify other occupational PEP:</label>
+                                                                                    Specify other occupational PEP:</label>
                                                                                 </td>
-                                                                                <td style="width: 40%" align="left">
-                                                                                    <asp:TextBox runat="server" ID="txtotherPEP"></asp:TextBox>
+                                                                                <td align="left" style="width: 40%">
+                                                                                    <asp:TextBox ID="txtotherPEP" runat="server"></asp:TextBox>
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
@@ -947,7 +965,9 @@
                                                     </table>
                                                 </td>
                                             </tr>
-                                            <tr>
+
+                                            <!--- body fluid reason --->
+                                            <tr ID="bodyflkuidrow">
                                                 <td class="border center pad5 whitebg" style="width: 100%" colspan="2">
                                                     <table width="100%">
                                                         <tr>
@@ -990,7 +1010,9 @@
                                                     </table>
                                                 </td>
                                             </tr>
-                                            <tr>
+
+                                            <!--- non-occupational reasopn --->
+                                            <tr ID="nonuccupationalrow">
                                                 <td class="border center pad5 whitebg" style="width: 100%" colspan="2">
                                                     <table width="100%">
                                                         <tr>
@@ -1034,7 +1056,9 @@
                                                     </table>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            
+                                            <!--- sexual assault reason --->
+                                            <tr ID="sexualassaultrow">
                                                 <td class="border center pad5 whitebg" style="width: 100%" colspan="2">
                                                     <table width="100%">
                                                         <tr>
@@ -1077,6 +1101,8 @@
                                                     </table>
                                                 </td>
                                             </tr>
+
+                                            <!--- action taken after exposure --->
                                             <tr>
                                                 <td class="border center pad5 whitebg" style="width: 50%">
                                                     <table width="100%">
@@ -1094,122 +1120,163 @@
                                                         </tbody>
                                                     </table>
                                                 </td>
+
+                                                <!--- my code here --->
                                                 <td class="border center pad5 whitebg" style="width: 50%">
+                                                    <table>
+                                                        <caption>
+                                                            <tr>
+                                                                <td width="50%">
+                                                                    <label>
+                                                                        Any Other action taken
+                                                                    </label>
+                                                                </td>
+                                                                <td width="50%">
+                                                                    <asp:TextBox ID="otheractiontaken" runat="server"></asp:TextBox>
+                                                                </td>
+                                                            </tr>
+                                                        </caption>
+                                                    </table>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td class="border center pad5 whitebg" style="width: 50%" colspan="2">
-                                                    <table width="100%">
-                                                        <tr>
-                                                            <td align="left">
+                                        </table>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border center pad5 whitebg" colspan="2" style="width: 50%">
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td align="left">
+                                                            <table width="100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td align="right">
+                                                                            <label>
+                                                                            PEP regimen:</label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:DropDownList ID="ddlpepregimen" runat="server">
+                                                                            </asp:DropDownList>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                        <td align="left">
+                                                            <div ID="divotherpep" style="display: none;">
                                                                 <table width="100%">
                                                                     <tbody>
                                                                         <tr>
                                                                             <td align="right">
                                                                                 <label>
-                                                                                    PEP regimen:</label>
+                                                                                Other PEP regimen:</label>
                                                                             </td>
                                                                             <td align="left">
-                                                                                <asp:DropDownList runat="server" ID="ddlpepregimen" >
-                                                                                </asp:DropDownList>
+                                                                                <asp:TextBox ID="txtotherpepregimen" runat="server"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
-                                                            </td>
-                                                            <td align="left">
-                                                                <div id="divotherpep" style="display: none;">
-                                                                    <table width="100%">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td align="right">
-                                                                                    <label>
-                                                                                        Other PEP regimen:</label>
-                                                                                </td>
-                                                                                <td align="left">
-                                                                                    <asp:TextBox ID="txtotherpepregimen" runat="server"></asp:TextBox>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </td>
-                                                            <td align="left">
-                                                                <table width="100%">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td align="right">
-                                                                                <label>
-                                                                                    Current PEP regimen start date:</label>
-                                                                            </td>
-                                                                            <td align="left">
-                                                                                <input id="datecurrentpepregimen" runat="server" maxlength="11" onblur="DateFormat(this,this.value,event,false,'3')"
-                                                                                    onfocus="javascript:vDateType='3'" onkeyup="DateFormat(this,this.value,event,false,'3')"
-                                                                                    size="11" type="text" />
-                                                                                </input></input> <img id="Img2" alt="Date Helper" border="0" height="22 " hspace="5" name="appDateimg"
+                                                            </div>
+                                                        </td>
+                                                        <td align="left">
+                                                            <table width="100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td align="right">
+                                                                            <label>
+                                                                            Current PEP regimen start date:</label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <input ID="datecurrentpepregimen" runat="server" maxlength="11" 
+                                                                                onblur="DateFormat(this,this.value,event,false,'3')" 
+                                                                                onfocus="javascript:vDateType='3'" 
+                                                                                onkeyup="DateFormat(this,this.value,event,false,'3')" size="11" type="text"></input> 
+                                                                            </input>
+                                                                            </input>
+                                                                            </input>
+                                                                            </input>
+                                                                            </input>
+                                                                            </input>
+                                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; </input>
+                                                                            </input>
+                                                                            </input>
+                                                                            <img id="Img2" alt="Date Helper" border="0" height="22 " hspace="5" name="appDateimg"
                                                                                     onclick="w_displayDatePicker('<%=datecurrentpepregimen.ClientID%>');" src="../images/cal_icon.gif"
-                                                                                    width="22" /><span id="Span2" class="smallerlabel">(DD-MMM-YYYY)</span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td align="right">
-                                                                                <label>
-                                                                                    Current PEP regimen end date:</label>
-                                                                            </td>
-                                                                            <td align="left">
-                                                                                <input id="txtPEPRegimenEndDate" runat="server" maxlength="11" onblur="DateFormat(this,this.value,event,false,'3')"
-                                                                                    onfocus="javascript:vDateType='3'" onkeyup="DateFormat(this,this.value,event,false,'3')"
-                                                                                    size="11" type="text" />
-                                                                                </input></input> <img id="Img4" alt="Date Helper" border="0" height="22 " hspace="5" name="appDateimg"
+                                                                                    width="22" />
+                                                                            <span ID="Span2" class="smallerlabel">(DD-MMM-YYYY)</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="right">
+                                                                            <label>
+                                                                            Current PEP regimen end date:</label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <input ID="txtPEPRegimenEndDate" runat="server" maxlength="11" 
+                                                                                onblur="DateFormat(this,this.value,event,false,'3')" 
+                                                                                onfocus="javascript:vDateType='3'" 
+                                                                                onkeyup="DateFormat(this,this.value,event,false,'3')" size="11" type="text"></input> 
+                                                                            </input>
+                                                                            </input>
+                                                                            </input>
+                                                                            </input>
+                                                                            </input>
+                                                                            </input>
+                                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; </input>
+                                                                            </input>
+                                                                            </input>
+                                                                            <img id="Img4" alt="Date Helper" border="0" height="22 " hspace="5" name="appDateimg"
                                                                                     onclick="w_displayDatePicker('<%=txtPEPRegimenEndDate.ClientID%>');" src="../images/cal_icon.gif"
-                                                                                    width="22" /><span id="Span4" class="smallerlabel">(DD-MMM-YYYY)</span>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border center pad5 whitebg" style="width: 100%" colspan="2">
-                                                    <table width="100%">
-                                                        <tr>
-                                                            <td align="left" width="50%">
-                                                                <table width="100%">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td style="width: 40%" align="right">
-                                                                                <label>
-                                                                                    Days PEP dispensed so far:</label>
-                                                                            </td>
-                                                                            <td style="width: 60%" align="left">
-                                                                                <asp:TextBox ID="txtdayspepdispensedsofar" runat="server"></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                            <td width="50%" align="left">
-                                                                <table width="100%">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td style="width: 60%" align="right">
-                                                                                <label>
-                                                                                    Days PEP dispensed during this visit:</label>
-                                                                            </td>
-                                                                            <td style="width: 40%" align="left">
-                                                                                <asp:TextBox ID="txtdayspepdispensedthisvisit" runat="server"></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
+                                                                                    width="22" />
+                                                                            <span ID="Span4" class="smallerlabel">(DD-MMM-YYYY)</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border center pad5 whitebg" colspan="2" style="width: 100%">
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td align="left" width="50%">
+                                                            <table width="100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td align="right" style="width: 40%">
+                                                                            <label>
+                                                                            Days PEP dispensed so far:</label>
+                                                                        </td>
+                                                                        <td align="left" style="width: 60%">
+                                                                            <asp:TextBox ID="txtdayspepdispensedsofar" runat="server"></asp:TextBox>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                        <td align="left" width="50%">
+                                                            <table width="100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td align="right" style="width: 60%">
+                                                                            <label>
+                                                                            Days PEP dispensed during this visit:</label>
+                                                                        </td>
+                                                                        <td align="left" style="width: 40%">
+                                                                            <asp:TextBox ID="txtdayspepdispensedthisvisit" runat="server"></asp:TextBox>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
                                         </table>
                                     </asp:Panel>
                                 </div>
@@ -1272,8 +1339,133 @@
                                                                             <input id="rdoarvsideeffectsyes" runat="server" name="arvsideeffects" onclick="down(this);rblSelectedValue(1,'divshortermeffects');rblSelectedValue(1,'divlongtermeffectsshow');"
                                                                                 onfocus="up(this);" onmouseup="up(this);" type="radio" visible="False"></input>
                                                                             
-                                                                            <input id="rdoarvsideeffectsno" runat="server" name="arvsideeffects" onclick="down(this);rblSelectedValue(0,'divshortermeffects');rblSelectedValue(0,'divlongtermeffectsshow');"
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            </input>
+                                                                            
+                                                                            <input></input><input id="rdoarvsideeffectsno" runat="server" name="arvsideeffects" onclick="down(this);rblSelectedValue(0,'divshortermeffects');rblSelectedValue(0,'divlongtermeffectsshow');"
                                                                                 onfocus="up(this);" onmouseup="up(this);" type="radio" visible="False"></input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                           
+                                                                            </input>
+                                                                            </input>
                                                                            
                                                                         </td>
                                                                     </tr>
@@ -1426,9 +1618,135 @@
                                                                                 <input id="rdomisseddosesyes" runat="server" name="misseddoses" onclick="down(this);rblSelectedValue(1,'divdosesmissedlastweek');"
                                                                                     onfocus="up(this);" onmouseup="up(this);" type="radio"></input>
                                                                                 
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                </input>
+                                                                                
                                                                                 <label>
                                                                                     Yes</label><input id="rdomisseddosesno" runat="server" name="misseddoses" onclick="down(this);rblSelectedValue(0,'divdosesmissedlastweek');fnReset('ctl00_IQCareContentPlaceHolder_tabControlKNHPEP_tbpnlClinicalAssessment_txtdosesmissed','txt');"
                                                                                         onfocus="up(this);" onmouseup="up(this);" type="radio"></input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                
+                                                                                </input>
+                                                                                </input>
                                                                                 
                                                                                 <label>
                                                                                     No</label>
@@ -1489,10 +1807,74 @@
                                                                                 </input>
                                                                                 </input>
                                                                                 </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
                                                                                 </input> </input> </input> </input>
                                                                                 <label>
                                                                                     Yes</label><input id="vomitteddosesno" runat="server" name="vomitteddoses" onclick="down(this);rblSelectedValue(0,'divdosesvomited');fnReset('ctl00_IQCareContentPlaceHolder_tabControlKNHPEP_tbpnlClinicalAssessment_txtdosesvomited','txt');"
                                                                                         onfocus="up(this);" onmouseup="up(this);" type="radio"></input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
                                                                                 </input>
                                                                                 </input>
                                                                                 </input>
@@ -1568,10 +1950,74 @@
                                                                                 </input>
                                                                                 </input>
                                                                                 </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
                                                                                 </input> </input> </input> </input>
                                                                                 <label>
                                                                                     Yes</label><input id="rdodelayedinanydoseno" runat="server" name="delayeddose" onclick="down(this);rblSelectedValue(0,'divnodoseddelayed');fnReset('ctl00_IQCareContentPlaceHolder_tabControlKNHPEP_tbpnlClinicalAssessment_txtdosesdelayed','txt');"
                                                                                         onfocus="up(this);" onmouseup="up(this);" type="radio"></input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
                                                                                 </input>
                                                                                 </input>
                                                                                 </input>
@@ -1840,8 +2286,40 @@
                                                                 <td style="width: 40%" align="left">
                                                                     <input id="rdohbvvaccinationyes" runat="server" name="hbv" onclick="down(this);"
                                                                         onfocus="up(this);" onmouseup="up(this);" type="radio" />
-                                                                    </input><label>Yes</label><input ID="rdohbvvaccinationno" runat="server" name="hbv" 
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; </input></input><label>Yes</label><input ID="rdohbvvaccinationno" runat="server" name="hbv" 
                                                                         onclick="down(this);" onfocus="up(this);" onmouseup="up(this);" type="radio"></input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
                                                                     </input>
                                                                     </input>
                                                                     </input></input></input></input></input></input></input></input><label>No</label>
@@ -1862,9 +2340,41 @@
                                                                 <td style="width: 40%" align="left">
                                                                     <input id="rdodiscusseddisclosureyes" runat="server" name="disclosureplan" onclick="down(this);"
                                                                         onfocus="up(this);" onmouseup="up(this);" type="radio" />
-                                                                    </input><label>Yes</label><input ID="rdodiscusseddisclosureno" runat="server" 
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; </input></input><label>Yes</label><input ID="rdodiscusseddisclosureno" runat="server" 
                                                                         name="disclosureplan" onclick="down(this);" onfocus="up(this);" 
                                                                         onmouseup="up(this);" type="radio"></input> </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
                                                                     </input>
                                                                     </input></input></input></input></input></input></input></input><label>No</label>
                                                                 </td>
@@ -1886,8 +2396,40 @@
                                                                 <td style="width: 40%" align="left">
                                                                     <input id="rdosafesexyes" runat="server" name="safesex" onclick="down(this);" onfocus="up(this);"
                                                                         onmouseup="up(this);" type="radio" />
-                                                                    </input><label>Yes</label><input ID="rdosafesexno" runat="server" name="safesex" 
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; </input></input><label>Yes</label><input ID="rdosafesexno" runat="server" name="safesex" 
                                                                         onclick="down(this);" onfocus="up(this);" onmouseup="up(this);" type="radio"></input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
                                                                     </input>
                                                                     </input>
                                                                     </input></input></input></input></input></input></input></input><label>No</label>
@@ -1908,8 +2450,72 @@
                                                                     <input id="rdoadherencecounsellingyes" runat="server" name="adherence" onclick="down(this);"
                                                                         onfocus="up(this);" onmouseup="up(this);" type="radio"></input> </input>
                                                                     </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
                                                                     </input></input></input></input></input></input></input></input></input></input></input></input></input></input></input></input><label>Yes</label><input id="rdoadherencecounsellingno" runat="server" name="adherence"
                                                                             onclick="down(this);" onfocus="up(this);" onmouseup="up(this);" type="radio"></input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
+                                                                    </input>
                                                                     </input>
                                                                     </input>
                                                                     </input></input></input></input></input></input></input></input></input></input></input></input></input></input></input></input></input></input><label>No</label>
@@ -1935,8 +2541,72 @@
                                                                                 <input id="rdocondomsdispensedyes" runat="server" name="condoms" onclick="down(this);rblSelectedValue(0,'divreasonfornotissue');fnReset('ctl00_IQCareContentPlaceHolder_tabControlKNHPEP_tbpnlClinicalAssessment_txtreasonfornotissuecondoms','txt');"
                                                                                     onfocus="up(this);" onmouseup="up(this);" type="radio"></input> </input>
                                                                                 </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
                                                                                 </input></input></input></input></input></input></input></input></input></input></input></input></input></input></input></input><label>Yes</label><input id="rdocondomsdispensedno" runat="server" name="condoms" onclick="down(this);rblSelectedValue(1,'divreasonfornotissue');"
                                                                                         onfocus="up(this);" onmouseup="up(this);" type="radio"></input> </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
+                                                                                </input>
                                                                                 </input>
                                                                                 </input></input></input></input></input></input></input></input></input></input></input></input></input></input></input></input></input></input><label>No</label>
                                                                             </td>

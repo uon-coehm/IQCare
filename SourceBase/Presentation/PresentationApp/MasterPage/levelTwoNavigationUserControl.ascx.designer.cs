@@ -12,6 +12,15 @@
 public partial class MasterPage_levelTwoNavigationUserControl {
     
     /// <summary>
+    /// leveltwonav control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.HtmlControls.HtmlGenericControl leveltwonav;
+    
+    /// <summary>
     /// patientLevelMenu control.
     /// </summary>
     /// <remarks>

@@ -61,10 +61,17 @@ namespace PresentationApp.ClinicalForms
             if (ddlFieldVisitType.SelectedItem.Text == "Initial only")
             {
                 showhideInitialOnly();
+                GetDataforAutopopulate();
             }
             else if (ddlFieldVisitType.SelectedItem.Text == "Follow Up")
             {
                 showhideFollowUp();
+                idVitalSign.txtTemp.Text = String.Empty;
+                idVitalSign.txtBMI.Text = String.Empty;
+                idVitalSign.txtBPDiastolic.Text = String.Empty;
+                idVitalSign.txtBPSystolic.Text = String.Empty;
+                idVitalSign.txtWeight.Text = String.Empty;
+                idVitalSign.txtHeight.Text = String.Empty;
             }
             //else if (ddlFieldVisitType.SelectedItem.Text == "ANC PMTCT")
             //{
@@ -73,62 +80,49 @@ namespace PresentationApp.ClinicalForms
 
             ScriptManager.RegisterStartupScript(this, GetType(), "divTBSave", "hide('divTBSave');", true);
 
-            GetDataforAutopopulate();
+            
 
-            if (rdoPatientaccPartnerYes.Checked == true)
-            {
+            if (rdoPatientaccPartnerYes.Checked)
                 ScriptManager.RegisterStartupScript(this, GetType(), "spnpap1", "show('pap1');show('pap2');", true);
-            }
+           
             if (ddlHMHealth.SelectedItem.Text == "Other (specify)")
-            {
                 ScriptManager.RegisterStartupScript(this, GetType(), "spndivHMentalHealth", "show('divHMentalHealth');", true);
-            }
+            
             if (ddlCMHealth.SelectedItem.Text == "Other")
-            {
                 ScriptManager.RegisterStartupScript(this, GetType(), "spndivCMentalHealth", "show('divCMentalHealth');", true);
-            }
+            
             if (ddlCMHealth.SelectedItem.Text == "Stop CTX")
-            {
                 ScriptManager.RegisterStartupScript(this, GetType(), "spndivctx", "show('divctx');", true);
-            }
-            if (rdoHistoryBloodTransfusionYes.Checked == true)
-            {
+            
+            if (rdoHistoryBloodTransfusionYes.Checked)
+             ScriptManager.RegisterStartupScript(this, GetType(), "spndivBloodTransfusion", "show('divBloodTransfusion');", true);
+            
+            if (rdoHistoryBloodTransfusionYes.Checked)
                 ScriptManager.RegisterStartupScript(this, GetType(), "spndivBloodTransfusion", "show('divBloodTransfusion');", true);
-            }
-            if (rdoHistoryBloodTransfusionYes.Checked == true)
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "spndivBloodTransfusion", "show('divBloodTransfusion');", true);
-            }
-            if (rdoMotheratriskyes.Checked == true)
-            {
+            
+            if (rdoMotheratriskyes.Checked)
                 ScriptManager.RegisterStartupScript(this, GetType(), "spndivriskfactor", "show('divriskfactor');", true);
-            }
-            if (rdoMissedanydosesYes.Checked == true)
-            {
+            
+            if (rdoMissedanydosesYes.Checked)
                 ScriptManager.RegisterStartupScript(this, GetType(), "spntrMisseddoses", "show('trMisseddoses');", true);
-            }
-            if (UCWHOStage.radbtnMernarcheyes.Checked == true)
-            {
+            
+            if (UCWHOStage.radbtnMernarcheyes.Checked )
                 ScriptManager.RegisterStartupScript(this, GetType(), "spndivmenarchedatehshowhide", "show('divmenarchedatehshowhide');", true);
-            }
-            if (rdoExperienceanyGBVYes.Checked == true)
-            {
+            
+            if (rdoExperienceanyGBVYes.Checked)
                 ScriptManager.RegisterStartupScript(this, GetType(), "spntbtdGBVExperiencedshowhide", "show('tdGBVExperienced');", true);
-            }
-            if (rdoHIVSubstanceAbusedYes.Checked == true)
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "spntbtdSubstanceAbusedshowhide", "show('tdSubstanceAbused');", true);
-            }
+            
+            if (rdoHIVSubstanceAbusedYes.Checked)
+              ScriptManager.RegisterStartupScript(this, GetType(), "spntbtdSubstanceAbusedshowhide", "show('tdSubstanceAbused');", true);
+            
 
             if (this.ddlSpecifyCurrentRegmn.SelectedItem.Text == "Other")
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "spntbtdtdothercurrentregimenshowhide", "show('tdothercurrentregimen');", true);
-            }
+              ScriptManager.RegisterStartupScript(this, GetType(), "spntbtdtdothercurrentregimenshowhide", "show('tdothercurrentregimen');", true);
+            
 
             if (this.rdoHIVTestingTodayYes.Checked)
-            {
                 ScriptManager.RegisterStartupScript(this, GetType(), "fnShowHideHIVtestDetails", "ShowHideHIVtestDetails();", true);
-            }
+            
         }
 
         private void HideControls()
@@ -2426,7 +2420,8 @@ namespace PresentationApp.ClinicalForms
                 btnHTCSave.Enabled = false;
                 btnProfileSave.Enabled = false;
                 btnSaveClinicalReview.Enabled = false;
-                btnSavePMTCT.Enabled = false;
+                /*** change back to false ***/
+                btnSavePMTCT.Enabled = true;
             }
             else if (Request.QueryString["name"] == "Delete")
             {
@@ -2445,7 +2440,8 @@ namespace PresentationApp.ClinicalForms
                     btnHTCSave.Enabled = false;
                     btnProfileSave.Enabled = false;
                     btnSaveClinicalReview.Enabled = false;
-                    btnSavePMTCT.Enabled = false;
+                    /*** change back to false ***/
+                    btnSavePMTCT.Enabled = true;
                 }
             }
 
@@ -2459,7 +2455,8 @@ namespace PresentationApp.ClinicalForms
                         btnHTCSave.Enabled = false;
                         btnProfileSave.Enabled = false;
                         btnSaveClinicalReview.Enabled = false;
-                        btnSavePMTCT.Enabled = false;
+                        /*** change back to false ***/
+                        btnSavePMTCT.Enabled = true;
                     }
                 }
             }
@@ -2469,7 +2466,8 @@ namespace PresentationApp.ClinicalForms
                 btnHTCSave.Enabled = false;
                 btnProfileSave.Enabled = false;
                 btnSaveClinicalReview.Enabled = false;
-                btnSavePMTCT.Enabled = false;
+                /*** change back tio false ***/
+                btnSavePMTCT.Enabled = true;
             }
         }
 
@@ -3180,6 +3178,14 @@ namespace PresentationApp.ClinicalForms
             else if (ddlFieldVisitType.SelectedItem.Text == "Follow Up")
             {
                 showhideFollowUp();
+                idVitalSign.txtTemp.Text = String.Empty;
+                idVitalSign.txtBMI.Text = String.Empty;
+                idVitalSign.txtBPDiastolic.Text = String.Empty;
+                idVitalSign.txtBPSystolic.Text = String.Empty;
+                idVitalSign.txtWeight.Text = String.Empty;
+                idVitalSign.txtHeight.Text = String.Empty;
+
+
             }
             else if (ddlFieldVisitType.SelectedItem.Text == "ANC PMTCT")
             {

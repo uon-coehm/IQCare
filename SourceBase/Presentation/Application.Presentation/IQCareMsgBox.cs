@@ -55,7 +55,40 @@ using AjaxControlToolkit;
             theSB.Append(Msg);
             frmName.Controls.AddAt(frmName.Controls.Count, new LiteralControl(theSB.ToString()));
         }
+        public static void HideMessage(Page frmName)
+        {
+            Panel pnlerror = FindControlFromMaster<Panel>("divError", frmName.Master);
+            if (pnlerror != null && pnlerror.Visible == true)
+            {
+                pnlerror.Visible = false;
+            }
+            else
+            {
+                Panel pnlpageerror = (Panel)frmName.FindControl("divError");
+                if (pnlpageerror != null && pnlpageerror.Visible == true)
+                {
+                    pnlpageerror.Visible = false;
+                }
+            }
+        }
+        public static void HideMessage(Control frmName)
+        {
 
+            Panel pnlerror = FindControlFromMaster<Panel>("divError", frmName.Page.Master);
+            if (pnlerror != null && pnlerror.Visible == true)
+            {
+                pnlerror.Visible = false;
+            }
+            else
+            {
+                Panel pnlpageerror = (Panel)frmName.FindControl("divError");
+                if (pnlpageerror != null && pnlpageerror.Visible == true)
+                {
+                    pnlpageerror.Visible = false;
+                }
+            }
+        }
+        
         public static void ShowforUpdatePanel(string MessageId, Control frmName)
         {
             RawMessage theMsg = MsgRepository.GetMessage(MessageId);
@@ -110,13 +143,16 @@ using AjaxControlToolkit;
 
         public static void NotifyAction(string strMessage, string strTitle, bool errorFlag, Page frmName, string onOkScript = "")
         {
+
+            string message;
+            message = strMessage;
             Show("", "", "", frmName);
             Label lblNoticeInfo = FindControlFromMaster<Label>("lblNoticeInfo", frmName.Master);
             Label lblNotice = FindControlFromMaster<Label>("lblNotice", frmName.Master);
             Image imgNotice = FindControlFromMaster<Image>("imgNotice", frmName.Master);
             Button btnOkAction = FindControlFromMaster<Button>("btnOkAction", frmName.Master);
             Button btnCancel = FindControlFromMaster<Button>("btnCancel", frmName.Master);
-            lblNoticeInfo.Text = strMessage;
+            lblNoticeInfo.Text = message;
             lblNotice.Text = strTitle;
             lblNoticeInfo.ForeColor = (errorFlag) ? System.Drawing.Color.Black : System.Drawing.Color.Black;
             lblNoticeInfo.Font.Bold = true;

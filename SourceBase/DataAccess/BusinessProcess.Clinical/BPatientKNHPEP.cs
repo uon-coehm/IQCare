@@ -960,6 +960,7 @@ namespace BusinessProcess.Clinical
                 oUtility.AddParameters("@UserId", SqlDbType.Int, hashTable["userID"].ToString());
                 //oUtility.AddParameters("@starttime", SqlDbType.VarChar, hashTable["starttime"].ToString());
                 oUtility.AddParameters("@MedicalHistoryAdditionalNotes", SqlDbType.VarChar, hashTable["MedicalHistoryAdditionalNotes"].ToString());
+                oUtility.AddParameters("@Reasonpep", SqlDbType.Int, hashTable["Reasonpep"].ToString());
                 oUtility.AddParameters("@OccupationalPEP", SqlDbType.Int, hashTable["OccupationalPEP"].ToString());
                 oUtility.AddParameters("@OtherOccupationalPEP", SqlDbType.VarChar, hashTable["OtherOccupationalPEP"].ToString());
                 oUtility.AddParameters("@BodyFluidInvolved", SqlDbType.Int, hashTable["BodyFluidInvolved"].ToString());
@@ -969,6 +970,7 @@ namespace BusinessProcess.Clinical
                 oUtility.AddParameters("@SexualAssault", SqlDbType.Int, hashTable["SexualAssault"].ToString());
                 oUtility.AddParameters("@OtherSexualAssault", SqlDbType.VarChar, hashTable["OtherSexualAssault"].ToString());
                 oUtility.AddParameters("@ActionAfterPEP", SqlDbType.Int, hashTable["ActionAfterPEP"].ToString());
+                oUtility.AddParameters("@Otheractiontaken", SqlDbType.Int, hashTable["Otheractiontaken"].ToString());
                 oUtility.AddParameters("@PEPRegimen", SqlDbType.Int, hashTable["PEPRegimen"].ToString());
                 oUtility.AddParameters("@OtherPEPRegimen", SqlDbType.VarChar, hashTable["OtherPEPRegimen"].ToString());
                 oUtility.AddParameters("@DaysPEPDispensed", SqlDbType.Int, hashTable["DaysPEPDispensed"].ToString());

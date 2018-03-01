@@ -150,7 +150,7 @@ namespace PresentationApp.Laboratory
         {
             //if ((Session["LabOrderStatus"].ToString() == "") || (Session["LabOrderStatus"].ToString() == "Not Specified"))
             //{
-                trReported.Visible = false;
+               // trReported.Visible = false;
            // }
 
         }
@@ -920,6 +920,26 @@ namespace PresentationApp.Laboratory
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", script, true);
             //RegisterStartupScript("confirm", script);
         }
+        private DataTable CreateTestInittable()
+        {
+            DataTable theTestInitdt = new DataTable();
+            theTestInitdt.Columns.Add("ID", typeof(int));
+            theTestInitdt.Columns.Add("LabID", typeof(int));
+            theTestInitdt.Columns.Add("LabTestID", typeof(int));
+            theTestInitdt.Columns.Add("TestName", typeof(string));
+            theTestInitdt.Columns.Add("SpecimenID", typeof(int));
+            theTestInitdt.Columns.Add("SpecimenName", typeof(string));
+            theTestInitdt.Columns.Add("CustomSpecimenName", typeof(string));
+            theTestInitdt.Columns.Add("StateId", typeof(int));
+            theTestInitdt.Columns.Add("StateName", typeof(string));
+            theTestInitdt.Columns.Add("StatusId", typeof(int));
+            theTestInitdt.Columns.Add("StatusName", typeof(string));
+            theTestInitdt.Columns.Add("RejectedReasonId", typeof(int));
+            theTestInitdt.Columns.Add("RejectedReason", typeof(string));
+            theTestInitdt.Columns.Add("OtherReason", typeof(string));
+            return theTestInitdt;
+        }
+
         protected void SaveLabOrder()
         {
             //Default code for User Control Load 
@@ -1290,7 +1310,8 @@ namespace PresentationApp.Laboratory
                     theCustomDataDT = theCustomManager.GenerateInsertUpdateStatement(pnlCustomList, "Insert", ApplicationAccess.Laboratory, (DataSet)ViewState["CustomFieldsDS"]);
                 ILabFunctions theILabManager;
                 theILabManager = (ILabFunctions)ObjectFactory.CreateInstance("BusinessProcess.Laboratory.BLabFunctions, BusinessProcess.Laboratory");
-                int result = theILabManager.IQTouchSaveLabOrderTests(objLabFields, list, listArv, dtGenXpert, theCustomDataDT);
+                DataTable TestIntList = CreateTestInittable();
+                int result = theILabManager.IQTouchSaveLabOrderTests(objLabFields, list, listArv, dtGenXpert, theCustomDataDT,TestIntList);
                 if (result > 0)
                 {
                     

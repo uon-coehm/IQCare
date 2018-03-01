@@ -200,7 +200,9 @@ namespace PresentationApp.ClinicalForms
             txtdosesdelayed.Attributes.Add("onkeyup", "chkNumeric('" + txtdosesdelayed.ClientID + "')");
             CheckUncheklogic(cblMedicalConditions);
 
+            //DropDownList1.Attributes.Add("OnClick", "dropdownchangetext('" + ddloccupational.ClientID + "','divotheroccupational','Other Specify','" + txtotherPEP.ClientID + "');");
             ddloccupational.Attributes.Add("OnClick", "dropdownchangetext('" + ddloccupational.ClientID + "','divotheroccupational','Other Specify','" + txtotherPEP.ClientID + "');");
+            //ddloccupational.Attributes.Add("OnClick", "dropdownchangetext('" + ddlbodyfluid.ClientID + "','divbodyfluid','Other Specify','" + txtfluidother.ClientID + "');");
             ddlbodyfluid.Attributes.Add("OnClick", "dropdownchangetext('" + ddlbodyfluid.ClientID + "','divbodyfluid','Other Specify','" + txtfluidother.ClientID + "');");
             ddlnonoccupational.Attributes.Add("OnClick", "dropdownchangetext('" + ddlnonoccupational.ClientID + "','divnonoccupational','Other Specify','" + txtnonoccupationalother.ClientID + "');");
             ddlsexualassault.Attributes.Add("OnClick", "dropdownchangetext('" + ddlsexualassault.ClientID + "','divsexualassault','Other (specify)','" + txtothersexual.ClientID + "');");
@@ -246,15 +248,26 @@ namespace PresentationApp.ClinicalForms
                 script += "</script>\n";
                 RegisterStartupScript("divspecityYes", script);
             }
-          
-            if(ddloccupational.SelectedItem.Text == "Other Specify")
+
+            /*** on selecting occupational ***/
+            if (DDLPepReason.SelectedItem.Text == "Occupational")
             {
                 script = "";
-                script = "<script language = 'javascript' defer ='defer' id = 'divotheroccupationalYes'>\n";
-                script += "ShowHide('divotheroccupational','show');\n";
+                script = "<script language = 'javascript' defer ='defer' id = 'occupationalrow'>\n";
+                script += "ShowHide('occupationalrow','show');\n";
                 script += "</script>\n";
-                RegisterStartupScript("divotheroccupationalYes", script);
+                RegisterStartupScript("occupationalrowYes", script);
             }
+
+
+            //if(ddloccupational.SelectedItem.Text == "Other Specify")
+            //{
+            //    script = "";
+            //    script = "<script language = 'javascript' defer ='defer' id = 'divotheroccupationalYes'>\n";
+            //    script += "ShowHide('divotheroccupational','show');\n";
+            //    script += "</script>\n";
+            //    RegisterStartupScript("divotheroccupationalYes", script);
+            //}
                  
             if (ddlbodyfluid.SelectedItem.Text == "Other Specify")
             {
@@ -452,7 +465,7 @@ namespace PresentationApp.ClinicalForms
              //Specify other Body Fluid involved
              hidtab1.Value = hidtab1.Value + "^" + txtfluidother.ClientID;
              // Non - Occupational 
-             hidtab1.Value = hidtab1.Value + "^" + ddlnonoccupational.ClientID;
+             //hidtab1.Value = hidtab1.Value + "^" + ddlnonoccupational.ClientID;
              // Specify Other Non-Occupational Indication
              hidtab1.Value = hidtab1.Value + "^" + txtnonoccupationalother.ClientID;
              // Sexual assault
@@ -671,6 +684,9 @@ namespace PresentationApp.ClinicalForms
                     //Past Medical Record
                     if (dsGet.Tables[0].Rows[0]["MedicalHistoryAdditionalNotes"] != DBNull.Value)
                         txtpostmedicalrecord.Text = dsGet.Tables[0].Rows[0]["MedicalHistoryAdditionalNotes"].ToString();
+                    //PEP Reason
+                    if (dsGet.Tables[0].Rows[0]["Reasonpep"] != DBNull.Value)
+                        DDLPepReason.SelectedValue = dsGet.Tables[0].Rows[0]["Reasonpep"].ToString();
                     //Occupational
                     if (dsGet.Tables[0].Rows[0]["OccupationalPEP"] != DBNull.Value)
                     {
@@ -739,6 +755,9 @@ namespace PresentationApp.ClinicalForms
                     //Action taken after exposure
                     if (dsGet.Tables[0].Rows[0]["ActionAfterPEP"] != DBNull.Value)
                         ddltactionafterexposure.SelectedValue = dsGet.Tables[0].Rows[0]["ActionAfterPEP"].ToString();
+                    //Other action taken
+                    if (dsGet.Tables[0].Rows[0]["Otheractiontaken"] != DBNull.Value)
+                        otheractiontaken.Text = dsGet.Tables[0].Rows[0]["Otheractiontaken"].ToString();
                     // PEP Regimen 
                     if (dsGet.Tables[0].Rows[0]["PEPRegimen"] != DBNull.Value)
                     {
@@ -1051,14 +1070,14 @@ namespace PresentationApp.ClinicalForms
                 script += "</script>\n";
                 RegisterStartupScript("divspecityYes", script);
             }
-            if (ddloccupational.SelectedIndex.ToString() == "2")
-            {
-                script = "";
-                script = "<script language = 'javascript' defer ='defer' id = 'divotheroccupationalYes'>\n";
-                script += "ShowHide('divotheroccupational','show');\n";
-                script += "</script>\n";
-                RegisterStartupScript("divotheroccupationalYes", script);
-            }
+            //if (ddloccupational.SelectedIndex.ToString() == "2")
+            //{
+            //    script = "";
+            //    script = "<script language = 'javascript' defer ='defer' id = 'divotheroccupationalYes'>\n";
+            //    script += "ShowHide('divotheroccupational','show');\n";
+            //    script += "</script>\n";
+            //    RegisterStartupScript("divotheroccupationalYes", script);
+            //}
 
             if (ddlbodyfluid.SelectedIndex.ToString() == "4")
             {
@@ -1236,6 +1255,8 @@ namespace PresentationApp.ClinicalForms
             BindComboXML(theDSXML, "TimeToAccessDose", ddlexposure);
             //BindManager.BindCombo(ddlexposure, dsBind.Tables[2], "Name", "Id");
             BindComboXML(theDSXML, "OccupationalPEP", ddloccupational);
+            //DDL reason
+            BindComboXML(theDSXML, "PEPReason", DDLPepReason);
             //BindManager.BindCombo(ddloccupational, dsBind.Tables[3], "Name", "Id");
             BindComboXML(theDSXML, "BodyFluidInvolved", ddlbodyfluid);
             //BindManager.BindCombo(ddlbodyfluid, dsBind.Tables[4], "Name", "Id");
@@ -1569,6 +1590,8 @@ namespace PresentationApp.ClinicalForms
 
                 // Past Medical Record
                 theHT.Add("MedicalHistoryAdditionalNotes", txtpostmedicalrecord.Text);
+                //PepReason
+                theHT.Add("Reasonpep", DDLPepReason.SelectedItem.Value);
                 //Occupational
                 theHT.Add("OccupationalPEP", ddloccupational.SelectedItem.Value);
                 //Specify Other Occupational PEP
@@ -1587,6 +1610,8 @@ namespace PresentationApp.ClinicalForms
                 theHT.Add("OtherSexualAssault", txtothersexual.Text);
                 // Action taken after exposure
                 theHT.Add("ActionAfterPEP", ddltactionafterexposure.SelectedItem.Value);
+                //other action taken
+                theHT.Add("Otheractiontaken", otheractiontaken.Text);
                 //PEP Regimen
                 theHT.Add("PEPRegimen", ddlpepregimen.SelectedItem.Value);
                 // Other PEP Regimen

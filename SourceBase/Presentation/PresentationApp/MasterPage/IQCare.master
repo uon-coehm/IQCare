@@ -1,5 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="MasterPage_IQCare" CodeBehind="IQCare.master.cs" %>
-
+<%@ Register Assembly="AjaxControlToolkit" TagPrefix="cc1" Namespace="AjaxControlToolkit" %>
 <%@ Register Src="levelOneNavigationUserControl.ascx" TagName="levelOneNavigationUserControl"
     TagPrefix="uc1" %>
 <%@ Register Src="levelTwoNavigationUserControl.ascx" TagName="levelTwoNavigationUserControl"
@@ -10,6 +10,8 @@
 <head runat="server" id="pageHead">
     <title id="lblTitle" runat="server">International Quality Care Patient Management and
         Monitoring System</title>
+   <asp:ContentPlaceHolder ID="ContentPlaceHeader" runat="server">
+    </asp:ContentPlaceHolder>
     <link href="<%# ResolveUrl("~/Style/styles.css") %>" id="main" rel="stylesheet" type="text/css" />
     <link href="<%# ResolveUrl("~/MasterPage/Menu.css") %>" id="menuStyle" rel="stylesheet" type="text/css" />
     <link href="<%# ResolveUrl("~/Style/calendar.css") %>" rel="stylesheet" type="text/css" />
@@ -19,6 +21,7 @@
     <link href="<%# ResolveUrl("~/Style/styles.css") %>" rel="Stylesheet" type="text/css"  />
     <link href="<%# ResolveUrl("~/Touch/Styles/custom-theme/jquery-ui-1.10.3.custom.min.css") %>" rel="Stylesheet" type="text/css" />
     <link href="<%# ResolveUrl("~/ClinicalForms/UserControl/mbExtruder.css") %>" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="<%#ResolveUrl("~/style/CustomStyle.css") %>" />
     
     <script language="javascript" type="text/javascript" src="<%# ResolveUrl("~/Incl/menu.js") %>"></script>
     <script language="javascript" type="text/javascript" src="<%# ResolveUrl("~/Incl/jsCommon.js") %>"></script>
@@ -43,11 +46,19 @@
     <link href="<%# ResolveUrl("~/Incl/notification_center_plugin/css/style.css") %>" rel="stylesheet" type="text/css" />
     <link href="<%# ResolveUrl("~/Incl/notification_center_plugin/css/uniform.css") %>" rel="stylesheet"  type="text/css" />
     <script language="javascript" type="text/javascript" src="<%# ResolveUrl("~/Incl/notification_center_plugin/js/jquery.uniform.min.js") %>"></script>
+   
+   <link rel="stylesheet" href="<%#ResolveUrl("~/style/CustomStyle.css") %>" />
+ 
+   
     
     <script language="javascript" type="text/javascript">
         function pageurl(urlp) {
 
             window.open(urlp);
+        }
+
+        function fnCloseStatus() {
+            document.getElementById('tbstatus').style.display = "none";
         }
     </script>
     <%--<script language="javascript" type="text/javascript">    buildWeeklyCalendar(0, 1);</script>--%>
@@ -98,11 +109,15 @@
             text-align: center;
         }
         
-     
+        .tbstatus{padding: 30px;color: #fff;background: #D95F5F;position: fixed;bottom: 70px;right: 10px;border: 1px solid #b72224;width: 250px;text-align: center;border-radius: 3px;}
+        .closetbstatus{width: 18px;height: 18px;display: block;cursor: pointer;top: -9px;left: -9px;
+    background: transparent url(../images/growl-close.png) no-repeat center center scroll;}
     </style>
 </head>
 <body>
+ 
     <form id="form1" runat="server">
+    
     <div id="containerMaster">
         <div id="helpPasswordLinkButtons" style="float: right;">
             <asp:LinkButton class="utility" ID="lnkHelp" runat="server" OnClientClick="window.open('../IQCareHelp/index.html'); return false"
@@ -161,6 +176,7 @@
             <uc3:UserControlKNH_Extruder ID="UserControlKNH_Extruder1" runat="server" />
             </div>
             </asp:Panel>
+                        </asp:Panel>
             <table width="100%">
                 <tr>
                     <td align="left" width="50%">
@@ -179,9 +195,16 @@
                     </td>
                 </tr>
             </table>
+
         </div>
         <br />
         <br />
+    </div>
+    <div class="tbstatus" id="tbstatus">
+        <span class="delete-bubble" title="Notifications" onclick="fnCloseStatus()" style="display: inline;position: absolute;top: -10px;left: -9px;
+    width: 18px;height: 18px;border-radius: 50%;border: 1px solid grey;color: grey;background: #fff;cursor: pointer;}">x</span>
+        TB STATUS
+        <asp:Label ID="lblTbStatus" runat="server" Font-Bold="True"></asp:Label>
     </div>
     </form>
 </body>

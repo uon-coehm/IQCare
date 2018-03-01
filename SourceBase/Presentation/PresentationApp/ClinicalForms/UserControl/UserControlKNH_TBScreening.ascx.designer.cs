@@ -202,13 +202,22 @@ namespace PresentationApp.ClinicalForms.UserControl {
         public global::System.Web.UI.WebControls.Panel AvailableTBResultsBody;
         
         /// <summary>
-        /// lblSputumSmear control.
+        /// LBlTest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.WebControls.Label lblSputumSmear;
+        protected global::System.Web.UI.WebControls.Label LBlTest;
+        
+        /// <summary>
+        /// DDLTest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLTest;
         
         /// <summary>
         /// ddlSputumSmear control.
@@ -220,24 +229,6 @@ namespace PresentationApp.ClinicalForms.UserControl {
         public global::System.Web.UI.WebControls.DropDownList ddlSputumSmear;
         
         /// <summary>
-        /// txtSputumSmearDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        public global::System.Web.UI.WebControls.TextBox txtSputumSmearDate;
-        
-        /// <summary>
-        /// lblGeneExpert control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        public global::System.Web.UI.WebControls.Label lblGeneExpert;
-        
-        /// <summary>
         /// ddlGeneExpert control.
         /// </summary>
         /// <remarks>
@@ -247,24 +238,6 @@ namespace PresentationApp.ClinicalForms.UserControl {
         public global::System.Web.UI.WebControls.DropDownList ddlGeneExpert;
         
         /// <summary>
-        /// txtGeneExpertDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        public global::System.Web.UI.WebControls.TextBox txtGeneExpertDate;
-        
-        /// <summary>
-        /// lblSuptumDST control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        public global::System.Web.UI.WebControls.Label lblSuptumDST;
-        
-        /// <summary>
         /// ddlSputumDST control.
         /// </summary>
         /// <remarks>
@@ -272,24 +245,6 @@ namespace PresentationApp.ClinicalForms.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         public global::System.Web.UI.WebControls.DropDownList ddlSputumDST;
-        
-        /// <summary>
-        /// txtSputumDSTDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        public global::System.Web.UI.WebControls.TextBox txtSputumDSTDate;
-        
-        /// <summary>
-        /// lblChestXRay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        public global::System.Web.UI.WebControls.Label lblChestXRay;
         
         /// <summary>
         /// rdoChestXrayYes control.
@@ -310,6 +265,69 @@ namespace PresentationApp.ClinicalForms.UserControl {
         public global::System.Web.UI.WebControls.RadioButton rdoChestXrayNo;
         
         /// <summary>
+        /// rdoTissueBiopsyYes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdoTissueBiopsyYes;
+        
+        /// <summary>
+        /// rdoTissueBiopsyNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdoTissueBiopsyNo;
+        
+        /// <summary>
+        /// txtLam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLam;
+        
+        /// <summary>
+        /// txtTestOther control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTestOther;
+        
+        /// <summary>
+        /// txtSputumSmearDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        public global::System.Web.UI.WebControls.TextBox txtSputumSmearDate;
+        
+        /// <summary>
+        /// txtGeneExpertDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        public global::System.Web.UI.WebControls.TextBox txtGeneExpertDate;
+        
+        /// <summary>
+        /// txtSputumDSTDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSputumDSTDate;
+        
+        /// <summary>
         /// txtChestXrayDate control.
         /// </summary>
         /// <remarks>
@@ -317,6 +335,33 @@ namespace PresentationApp.ClinicalForms.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         public global::System.Web.UI.WebControls.TextBox txtChestXrayDate;
+        
+        /// <summary>
+        /// txtTissueBiopsyDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTissueBiopsyDate;
+        
+        /// <summary>
+        /// txtLamDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLamDate;
+        
+        /// <summary>
+        /// txtOtherDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOtherDate;
         
         /// <summary>
         /// ddlCXRResults control.
@@ -337,40 +382,130 @@ namespace PresentationApp.ClinicalForms.UserControl {
         public global::System.Web.UI.WebControls.TextBox txtOtherCXRResults;
         
         /// <summary>
-        /// lblTissueBiopsy control.
+        /// hdnsputumsmear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.WebControls.Label lblTissueBiopsy;
+        protected global::System.Web.UI.WebControls.HiddenField hdnsputumsmear;
         
         /// <summary>
-        /// rdoTissueBiopsyYes control.
+        /// hdngeneexpert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.WebControls.RadioButton rdoTissueBiopsyYes;
+        protected global::System.Web.UI.WebControls.HiddenField hdngeneexpert;
         
         /// <summary>
-        /// rdoTissueBiopsyNo control.
+        /// hdnsputumfordst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.WebControls.RadioButton rdoTissueBiopsyNo;
+        protected global::System.Web.UI.WebControls.HiddenField hdnsputumfordst;
         
         /// <summary>
-        /// txtTissueBiopsyDate control.
+        /// hdnchestxray control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.WebControls.TextBox txtTissueBiopsyDate;
+        protected global::System.Web.UI.WebControls.HiddenField hdnchestxray;
+        
+        /// <summary>
+        /// hdntissuebiopsy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdntissuebiopsy;
+        
+        /// <summary>
+        /// hdnlam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnlam;
+        
+        /// <summary>
+        /// hdnother control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnother;
+        
+        /// <summary>
+        /// hdnsputumsmeardate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnsputumsmeardate;
+        
+        /// <summary>
+        /// hdngeneexpertdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdngeneexpertdate;
+        
+        /// <summary>
+        /// hdnsputumfordstdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnsputumfordstdate;
+        
+        /// <summary>
+        /// hdnchestxraydate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnchestxraydate;
+        
+        /// <summary>
+        /// hdntissuebiopsydate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdntissuebiopsydate;
+        
+        /// <summary>
+        /// hdnlamdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnlamdate;
+        
+        /// <summary>
+        /// hdnotherdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnotherdate;
         
         /// <summary>
         /// ddlTBClassification control.

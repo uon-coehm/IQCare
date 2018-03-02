@@ -1298,7 +1298,7 @@
                             <td id="cellsputumsmeardate">
                                 </td>
                             <td>
-                            <span class="delete-bubble" title="Notifications" onclick="functionDelSputumSmear()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
+                            <span class="delete-bubble" title="Delete" onclick="functionDelSputumSmear()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
                                 </td>
                         </tr>
                         <tr id="rowgeneexpert" style="display:none;border: 1px solid #666699;">
@@ -1309,7 +1309,7 @@
                             <td id="cellgendate">
                                 </td>
                             <td>
-                            <span class="delete-bubble" title="Notifications" onclick="fnDelGenExpert()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
+                            <span class="delete-bubble" title="Delete" onclick="fnDelGenExpert()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
                                 </td>
                         </tr>
                         <tr id="rowsputumfordst" style="display:none;border: 1px solid #666699;">
@@ -1319,7 +1319,7 @@
                                 </td>
                             <td id="cellsputfordstdate">
                                 </td>
-                            <td><span class="delete-bubble" title="Notifications" onclick="fnDelSputumDst()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
+                            <td><span class="delete-bubble" title="Delete" onclick="fnDelSputumDst()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
                                 </td>
                         </tr>
                         <tr id="rowchestxray" style="display:none;border: 1px solid #666699;">
@@ -1329,7 +1329,7 @@
                                 </td>
                             <td id="cellchestxraydate">
                                 </td>
-                            <td><span class="delete-bubble" title="Notifications" onclick="fnDelChestXray()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
+                            <td><span class="delete-bubble" title="Delete" onclick="fnDelChestXray()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
                                 </td>
                         </tr>
                         <tr id="rowtissuebiopsy" style="display:none;border: 1px solid #666699;">
@@ -1339,7 +1339,7 @@
                                 </td>
                             <td id="celltissuedate">
                                 </td>
-                            <td><span class="delete-bubble" title="Notifications" onclick="fnDelTissueBiopsy()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
+                            <td><span class="delete-bubble" title="Delete" onclick="fnDelTissueBiopsy()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
                                 </td>
                         </tr>
                         <tr id="rowlam" style="display:none;border: 1px solid #666699;">
@@ -1349,7 +1349,7 @@
                                 </td>
                             <td id="celllamdate">
                                 </td>
-                            <td><span class="delete-bubble" title="Notifications" onclick="fnDelLam()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
+                            <td><span class="delete-bubble" title="Delete" onclick="fnDelLam()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
                                 </td>
                         </tr>
                         <tr id="rowother" style="display:none;border: 1px solid #666699;">
@@ -1359,7 +1359,7 @@
                                 </td>
                             <td id="cellotherdate">
                                 </td>
-                            <td><span class="delete-bubble" title="Notifications" onclick="fnDelOther()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
+                            <td><span class="delete-bubble" title="Delete" onclick="fnDelOther()" style="background-color: rgb(245, 108, 126); display: inline;">x</span>
                                 </td>
                         </tr>
                     </table>

@@ -13,6 +13,15 @@ namespace PresentationApp.ClinicalForms {
     public partial class frm_ARTReadinessAssessment {
         
         /// <summary>
+        /// txtVisitDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtVisitDate;
+        
+        /// <summary>
         /// rdoUnderstandHivyes control.
         /// </summary>
         /// <remarks>

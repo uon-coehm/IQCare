@@ -316,7 +316,7 @@ namespace BusinessProcess.Laboratory
             lock (this)
             {
                 oUtility.Init_Hashtable();
-                ClsUtility.AddParameters("@PatientId", SqlDbType.VarChar, PatientId.ToString());
+                oUtility.AddParameters("@PatientId", SqlDbType.VarChar, PatientId.ToString());
                 ClsObject UserManager = new ClsObject();
                 return (DataSet)UserManager.ReturnObject(oUtility.theParams, "pr_Clinical_GetPatientLabOrderHistory", ClsUtility.ObjectEnum.DataSet);
             }
@@ -771,17 +771,17 @@ namespace BusinessProcess.Laboratory
                 {
                     foreach (DataRow theDR in dtspecimen.Rows)
                     {
-                        ClsUtility.Init_Hashtable();
-                        ClsUtility.AddParameters("@LabID", SqlDbType.Int, theDR["LabID"].ToString());
-                        ClsUtility.AddParameters("@LabTestID", SqlDbType.Int, theDR["LabTestID"].ToString());
-                        ClsUtility.AddParameters("@SpecimenID", SqlDbType.Int, theDR["SpecimenID"].ToString());
-                        ClsUtility.AddParameters("@CustomSpecimenName", SqlDbType.Int, theDR["CustomSpecimenName"].ToString());
-                        ClsUtility.AddParameters("@StateId", SqlDbType.Int, theDR["StateId"].ToString());
-                        ClsUtility.AddParameters("@StatusId", SqlDbType.Int, theDR["StatusId"].ToString());
-                        ClsUtility.AddParameters("@RejectedReasonId", SqlDbType.Int, theDR["RejectedReasonId"].ToString());
-                        ClsUtility.AddParameters("@OtherReason", SqlDbType.Int, theDR["OtherReason"].ToString());
-                        ClsUtility.AddParameters("@UserId", SqlDbType.Int, objLabFields.UserId.ToString());
-                        DataTable theReturnDT = (DataTable)labManagerTest.ReturnObject(ClsUtility.theParams, "Pr_InsertTestInitTableValues", ClsUtility.ObjectEnum.DataTable);
+                        oUtility.Init_Hashtable();
+                        oUtility.AddParameters("@LabID", SqlDbType.Int, theDR["LabID"].ToString());
+                        oUtility.AddParameters("@LabTestID", SqlDbType.Int, theDR["LabTestID"].ToString());
+                        oUtility.AddParameters("@SpecimenID", SqlDbType.Int, theDR["SpecimenID"].ToString());
+                        oUtility.AddParameters("@CustomSpecimenName", SqlDbType.Int, theDR["CustomSpecimenName"].ToString());
+                        oUtility.AddParameters("@StateId", SqlDbType.Int, theDR["StateId"].ToString());
+                        oUtility.AddParameters("@StatusId", SqlDbType.Int, theDR["StatusId"].ToString());
+                        oUtility.AddParameters("@RejectedReasonId", SqlDbType.Int, theDR["RejectedReasonId"].ToString());
+                        oUtility.AddParameters("@OtherReason", SqlDbType.Int, theDR["OtherReason"].ToString());
+                        oUtility.AddParameters("@UserId", SqlDbType.Int, objLabFields.UserId.ToString());
+                        DataTable theReturnDT = (DataTable)labManagerTest.ReturnObject(oUtility.theParams, "Pr_InsertTestInitTableValues", ClsUtility.ObjectEnum.DataTable);
                     }
                 }
                 //// Custom Fields //////////////
@@ -940,9 +940,9 @@ namespace BusinessProcess.Laboratory
                 LabManager.Transaction = this.Transaction;
 
 
-                ClsUtility.Init_Hashtable();               
-                ClsUtility.AddParameters("@UserId", SqlDbType.Int, UserID.ToString());
-                theReturnDT = (DataSet)LabManager.ReturnObject(ClsUtility.theParams, "Pr_InsertSpecimenTableValues", ClsUtility.ObjectEnum.DataSet, SpecimenTable, "@TableVar");
+                oUtility.Init_Hashtable();               
+                oUtility.AddParameters("@UserId", SqlDbType.Int, UserID.ToString());
+                theReturnDT = (DataSet)LabManager.ReturnObject(oUtility.theParams, "Pr_InsertSpecimenTableValues", ClsUtility.ObjectEnum.DataSet, SpecimenTable, "@TableVar");
 
 
                 TotalNoRowsAffected = theReturnDT.Tables[1].Rows.Count;
@@ -970,10 +970,10 @@ namespace BusinessProcess.Laboratory
         {
             lock (this)
             {
-                ClsUtility.Init_Hashtable();
-                ClsUtility.AddParameters("@LabID", SqlDbType.VarChar, LabId.ToString());
+                oUtility.Init_Hashtable();
+                oUtility.AddParameters("@LabID", SqlDbType.VarChar, LabId.ToString());
                 ClsObject UserManager = new ClsObject();
-                return (DataTable)UserManager.ReturnObject(ClsUtility.theParams, "pr_GetLabSpecimen", ClsUtility.ObjectEnum.DataTable);
+                return (DataTable)UserManager.ReturnObject(oUtility.theParams, "pr_GetLabSpecimen", ClsUtility.ObjectEnum.DataTable);
             }
         }
         public int SaveUpdateTestInitDetails(DataTable TestInitTable, int UserID)
@@ -990,9 +990,9 @@ namespace BusinessProcess.Laboratory
                 LabManager.Transaction = this.Transaction;
 
 
-                ClsUtility.Init_Hashtable();
-                ClsUtility.AddParameters("@UserId", SqlDbType.Int, UserID.ToString());
-                theReturnDT = (DataTable)LabManager.ReturnObject(ClsUtility.theParams, "Pr_InsertTestInitTableValues", ClsUtility.ObjectEnum.DataTable, TestInitTable, "@TableVar");
+                oUtility.Init_Hashtable();
+                oUtility.AddParameters("@UserId", SqlDbType.Int, UserID.ToString());
+                theReturnDT = (DataTable)LabManager.ReturnObject(oUtility.theParams, "Pr_InsertTestInitTableValues", ClsUtility.ObjectEnum.DataTable, TestInitTable, "@TableVar");
 
 
                 TotalNoRowsAffected = theReturnDT.Rows.Count;

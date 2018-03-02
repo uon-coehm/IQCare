@@ -30,14 +30,10 @@ namespace BusinessProcess.Clinical
 
         public DataSet GetTBStatus(int PatientId)
         {
-            lock (this)
-            {
-                oUtility.Init_Hashtable();
-                oUtility.AddParameters("@patientID", SqlDbType.Int, PatientId.ToString());
-                ClsObject UserManager = new ClsObject();
-                return (DataSet)UserManager.ReturnObject(oUtility.theParams, "pr_KNH_GetpatientTBStatus", ClsUtility.ObjectEnum.DataSet);
-            }
-
+            oUtility.Init_Hashtable();
+            oUtility.AddParameters("@patientID", SqlDbType.Int, PatientId.ToString());
+            ClsObject UserManager = new ClsObject();
+            return (DataSet)UserManager.ReturnObject(oUtility.theParams, "pr_KNH_GetpatientTBStatus", ClsUtility.ObjectEnum.DataSet);
         }
 
         public DataSet GetKNHMEI_LabResult(int PatientId)

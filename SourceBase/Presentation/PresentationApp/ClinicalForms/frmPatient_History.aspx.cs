@@ -144,11 +144,11 @@ public partial class frmPatient_History : BasePage
                                 theFrmRoot.SelectAction = TreeNodeSelectAction.None;
                             }
                         }
-                        else if (Convert.ToString(Session["TechnicalAreaId"]) == Convert.ToString(theDR["Module"]) || (theDR["FormName"].ToString() == "Pharmacy") || (theDR["FormName"].ToString() == "Laboratory") || (theDR["FormName"].ToString() == "Paediatric Pharmacy"))
+                        else if (Convert.ToString(Session["TechnicalAreaId"]) == Convert.ToString(theDR["Module"]) || (theDR["FormName"].ToString() == "Pharmacy") || (theDR["FormName"].ToString() == "Laboratory") || (theDR["FormName"].ToString() == "Paediatric Pharmacy") || (theDR["FormName"].ToString() == "ART Readiness Assessment Checklist"))
                         {
                             if (Session["Paperless"].ToString() == "1")
                             {
-                                if ((theDR["FormName"].ToString() == "Pharmacy") || (theDR["FormName"].ToString() == "Laboratory") || (theDR["FormName"].ToString() == "Paediatric Pharmacy"))
+                                if ((theDR["FormName"].ToString() == "Pharmacy") || (theDR["FormName"].ToString() == "Laboratory") || (theDR["FormName"].ToString() == "Paediatric Pharmacy") || (theDR["FormName"].ToString() == "ART Readiness Assessment Checklist"))
                                 {
                                     if (theDR["CAUTION"].ToString() == "1")
                                     {
@@ -277,6 +277,7 @@ public partial class frmPatient_History : BasePage
             // lblFileRef.InnerHtml = theDT.Rows[0]["Label"].ToString();
         }
     }
+
     protected void TreeViewExisForm_SelectedNodeChanged(object sender, EventArgs e)
     {
         if (TreeViewExisForm.SelectedNode.Value == "")
@@ -329,7 +330,15 @@ public partial class frmPatient_History : BasePage
                     Response.Redirect(url);
                 }
                 break;
-            
+
+            case "ART Readiness Assessment Checklist":
+                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 229)
+                {
+                    url = string.Format("{0}", "./frm_ARTReadinessAssessment.aspx");
+                    Response.Redirect(url);
+                }
+                break;
+
             case "ART Care":
                 if (Convert.ToInt32(Session["TechnicalAreaId"]) == 202)
                 {
@@ -403,23 +412,23 @@ public partial class frmPatient_History : BasePage
             case "Pharmacy":
                 //if (Convert.ToInt32(Session["TechnicalAreaId"]) == 2)
                 //{
-                    if (Session["SystemId"].ToString() == "1")
-                    {
-                        url = string.Format("{0}", "~/./Pharmacy/frmPharmacyForm.aspx");
-                        Response.Redirect(url);
-                    }
-                    else
-                    {
-                        url = string.Format("{0}", "~/./Pharmacy/frmPharmacy_CTC.aspx");
-                        Response.Redirect(url);
-                    }
+                if (Session["SystemId"].ToString() == "1")
+                {
+                    url = string.Format("{0}", "~/./Pharmacy/frmPharmacyForm.aspx");
+                    Response.Redirect(url);
+                }
+                else
+                {
+                    url = string.Format("{0}", "~/./Pharmacy/frmPharmacy_CTC.aspx");
+                    Response.Redirect(url);
+                }
                 //}
                 break;
             case "Paediatric Pharmacy":
                 //if (Convert.ToInt32(Session["TechnicalAreaId"]) == 2)
                 //{
-                    url = string.Format("{0}", "~/./Pharmacy/frmPharmacyForm.aspx");
-                    Response.Redirect(url);
+                url = string.Format("{0}", "~/./Pharmacy/frmPharmacyForm.aspx");
+                Response.Redirect(url);
                 //}
                 break;
             //case "Enrollment-PMTCT":
@@ -432,33 +441,33 @@ public partial class frmPatient_History : BasePage
             case "ART Follow-Up":
                 //if (Convert.ToInt32(Session["TechnicalAreaId"]) == 2)
                 //{
-                    //url = string.Format("{0}&patientid={1}&visitid={2}&locationid={3}&sts={4}", "./frmClinical_ARTFollowup.aspx?name=Edit", Convert.ToInt32(PId), theDR["OrderNo"].ToString(), theDR["LocationID"].ToString(), PtnARTStatus);
-                    url = string.Format("{0}", "./frmClinical_ARTFollowup.aspx");
-                    //theFrmRoot.NavigateUrl = url;
-                    Response.Redirect(url);
+                //url = string.Format("{0}&patientid={1}&visitid={2}&locationid={3}&sts={4}", "./frmClinical_ARTFollowup.aspx?name=Edit", Convert.ToInt32(PId), theDR["OrderNo"].ToString(), theDR["LocationID"].ToString(), PtnARTStatus);
+                url = string.Format("{0}", "./frmClinical_ARTFollowup.aspx");
+                //theFrmRoot.NavigateUrl = url;
+                Response.Redirect(url);
                 //}
                 break;
-            case "HIV Care/ART Encounter":                
-                url = string.Format("{0}", "./frmClinical_HIVCareARTCardEncounter.aspx");                
-                Response.Redirect(url);                
+            case "HIV Care/ART Encounter":
+                url = string.Format("{0}", "./frmClinical_HIVCareARTCardEncounter.aspx");
+                Response.Redirect(url);
                 break;
             case "Initial and Follow up Visits":
-                url = string.Format("{0}", "./frmClinical_InitialFollowupVisit.aspx");                
-            Response.Redirect(url);                
-            break;
-                
+                url = string.Format("{0}", "./frmClinical_InitialFollowupVisit.aspx");
+                Response.Redirect(url);
+                break;
+
             case "Laboratory":
                 Session["LabOrderID"] = Session["PatientVisitId"];
 
                 //if (Convert.ToInt32(Session["TechnicalAreaId"]) == 2)
                 //{
-                    //if (theDR["Module"].ToString() == "ART")
-                    //url = string.Format("{0}", "~/./Laboratory/frmLabOrder.aspx");
-                    url = string.Format("{0}", "~/./Laboratory/frm_Laboratory.aspx");
-                    //else
-                    //url = string.Format("{0}&patientid={1}&LabID={2}&sts={3}&locationid={4}", "~/./Laboratory/frmLabOrder.aspx?name=Edit", Convert.ToInt32(PId), theDR["OrderNo"].ToString(), PtnPMTCTStatus, theDR["LocationID"].ToString());
-                    //theFrmRoot.NavigateUrl = url;
-                    Response.Redirect(url);
+                //if (theDR["Module"].ToString() == "ART")
+                //url = string.Format("{0}", "~/./Laboratory/frmLabOrder.aspx");
+                url = string.Format("{0}", "~/./Laboratory/frm_Laboratory.aspx");
+                //else
+                //url = string.Format("{0}&patientid={1}&LabID={2}&sts={3}&locationid={4}", "~/./Laboratory/frmLabOrder.aspx?name=Edit", Convert.ToInt32(PId), theDR["OrderNo"].ToString(), PtnPMTCTStatus, theDR["LocationID"].ToString());
+                //theFrmRoot.NavigateUrl = url;
+                Response.Redirect(url);
                 //}
                 break;
 
@@ -466,7 +475,7 @@ public partial class frmPatient_History : BasePage
                 url = string.Format("{0}", "~/./Scheduler/frmScheduler_HomeVisit.aspx");
                 Response.Redirect(url);
                 break;
-           case "Non-ART Follow-Up":
+            case "Non-ART Follow-Up":
                 if (Convert.ToInt32(Session["TechnicalAreaId"]) == 2)
                 {
                     url = string.Format("{0}", "./frmClinical_NonARTFollowUp.aspx");

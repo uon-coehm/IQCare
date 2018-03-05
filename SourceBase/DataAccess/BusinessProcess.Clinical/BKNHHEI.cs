@@ -362,6 +362,8 @@ namespace BusinessProcess.Clinical
                 oUtility.AddParameters("@PlannedSupport", SqlDbType.VarChar, ht["PlannedSupport"].ToString());
                 oUtility.AddParameters("@DeferArt", SqlDbType.VarChar, ht["DeferArt"].ToString());
                 oUtility.AddParameters("@MeningitisDiagnosed", SqlDbType.VarChar, ht["MeningitisDiagnosed"].ToString());
+                oUtility.AddParameters("@visitdate", SqlDbType.Date, ht["visitDate"].ToString());
+                oUtility.AddParameters("@DataQlty", SqlDbType.Date, "1");
 
                 int temp = (int)KNHART.ReturnObject(oUtility.theParams, "pr_KNHPMTCTART_SaveData", ClsUtility.ObjectEnum.ExecuteNonQuery);
                 DataMgr.CommitTransaction(this.Transaction);

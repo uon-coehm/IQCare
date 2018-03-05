@@ -26,7 +26,9 @@ namespace PresentationApp.ClinicalForms
         Hashtable ARTParameters;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            (Master.FindControl("levelOneNavigationUserControl1").FindControl("lblRoot") as Label).Text = "Clinical Forms >> ";
+            (Master.FindControl("levelOneNavigationUserControl1").FindControl("lblheader") as Label).Text = "ART Readiness Assessment Checklist";
+            (Master.FindControl("levelTwoNavigationUserControl1").FindControl("lblformname") as Label).Text = "ART Readiness Assessment Checklist";
         }
         private Hashtable htableARTParameters()
         {
@@ -237,6 +239,7 @@ namespace PresentationApp.ClinicalForms
                 MeningitisDiagnosed = "No";
             }
             ARTParameters.Add("MeningitisDiagnosed", MeningitisDiagnosed);
+            ARTParameters.Add("visitDate", txtVisitDate.Value);
 
             return ARTParameters;
         }

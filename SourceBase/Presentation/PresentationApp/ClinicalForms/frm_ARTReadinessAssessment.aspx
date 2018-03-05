@@ -6,13 +6,30 @@
     <style>
         .pull-right{float: right;}
     </style>
+    <script type="text/javascript" language="javascript">
+ 
+    </script>
     <div class="container-fluid">
+                <div class="border center formbg">
+            <table cellspacing="6" cellpadding="0" width="100%" border="0">
+                <tr>
+                    <td class="border pad5 whitebg" width="100%">
+                        <label class="required margin20">
+                            Visit date:
+                        </label>
+                        <input id="txtVisitDate" onblur="DateFormat(this,this.value,event,false,3)" onkeyup="DateFormat(this,this.value,event,false,3);"
+                            onfocus="javascript:vDateType='3'" maxlength="11" size="11" runat="server" type="text" />
+                        <img id="appDateimg1" onclick="w_displayDatePicker('<%=txtVisitDate.ClientID%>');"
+                            height="22 " alt="Date Helper" hspace="5" src="../images/cal_icon.gif" width="22"
+                            border="0" name="appDateimg" style="vertical-align: text-bottom;" /><span class="smallerlabel"
+                                id="appDatespan1">(DD-MMM-YYYY)</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br />
         <div class="border formbg">
-            <div class="border center formbg">
-                <h3 class="box-title">ART Readiness Assessment</h3>
-            </div>
-            <br />
-            <div class="formbg" style="padding: 20px;">
+            <div class="formbg">
                 <!-- / sub box level 1 -->
                 <div class="border formbg">
                     <div class="box-header with-border">
@@ -21,6 +38,9 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
+                    <table cellspacing="6" cellpadding="0" width="100%" border="0">
+                    <tr>
+                    <td class="border pad5 whitebg" width="100%">
                         <table class="table" style="border-top: 0px;">
                             <tr>
                                 <td style="border-top: 0px;" width="80%">
@@ -133,7 +153,9 @@
                                 </td>
                             </tr>
                         </table>
-
+                    </td>
+                    </tr>
+                    </table>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -143,6 +165,9 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
+                    <table cellspacing="6" cellpadding="0" width="100%" border="0">
+                    <tr>
+                    <td class="border pad5 whitebg" width="100%">
                         <table class="table" style="border-top: 0px;width: 100%;">
                             <tr>
                                 <td style="border-top: 0px;" width="80%">
@@ -205,6 +230,9 @@
                             </tr>
 
                         </table>
+                    </td>
+                    </tr>
+                    </table>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -215,6 +243,9 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
+                    <table cellspacing="6" cellpadding="0" width="100%" border="0">
+                    <tr>
+                    <td class="border pad5 whitebg" width="100%">
                         <table class="table" style="border-top: 0px;">
                             <tr>
                                 <td style="border-top: 0px;" width="80%">
@@ -241,6 +272,9 @@
                             </tr>
 
                         </table>
+                    </td>
+                    </tr>
+                    </table>
                     </div>
                     <!-- /.box-body -->
                 </div>

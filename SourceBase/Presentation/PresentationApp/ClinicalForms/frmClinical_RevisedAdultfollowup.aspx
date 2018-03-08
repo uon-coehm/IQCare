@@ -11,7 +11,9 @@
 <%@ Register TagPrefix="UcPharmacy" TagName="Uc8" Src="~/ClinicalForms/UserControl/UserControlKNH_Pharmacy.ascx" %>
 <%@ Register TagPrefix="UcPWP" TagName="Uc9" Src="~/ClinicalForms/UserControl/UserControlKNH_PwP.ascx" %>
 
-<%@ Register Src="~/ClinicalForms/UserControl/UserControlKNH_LabEvaluation.ascx"
+<%@ Register Src="~/ClinicalForms/UserControl/UserControlKNH_PH9.ascx"
+    TagName="UserControlKNH_PH9" TagPrefix="uc13" %>
+    <%@ Register Src="~/ClinicalForms/UserControl/UserControlKNH_LabEvaluation.ascx"
     TagName="Uclabeval" TagPrefix="uc11" %>
 <%@ Register Src="~/ClinicalForms/UserControl/UserControlKNH_Signature.ascx" TagName="UserControlKNH_Signature"
     TagPrefix="uc12" %>
@@ -971,7 +973,9 @@
                                     </tr>
                                 </table>
                             </asp:Panel>
+                            <uc13:UserControlKNH_PH9 ID="UserControlKNH_PH9" runat="server" />
                         </div>
+                        
                         <act:CollapsiblePanelExtender ID="CPPnlPresentingComplaint" runat="server" SuppressPostBack="true"
                             ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlPresentingComplaintdetails"
                             CollapseControlID="PnlPresentingComplaint" ExpandControlID="PnlPresentingComplaint"
@@ -989,6 +993,7 @@
                                     <tr align="center">
                                         <td class="form">
                                             <uc12:UserControlKNH_Signature ID="UserControlKNH_SignatureClinical" runat="server" />
+      
                                         </td>
                                     </tr>
                                     <tr align="center">

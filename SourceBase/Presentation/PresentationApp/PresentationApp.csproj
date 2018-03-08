@@ -789,6 +789,13 @@
     <Compile Include="ClinicalForms\frmFollowUpEducationCTC.aspx.designer.cs">
       <DependentUpon>frmFollowUpEducationCTC.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ClinicalForms\frmPaedsChecklist.aspx.cs">
+      <DependentUpon>frmPaedsChecklist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\frmPaedsChecklist.aspx.designer.cs">
+      <DependentUpon>frmPaedsChecklist.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClinicalForms\frmPatient_History.aspx.designer.cs">
       <DependentUpon>frmPatient_History.aspx</DependentUpon>
     </Compile>
@@ -901,6 +908,13 @@
     </Compile>
     <Compile Include="ClinicalForms\UserControl\UserControlKNH_PastMedicalHistory.ascx.designer.cs">
       <DependentUpon>UserControlKNH_PastMedicalHistory.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControlKNH_PH9.ascx.cs">
+      <DependentUpon>UserControlKNH_PH9.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControlKNH_PH9.ascx.designer.cs">
+      <DependentUpon>UserControlKNH_PH9.ascx</DependentUpon>
     </Compile>
     <Compile Include="ClinicalForms\UserControl\UserControlKNH_Pharmacy.ascx.cs">
       <DependentUpon>UserControlKNH_Pharmacy.ascx</DependentUpon>
@@ -2922,6 +2936,7 @@
     <Content Include="ClinicalForms\frmClinical_KNH_PediatricFollowup.aspx" />
     <Content Include="ClinicalForms\frmClinical_KNH_PEP.aspx" />
     <Content Include="ClinicalForms\frmClinical_RevisedAdultfollowup.aspx" />
+    <Content Include="ClinicalForms\frmPaedsChecklist.aspx" />
     <Content Include="ClinicalForms\frm_ARTReadinessAssessment.aspx" />
     <Content Include="ClinicalForms\UserControl\mbExtruder.css" />
     <Content Include="ClinicalForms\UserControl\UserControlKNHPresentingComplaints.ascx" />
@@ -2937,6 +2952,7 @@
     <Content Include="ClinicalForms\UserControl\UserControlKNH_MEIdata.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControlKNH_NextAppointment.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControlKNH_PastMedicalHistory.ascx" />
+    <Content Include="ClinicalForms\UserControl\UserControlKNH_PH9.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControlKNH_Pharmacy.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControlKNH_PhysicalExamination.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControlKNH_PwP.ascx" />

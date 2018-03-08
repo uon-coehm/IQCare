@@ -955,6 +955,49 @@ namespace BusinessProcess.Clinical
             }
         }
 
+        public DataSet SaveUpdatePH9Data(Hashtable theHT)
+        {
+            lock (this)
+            {
+                DataSet theDS;
+                ClsObject ClsObj = new ClsObject();
+                oUtility.Init_Hashtable();
+                oUtility.AddParameters("@Ptn_pk", SqlDbType.Int, theHT["patientID"].ToString());
+                oUtility.AddParameters("@Visit_Pk", SqlDbType.Int, theHT["visitID"].ToString());
+                oUtility.AddParameters("@LocationID", SqlDbType.Int, theHT["locationID"].ToString());
+                oUtility.AddParameters("@UserId", SqlDbType.Int, theHT["userID"].ToString());
+                //oUtility.AddParameters("@visitDate", SqlDbType.VarChar, theHT["visitDate"].ToString());
+                oUtility.AddParameters("@LittleInterest", SqlDbType.Int, theHT["LittleInterest"].ToString());
+                oUtility.AddParameters("@FeelingDown", SqlDbType.Int, theHT["FeelingDown"].ToString());
+                oUtility.AddParameters("@TroubleFalling", SqlDbType.Int, theHT["TroubleFalling"].ToString());
+                oUtility.AddParameters("@FeelingTired", SqlDbType.Int, theHT["FeelingTired"].ToString());
+                oUtility.AddParameters("@PoorAppetite", SqlDbType.Int, theHT["PoorAppetite"].ToString());
+                oUtility.AddParameters("@FeelingBad", SqlDbType.Int, theHT["FeelingBad"].ToString());
+                oUtility.AddParameters("@TroubleConcentrating", SqlDbType.Int, theHT["TroubleConcentrating"].ToString());
+                oUtility.AddParameters("@MovingSlowly", SqlDbType.Int, theHT["MovingSlowly"].ToString());
+                oUtility.AddParameters("@Thoughts", SqlDbType.Int, theHT["Thoughts"].ToString());
+                oUtility.AddParameters("@DiagnosisTotalValue", SqlDbType.Int, theHT["DiagnosisTotalValue"].ToString());
+                theDS = (DataSet)ClsObj.ReturnObject(oUtility.theParams, "pr_Clinical_SaveUpdate_PH9_UserControl", ClsUtility.ObjectEnum.DataSet);
+                return theDS;
+            }
+        }
+
+        public DataSet GetPH9ScreeningFormData(int ptn_pk, int visit_pk)
+        {
+            lock (this)
+            {
+                DataSet theDS;
+                ClsObject ClsObj = new ClsObject();
+                oUtility.Init_Hashtable();
+                oUtility.AddParameters("@Ptn_pk", SqlDbType.Int, ptn_pk.ToString());
+                oUtility.AddParameters("@Visit_Pk", SqlDbType.Int, visit_pk.ToString());
+
+                theDS = (DataSet)ClsObj.ReturnObject(oUtility.theParams, "pr_Clinical_Get_KNH_PH9Screening_UserControl", ClsUtility.ObjectEnum.DataSet);
+
+                return theDS;
+            }
+        }
+
     }
    
 }

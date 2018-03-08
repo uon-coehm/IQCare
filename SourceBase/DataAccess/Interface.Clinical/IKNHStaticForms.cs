@@ -40,5 +40,7 @@ namespace Interface.Clinical
         DataTable GetHEIFormExtruderData(int patientID);
         DataTable CheckIfFamilyInfoFilled(int PatientId);
         DataTable GetMEIFormExtruderData(int PatientId);
+        DataSet SaveUpdatePH9Data(Hashtable HT);
+        DataSet GetPH9ScreeningFormData(int ptn_pk, int visit_pk);
     }
 }

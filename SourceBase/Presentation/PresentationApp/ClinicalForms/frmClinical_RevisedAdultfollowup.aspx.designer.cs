@@ -634,6 +634,15 @@ namespace PresentationApp.ClinicalForms {
         protected global::System.Web.UI.WebControls.DropDownList ddlHIVAssociatedConditionsPeads;
         
         /// <summary>
+        /// UserControlKNH_PH9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PresentationApp.ClinicalForms.UserControl.UserControlKNH_PH9 UserControlKNH_PH9;
+        
+        /// <summary>
         /// CPPnlPresentingComplaint control.
         /// </summary>
         /// <remarks>

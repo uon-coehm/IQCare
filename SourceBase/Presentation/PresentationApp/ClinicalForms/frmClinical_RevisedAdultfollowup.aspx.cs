@@ -2599,6 +2599,7 @@ namespace PresentationApp.ClinicalForms
         protected void btnTriagesave_Click(object sender, EventArgs e)
         {
             Save(0);
+            
         }
         protected void btnTriageDQsave_Click(object sender, EventArgs e)
         {
@@ -2607,6 +2608,7 @@ namespace PresentationApp.ClinicalForms
         protected void btnClinicalHistorySave_Click(object sender, EventArgs e)
         {
             Save(0);
+            this.UserControlKNH_PH9.savePH9Data(null, null);
         }
         protected void btnClinicalHistoryDQSave_Click(object sender, EventArgs e)
         {

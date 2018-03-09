@@ -955,8 +955,8 @@ namespace BusinessProcess.Clinical
             }
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
         public DataSet GetDifferentiatedCare(int PatientId, int VisitPK)
         {
             lock (this)
@@ -993,9 +993,7 @@ namespace BusinessProcess.Clinical
     
     
            }
-=======
-=======
->>>>>>> 55dd9003dd8676d98bee72fcb5b3e87aa977c854
+
         public DataSet SaveUpdatePH9Data(Hashtable theHT)
         {
             lock (this)
@@ -1039,10 +1037,8 @@ namespace BusinessProcess.Clinical
             }
         }
 
-<<<<<<< HEAD
->>>>>>> 55dd9003dd8676d98bee72fcb5b3e87aa977c854
-=======
->>>>>>> 55dd9003dd8676d98bee72fcb5b3e87aa977c854
+
+
     }
    
 }

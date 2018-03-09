@@ -125,6 +125,7 @@ namespace PresentationApp.ClinicalForms.UserControl
                     rdoAvailableTBResultsNo.Checked = false;
                 }
                 ddlSputumSmear.SelectedValue = theDSExistingForm.Tables[0].Rows[0]["SputumSmear"].ToString();
+                hdnsputumsmear.Value = theDSExistingForm.Tables[0].Rows[0]["SputumSmear"].ToString();
                 //if (((DateTime)theDSExistingForm.Tables[0].Rows[0]["SputumSmearDate"]).ToString("dd-MMM-yyyy") != "01-Jan-1900")
                 //{
                 //     txtSputumSmearDate.Text = ((DateTime)theDSExistingForm.Tables[0].Rows[0]["SputumSmearDate"]).ToString("dd-MMM-yyyy");
@@ -134,7 +135,9 @@ namespace PresentationApp.ClinicalForms.UserControl
                 //    txtSputumSmearDate.Text = "";
                 //}
                 txtSputumSmearDate.Text = String.Format("{0:dd-MMM-yyyy}", theDSExistingForm.Tables[0].Rows[0]["SputumSmearDate"]);
+                hdnsputumsmeardate.Value = String.Format("{0:dd-MMM-yyyy}", theDSExistingForm.Tables[0].Rows[0]["SputumSmearDate"]);
                 ddlGeneExpert.SelectedValue = theDSExistingForm.Tables[0].Rows[0]["GeneExpert"].ToString();
+                hdngeneexpert.Value = theDSExistingForm.Tables[0].Rows[0]["GeneExpert"].ToString();
                 //if (((DateTime)theDSExistingForm.Tables[0].Rows[0]["GeneExpertDate"]).ToString("dd-MMM-yyyy") != "01-Jan-1900")
                 //{
                 //    txtGeneExpertDate.Text = ((DateTime)theDSExistingForm.Tables[0].Rows[0]["GeneExpertDate"]).ToString("dd-MMM-yyyy");
@@ -144,7 +147,9 @@ namespace PresentationApp.ClinicalForms.UserControl
                 //    txtGeneExpertDate.Text = "";
                 //}
                 txtGeneExpertDate.Text = String.Format("{0:dd-MMM-yyyy}", theDSExistingForm.Tables[0].Rows[0]["GeneExpertDate"]);
+                hdngeneexpertdate.Value = String.Format("{0:dd-MMM-yyyy}", theDSExistingForm.Tables[0].Rows[0]["GeneExpertDate"]);
                 ddlSputumDST.SelectedValue = theDSExistingForm.Tables[0].Rows[0]["SputumDST"].ToString();
+                hdnsputumfordst.Value = theDSExistingForm.Tables[0].Rows[0]["SputumDST"].ToString();
                 //if (((DateTime)theDSExistingForm.Tables[0].Rows[0]["SputumDSTDate"]).ToString("dd-MMM-yyyy") != "01-Jan-1900")
                 //{
                 //    txtSputumDSTDate.Text = ((DateTime)theDSExistingForm.Tables[0].Rows[0]["SputumDSTDate"]).ToString("dd-MMM-yyyy");
@@ -154,15 +159,18 @@ namespace PresentationApp.ClinicalForms.UserControl
                 //    txtSputumDSTDate.Text = "";
                 //}
                 txtSputumDSTDate.Text = String.Format("{0:dd-MMM-yyyy}", theDSExistingForm.Tables[0].Rows[0]["SputumDSTDate"]);
+                hdnsputumfordstdate.Value = String.Format("{0:dd-MMM-yyyy}", theDSExistingForm.Tables[0].Rows[0]["SputumDSTDate"]);
                 if (theDSExistingForm.Tables[0].Rows[0]["ChestXRay"].ToString() == "1")
                 {
                     rdoChestXrayYes.Checked = true;
                     chestXRay = "1";
+                    hdnchestxray.Value = theDSExistingForm.Tables[0].Rows[0]["ChestXRay"].ToString();
                 }
                 else if (theDSExistingForm.Tables[0].Rows[0]["ChestXRay"].ToString() == "0")
                 {
                     rdoChestXrayNo.Checked = true;
                     chestXRay = "0";
+                    hdnchestxray.Value = theDSExistingForm.Tables[0].Rows[0]["ChestXRay"].ToString();
                 }
                 else
                 {
@@ -180,15 +188,18 @@ namespace PresentationApp.ClinicalForms.UserControl
                 //    txtChestXrayDate.Text = "";
                 //}
                 txtChestXrayDate.Text = String.Format("{0:dd-MMM-yyyy}", theDSExistingForm.Tables[0].Rows[0]["ChestXRayDate"]);
+                hdnchestxraydate.Value = String.Format("{0:dd-MMM-yyyy}", theDSExistingForm.Tables[0].Rows[0]["ChestXRayDate"]);
                 if (theDSExistingForm.Tables[0].Rows[0]["TissueBiopsy"].ToString() == "1")
                 {
                     rdoTissueBiopsyYes.Checked = true;
                     tissueBiopsy = "1";
+                    hdntissuebiopsy.Value = theDSExistingForm.Tables[0].Rows[0]["TissueBiopsy"].ToString();
                 }
                 else if (theDSExistingForm.Tables[0].Rows[0]["TissueBiopsy"].ToString() == "0")
                 {
                     rdoTissueBiopsyNo.Checked = true;
                     tissueBiopsy = "0";
+                    hdntissuebiopsy.Value = theDSExistingForm.Tables[0].Rows[0]["TissueBiopsy"].ToString();
                 }
                 else
                 {
@@ -206,6 +217,7 @@ namespace PresentationApp.ClinicalForms.UserControl
                 //    txtTissueBiopsyDate.Text = "";
                 //}
                 txtTissueBiopsyDate.Text = String.Format("{0:dd-MMM-yyyy}", theDSExistingForm.Tables[0].Rows[0]["TissueBiopsyDate"]);
+                hdntissuebiopsydate.Value = String.Format("{0:dd-MMM-yyyy}", theDSExistingForm.Tables[0].Rows[0]["TissueBiopsyDate"]);
                 ddlCXRResults.SelectedValue = theDSExistingForm.Tables[0].Rows[0]["CXRResults"].ToString();
                 txtOtherCXRResults.Text = theDSExistingForm.Tables[0].Rows[0]["OtherCXR"].ToString();
                 ddlTBClassification.SelectedValue = theDSExistingForm.Tables[0].Rows[0]["TBClassification"].ToString();
@@ -551,12 +563,22 @@ namespace PresentationApp.ClinicalForms.UserControl
             BindManager.BindCombo(ddlTBFindings, theDT, "Name", "ID");
 
             theDVCodeID = new DataView(theDSXML.Tables["Mst_Code"]);
+            theDVCodeID.RowFilter = "Name='TBResults'";
+            theDV = new DataView(theDSXML.Tables["Mst_Decode"]);
+            //theDV.RowFilter = "CodeID=296";
+            theDV.RowFilter = "CodeID=" + ((DataTable)theDVCodeID.ToTable()).Rows[0]["CodeID"].ToString();
+            theDT = (DataTable)theUtils.CreateTableFromDataView(theDV);
+            BindManager.BindCombo(DDLTest, theDT, "Name", "ID");
+            DDLTest.Attributes.Add("onchange", "fnCheckSelectedTest('" + DDLTest.ClientID + "');");
+
+            theDVCodeID = new DataView(theDSXML.Tables["Mst_Code"]);
             theDVCodeID.RowFilter = "Name='SputumSmear'";
             theDV = new DataView(theDSXML.Tables["Mst_Decode"]);
             //theDV.RowFilter = "CodeID=120";
             theDV.RowFilter = "CodeID=" + ((DataTable)theDVCodeID.ToTable()).Rows[0]["CodeID"].ToString();
             theDT = (DataTable)theUtils.CreateTableFromDataView(theDV);
             BindManager.BindCombo(ddlSputumSmear, theDT, "Name", "ID");
+            ddlSputumSmear.Attributes.Add("onchange", "fnDisplaySputSmearValue('" + ddlSputumSmear.ClientID + "');");
 
             theDVCodeID = new DataView(theDSXML.Tables["Mst_Code"]);
             theDVCodeID.RowFilter = "Name='CXR'";
@@ -629,6 +651,7 @@ namespace PresentationApp.ClinicalForms.UserControl
             theDV.RowFilter = "CodeID=" + ((DataTable)theDVCodeID.ToTable()).Rows[0]["CodeID"].ToString();
             theDT = (DataTable)theUtils.CreateTableFromDataView(theDV);
             BindManager.BindCombo(ddlGeneExpert, theDT, "Name", "ID");
+            ddlGeneExpert.Attributes.Add("onchange", "fnDisplayGenExpertvalue('" + ddlGeneExpert.ClientID + "');");
 
             theDVCodeID = new DataView(theDSXML.Tables["Mst_Code"]);
             theDVCodeID.RowFilter = "Name='SputumDST'";
@@ -637,6 +660,15 @@ namespace PresentationApp.ClinicalForms.UserControl
             theDV.RowFilter = "CodeID=" + ((DataTable)theDVCodeID.ToTable()).Rows[0]["CodeID"].ToString();
             theDT = (DataTable)theUtils.CreateTableFromDataView(theDV);
             BindManager.BindCombo(ddlSputumDST, theDT, "Name", "ID");
+            ddlSputumDST.Attributes.Add("onchange", "fnDisplaySputumDstValue('" + ddlSputumDST.ClientID + "');");
+
+            //tisssuebiopsyctrl
+            /***rdoChestXrayYes.Attributes.Add("onclick", "fnDisplayTbpsyes('" + rdoChestXrayYes.ClientID + "');");***/
+            /***rdoChestXrayNo.Attributes.Add("onclick", "fnDisplayXrayNo('" + rdoChestXrayNo.ClientID + "');");****/
+            rdoTissueBiopsyYes.Attributes.Add("onclick", "fnDisplayTbpsyes('" + rdoTissueBiopsyYes.ClientID + "');");
+            rdoTissueBiopsyNo.Attributes.Add("onclick", "fnDisplayTbpsno('" + rdoTissueBiopsyNo.ClientID + "');");
+            /***txtLam.Attributes.Add("onchange", "fnDisplayTblamvalue('" + txtLam.ClientID + "');");
+            txtTestOther.Attributes.Add("onchange", "fnDisplayTbtestothervalue('" + txtTestOther.ClientID + "');");***/
 
             theDVCodeID = new DataView(theDSXML.Tables["Mst_Code"]);
             theDVCodeID.RowFilter = "Name='IPT'";
@@ -712,6 +744,7 @@ namespace PresentationApp.ClinicalForms.UserControl
             rdoChestXrayNo.Attributes.Add("OnClick", "show_hide('CXRResults','notvisible');ClearSelectList('"+ddlCXRResults.ClientID +"'); ClearTextBox('" + txtOtherCXRResults.ClientID + "')");
 
             txtSputumSmearDate.Attributes.Add("onkeyup", "DateFormat(this,this.value,event,false,3);");
+            txtSputumSmearDate.Attributes.Add("onchange", "fnDisplayDatevalue(" + txtSputumSmearDate.ClientID + ")");
             txtChestXrayDate.Attributes.Add("onkeyup", "DateFormat(this,this.value,event,false,3);");
             txtTissueBiopsyDate.Attributes.Add("onkeyup", "DateFormat(this,this.value,event,false,3);");
             txtTBRegimenStartDate.Attributes.Add("onkeyup", "DateFormat(this,this.value,event,false,3);");
@@ -881,11 +914,14 @@ namespace PresentationApp.ClinicalForms.UserControl
                 theHT.Add("userID", Convert.ToInt32(Session["AppUserId"]));
                 theHT.Add("TBFindings", ddlTBFindings.SelectedValue);
                 theHT.Add("availableTBResults", availableTBResults);
-                theHT.Add("SputumSmear", Convert.ToInt32(ddlSputumSmear.SelectedValue));
-                theHT.Add("GeneExpert", Convert.ToInt32(ddlGeneExpert.SelectedValue));
-                theHT.Add("SputumDST", Convert.ToInt32(ddlSputumDST.SelectedValue));
-                theHT.Add("chestXRay", chestXRay);
-                theHT.Add("tissueBiopsy", tissueBiopsy);
+                theHT.Add("SputumSmear", Convert.ToInt32(hdnsputumsmear.Value));
+                theHT.Add("GeneExpert", Convert.ToInt32(hdngeneexpert.Value));
+                theHT.Add("SputumDST", Convert.ToInt32(hdnsputumfordst.Value));
+                theHT.Add("chestXRay", Convert.ToString(hdnchestxray.Value));
+                theHT.Add("tissueBiopsy", Convert.ToString(hdntissuebiopsy.Value));
+                /*** add lam  and other values ***/
+                theHT.Add("Lam", Convert.ToString(hdnlam.Value));
+                theHT.Add("TestOther", Convert.ToString(hdnother.Value));
                 theHT.Add("CXRResults", Convert.ToInt32(ddlCXRResults.SelectedValue));
                 theHT.Add("OtherCXRResults", txtOtherCXRResults.Text);
                 theHT.Add("TBClassification", Convert.ToInt32(ddlTBClassification.SelectedValue));
@@ -895,11 +931,14 @@ namespace PresentationApp.ClinicalForms.UserControl
                 theHT.Add("TBRegimen", Convert.ToInt32(ddlTBRegimen.SelectedValue));
                 theHT.Add("OtherTBRegimen", txtOtherTBRegimen.Text);
                 //Updated by-Nidhi
-                theHT.Add("sputumSmearDate", txtSputumSmearDate.Text.Trim());
-                theHT.Add("GeneExpertDate", txtGeneExpertDate.Text);
-                theHT.Add("SputumDSTDate", txtSputumDSTDate.Text);
-                theHT.Add("chestXRayDate", txtChestXrayDate.Text);
-                theHT.Add("TissueBiopsyDate", txtTissueBiopsyDate.Text);
+                theHT.Add("sputumSmearDate", Convert.ToString(hdnsputumsmeardate.Value));
+                theHT.Add("GeneExpertDate", Convert.ToString(hdngeneexpertdate.Value));
+                theHT.Add("SputumDSTDate", Convert.ToString(hdnsputumfordstdate.Value));
+                theHT.Add("chestXRayDate", Convert.ToString(hdnchestxraydate.Value));
+                theHT.Add("TissueBiopsyDate", Convert.ToString(hdntissuebiopsydate.Value));
+                /*** add lam date and other result date ***/
+                theHT.Add("LamDate", Convert.ToString(hdnlamdate.Value));
+                theHT.Add("TestOtherDate", Convert.ToString(hdnotherdate.Value));
                 theHT.Add("TBRegimenStartDate", txtTBRegimenStartDate.Text);
                 theHT.Add("TBRegimenEndDate", txtTBRegimenEndDate.Text);
                 theHT.Add("INHStartDate", txtINHStartDate.Text);
@@ -1059,20 +1098,20 @@ namespace PresentationApp.ClinicalForms.UserControl
                     value = false;
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "tbAvailableResultsMissing", "alert('Please enter at least one of the TB Results.');", true);
                     lblAvailableTBResults.ForeColor = Color.Red;
-                    lblSputumSmear.ForeColor = Color.Red;
-                    lblGeneExpert.ForeColor = Color.Red;
-                    lblSuptumDST.ForeColor = Color.Red;
-                    lblChestXRay.ForeColor = Color.Red;
-                    lblTissueBiopsy.ForeColor = Color.Red;
+                    //lblSputumSmear.ForeColor = Color.Red;
+                    //lblGeneExpert.ForeColor = Color.Red;
+                    //lblSuptumDST.ForeColor = Color.Red;
+                    //lblChestXRay.ForeColor = Color.Red;
+                    //lblTissueBiopsy.ForeColor = Color.Red;
                 }
                 else
                 {
                     lblAvailableTBResults.ForeColor = Color.Black;
-                    lblSputumSmear.ForeColor = Color.Black;
-                    lblGeneExpert.ForeColor = Color.Black;
-                    lblSuptumDST.ForeColor = Color.Black;
-                    lblChestXRay.ForeColor = Color.Black;
-                    lblTissueBiopsy.ForeColor = Color.Black;
+                    //lblSputumSmear.ForeColor = Color.Black;
+                    //lblGeneExpert.ForeColor = Color.Black;
+                    //lblSuptumDST.ForeColor = Color.Black;
+                    //lblChestXRay.ForeColor = Color.Black;
+                    //lblTissueBiopsy.ForeColor = Color.Black;
                 }
             }
 

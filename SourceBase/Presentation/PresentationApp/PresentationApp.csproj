@@ -57,6 +57,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\External Dlls\ActiveDatabaseSoftware.UniversalMetadataProvider.dll</HintPath>
     </Reference>
+    <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Ajax, Version=5.7.22.2, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\External Dlls\Ajax.dll</HintPath>
@@ -786,6 +789,13 @@
     <Compile Include="ClinicalForms\frmFollowUpEducationCTC.aspx.designer.cs">
       <DependentUpon>frmFollowUpEducationCTC.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ClinicalForms\frmPaedsChecklist.aspx.cs">
+      <DependentUpon>frmPaedsChecklist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\frmPaedsChecklist.aspx.designer.cs">
+      <DependentUpon>frmPaedsChecklist.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClinicalForms\frmPatient_History.aspx.designer.cs">
       <DependentUpon>frmPatient_History.aspx</DependentUpon>
     </Compile>
@@ -794,6 +804,13 @@
     </Compile>
     <Compile Include="ClinicalForms\frmPatient_PharmacyNotes.aspx.designer.cs">
       <DependentUpon>frmPatient_PharmacyNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalForms\frm_ARTReadinessAssessment.aspx.cs">
+      <DependentUpon>frm_ARTReadinessAssessment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\frm_ARTReadinessAssessment.aspx.designer.cs">
+      <DependentUpon>frm_ARTReadinessAssessment.aspx</DependentUpon>
     </Compile>
     <Compile Include="ClinicalForms\frm_PriorArt_HivCare.aspx.designer.cs">
       <DependentUpon>frm_PriorArt_HivCare.aspx</DependentUpon>
@@ -892,6 +909,13 @@
     <Compile Include="ClinicalForms\UserControl\UserControlKNH_PastMedicalHistory.ascx.designer.cs">
       <DependentUpon>UserControlKNH_PastMedicalHistory.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControlKNH_PH9.ascx.cs">
+      <DependentUpon>UserControlKNH_PH9.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControlKNH_PH9.ascx.designer.cs">
+      <DependentUpon>UserControlKNH_PH9.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ClinicalForms\UserControl\UserControlKNH_Pharmacy.ascx.cs">
       <DependentUpon>UserControlKNH_Pharmacy.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -975,6 +999,13 @@
     </Compile>
     <Compile Include="ClinicalForms\UserControl\UserControl_ARVHistoryExtruder.ascx.designer.cs">
       <DependentUpon>UserControl_ARVHistoryExtruder.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControl_DiffCare.ascx.cs">
+      <DependentUpon>UserControl_DiffCare.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControl_DiffCare.ascx.designer.cs">
+      <DependentUpon>UserControl_DiffCare.ascx</DependentUpon>
     </Compile>
     <Compile Include="ClinicalForms\UserControl\UserControl_Loading.ascx.cs">
       <DependentUpon>UserControl_Loading.ascx</DependentUpon>
@@ -2912,6 +2943,8 @@
     <Content Include="ClinicalForms\frmClinical_KNH_PediatricFollowup.aspx" />
     <Content Include="ClinicalForms\frmClinical_KNH_PEP.aspx" />
     <Content Include="ClinicalForms\frmClinical_RevisedAdultfollowup.aspx" />
+    <Content Include="ClinicalForms\frmPaedsChecklist.aspx" />
+    <Content Include="ClinicalForms\frm_ARTReadinessAssessment.aspx" />
     <Content Include="ClinicalForms\UserControl\mbExtruder.css" />
     <Content Include="ClinicalForms\UserControl\UserControlKNHPresentingComplaints.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControlKNH_BackToTop.ascx" />
@@ -2926,6 +2959,7 @@
     <Content Include="ClinicalForms\UserControl\UserControlKNH_MEIdata.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControlKNH_NextAppointment.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControlKNH_PastMedicalHistory.ascx" />
+    <Content Include="ClinicalForms\UserControl\UserControlKNH_PH9.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControlKNH_Pharmacy.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControlKNH_PhysicalExamination.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControlKNH_PwP.ascx" />
@@ -2938,6 +2972,7 @@
     <Content Include="ClinicalForms\UserControl\UserControl_Alerts.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_AllergyExtruder.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_ARVHistoryExtruder.ascx" />
+    <Content Include="ClinicalForms\UserControl\UserControl_DiffCare.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_Loading.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_Nutrition.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_VitalsExtruder.ascx" />
@@ -3178,6 +3213,7 @@
     <Content Include="Images\night.jpg" />
     <Content Include="Images\night1.jpg" />
     <Content Include="Images\night2.jpg" />
+    <Content Include="Images\partial.png" />
     <Content Include="Images\plus.png" />
     <Content Include="Incl\App_Data\ASPNETDB.MDF" />
     <Content Include="Incl\App_Data\aspnetdb_log.LDF">
@@ -5004,7 +5040,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59746</DevelopmentServerPort>
+          <DevelopmentServerPort>59756</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
@@ -5014,7 +5050,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="False" UseJQuerySupport="False" />
+      <UserProperties UseJQuerySupport="False" UseAjaxifiedTemplates="False" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -103,6 +103,8 @@
         <asp:MenuItem Text="Non-ART Follow-up" Value="mnuNonARTFollowUp" NavigateUrl="~/ClinicalForms/frmClinical_NonARTFollowUp.aspx"></asp:MenuItem>
         <asp:MenuItem Text="HEI Form" Value="mnuHEIForm" NavigateUrl="~/ClinicalForms/frmClinical_KNH_HEI.aspx"></asp:MenuItem>
         <asp:MenuItem Text="ANC Form" Value="mnuMEIForm" NavigateUrl="~/ClinicalForms/frmClinical_KNH_MEI.aspx"></asp:MenuItem>
+         <asp:MenuItem Text="ART readiness assessment checklist" Value="mnuChecklistART" NavigateUrl="~/ClinicalForms/frm_ARTReadinessAssessment.aspx"></asp:MenuItem>
+         <asp:MenuItem Text="Paeds Checklist" Value="mnuPaedsChecklist" NavigateUrl="~/ClinicalForms/frmpaedschecklist.aspx"></asp:MenuItem>
         <asp:MenuItem Text="Pharmacy" Value="mnuPharmacy" NavigateUrl="~/Pharmacy/frmPharmacyForm.aspx?Prog=ART"></asp:MenuItem> 
         <asp:MenuItem Text="Laboratory" Value="mnuLabOrder" ></asp:MenuItem>
         <asp:MenuItem Text="Phlebotomy and Test Results" Value="mnuLabTest" NavigateUrl="~/Laboratory/frm_LabTestResults.aspx"></asp:MenuItem>

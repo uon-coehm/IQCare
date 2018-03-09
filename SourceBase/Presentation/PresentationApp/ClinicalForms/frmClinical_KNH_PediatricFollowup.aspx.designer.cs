@@ -1642,15 +1642,6 @@ namespace PresentationApp.ClinicalForms {
         protected global::System.Web.UI.HtmlControls.HtmlTable Table4;
         
         /// <summary>
-        /// UserControlKNH_SignatureMgt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::PresentationApp.ClinicalForms.UserControl.UserControlKNH_Signature UserControlKNH_SignatureMgt;
-        
-        /// <summary>
         /// btnManagementSave control.
         /// </summary>
         /// <remarks>
@@ -1676,6 +1667,15 @@ namespace PresentationApp.ClinicalForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnManagementPrint;
+        
+        /// <summary>
+        /// UserControlKNH_SignatureMgt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PresentationApp.ClinicalForms.UserControl.UserControlKNH_Signature UserControlKNH_SignatureMgt;
         
         /// <summary>
         /// TabPanel5 control.

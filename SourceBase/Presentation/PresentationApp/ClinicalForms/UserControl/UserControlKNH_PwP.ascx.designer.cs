@@ -13,6 +13,60 @@ namespace PresentationApp.ClinicalForms.UserControl {
     public partial class UserControlKNH_PwP {
         
         /// <summary>
+        /// PnlDifferentiatedCare control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlDifferentiatedCare;
+        
+        /// <summary>
+        /// ImgDifferentiatedCare control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImgDifferentiatedCare;
+        
+        /// <summary>
+        /// lblDifferentiatedCare control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDifferentiatedCare;
+        
+        /// <summary>
+        /// PnlDifferentiatedCareDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlDifferentiatedCareDetails;
+        
+        /// <summary>
+        /// UcDiffCare control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PresentationApp.ClinicalForms.UserControl.UserControl_DiffCare UcDiffCare;
+        
+        /// <summary>
+        /// CPPDifferentiatedCareControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPPDifferentiatedCareControl;
+        
+        /// <summary>
         /// pnlSexAssessment control.
         /// </summary>
         /// <remarks>

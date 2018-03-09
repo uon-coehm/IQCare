@@ -5658,9 +5658,9 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             Label theFinLbl = new Label();
             theFinLbl.ID = "lblAddARVFin" + DrugType;
             theFinLbl.Text = "Prophylaxis";
+            theFinLbl.Width = 110;
             PnlHeading.Controls.Add(theFinLbl);
             DIVCustomItem.Controls.Add(PnlHeading);
-
         }
         #endregion
         #region "Non-ARV Medication"
@@ -5739,7 +5739,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             Label theLabel8 = new Label();
             theLabel8.ID = "lblDrgFinanced" + DrugType; ;
             theLabel8.Text = "Prophylaxis";
-            theLabel8.Width = 10;
+            theLabel8.Width = 100;
             theheaderPnl.Controls.Add(theLabel8);
             DIVCustomItem.Controls.Add(theheaderPnl);
         }

@@ -88,7 +88,7 @@
             $(disableCntrl).prop("disabled", true);
         }
     }
-    </script>
+</script>
   
     <style type="text/css">
         .RadGrid .item-style td

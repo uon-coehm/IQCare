@@ -11,6 +11,7 @@ namespace Interface.Clinical
     {
         DataSet SaveUpdateKNHMEI_TriageTab(Hashtable theHT, DataSet theDS, String Tab);
         DataSet GetKNHMEI_Data(int PatientId, int VisitId);
+        DataSet GetTBStatus(int PatientId);
         DataSet GetKNHMEIData_Autopopulate(int PatientId);
         DataSet GetKNHMEI_LabResult(int PatientId);
         int SaveKNHMEILabResult(DataTable theDT, int userId, int PatientId, int VisitId);

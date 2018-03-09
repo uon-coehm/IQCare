@@ -60,6 +60,7 @@
     <Compile Include="IIQTouchVisit.cs" />
     <Compile Include="IKNHHEI.cs" />
     <Compile Include="IKNHMEI.cs" />
+    <Compile Include="IKNHPaed.cs" />
     <Compile Include="IKNHPeadraticFollowup.cs" />
     <Compile Include="IKNHRevisedAdult.cs.cs" />
     <Compile Include="IKNHStaticForms.cs" />

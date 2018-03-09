@@ -5,6 +5,7 @@
 <%@ Register src="UserControlKNH_NextAppointment.ascx" tagname="UserControlKNH_NextAppointment" tagprefix="uc11" %>
 
 <%@ Register src="UserControlKNH_Signature.ascx" tagname="UserControlKNH_Signature" tagprefix="uc1" %>
+<%@ Register TagPrefix="UcDiffCare" TagName="Uc10" Src="~/ClinicalForms/UserControl/UserControl_DiffCare.ascx" %>
 
 <%--<script type="text/javascript" src="../../Touch/Scripts/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="../../Touch/Styles/custom-theme/jquery-ui-1.10.3.custom.min.js"></script>--%>
@@ -397,6 +398,33 @@
     </script>
 
 <div class="border center formbg">
+ <table border="0" cellpadding="0" cellspacing="6"  
+                                width="100%">
+                                <tr>
+                                    <td align="left" colspan="2">
+                                        <asp:Panel ID="PnlDifferentiatedCare" runat="server" 
+                                            CssClass="border center formbg">
+                                            <h2 align="left" class="forms">
+                                                <asp:ImageButton ID="ImgDifferentiatedCare" runat="server" 
+                                                    ImageUrl="~/images/arrow-up.gif" />
+                                                <asp:Label ID="lblDifferentiatedCare" runat="server" Text="Differentiated Care"></asp:Label>
+                                            </h2>
+                                        </asp:Panel>
+                                    </td>
+                                </tr>
+                            </table>
+                            <asp:Panel ID="PnlDifferentiatedCareDetails" runat="server">
+                                <UcDiffCare:Uc10 ID="UcDiffCare" runat="server" />
+                            </asp:Panel>
+                            <act:CollapsiblePanelExtender ID="CPPDifferentiatedCareControl" runat="server" 
+                                CollapseControlID="PnlDifferentiatedCare" Collapsed="True" 
+                                CollapsedImage="~/images/arrow-up.gif" Enabled="True" 
+                                ExpandControlID="PnlDifferentiatedCare" ExpandedImage="~/images/arrow-dn.gif" 
+                                ImageControlID="ImgDifferentiatedCare" SuppressPostBack="True" 
+                                TargetControlID="PnlDifferentiatedCareDetails">
+                            </act:CollapsiblePanelExtender>
+                           
+                       
     <table id="TabPrevWithPos" class="center formbg" cellspacing="6" cellpadding="0"
         width="100%" border="0">
         <tr>
@@ -1106,7 +1134,7 @@
             <td class="border pad5 whitebg">
                 <table width="100%">
                 <tr>
-                <td align="right">
+                <td >
                     <label>
                     Ward Admission:</label>
                 </td>
@@ -1190,6 +1218,7 @@
         <uc11:UserControlKNH_NextAppointment ID="UserControlKNH_NextAppointment1" 
                     runat="server" />
     </asp:Panel>
+   
     
 </div>
 <act:CollapsiblePanelExtender ID="CPESexAssess" runat="server" SuppressPostBack="True"
@@ -1207,7 +1236,8 @@
     ExpandControlID="pnlAppointmentsHeader" CollapsedImage="~/images/arrow-up.gif" Collapsed="True"
     ImageControlID="imgAppointments" Enabled="True">
 </act:CollapsiblePanelExtender>
-<br />
+ 
+
 <div class="border center formbg">
     <table cellspacing="6" cellpadding="0" width="100%" border="0">
         <tbody>

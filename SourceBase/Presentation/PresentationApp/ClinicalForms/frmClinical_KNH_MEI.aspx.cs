@@ -2420,7 +2420,8 @@ namespace PresentationApp.ClinicalForms
                 btnHTCSave.Enabled = false;
                 btnProfileSave.Enabled = false;
                 btnSaveClinicalReview.Enabled = false;
-                btnSavePMTCT.Enabled = false;
+                /*** change back to false ***/
+                btnSavePMTCT.Enabled = true;
             }
             else if (Request.QueryString["name"] == "Delete")
             {
@@ -2439,7 +2440,8 @@ namespace PresentationApp.ClinicalForms
                     btnHTCSave.Enabled = false;
                     btnProfileSave.Enabled = false;
                     btnSaveClinicalReview.Enabled = false;
-                    btnSavePMTCT.Enabled = false;
+                    /*** change back to false ***/
+                    btnSavePMTCT.Enabled = true;
                 }
             }
 
@@ -2453,7 +2455,8 @@ namespace PresentationApp.ClinicalForms
                         btnHTCSave.Enabled = false;
                         btnProfileSave.Enabled = false;
                         btnSaveClinicalReview.Enabled = false;
-                        btnSavePMTCT.Enabled = false;
+                        /*** change back to false ***/
+                        btnSavePMTCT.Enabled = true;
                     }
                 }
             }
@@ -2463,7 +2466,8 @@ namespace PresentationApp.ClinicalForms
                 btnHTCSave.Enabled = false;
                 btnProfileSave.Enabled = false;
                 btnSaveClinicalReview.Enabled = false;
-                btnSavePMTCT.Enabled = false;
+                /*** change back tio false ***/
+                btnSavePMTCT.Enabled = true;
             }
         }
 

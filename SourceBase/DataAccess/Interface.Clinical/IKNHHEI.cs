@@ -13,5 +13,6 @@ namespace Interface.Clinical
         DataTable GetPMTCTHEICurrentTreatment(int patientID);
         DataSet GetHEIAutoPopulateData(int patientID);
         DataTable SaveMotherToChildLinkage(int patientID, string MotherIPNo);
+        int Save_Update_ART(int patientID, int VisitID, int LocationID, Hashtable ht, int userID);
     }
 }

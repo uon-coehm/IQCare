@@ -893,7 +893,7 @@
                                                                         <table width="100%" class="center pad5 whitebg" style="margin-left: 10px;">
                                                                             <tr style="vertical-align: bottom;">
                                                                                 <td width="25%" align="left">
-                                                                                    <asp:Label ID="Label24" runat="server" Font-Bold="True" Text="Treatment:"></asp:Label><asp:DropDownList
+                                                                                    <asp:Label ID="Label24" runat="server" Font-Bold="True" Text="Prophylaxis:"></asp:Label><asp:DropDownList
                                                                                         ID="ddlPlan" onchange="fnPlan();" runat="server">
                                                                                     </asp:DropDownList>
                                                                                 </td>

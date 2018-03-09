@@ -56,6 +56,42 @@ public partial class MasterPage_IQCare : System.Web.UI.MasterPage
 
         if (Session["PatientID"] != null)
         {
+            if (Convert.ToInt32(Session["PatientId"]) > 0)
+            {
+                IKNHMEI KNHMEIManager;
+                KNHMEIManager = (IKNHMEI)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BKNHMEI, BusinessProcess.Clinical");
+                DataSet theDS = KNHMEIManager.GetTBStatus(Convert.ToInt32(Session["PatientId"]));
+
+                string tbstatus = "";
+                if (theDS.Tables[0].Rows.Count > 0)
+                {
+                    tbstatus = theDS.Tables[0].Rows[0]["TBFindings"].ToString();
+
+                    if (tbstatus == "577")
+                    {
+                        lblTbStatus.Text = "Suspected TB";
+                        hdnTbStatus.Value = "Suspected TB";
+                    }
+                    else if (tbstatus == "578")
+                    {
+                        lblTbStatus.Text = "TB Confirmed";
+                        hdnTbStatus.Value = "TB Confirmed";
+                    }
+                    else if (tbstatus == "579")
+                    {
+                        lblTbStatus.Text = "On Treatment";
+                        hdnTbStatus.Value = "On Treatment";
+
+                    }
+                    else
+                    {
+                        lblTbStatus.Text = "No Status Found";
+                        
+                    }
+                }
+
+            }
+            
             if (int.Parse(Session["PatientID"].ToString()) > 0)
             {
                 if (pageName.Equals("frmFamilyInformation.aspx"))

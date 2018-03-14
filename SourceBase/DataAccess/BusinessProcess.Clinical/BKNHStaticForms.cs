@@ -16,13 +16,13 @@ namespace BusinessProcess.Clinical
     {
         ClsUtility oUtility = new ClsUtility();
 
-        public DataSet GetExistKNHStaticFormbydate(int PatientID, string VisitdByDate, int locationID,int Visittype)
+        public DataSet GetExistKNHStaticFormbydate(int PatientID, string VisitdByDate, int locationID, int Visittype)
         {
             lock (this)
             {
                 oUtility.Init_Hashtable();
                 oUtility.AddParameters("@Ptn_pk", SqlDbType.Int, PatientID.ToString());
-                oUtility.AddParameters("@VisitDate", SqlDbType.VarChar, String.Format("{0:dd-MMM-yyyy}",VisitdByDate.ToString()));
+                oUtility.AddParameters("@VisitDate", SqlDbType.VarChar, String.Format("{0:dd-MMM-yyyy}", VisitdByDate.ToString()));
                 oUtility.AddParameters("@location", SqlDbType.Int, locationID.ToString());
                 oUtility.AddParameters("@Visittype", SqlDbType.Int, Visittype.ToString());
                 ClsObject VisitManager = new ClsObject();
@@ -140,7 +140,7 @@ namespace BusinessProcess.Clinical
                 ClsObject ClsObj = new ClsObject();
                 oUtility.Init_Hashtable();
                 oUtility.AddParameters("@Ptn_pk", SqlDbType.Int, ptn_pk.ToString());
-                
+
                 theDS = (DataSet)ClsObj.ReturnObject(oUtility.theParams, "pr_Clinical_Get_KNH_Express_Form_Autopopulating_data", ClsUtility.ObjectEnum.DataSet);
 
                 return theDS;
@@ -267,7 +267,7 @@ namespace BusinessProcess.Clinical
                 oUtility.Init_Hashtable();
                 oUtility.AddParameters("@Ptn_pk", SqlDbType.Int, ptn_pk.ToString());
                 oUtility.AddParameters("@DBKey", SqlDbType.VarChar, ApplicationAccess.DBSecurity);
-                if(ptn_pk > 0)
+                if (ptn_pk > 0)
                     theDS = (DataSet)ClsObj.ReturnObject(oUtility.theParams, "pr_Clinical_ExtruderVitals", ClsUtility.ObjectEnum.DataSet);
 
                 return theDS;
@@ -323,7 +323,7 @@ namespace BusinessProcess.Clinical
 
         public string GetSignature(string tabName, int visit_pk)
         {
-            
+
             lock (this)
             {
                 string signature = "";
@@ -375,8 +375,8 @@ namespace BusinessProcess.Clinical
                 ClsObject ClsObj = new ClsObject();
                 oUtility.Init_Hashtable();
                 oUtility.AddParameters("@Ptn_pk", SqlDbType.Int, ptn_pk.ToString());
-                
-                if(ptn_pk > 0)
+
+                if (ptn_pk > 0)
                     theDS = (DataSet)ClsObj.ReturnObject(oUtility.theParams, "pr_Pharmacy_GetLastRegimensDispensed", ClsUtility.ObjectEnum.DataSet);
 
                 return theDS;
@@ -391,7 +391,7 @@ namespace BusinessProcess.Clinical
                 ClsObject ClsObj = new ClsObject();
                 oUtility.Init_Hashtable();
                 oUtility.AddParameters("@Ptn_pk", SqlDbType.Int, ptn_pk.ToString());
-                if(ptn_pk > 0)
+                if (ptn_pk > 0)
                     theDS = (DataSet)ClsObj.ReturnObject(oUtility.theParams, "pr_Pharmacy_GetPatientDrugHistory", ClsUtility.ObjectEnum.DataSet);
 
                 return theDS;
@@ -563,7 +563,7 @@ namespace BusinessProcess.Clinical
                 return theDS;
             }
         }
-      
+
         public DataSet SaveUpdateTBScreening(Hashtable theHT, DataTable TBAssessment, DataTable IPTStopReason, DataTable ReviewCheckList, DataTable SignsOfHepatitis)
         {
             lock (this)
@@ -585,7 +585,7 @@ namespace BusinessProcess.Clinical
                 oUtility.AddParameters("@TestOther", SqlDbType.VarChar, theHT["TestOther"].ToString());
                 if (theHT["chestXRay"] != null)
                     if (!String.IsNullOrEmpty(theHT["chestXRay"].ToString()))
-                    oUtility.AddParameters("@ChestXRay", SqlDbType.Int, theHT["chestXRay"].ToString());
+                        oUtility.AddParameters("@ChestXRay", SqlDbType.Int, theHT["chestXRay"].ToString());
                 if (theHT["tissueBiopsy"] != null)
                     oUtility.AddParameters("@TissueBiopsy", SqlDbType.Int, theHT["tissueBiopsy"].ToString());
                 //Updated Date-19,Jun 2014
@@ -628,7 +628,7 @@ namespace BusinessProcess.Clinical
 
                 if (!String.IsNullOrEmpty(theHT["TissueBiopsyDate"].ToString()))
                     oUtility.AddParameters("@TissueBiopsyDate", SqlDbType.VarChar, theHT["TissueBiopsyDate"].ToString());
-                
+
                 oUtility.AddParameters("@CXRResults", SqlDbType.Int, theHT["CXRResults"].ToString());
                 oUtility.AddParameters("@OtherCXR", SqlDbType.VarChar, theHT["OtherCXRResults"].ToString());
                 oUtility.AddParameters("@TBClassification", SqlDbType.Int, theHT["TBClassification"].ToString());
@@ -945,7 +945,7 @@ namespace BusinessProcess.Clinical
         }
 
         public DataTable GetMEIFormExtruderData(int PatientId)
-        { 
+        {
             lock (this)
             {
                 oUtility.Init_Hashtable();
@@ -968,31 +968,31 @@ namespace BusinessProcess.Clinical
                 ClsObject UserManager = new ClsObject();
                 return (DataSet)UserManager.ReturnObject(oUtility.theParams, "Pr_Clinical_GetDifferentiatedCare", ClsUtility.ObjectEnum.DataSet);
             }
-        
+
         }
 
         public int SaveUpdateDifferentiatedCare(Hashtable theHT)
+        {
+            int TotalNoRowsAffected = 0;
+            DataSet theReturnDT = new DataSet();
+            lock (this)
             {
-                int TotalNoRowsAffected = 0;
-                DataSet theReturnDT = new DataSet();
-                lock (this)
-                {
-                    oUtility.Init_Hashtable();
-                    oUtility.Init_Hashtable();
-                    ClsObject DiffManager = new ClsObject();
-                    oUtility.AddParameters("@Ptn_pk", SqlDbType.Int, theHT["patientID"].ToString());
-                    oUtility.AddParameters("@Visit_Pk", SqlDbType.Int, theHT["visitID"].ToString());
-                    oUtility.AddParameters("@PatientClassification",SqlDbType.Int,theHT["Classification"].ToString());
-                    oUtility.AddParameters("@IsEnrolDifferenciatedCare",SqlDbType.Int,theHT["DifferentiatedCare"].ToString());
-                    oUtility.AddParameters("@IsEnrolPamaCare",SqlDbType.Int,theHT["PamaCare"].ToString());
-                    TotalNoRowsAffected = (int)DiffManager.ReturnObject(oUtility.theParams, "pr_Clinical_SaveUpdateDifferentiatedCare", ClsUtility.ObjectEnum.ExecuteNonQuery);
-                    
-                    return TotalNoRowsAffected;
-                }
-    
-    
-    
-           }
+                oUtility.Init_Hashtable();
+                oUtility.Init_Hashtable();
+                ClsObject DiffManager = new ClsObject();
+                oUtility.AddParameters("@Ptn_pk", SqlDbType.Int, theHT["patientID"].ToString());
+                oUtility.AddParameters("@Visit_Pk", SqlDbType.Int, theHT["visitID"].ToString());
+                oUtility.AddParameters("@PatientClassification", SqlDbType.Int, theHT["Classification"].ToString());
+                oUtility.AddParameters("@IsEnrolDifferenciatedCare", SqlDbType.Int, theHT["DifferentiatedCare"].ToString());
+                oUtility.AddParameters("@IsEnrolPamaCare", SqlDbType.Int, theHT["PamaCare"].ToString());
+                TotalNoRowsAffected = (int)DiffManager.ReturnObject(oUtility.theParams, "pr_Clinical_SaveUpdateDifferentiatedCare", ClsUtility.ObjectEnum.ExecuteNonQuery);
+
+                return TotalNoRowsAffected;
+            }
+
+
+
+        }
 
         public DataSet SaveUpdatePH9Data(Hashtable theHT)
         {
@@ -1021,6 +1021,7 @@ namespace BusinessProcess.Clinical
             }
         }
 
+
         public DataSet GetPH9ScreeningFormData(int ptn_pk, int visit_pk)
         {
             lock (this)
@@ -1037,8 +1038,63 @@ namespace BusinessProcess.Clinical
             }
         }
 
+        public DataSet GetCageScreeningData(int ptn_pk, int visit_pk)
+        {
+            lock (this)
+            {
+
+
+                DataSet theDS;
+                ClsObject ClsObj = new ClsObject();
+                oUtility.Init_Hashtable();
+                oUtility.AddParameters("@Ptn_pk", SqlDbType.Int, ptn_pk.ToString());
+                oUtility.AddParameters("@Visit_Id", SqlDbType.Int, visit_pk.ToString());
+
+                theDS = (DataSet)ClsObj.ReturnObject(oUtility.theParams, "Pr_HIVCE_GetAlcoholDepressionScreening", ClsUtility.ObjectEnum.DataSet);
+
+                return theDS;
+
+
+
+            }
+
+        }
+        public int SaveUpdateCageScreeningData(Hashtable theHT)
+        {
+
+            ClsObject ClsObj = new ClsObject();
+            int TotalNoRowsAffected = 0;
+            oUtility.Init_Hashtable();
+            oUtility.AddParameters("@w_Ptn_pk", SqlDbType.Int, theHT["patientID"].ToString());
+
+            oUtility.AddParameters("@w_Visit_Id", SqlDbType.Int, theHT["visitID"].ToString());
+            oUtility.AddParameters("@p_CageAIDAlcohol", SqlDbType.Int, theHT["CageAIDAlcohol"].ToString());
+            oUtility.AddParameters("@p_CageAIDDrugs ", SqlDbType.Int, theHT["CageAIDDrugs"].ToString());
+
+            oUtility.AddParameters("@p_CageAIDSmoke", SqlDbType.Int, theHT["CageAIDSmoke"].ToString());
+
+            oUtility.AddParameters("@p_CageAIDQ1", SqlDbType.Int, theHT["CageAIDQ1"].ToString());
+            oUtility.AddParameters("@p_CageAIDQ2", SqlDbType.Int, theHT["CageAIDQ2"].ToString());
+            oUtility.AddParameters("@p_CageAIDQ3", SqlDbType.Int, theHT["CageAIDQ3"].ToString());
+            oUtility.AddParameters("@p_CageAIDQ4", SqlDbType.Int, theHT["CageAIDQ4"].ToString());
+            oUtility.AddParameters("@p_CageAIDScore", SqlDbType.Int, theHT["CageAIDScore"].ToString());
+
+            oUtility.AddParameters("@p_CageAIDRisk", SqlDbType.Int, theHT["CageAIDRisk"].ToString());
+
+            oUtility.AddParameters("@p_CageAIDStopSmoking", SqlDbType.Int, theHT["CageAIDStopSmoking"].ToString());
+            oUtility.AddParameters("@Notes", SqlDbType.Int, theHT["Notes"].ToString());
+
+            TotalNoRowsAffected = (int)ClsObj.ReturnObject(oUtility.theParams, "Pr_HIVCE_UpdateAlcoholDepressionScreening", ClsUtility.ObjectEnum.ExecuteNonQuery);
+
+            return TotalNoRowsAffected;
+
+
+
+
+
+        }
 
 
     }
-   
+
 }

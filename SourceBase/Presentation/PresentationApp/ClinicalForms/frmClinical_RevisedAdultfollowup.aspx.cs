@@ -815,6 +815,14 @@ namespace PresentationApp.ClinicalForms
                 dtmuiltselect.Merge(dtSpecificMedicalCondition);
                 dtmuiltselect.Merge(dtSurgicalConditions);
                 theHT = HT(dqchk, tabname);
+
+                int result = CageAIDSCreening.SaveCageScreening();
+              
+                if (result == -1)
+                {
+                    return;
+                }
+
                 DsReturns = KNHADULTFWUP.SaveUpdateKNHRevisedFollowupData_CATab(theHT, dtmuiltselect, dqchk, 0, Convert.ToInt32(Session["AppUserId"]));
                 
                 tabindex = 2;

@@ -13,6 +13,7 @@ namespace Interface.Clinical
         DataSet SaveUpdateExpressFormTriageTab(Hashtable theHT, DataTable dt, DataTable referredTo);
         DataSet GetExpressFormData(int ptn_pk, int visit_pk);
         int SaveUpdateDifferentiatedCare(Hashtable theHT);
+        int SaveUpdateCageScreeningData(Hashtable theHT);
         DataSet SaveUpdateExpressFormClinicalAssessmentTab(Hashtable theHT, DataTable ARVShortTermEffects, DataTable ARVLongTermEffects, DataTable Eligiblethrough, DataTable ARTchangecode, DataTable ARTstopcode);
         DataSet SaveUpdateARVTherapy(Hashtable theHT);
         DataSet SaveUpdateTBScreening(Hashtable theHT,DataTable TBAssessment, DataTable IPTStopReason, DataTable ReviewCheckList, DataTable SignsOfHepatitis);
@@ -44,5 +45,6 @@ namespace Interface.Clinical
         DataTable GetMEIFormExtruderData(int PatientId);
         DataSet SaveUpdatePH9Data(Hashtable HT);
         DataSet GetPH9ScreeningFormData(int ptn_pk, int visit_pk);
+       DataSet GetCageScreeningData(int ptn_pk, int visit_pk);
     }
 }

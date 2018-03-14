@@ -10,14 +10,14 @@
 <%@ Register TagPrefix="UcTBScreen" TagName="Uc7" Src="~/ClinicalForms/UserControl/UserControlKNH_TBScreening.ascx" %>
 <%@ Register TagPrefix="UcPharmacy" TagName="Uc8" Src="~/ClinicalForms/UserControl/UserControlKNH_Pharmacy.ascx" %>
 <%@ Register TagPrefix="UcPWP" TagName="Uc9" Src="~/ClinicalForms/UserControl/UserControlKNH_PwP.ascx" %>
-
-<%@ Register Src="~/ClinicalForms/UserControl/UserControlKNH_PH9.ascx"
-    TagName="UserControlKNH_PH9" TagPrefix="uc13" %>
+<%@ Register TagPrefix="UcCage"  TagName="UserControl_CageAIDSCreening" Src="~/ClinicalForms/UserControl/UserControl_CAGEAIDScreening.ascx"   %>
+<%@ Register Src="~/ClinicalForms/UserControl/UserControlKNH_PH9.ascx" TagName="UserControlKNH_PH9" TagPrefix="uc13" %>
     <%@ Register Src="~/ClinicalForms/UserControl/UserControlKNH_LabEvaluation.ascx"
     TagName="Uclabeval" TagPrefix="uc11" %>
 <%@ Register Src="~/ClinicalForms/UserControl/UserControlKNH_Signature.ascx" TagName="UserControlKNH_Signature"
     TagPrefix="uc12" %>
 <%@ Register src="UserControl/UserControlKNH_BackToTop.ascx" tagname="UserControlKNH_BackToTop" tagprefix="uc14" %>
+
 
 <%@ Register Assembly="AjaxControlToolkit" TagPrefix="act" Namespace="AjaxControlToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="IQCareContentPlaceHolder" runat="server">
@@ -243,7 +243,7 @@
         <br />
         <div class="border formbg">
             <br />
-            <act:TabContainer ID="tabControl" runat="server" ActiveTabIndex="0" OnActiveTabChanged="tabControl_ActiveTabChanged"
+            <act:TabContainer ID="tabControl" runat="server" ActiveTabIndex="1" OnActiveTabChanged="tabControl_ActiveTabChanged"
                 AutoPostBack="False" Width="100%">
                 <act:TabPanel ID="tbpnlgeneral" runat="server" Font-Size="Large" HeaderText="Triage">
                     <HeaderTemplate>
@@ -648,32 +648,11 @@
                                 </table>
                             </div>
                             <asp:Panel ID="PnlPastmedicalHistorydetails" runat="server">
-                                <%--<table width="100%" border="0" cellspacing="6" cellpadding="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <UcPastMedicalHistory:Uc2 ID="UC2" runat="server" />
-                                                        
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>--%>
                                 <table cellspacing='6' cellpadding='0' width='100%' border='0'>
                                     <tr>
                                         <td class='border center pad5 whitebg' colspan="2">
                                             <table width='100%'>
                                                 <tr>
-                                                    <%--<td style='width: 18%' align='right'>
-                                                        <asp:Label ID="lblMedicalcondition" runat="server" CssClass="required" Font-Bold="True"
-                                                            Text="*Medical condition:"></asp:Label>
-                                                    </td>
-                                                    <td style='width: 32%' align='left'>
-                                                        <asp:RadioButtonList ID="rdoMedicalCondition" runat="server" RepeatDirection="Horizontal"
-                                                            OnClick="rblSelectedValue(this,'divcblSpecificMedicalCondition')">
-                                                            <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
-                                                            <asp:ListItem Text="No" Value="0"></asp:ListItem>
-                                                        </asp:RadioButtonList>
-                                                    </td>--%>
                                                     <td style='width: 100%'>
                                                         <div id="divcblSpecificMedicalCondition">
                                                             <table width="100%">
@@ -685,7 +664,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td style='width: 100%'>
-                                                                        <div id="divSpecificMedicalCondition" enableviewstate="true" class="customdivbordermultiselect"
+                                                                        <div id="divSpecificMedicalCondition" class="customdivbordermultiselect"
                                                                             runat="server">
                                                                             <asp:CheckBoxList ID="cblSpecificMedicalCondition" Width="100%" runat="server">
                                                                             </asp:CheckBoxList>
@@ -726,9 +705,10 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <div id="divSurgicalConditions" enableviewstate="true" style="border-right: #666699 1px solid;
+                                                        <div id="divSurgicalConditions" style="border-right: #666699 1px solid;
                                                             border-top: #666699 1px solid; border-left: #666699 1px solid; border-bottom: #666699 1px solid;
-                                                            width: 100%; height: 100px; overflow: auto; text-align: left;" runat="server">
+                                                            width: 100%; height: 100px; overflow: auto; text-align: left;" 
+                                                            runat="server">
                                                             <asp:CheckBoxList ID="cblSurgicalConditions" onclick="CheckBoxToggleShortTerm();"
                                                                 Width="100%" RepeatLayout="Flow" runat="server">
                                                             </asp:CheckBoxList>
@@ -789,7 +769,6 @@
                                     </tr>
                                     <tr id="trAntihypertensives" style="display: none;">
                                         <td class='border center pad5 whitebg' style='width: 50%'>
-                                            <%--<div id="divAntihypertensives" style="display: none;">--%>
                                             <table width='100%'>
                                                 <tr>
                                                     <td align='left'>
@@ -804,10 +783,8 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <%--</div>--%>
                                         </td>
                                         <td class='border center pad5 whitebg' style='width: 50%'>
-                                            <%--<div id="divAnticonvulsants" style="display: none;">--%>
                                             <table width='100%'>
                                                 <tr>
                                                     <td align='left'>
@@ -822,12 +799,10 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <%--</div>--%>
                                         </td>
                                     </tr>
                                     <tr id="trHypoglycemics" style="display: none;">
                                         <td class='border center pad5 whitebg' style='width: 50%'>
-                                            <%--<div id="divHypoglycemics" style="display: none;">--%>
                                             <table width='100%'>
                                                 <tr>
                                                     <td align='left'>
@@ -842,7 +817,6 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <%--</div>--%>
                                         </td>
                                         <td class='border center pad5 whitebg' style='width: 50%'>
                                             <table width='100%'>
@@ -855,8 +829,7 @@
                                                 <tr>
                                                     <td align='left'>
                                                         <asp:TextBox ID="txtRadiotherapyChemotherapy" Columns="20" Rows="3" Width="100%"
-                                                            TextMode="MultiLine" runat="server">
-                                                        </asp:TextBox>
+                                                            TextMode="MultiLine" runat="server"></asp:TextBox>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -874,8 +847,7 @@
                                                 <tr>
                                                     <td align='left'>
                                                         <asp:TextBox ID="txtothers" Columns="20" Rows="3" Width="100%" TextMode="MultiLine"
-                                                            runat="server">
-                                                        </asp:TextBox>
+                                                            runat="server"></asp:TextBox>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -917,7 +889,6 @@
                                     </tr>
                                     <tr id="trPreviousAdmission" style="display: none;">
                                         <td class='border center pad5 whitebg' style='width: 50%'>
-                                            <%--<div id="divPreviousAdmissionStart" style="display: none;">--%>
                                             <table width='100%'>
                                                 <tr>
                                                     <td style='width: 40%' align='right'>
@@ -925,18 +896,22 @@
                                                             Admission start :</label>
                                                     </td>
                                                     <td style='width: 60%' align='left'>
-                                                        <input id="txtPreviousAdmissionStart" maxlength="11" size="8" name="visitDate" runat="server" />
-                                                        <img onclick="w_displayDatePicker('<%= txtPreviousAdmissionStart.ClientID%>');" height="22"
+                                                        <input id="txtPreviousAdmissionStart" maxlength="11" size="8" runat="server" type="text" />
+                                                        &nbsp;&nbsp; &nbsp; </input><img onclick="w_displayDatePicker('<%= txtPreviousAdmissionStart.ClientID%>');" height="22"
                                                             alt="Date Helper" hspace="5" src="../images/cal_icon.gif" width="22" border="0" /><span
                                                                 class="smallerlabel">(DD-MMM-YYYY)</span>
-                                                        <input id="Hidden4" type="hidden" value="0" runat="server" />
+                                                        <input id="Hidden4" runat="server" type="hidden" value="0"></input>
+</input>
+</input>
+
+                                                            </input>
+                                                            </input>
+                                                    </input>
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <%--</div>--%>
                                         </td>
                                         <td class='border center pad5 whitebg' style='width: 50%'>
-                                            <%--<div id="divPreviousAdmissionEnd" style="display: none;">--%>
                                             <table width='100%'>
                                                 <tr>
                                                     <td style='width: 40%' align='right'>
@@ -944,15 +919,20 @@
                                                             Admission end :</label>
                                                     </td>
                                                     <td style='width: 60%' align='left'>
-                                                        <input id="txtPreviousAdmissionEnd" maxlength="11" size="8" name="visitDate" runat="server" />
-                                                        <img onclick="w_displayDatePicker('<%= txtPreviousAdmissionEnd.ClientID%>');" height="22"
+                                                        <input id="txtPreviousAdmissionEnd" maxlength="11" size="8" runat="server" type="text" />
+                                                        &nbsp;&nbsp; &nbsp; </input><img onclick="w_displayDatePicker('<%= txtPreviousAdmissionEnd.ClientID%>');" height="22"
                                                             alt="Date Helper" hspace="5" src="../images/cal_icon.gif" width="22" border="0" /><span
                                                                 class="smallerlabel">(DD-MMM-YYYY)</span>
-                                                        <input id="Hidden5" type="hidden" value="0" runat="server" />
+                                                        <input id="Hidden5" runat="server" type="hidden" value="0"></input>
+</input>
+</input>
+
+                                                            </input>
+                                                            </input>
+                                                    </input>
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <%--</div>--%>
                                         </td>
                                     </tr>
                                     <tr>
@@ -964,7 +944,7 @@
                                                             Text="*HIV associated conditions:"></asp:Label>
                                                     </td>
                                                     <td style='width: 50%' align='left'>
-                                                        <asp:DropDownList runat="server" ID="ddlHIVAssociatedConditionsPeads" AutoPostBack="false">
+                                                        <asp:DropDownList runat="server" ID="ddlHIVAssociatedConditionsPeads">
                                                         </asp:DropDownList>
                                                     </td>
                                                 </tr>
@@ -974,38 +954,44 @@
                                 </table>
                             </asp:Panel>
                             <uc13:UserControlKNH_PH9 ID="UserControlKNH_PH9" runat="server" />
+                            <br />
+                            <UcCage:UserControl_CageAIDSCreening ID="CageAIDSCreening" runat="server" />
+                           
+                            
+                           
                         </div>
                         
-                        <act:CollapsiblePanelExtender ID="CPPnlPresentingComplaint" runat="server" SuppressPostBack="true"
+                        <act:CollapsiblePanelExtender ID="CPPnlPresentingComplaint" runat="server" SuppressPostBack="True"
                             ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlPresentingComplaintdetails"
                             CollapseControlID="PnlPresentingComplaint" ExpandControlID="PnlPresentingComplaint"
-                            CollapsedImage="~/images/arrow-up.gif" Collapsed="true" ImageControlID="ImgPresentingComplaint">
+                            CollapsedImage="~/images/arrow-up.gif" Collapsed="True" 
+                            ImageControlID="ImgPresentingComplaint" Enabled="True">
                         </act:CollapsiblePanelExtender>
-                        <act:CollapsiblePanelExtender ID="CPPnlPastmedicalHistory" runat="server" SuppressPostBack="true"
+                        <act:CollapsiblePanelExtender ID="CPPnlPastmedicalHistory" runat="server" SuppressPostBack="True"
                             ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlPastmedicalHistorydetails"
                             CollapseControlID="PnlPastmedicalHistory" ExpandControlID="PnlPastmedicalHistory"
-                            CollapsedImage="~/images/arrow-up.gif" Collapsed="true" ImageControlID="ImgPastmedicalHistory">
+                            CollapsedImage="~/images/arrow-up.gif" Collapsed="True" 
+                            ImageControlID="ImgPastmedicalHistory" Enabled="True">
                         </act:CollapsiblePanelExtender>
                         <br />
                         <div class="border center formbg">
                             <table cellspacing="6" cellpadding="0" width="100%" border="0" id="Table2" runat="server">
-                                <tbody>
-                                    <tr align="center">
-                                        <td class="form">
-                                            <uc12:UserControlKNH_Signature ID="UserControlKNH_SignatureClinical" runat="server" />
-      
-                                        </td>
-                                    </tr>
-                                    <tr align="center">
-                                        <td class="form">
-                                            <asp:Button ID="btnClinicalHistorySave" runat="server" OnClick="btnClinicalHistorySave_Click"
-                                                Text="Save" />
-                                            <asp:Button ID="btncloseCHistory" Text="Close" runat="server" OnClick="btncloseCHistory_Click"/>
-                                            <asp:Button ID="btnClinicalHistoryPrint" Text="Print" OnClientClick="WindowPrint()"
-                                                runat="server" />
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                <tr runat="server" align="center">
+                                    <td runat="server" class="form">
+                                        <uc12:UserControlKNH_Signature ID="UserControlKNH_SignatureClinical" 
+                                            runat="server" />
+                                    </td>
+                                </tr>
+                                <tr runat="server" align="center">
+                                    <td runat="server" class="form">
+                                        <asp:Button ID="btnClinicalHistorySave" runat="server" 
+                                            OnClick="btnClinicalHistorySave_Click" Text="Save" />
+                                        <asp:Button ID="btncloseCHistory" runat="server" 
+                                            OnClick="btncloseCHistory_Click" Text="Close" />
+                                        <asp:Button ID="btnClinicalHistoryPrint" runat="server" 
+                                            OnClientClick="WindowPrint()" Text="Print" />
+                                    </td>
+                                </tr>
                             </table>
                         </div>
                     </ContentTemplate>
@@ -1095,18 +1081,11 @@
                                                             <td align="left" style="width: 60%;">
                                                                 <input id="rdoARVsideeffectsyes" onmouseup="up(this);" onfocus="up(this);" onclick="down(this);rblSelectedValue1(1,'trshorttermeffects');"
                                                                     type="radio" name="ARVsideeffects" runat="server" />
-                                                                <label>
-                                                                    Yes</label>
+                                                                &nbsp;</input><label>Yes</label>
                                                                 <input id="rdoARVsideeffectsno" onmouseup="up(this);" onfocus="up(this);" onclick="down(this);rblSelectedValue1(0,'trshorttermeffects');"
                                                                     type="radio" name="ARVsideeffects" runat="server" />
-                                                                <label>
-                                                                    No</label>
-                                                                <%--<asp:RadioButtonList ID="rdoARVsideeffects" runat="server" RepeatDirection="Horizontal"
-                                                                            OnClick="rblSelectedValue(this,'trshorttermeffects');">
-                                                                            <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
-                                                                            <asp:ListItem Text="No" Value="0" ></asp:ListItem>
-                                                                        </asp:RadioButtonList>--%>
-                                                            </td>
+                                                                &nbsp;</input><label>No</label>
+                                                                </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -1124,7 +1103,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <div id="divcblShorttermeffects" enableviewstate="true" class="customdivbordermultiselect"
+                                                                <div id="divcblShorttermeffects" class="customdivbordermultiselect"
                                                                     runat="server">
                                                                     <asp:CheckBoxList ID="cblShorttermeffects" RepeatLayout="Flow" runat="server">
                                                                     </asp:CheckBoxList>
@@ -1164,7 +1143,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <div id="divchklistlongtermeffect" enableviewstate="true" class="customdivbordermultiselect"
+                                                                <div id="divchklistlongtermeffect" class="customdivbordermultiselect"
                                                                     runat="server" style="width: 100%">
                                                                     <asp:CheckBoxList ID="chklistlongtermeffect" RepeatLayout="Flow" runat="server">
                                                                     </asp:CheckBoxList>
@@ -1268,9 +1247,10 @@
                                                 </tr>
                                                 <tr>
                                                     <td align="left">
-                                                        <div id="divcblDiagnosis2" enableviewstate="true" style="border-right: #666699 1px solid;
+                                                        <div id="divcblDiagnosis2" style="border-right: #666699 1px solid;
                                                             border-top: #666699 1px solid; border-left: #666699 1px solid; border-bottom: #666699 1px solid;
-                                                            width: 100%; height: 100px; overflow: auto; text-align: left;" runat="server">
+                                                            width: 100%; height: 100px; overflow: auto; text-align: left;" 
+                                                            runat="server">
                                                             <asp:CheckBoxList ID="cblDiagnosis2" Width="100%" RepeatLayout="Flow" runat="server">
                                                             </asp:CheckBoxList>
                                                         </div>
@@ -1344,43 +1324,46 @@
                                 </table>
                             </asp:Panel>
                         </div>
-                        <act:CollapsiblePanelExtender ID="CollapsiblePanelExtender2" runat="server" SuppressPostBack="true"
+                        <act:CollapsiblePanelExtender ID="CollapsiblePanelExtender2" runat="server" SuppressPostBack="True"
                             ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlPhysicalExamDetails"
                             CollapseControlID="PnlPhysicalExam" ExpandControlID="PnlPhysicalExam" CollapsedImage="~/images/arrow-up.gif"
-                            Collapsed="true" ImageControlID="ImgPhysicalExam">
+                            Collapsed="True" ImageControlID="ImgPhysicalExam" Enabled="True">
                         </act:CollapsiblePanelExtender>
-                        <act:CollapsiblePanelExtender ID="CPPnlARVsideeffects" runat="server" SuppressPostBack="true"
+                        <act:CollapsiblePanelExtender ID="CPPnlARVsideeffects" runat="server" SuppressPostBack="True"
                             ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlARVsideeffectsdetails"
                             CollapseControlID="PnlARVsideeffects" ExpandControlID="PnlARVsideeffects" CollapsedImage="~/images/arrow-up.gif"
-                            Collapsed="true" ImageControlID="ImgARVsideeffects">
+                            Collapsed="True" ImageControlID="ImgARVsideeffects" Enabled="True">
                         </act:CollapsiblePanelExtender>
-                        <act:CollapsiblePanelExtender ID="CPPnlDiagnosis" runat="server" SuppressPostBack="true"
-                            ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlDiagnosisdetails" CollapseControlID="PnlDiagnosis"
-                            ExpandControlID="PnlDiagnosis" CollapsedImage="~/images/arrow-up.gif" Collapsed="true"
-                            ImageControlID="ImgDiagnosis">
+                        <act:CollapsiblePanelExtender ID="CPPnlDiagnosis" runat="server" SuppressPostBack="True"
+                            ExpandedImage="~/images/arrow-dn.gif" 
+                            TargetControlID="PnlDiagnosisdetails" CollapseControlID="PnlDiagnosis"
+                            ExpandControlID="PnlDiagnosis" CollapsedImage="~/images/arrow-up.gif" Collapsed="True"
+                            ImageControlID="ImgDiagnosis" Enabled="True">
                         </act:CollapsiblePanelExtender>
-                        <act:CollapsiblePanelExtender ID="CPPnlWHOStage" runat="server" SuppressPostBack="true"
+                        <act:CollapsiblePanelExtender ID="CPPnlWHOStage" runat="server" SuppressPostBack="True"
                             ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlWHOStagedetails" CollapseControlID="PnlWHOStage"
-                            ExpandControlID="PnlWHOStage" CollapsedImage="~/images/arrow-up.gif" Collapsed="true"
-                            ImageControlID="ImgWHOStage">
+                            ExpandControlID="PnlWHOStage" CollapsedImage="~/images/arrow-up.gif" Collapsed="True"
+                            ImageControlID="ImgWHOStage" Enabled="True">
                         </act:CollapsiblePanelExtender>
                         <br />
                         <div class="border center formbg">
                             <table cellspacing="6" cellpadding="0" width="100%" border="0" id="Table3" runat="server">
-                                <tbody>
-                                    <tr align="center">
-                                        <td class="form">
-                                            <uc12:UserControlKNH_Signature ID="UserControlKNH_SignatureExam" runat="server" />
-                                        </td>
-                                    </tr>
-                                    <tr align="center">
-                                        <td class="form">
-                                            <asp:Button ID="btnExaminationSave" runat="server" Text="Save" OnClick="btnExaminationSave_Click" />
-                                            <asp:Button ID="btncloseExam" Text="Close" runat="server" OnClick="btncloseExam_Click"/>
-                                            <asp:Button ID="btnExaminationPrint" Text="Print" OnClientClick="WindowPrint()" runat="server" />
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                <tr runat="server" align="center">
+                                    <td runat="server" class="form">
+                                        <uc12:UserControlKNH_Signature ID="UserControlKNH_SignatureExam" 
+                                            runat="server" />
+                                    </td>
+                                </tr>
+                                <tr runat="server" align="center">
+                                    <td runat="server" class="form">
+                                        <asp:Button ID="btnExaminationSave" runat="server" 
+                                            OnClick="btnExaminationSave_Click" Text="Save" />
+                                        <asp:Button ID="btncloseExam" runat="server" OnClick="btncloseExam_Click" 
+                                            Text="Close" />
+                                        <asp:Button ID="btnExaminationPrint" runat="server" 
+                                            OnClientClick="WindowPrint()" Text="Print" />
+                                    </td>
+                                </tr>
                             </table>
                         </div>
                     </ContentTemplate>
@@ -1424,7 +1407,7 @@
                                                         <tr>
                                                             <td align="right" style="width: 25%;">
                                                                 <asp:Label ID="lblMissedAnyDoses" runat="server" Text="Have you missed any doses?" 
-                                                                CssClass="required" Font-Bold="true"></asp:Label>
+                                                                CssClass="required" Font-Bold="True"></asp:Label>
                                                             </td>
                                                             <td align="left" style="width: 25%;">
                                                                 <asp:RadioButtonList ID="rdoHaveyoumissedanydoses" runat="server" RepeatDirection="Horizontal"
@@ -1578,25 +1561,6 @@
                                         </tr>
                                         <tr>
                                             <td colspan="2">
-                                                <%--<table width="100%">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td align="left">
-                                                                        <label id="lblLab Evaluations-8888868" align="center">
-                                                                            Lab Evaluations:</label>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <div id="divchklistlabevaluation" enableviewstate="true" class="customdivbordermultiselect"
-                                                                            runat="server" style="width: 100%">
-                                                                            <asp:CheckBoxList ID="chklistlabevaluation" RepeatLayout="Flow" runat="server">
-                                                                            </asp:CheckBoxList>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>--%>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1747,48 +1711,53 @@
                                 </table>
                             </asp:Panel>
                         </div>
-                        <act:CollapsiblePanelExtender ID="CPPnlAdherence" runat="server" SuppressPostBack="true"
-                            ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlAdherenceDetails" CollapseControlID="PnlAdherence"
-                            ExpandControlID="PnlAdherence" CollapsedImage="~/images/arrow-up.gif" Collapsed="true"
-                            ImageControlID="ImgAdherence">
+                        <act:CollapsiblePanelExtender ID="CPPnlAdherence" runat="server" SuppressPostBack="True"
+                            ExpandedImage="~/images/arrow-dn.gif" 
+                            TargetControlID="PnlAdherenceDetails" CollapseControlID="PnlAdherence"
+                            ExpandControlID="PnlAdherence" CollapsedImage="~/images/arrow-up.gif" Collapsed="True"
+                            ImageControlID="ImgAdherence" Enabled="True">
                         </act:CollapsiblePanelExtender>
-                        <act:CollapsiblePanelExtender ID="CPPnlDrugAllergiesToxicities" runat="server" SuppressPostBack="true"
+                        <act:CollapsiblePanelExtender ID="CPPnlDrugAllergiesToxicities" runat="server" SuppressPostBack="True"
                             ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlDrugAllergiesToxicitiesdetails"
                             CollapseControlID="PnlDrugAllergiesToxicities" ExpandControlID="PnlDrugAllergiesToxicities"
-                            CollapsedImage="~/images/arrow-up.gif" Collapsed="true" ImageControlID="ImgDrugAllergiesToxicities">
+                            CollapsedImage="~/images/arrow-up.gif" Collapsed="True" 
+                            ImageControlID="ImgDrugAllergiesToxicities" Enabled="True">
                         </act:CollapsiblePanelExtender>
-                        <act:CollapsiblePanelExtender ID="CPPnlWorkupplan" runat="server" SuppressPostBack="true"
+                        <act:CollapsiblePanelExtender ID="CPPnlWorkupplan" runat="server" SuppressPostBack="True"
                             ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlWorkupplandetails"
                             CollapseControlID="PnlWorkupplan" ExpandControlID="PnlWorkupplan" CollapsedImage="~/images/arrow-up.gif"
-                            Collapsed="true" ImageControlID="ImgDiagnosis">
+                            Collapsed="True" ImageControlID="ImgDiagnosis" Enabled="True">
                         </act:CollapsiblePanelExtender>
-                        <act:CollapsiblePanelExtender ID="CPPnlRegimenPrescribed" runat="server" SuppressPostBack="true"
+                        <act:CollapsiblePanelExtender ID="CPPnlRegimenPrescribed" runat="server" SuppressPostBack="True"
                             ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlRegimenPrescribeddetails"
                             CollapseControlID="PnlRegimenPrescribed" ExpandControlID="PnlRegimenPrescribed"
-                            CollapsedImage="~/images/arrow-up.gif" Collapsed="true" ImageControlID="ImgRegimenPrescribed">
+                            CollapsedImage="~/images/arrow-up.gif" Collapsed="True" 
+                            ImageControlID="ImgRegimenPrescribed" Enabled="True">
                         </act:CollapsiblePanelExtender>
-                        <act:CollapsiblePanelExtender ID="CPPnlPlan" runat="server" SuppressPostBack="true"
+                        <act:CollapsiblePanelExtender ID="CPPnlPlan" runat="server" SuppressPostBack="True"
                             ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlPlanDetails" CollapseControlID="PnlPlan"
-                            ExpandControlID="PnlPlan" CollapsedImage="~/images/arrow-up.gif" Collapsed="true"
-                            ImageControlID="ImgPlan">
+                            ExpandControlID="PnlPlan" CollapsedImage="~/images/arrow-up.gif" Collapsed="True"
+                            ImageControlID="ImgPlan" Enabled="True">
                         </act:CollapsiblePanelExtender>
                         <br />
                         <div class="border center formbg">
                             <table cellspacing="6" cellpadding="0" width="100%" border="0" id="Table4" runat="server">
-                                <tbody>
-                                    <tr align="center">
-                                        <td class="form">
-                                            <uc12:UserControlKNH_Signature ID="UserControlKNH_SignatureMgt" runat="server" />
-                                        </td>
-                                    </tr>
-                                    <tr align="center">
-                                        <td class="form">
-                                            <asp:Button ID="btnManagementSave" runat="server" Text="Save" OnClick="btnManagementSave_Click" />
-                                            <asp:Button ID="btncloseMgt" Text="Close" runat="server" OnClick="btncloseMgt_Click"/>
-                                            <asp:Button ID="btnManagementPrint" Text="Print" OnClientClick="WindowPrint()" runat="server" />
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                <tr runat="server" align="center">
+                                    <td runat="server" class="form">
+                                        <uc12:UserControlKNH_Signature ID="UserControlKNH_SignatureMgt" 
+                                            runat="server" />
+                                    </td>
+                                </tr>
+                                <tr runat="server" align="center">
+                                    <td runat="server" class="form">
+                                        <asp:Button ID="btnManagementSave" runat="server" 
+                                            OnClick="btnManagementSave_Click" Text="Save" />
+                                        <asp:Button ID="btncloseMgt" runat="server" OnClick="btncloseMgt_Click" 
+                                            Text="Close" />
+                                        <asp:Button ID="btnManagementPrint" runat="server" 
+                                            OnClientClick="WindowPrint()" Text="Print" />
+                                    </td>
+                                </tr>
                             </table>
                         </div>
                     </ContentTemplate>
@@ -1806,6 +1775,8 @@
                         </div>
                     </ContentTemplate>
                 </act:TabPanel>
+                 
+                
             </act:TabContainer>
         </div>
         <div style="display: none;">

@@ -1000,6 +1000,13 @@
     <Compile Include="ClinicalForms\UserControl\UserControl_ARVHistoryExtruder.ascx.designer.cs">
       <DependentUpon>UserControl_ARVHistoryExtruder.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControl_CAGEAIDScreening.ascx.cs">
+      <DependentUpon>UserControl_CAGEAIDScreening.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControl_CAGEAIDScreening.ascx.designer.cs">
+      <DependentUpon>UserControl_CAGEAIDScreening.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ClinicalForms\UserControl\UserControl_DiffCare.ascx.cs">
       <DependentUpon>UserControl_DiffCare.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2972,6 +2979,7 @@
     <Content Include="ClinicalForms\UserControl\UserControl_Alerts.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_AllergyExtruder.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_ARVHistoryExtruder.ascx" />
+    <Content Include="ClinicalForms\UserControl\UserControl_CAGEAIDScreening.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_DiffCare.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_Loading.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_Nutrition.ascx" />
@@ -5040,7 +5048,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59756</DevelopmentServerPort>
+          <DevelopmentServerPort>19695</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

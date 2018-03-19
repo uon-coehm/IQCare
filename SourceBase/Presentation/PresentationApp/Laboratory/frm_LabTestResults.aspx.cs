@@ -1093,6 +1093,11 @@ namespace PresentationApp.Laboratory
                                     if (ddlList.SelectedValue != string.Empty)
                                     {
                                         intRestutID = Convert.ToInt32(ddlList.SelectedValue.ToString());
+                                        if (intRestutID == 9998)
+                                        {
+                                            strResuts = "0.01";
+                                        }
+
                                     }
                                     if (txtRadValue.Text != "0" && txtRadValue.Text != "")
                                     {
@@ -1129,6 +1134,7 @@ namespace PresentationApp.Laboratory
                                         {
                                             entryFlag = true;
                                             intRestutID = Convert.ToInt32(chkBoxList.SelectedValue.ToString());
+                                            
                                             strResuts = chkBoxList.SelectedValue;
                                             //objLabFields1.TestResultId = Convert.ToInt32(chkBoxList.SelectedValue.ToString());
                                         }

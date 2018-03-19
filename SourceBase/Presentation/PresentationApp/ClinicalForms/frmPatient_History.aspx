@@ -26,7 +26,8 @@
                         <td class="form" align="center" colspan="2"  >
                             <div class="treeview">
                                 <h1>
-                                    <asp:TreeView ID="TreeViewExisForm" ForeColor="#000000" runat="server" Width="100%">
+                                    <asp:TreeView ID="TreeViewExisForm" ForeColor="#000000" runat="server" Width="100%"
+                                    OnSelectedNodeChanged="TreeViewExisForm_SelectedNodeChanged">
                                     </asp:TreeView>
                                 </h1>
                             </div>

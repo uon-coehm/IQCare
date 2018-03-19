@@ -815,6 +815,14 @@ namespace PresentationApp.ClinicalForms
                 dtmuiltselect.Merge(dtSpecificMedicalCondition);
                 dtmuiltselect.Merge(dtSurgicalConditions);
                 theHT = HT(dqchk, tabname);
+
+                int result = CageAIDSCreening.SaveCageScreening();
+              
+                if (result == -1)
+                {
+                    return;
+                }
+
                 DsReturns = KNHADULTFWUP.SaveUpdateKNHRevisedFollowupData_CATab(theHT, dtmuiltselect, dqchk, 0, Convert.ToInt32(Session["AppUserId"]));
                 
                 tabindex = 2;
@@ -2599,6 +2607,7 @@ namespace PresentationApp.ClinicalForms
         protected void btnTriagesave_Click(object sender, EventArgs e)
         {
             Save(0);
+            
         }
         protected void btnTriageDQsave_Click(object sender, EventArgs e)
         {
@@ -2607,6 +2616,7 @@ namespace PresentationApp.ClinicalForms
         protected void btnClinicalHistorySave_Click(object sender, EventArgs e)
         {
             Save(0);
+            this.UserControlKNH_PH9.savePH9Data(null, null);
         }
         protected void btnClinicalHistoryDQSave_Click(object sender, EventArgs e)
         {

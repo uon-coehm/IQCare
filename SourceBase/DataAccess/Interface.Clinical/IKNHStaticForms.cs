@@ -12,6 +12,8 @@ namespace Interface.Clinical
         DataSet GetExistKNHStaticFormbydate(int PatientID, string VisitdByDate, int locationID, int Visittype);
         DataSet SaveUpdateExpressFormTriageTab(Hashtable theHT, DataTable dt, DataTable referredTo);
         DataSet GetExpressFormData(int ptn_pk, int visit_pk);
+        int SaveUpdateDifferentiatedCare(Hashtable theHT);
+        int SaveUpdateCageScreeningData(Hashtable theHT);
         DataSet SaveUpdateExpressFormClinicalAssessmentTab(Hashtable theHT, DataTable ARVShortTermEffects, DataTable ARVLongTermEffects, DataTable Eligiblethrough, DataTable ARTchangecode, DataTable ARTstopcode);
         DataSet SaveUpdateARVTherapy(Hashtable theHT);
         DataSet SaveUpdateTBScreening(Hashtable theHT,DataTable TBAssessment, DataTable IPTStopReason, DataTable ReviewCheckList, DataTable SignsOfHepatitis);
@@ -36,9 +38,13 @@ namespace Interface.Clinical
         DataSet GetZScoreValues(int Ptn_pk, string gender, string height);
         DataSet GetAdultFollowUpFormAutoPopulatingData(int ptn_pk);
         DataSet GetAlerts(int PatientId);
+        DataSet GetDifferentiatedCare(int PatientId, int VisitPK);
         bool CheckIfAPharmacyorderHasBeenDone(int ptn_pk, string VisitDate);
         DataTable GetHEIFormExtruderData(int patientID);
         DataTable CheckIfFamilyInfoFilled(int PatientId);
         DataTable GetMEIFormExtruderData(int PatientId);
+        DataSet SaveUpdatePH9Data(Hashtable HT);
+        DataSet GetPH9ScreeningFormData(int ptn_pk, int visit_pk);
+       DataSet GetCageScreeningData(int ptn_pk, int visit_pk);
     }
 }

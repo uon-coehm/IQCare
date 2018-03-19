@@ -148,7 +148,7 @@ public partial class frmPatient_History : BasePage
                         {
                             if (Session["Paperless"].ToString() == "1")
                             {
-                                if ((theDR["FormName"].ToString() == "Pharmacy") || (theDR["FormName"].ToString() == "Laboratory") || (theDR["FormName"].ToString() == "Paediatric Pharmacy") || (theDR["FormName"].ToString() == "ART Readiness Assessment Checklist"))
+                                if ((theDR["FormName"].ToString() == "Pharmacy") || (theDR["FormName"].ToString() == "Laboratory") || (theDR["FormName"].ToString() == "Paediatric Pharmacy"))
                                 {
                                     if (theDR["CAUTION"].ToString() == "1")
                                     {
@@ -322,6 +322,14 @@ public partial class frmPatient_History : BasePage
                 }
                 break;
 
+            case "Paeds Checklist":
+                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 2)
+                {
+                    url = string.Format("{0}", "./frmpaedschecklist.aspx");
+                    Response.Redirect(url);
+                }
+                break;
+
 
             case "Prior ART/HIV Care":
                 if (Convert.ToInt32(Session["TechnicalAreaId"]) == 202)
@@ -332,7 +340,7 @@ public partial class frmPatient_History : BasePage
                 break;
 
             case "ART Readiness Assessment Checklist":
-                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 229)
+                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 204)
                 {
                     url = string.Format("{0}", "./frm_ARTReadinessAssessment.aspx");
                     Response.Redirect(url);

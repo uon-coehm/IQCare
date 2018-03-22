@@ -132,7 +132,7 @@
                 }
                 else {
 
-                    document.getElementById(txtControlId).value = '';
+                    //document.getElementById(txtControlId).value = '';
                     YN = "show";
                 }
                 ShowHide(divID, YN);
@@ -429,7 +429,7 @@
                                                                     <td align="left">
                                                                         <input id="txtdateofhivdiagnosis" runat="server" maxlength="11" onblur="DateFormat(this,this.value,event,false,'3')"
                                                                             onfocus="javascript:vDateType='3'" onkeyup="DateFormat(this,this.value,event,false,'3')"
-                                                                            size="11" type="text" /><img id="Img19" alt="Date Helper" border="0" height="22 "
+                                                                            size="11" type="text" />&nbsp;<img id="Img19" alt="Date Helper" border="0" height="22 "
                                                                                 hspace="5" name="appDateimg" onclick="w_displayDatePicker('<%=txtdateofhivdiagnosis.ClientID%>');"
                                                                                 src="../images/cal_icon.gif" style="vertical-align: text-bottom;" width="22" /><span
                                                                                     id="Span19" class="smallerlabel">(DD-MMM-YYYY)</span>
@@ -518,7 +518,7 @@
                                                                                         <td style="width: 60%" align="left">
                                                                                             <input id="txtdateoffatherdeath" runat="server" maxlength="11" onblur="DateFormat(this,this.value,event,false,'3')"
                                                                                                 onfocus="javascript:vDateType='3'" onkeyup="DateFormat(this,this.value,event,false,'3')"
-                                                                                                size="11" type="text" />&nbsp; &nbsp;
+                                                                                                size="11" type="text" />&nbsp;&nbsp; &nbsp;
                                                                                             <img id="Img1" alt="Date Helper" border="0" height="22 " hspace="5" name="appDateimg"
                                                                                                 onclick="w_displayDatePicker('<%=txtdateoffatherdeath.ClientID%>');" src="../images/cal_icon.gif"
                                                                                                 style="vertical-align: text-bottom;" width="22" /><span class="smallerlabel" id="Span1">(DD-MMM-YYYY)</span>
@@ -561,7 +561,7 @@
                                                                                         <td align="left">
                                                                                             <input id="txtdateofmotherdeath" runat="server" maxlength="11" onblur="DateFormat(this,this.value,event,false,'3')"
                                                                                                 onfocus="javascript:vDateType='3'" onkeyup="DateFormat(this,this.value,event,false,'3')"
-                                                                                                size="11" type="text" />&nbsp; &nbsp;
+                                                                                                size="11" type="text" />&nbsp;&nbsp; &nbsp;
                                                                                             <img id="Img22" alt="Date Helper" border="0" height="22 " hspace="5" name="appDateimg"
                                                                                                 onclick="w_displayDatePicker('<%=txtdateofmotherdeath.ClientID%>');" src="../images/cal_icon.gif"
                                                                                                 style="vertical-align: text-bottom;" width="22" /><span class="smallerlabel" id="Span22">(DD-MMM-YYYY)</span>
@@ -684,7 +684,7 @@
                                                                                                                 <input id="txtcurrentartregimendate" runat="server" maxlength="11" onblur="DateFormat(this,this.value,event,false,'3')"
                                                                                                                     onfocus="javascript:vDateType='3'" onkeyup="DateFormat(this,this.value,event,false,'3')"
                                                                                                                     size="11" type="text" />
-                                                                                                                <img id="Img20" alt="Date Helper" border="0" height="22 " hspace="5" name="appDateimg"
+                                                                                                                &nbsp;<img id="Img20" alt="Date Helper" border="0" height="22 " hspace="5" name="appDateimg"
                                                                                                                     onclick="w_displayDatePicker('<%=txtcurrentartregimendate.ClientID%>');" src="../images/cal_icon.gif"
                                                                                                                     style="vertical-align: text-bottom;" width="22" /><span class="smallerlabel" id="Span20">(DD-MMM-YYYY)</span>
                                                                                                             </td>

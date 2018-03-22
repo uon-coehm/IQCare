@@ -1007,12 +1007,28 @@
     <Compile Include="ClinicalForms\UserControl\UserControl_ARVHistoryExtruder.ascx.designer.cs">
       <DependentUpon>UserControl_ARVHistoryExtruder.ascx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="ClinicalForms\UserControl\UserControl_CRAFFTScreeningTool.ascx.cs">
       <DependentUpon>UserControl_CRAFFTScreeningTool.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ClinicalForms\UserControl\UserControl_CRAFFTScreeningTool.ascx.designer.cs">
       <DependentUpon>UserControl_CRAFFTScreeningTool.ascx</DependentUpon>
+=======
+    <Compile Include="ClinicalForms\UserControl\UserControl_CAGEAIDScreening.ascx.cs">
+      <DependentUpon>UserControl_CAGEAIDScreening.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControl_CAGEAIDScreening.ascx.designer.cs">
+      <DependentUpon>UserControl_CAGEAIDScreening.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControl_DiffCare.ascx.cs">
+      <DependentUpon>UserControl_DiffCare.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControl_DiffCare.ascx.designer.cs">
+      <DependentUpon>UserControl_DiffCare.ascx</DependentUpon>
+>>>>>>> 573eba772f07ecc4072ebffcdc8854e99512be82
     </Compile>
     <Compile Include="ClinicalForms\UserControl\UserControl_Loading.ascx.cs">
       <DependentUpon>UserControl_Loading.ascx</DependentUpon>
@@ -2987,7 +3003,12 @@
     <Content Include="ClinicalForms\UserControl\UserControl_Alerts.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_AllergyExtruder.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_ARVHistoryExtruder.ascx" />
+<<<<<<< HEAD
     <Content Include="ClinicalForms\UserControl\UserControl_CRAFFTScreeningTool.ascx" />
+=======
+    <Content Include="ClinicalForms\UserControl\UserControl_CAGEAIDScreening.ascx" />
+    <Content Include="ClinicalForms\UserControl\UserControl_DiffCare.ascx" />
+>>>>>>> 573eba772f07ecc4072ebffcdc8854e99512be82
     <Content Include="ClinicalForms\UserControl\UserControl_Loading.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_MoriskyMedicationAdherenceScale.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_Nutrition.ascx" />
@@ -3229,6 +3250,7 @@
     <Content Include="Images\night.jpg" />
     <Content Include="Images\night1.jpg" />
     <Content Include="Images\night2.jpg" />
+    <Content Include="Images\partial.png" />
     <Content Include="Images\plus.png" />
     <Content Include="Incl\App_Data\ASPNETDB.MDF" />
     <Content Include="Incl\App_Data\aspnetdb_log.LDF">
@@ -5055,7 +5077,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59746</DevelopmentServerPort>
+          <DevelopmentServerPort>19695</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

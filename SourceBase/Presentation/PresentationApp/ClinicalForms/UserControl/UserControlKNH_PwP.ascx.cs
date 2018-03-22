@@ -648,6 +648,7 @@ namespace PresentationApp.ClinicalForms.UserControl
             {
                 if (checkRequiredFieldsPwP() == true)
                 {
+                    
 
                     if (Convert.ToInt32(Session["PatientVisitId"]) == 0)
                     {
@@ -656,6 +657,19 @@ namespace PresentationApp.ClinicalForms.UserControl
                     }
                     else
                     {
+
+
+
+                       
+                       
+                      
+                        //Page.FindControl("UcDiffCare");
+                        int result = UcDiffCare.SaveDiffOrder();
+                        if (result == -1)
+                        {
+                            return;
+                        }
+
                         //Hashtable HT = PwPHT();
                         PwPManager.SaveUpdatePwP(PwPHT(), getCheckBoxListItemValues(cblHighRisk), getCheckBoxListItemValues(cblTransitionPreparation), getCheckBoxListItemValues(cblReferredTo), getCheckBoxListItemValues(cblCounselling));
                         //Page.ClientScript.RegisterStartupScript(this.GetType(), "PwPSaveUpdateRecord", "alert('Data on Prevention with Positives tab saved successfully.');", true);

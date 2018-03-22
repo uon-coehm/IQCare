@@ -10,6 +10,8 @@
 <%@ Register TagPrefix="UcTBScreen" TagName="Uc7" Src="~/ClinicalForms/UserControl/UserControlKNH_TBScreening.ascx" %>
 <%@ Register TagPrefix="UcPharmacy" TagName="Uc8" Src="~/ClinicalForms/UserControl/UserControlKNH_Pharmacy.ascx" %>
 <%@ Register TagPrefix="UcPWP" TagName="Uc9" Src="~/ClinicalForms/UserControl/UserControlKNH_PwP.ascx" %>
+
+
 <%@ Register Src="~/ClinicalForms/UserControl/UserControlKNH_LabEvaluation.ascx"
     TagName="Uclabeval" TagPrefix="uc11" %>
 <%@ Register Src="~/ClinicalForms/UserControl/UserControlKNH_Signature.ascx" TagName="UserControlKNH_Signature"
@@ -17,10 +19,16 @@
 <%@ Register Src="UserControl/UserControlKNH_BackToTop.ascx" TagName="UserControlKNH_BackToTop"
     TagPrefix="uc13" %>
 <%@ Register Assembly="AjaxControlToolkit" TagPrefix="act" Namespace="AjaxControlToolkit" %>
+<<<<<<< HEAD
 <%@ Register Src="~/ClinicalForms/UserControl/UserControl_CRAFFTScreeningTool.ascx" TagName="UcCRAFFTScreening" TagPrefix="ucCRAFFT" %>
+=======
+
+
+>>>>>>> 573eba772f07ecc4072ebffcdc8854e99512be82
 <asp:Content ID="Content1" ContentPlaceHolderID="IQCareContentPlaceHolder" runat="server">
     <br />
     <div style="padding-left: 8px; padding-right: 8px; padding-top: 2px;">
+
         <%--<link href="UserControl/mbExtruder.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="../Touch/Scripts/jquery-1.10.1.min.js"></script>
         <script type="text/javascript" src="../Touch/Styles/custom-theme/jquery-ui-1.10.3.custom.min.js"></script>
@@ -647,12 +655,12 @@
                                                             <td style='width: 30%' align='left'>
                                                                 <input id="rdofatheraliveyes" onmouseup="up(this);" onfocus="up(this);" onclick="down(this);rblSelectedValue1(0,'divDateOfDeathFather')"
                                                                     type="radio" name="fatheralive" runat="server" />
-                                                                &nbsp;</input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                                                                &nbsp; &nbsp; </input>&nbsp; &nbsp; </input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                                                                 <label>
                                                                     Yes</label>
                                                                 <input id="rdofatheraliveno" onmouseup="up(this);" onfocus="up(this);" onclick="down(this);rblSelectedValue1(1,'divDateOfDeathFather');"
                                                                     type="radio" name="fatheralive" runat="server" />
-                                                                &nbsp;</input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                                                                &nbsp; &nbsp; </input>&nbsp; &nbsp; </input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                                                                 <label>
                                                                     No</label>
                                                             </td>
@@ -666,7 +674,7 @@
                                                                             </td>
                                                                             <td style='width: 60%' align='left'>
                                                                                 <input id="txtDateOfDeathFather" maxlength="11" size="8" runat="server" type="text" />
-                                                                                &nbsp;</input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                                                                                &nbsp; &nbsp; </input>&nbsp; &nbsp; </input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                                                                                 <img onclick="w_displayDatePicker('<%= txtDateOfDeathFather.ClientID%>');" height="22"
                                                                                     alt="Date Helper" hspace="5" src="../images/cal_icon.gif" width="22" border="0" /><span
                                                                                         class="smallerlabel">(DD-MMM-YYYY)</span>
@@ -690,12 +698,12 @@
                                                             <td style='width: 30%' align='left'>
                                                                 <input id="rdomotheraliveyes" onmouseup="up(this);" onfocus="up(this);" onclick="down(this);rblSelectedValue1(0,'divDateOfDeathMother');"
                                                                     type="radio" name="motheraliveyes" runat="server" />
-                                                                &nbsp;</input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                                                                &nbsp; &nbsp; </input>&nbsp; &nbsp; </input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                                                                 <label>
                                                                     Yes</label>
                                                                 <input id="rdomotheraliveno" onmouseup="up(this);" onfocus="up(this);" onclick="down(this);rblSelectedValue1(1,'divDateOfDeathMother');"
                                                                     type="radio" name="motheraliveyes" runat="server" />
-                                                                &nbsp;</input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                                                                &nbsp; &nbsp; </input>&nbsp; &nbsp; </input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                                                                 <label>
                                                                     No</label>
                                                             </td>
@@ -709,7 +717,7 @@
                                                                             </td>
                                                                             <td style='width: 60%' align='left'>
                                                                                 <input id="txtDateOfDeathMother" maxlength="11" size="8" runat="server" type="text" />
-                                                                                &nbsp;</input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                                                                                &nbsp; &nbsp; </input>&nbsp; &nbsp; </input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                                                                                 <img onclick="w_displayDatePicker('<%= txtDateOfDeathMother.ClientID%>');" height="22"
                                                                                     alt="Date Helper" hspace="5" src="../images/cal_icon.gif" width="22" border="0" /><span
                                                                                         class="smallerlabel">(DD-MMM-YYYY)</span>
@@ -881,8 +889,10 @@
                                     </tr>
                                 </table>
                             </div>
-                        </ContentTemplate>
-                    </act:TabPanel>
+                        
+</ContentTemplate>
+                    
+</act:TabPanel>
                     <act:TabPanel ID="TabPanel1" runat="server" Font-Size="Medium" HeaderText="Clinical History">
                         <ContentTemplate>
                             <div class="border center formbg">
@@ -1201,8 +1211,10 @@
                                     </tr>
                                 </table>
                             </div>
-                        </ContentTemplate>
-                    </act:TabPanel>
+                        
+</ContentTemplate>
+                    
+</act:TabPanel>
                     <act:TabPanel ID="TabPanel2" runat="server" Font-Size="Medium" HeaderText="TB Screening">
                         <ContentTemplate>
                             <div class="border center formbg">
@@ -1214,8 +1226,10 @@
                                     </tr>
                                 </table>
                             </div>
-                        </ContentTemplate>
-                    </act:TabPanel>
+                        
+</ContentTemplate>
+                    
+</act:TabPanel>
                     <act:TabPanel ID="TabPanel3" runat="server" Font-Size="Medium" HeaderText="Examination">
                         <ContentTemplate>
                             <div class="border center formbg">
@@ -1230,14 +1244,17 @@
                                                             <td>
                                                                 <asp:ImageButton ID="ImgCurrentLongTermMedications" ImageUrl="~/images/arrow-up.gif"
                                                                     runat="server" />
+
                                                             </td>
                                                             <td>
                                                                 <h2 align="left" class="forms">
-                                                                    <asp:Label ID="lblheadcurrentlongterm" runat="server" Text="Current Long Term Medications"></asp:Label></h2>
+                                                                    <asp:Label ID="lblheadcurrentlongterm" runat="server" Text="Current Long Term Medications"></asp:Label>
+</h2>
                                                             </td>
                                                         </tr>
                                                     </table>
                                                 </asp:Panel>
+
                                             </td>
                                         </tr>
                                     </table>
@@ -1252,16 +1269,17 @@
                                                         <td style="width: 50%" align="left">
                                                             <asp:Label ID="lblchlongtermmed" runat="server" CssClass="required" Font-Bold="True"
                                                                 Text="*Long term medications:"></asp:Label>
+
                                                             <div class="customdivbordermultiselect">
-                                                                <asp:CheckBoxList ID="chkLongTermMedication" RepeatLayout="Flow" Width="190px" runat="server">
-                                                                </asp:CheckBoxList>
+                                                                <asp:CheckBoxList ID="chkLongTermMedication" RepeatLayout="Flow" Width="190px" runat="server"></asp:CheckBoxList>
+
                                                             </div>
                                                         </td>
                                                         <td style="width: 50%; display: none;" align="left" id="divLongTermMedication">
                                                             <label id="Label2" for="txtotherchroniccondition">
                                                                 Other current long term medications:</label><br />
-                                                            <asp:TextBox ID="txOtherLongTermMedications" runat="server" Width="99%">
-                                                            </asp:TextBox>
+                                                            <asp:TextBox ID="txOtherLongTermMedications" runat="server" Width="99%"></asp:TextBox>
+
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -1278,12 +1296,15 @@
                                                         <td align="left">
                                                             <input id="rblbtnLongTermMedicationsyes" onmouseup="up(this);" onfocus="up(this);"
                                                                 onclick="down(this);" type="radio" name="rblbtnLongTermMedicationsyes" runat="server" />
-                                                            <label>
-                                                                Yes</label>
-                                                            <input id="rblbtnLongTermMedicationsno" onmouseup="up(this);" onfocus="up(this);"
-                                                                onclick="down(this);" type="radio" name="rblbtnLongTermMedicationsyes" runat="server" />
-                                                            <label>
-                                                                No</label>
+
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input /><label>Yes</label>&nbsp;<input ID="rblbtnLongTermMedicationsno" runat="server" 
+                                                                name="rblbtnLongTermMedicationsyes" onclick="down(this);" onfocus="up(this);" 
+                                                                onmouseup="up(this);" type="radio"></input> </input>
+                                                            </input>
+                                                            </input>
+                                                            </input>
+                                                            </input>
+                                                            &nbsp;</input><label>No</label>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -1318,11 +1339,11 @@
                                                         <td align="left">
                                                             <input id="dtAntifungalsDate" onblur="DateFormat(this,this.value,event,false,'3')"
                                                                 onkeyup="DateFormat(this,this.value,event,false,'3')" onfocus="javascript:vDateType='3'"
-                                                                maxlength="11" size="11" name="VisitDate" runat="server" />
-                                                            <img id="Img17" onclick="w_displayDatePicker('<%=dtAntifungalsDate.ClientID%>');"
+                                                                maxlength="11" size="11" runat="server" type="text" />
+
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; </input><img id="Img17" onclick="w_displayDatePicker('<%=dtAntifungalsDate.ClientID%>');"
                                                                 height="22 " alt="Date Helper" hspace="5" src="../images/cal_icon.gif" width="22"
-                                                                border="0" name="appDateimg" style="vertical-align: text-bottom;" />
-                                                            <span class="smallerlabel" id="Span17">(DD-MMM-YYYY)</span>
+                                                                border="0" name="appDateimg" style="vertical-align: text-bottom;" /><span class="smallerlabel" id="Span17">(DD-MMM-YYYY)</span>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -1337,11 +1358,11 @@
                                                         <td align="left" class="data-control">
                                                             <input id="dtAntihypertensivesDate" onblur="DateFormat(this,this.value,event,false,'3')"
                                                                 onkeyup="DateFormat(this,this.value,event,false,'3')" onfocus="javascript:vDateType='3'"
-                                                                maxlength="11" size="11" name="VisitDate" runat="server" />
-                                                            <img id="Img16" onclick="w_displayDatePicker('<%=dtAntihypertensivesDate.ClientID%>');"
+                                                                maxlength="11" size="11" runat="server" type="text" />
+
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; </input><img id="Img16" onclick="w_displayDatePicker('<%=dtAntihypertensivesDate.ClientID%>');"
                                                                 height="22 " alt="Date Helper" hspace="5" src="../images/cal_icon.gif" width="22"
-                                                                border="0" name="appDateimg" style="vertical-align: text-bottom;" />
-                                                            <span class="smallerlabel" id="Span16">(DD-MMM-YYYY)</span>
+                                                                border="0" name="appDateimg" style="vertical-align: text-bottom;" /><span class="smallerlabel" id="Span16">(DD-MMM-YYYY)</span>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -1357,12 +1378,12 @@
                                                         </td>
                                                         <td align="left">
                                                             <input id="dtSulfaTMPDate" onblur="DateFormat(this,this.value,event,false,'3')" onkeyup="DateFormat(this,this.value,event,false,'3')"
-                                                                onfocus="javascript:vDateType='3'" maxlength="11" size="11" name="VisitDate"
-                                                                runat="server" />
-                                                            <img id="Img15" onclick="w_displayDatePicker('<%=dtSulfaTMPDate.ClientID%>');" height="22 "
+                                                                onfocus="javascript:vDateType='3'" maxlength="11" size="11"
+                                                                runat="server" type="text" />
+
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; </input><img id="Img15" onclick="w_displayDatePicker('<%=dtSulfaTMPDate.ClientID%>');" height="22 "
                                                                 alt="Date Helper" hspace="5" src="../images/cal_icon.gif" width="22" border="0"
-                                                                name="appDateimg" style="vertical-align: text-bottom;" />
-                                                            <span class="smallerlabel" id="Span15">(DD-MMM-YYYY)</span>
+                                                                name="appDateimg" style="vertical-align: text-bottom;" /><span class="smallerlabel" id="Span15">(DD-MMM-YYYY)</span>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -1377,11 +1398,11 @@
                                                         <td align="left" class="data-control">
                                                             <input id="dtOtherCurrentLongTermMedications" onblur="DateFormat(this,this.value,event,false,'3')"
                                                                 onkeyup="DateFormat(this,this.value,event,false,'3')" onfocus="javascript:vDateType='3'"
-                                                                maxlength="11" size="11" name="VisitDate" runat="server" />
-                                                            <img id="Img21" onclick="w_displayDatePicker('<%=dtOtherCurrentLongTermMedications.ClientID%>');"
+                                                                maxlength="11" size="11" runat="server" type="text" />
+
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; </input><img id="Img21" onclick="w_displayDatePicker('<%=dtOtherCurrentLongTermMedications.ClientID%>');"
                                                                 height="22 " alt="Date Helper" hspace="5" src="../images/cal_icon.gif" width="22"
-                                                                border="0" name="appDateimg" style="vertical-align: text-bottom;" />
-                                                            <span class="smallerlabel" id="Span21">(DD-MMM-YYYY)</span>
+                                                                border="0" name="appDateimg" style="vertical-align: text-bottom;" /><span class="smallerlabel" id="Span21">(DD-MMM-YYYY)</span>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -1389,6 +1410,7 @@
                                         </tr>
                                     </table>
                                 </asp:Panel>
+
                                 <div class="center formbg pad5">
                                     <table class="border center formbg" width="100%">
                                         <tr>
@@ -1398,14 +1420,17 @@
                                                         <tr>
                                                             <td>
                                                                 <asp:ImageButton ID="ImgMedicalConditions" ImageUrl="~/images/arrow-up.gif" runat="server" />
+
                                                             </td>
                                                             <td>
                                                                 <h2 align="left" class="forms">
-                                                                    <asp:Label ID="lblMedicalConditions" runat="server" Text="Medical Conditions"></asp:Label></h2>
+                                                                    <asp:Label ID="lblMedicalConditions" runat="server" Text="Medical Conditions"></asp:Label>
+</h2>
                                                             </td>
                                                         </tr>
                                                     </table>
                                                 </asp:Panel>
+
                                             </td>
                                         </tr>
                                     </table>
@@ -1425,18 +1450,17 @@
                                                                 <input id="rdoMilestoneAppropriateYes" onmouseup="up(this);" onfocus="up(this);"
                                                                     onclick="down(this);rblSelectedValue1(0,'divResonMilestoneInappropriate')" type="radio"
                                                                     name="MilestoneAppropriate" runat="server" />
-                                                                <label>
-                                                                    Yes</label>
-                                                                <input id="rdoMilestoneAppropriateNo" onmouseup="up(this);" onfocus="up(this);" onclick="down(this);rblSelectedValue1(1,'divResonMilestoneInappropriate');"
-                                                                    type="radio" name="MilestoneAppropriate" runat="server" />
-                                                                <label>
-                                                                    No</label>
-                                                                <%--<asp:RadioButtonList ID="rdoMilestoneAppropriate" runat="server" RepeatDirection="Horizontal"
-                                                                        OnClick="rblSelectedValue1(1,'divResonMilestoneInappropriate')">
-                                                                        <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
-                                                                        <asp:ListItem Text="No" Value="0"></asp:ListItem>
-                                                                    </asp:RadioButtonList>--%>
-                                                            </td>
+
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input /><label>Yes</label>&nbsp;<input ID="rdoMilestoneAppropriateNo" runat="server" 
+                                                                    name="MilestoneAppropriate" 
+                                                                    onclick="down(this);rblSelectedValue1(1,'divResonMilestoneInappropriate');" 
+                                                                    onfocus="up(this);" onmouseup="up(this);" type="radio"></input> </input>
+                                                                </input>
+                                                                </input>
+                                                                </input>
+                                                                </input>
+                                                                &nbsp;</input><label>No</label>
+                                                                </td>
                                                             <td style='width: 50%'>
                                                                 <div id="divResonMilestoneInappropriate" style="display: none;">
                                                                     <table width='100%'>
@@ -1450,6 +1474,7 @@
                                                                             <td style='width: 100%'>
                                                                                 <asp:TextBox ID="txtResonMilestoneInappropriate" Columns="20" Rows="2" Width="100%"
                                                                                     TextMode="MultiLine" runat="server"></asp:TextBox>
+
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -1462,11 +1487,13 @@
                                             <tr>
                                                 <td colspan="2">
                                                     <UcPhysExam:Uc4 ID="UcPhysExam" runat="server" />
+
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </asp:Panel>
+
                                 <div class="center formbg pad5">
                                     <table class="border center formbg" width="100%">
                                         <tr>
@@ -1476,14 +1503,17 @@
                                                         <tr>
                                                             <td>
                                                                 <asp:ImageButton ID="ImgWHOStaging" ImageUrl="~/images/arrow-up.gif" runat="server" />
+
                                                             </td>
                                                             <td>
                                                                 <h2 align="left" class="forms">
-                                                                    <asp:Label ID="lblheadWHOStage" runat="server" Text="WHO Stage"></asp:Label></h2>
+                                                                    <asp:Label ID="lblheadWHOStage" runat="server" Text="WHO Stage"></asp:Label>
+</h2>
                                                             </td>
                                                         </tr>
                                                     </table>
                                                 </asp:Panel>
+
                                             </td>
                                         </tr>
                                     </table>
@@ -1494,11 +1524,13 @@
                                             <tr>
                                                 <td>
                                                     <UcWHOStaging:Uc3 ID="UCWHO" runat="server" />
+
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </asp:Panel>
+
                                 <div class="center formbg pad5">
                                     <table class="border center formbg" width="100%">
                                         <tr>
@@ -1508,15 +1540,18 @@
                                                         <tr>
                                                             <td>
                                                                 <asp:ImageButton ID="ImgDiagnosis" ImageUrl="~/images/arrow-up.gif" runat="server" />
+
                                                             </td>
                                                             <td>
                                                                 <h2 align="left" class="forms">
                                                                     <asp:Label ID="lblDiagnosisHeader" runat="server" Text="Diagnosis"></asp:Label>
+
                                                                 </h2>
                                                             </td>
                                                         </tr>
                                                     </table>
                                                 </asp:Panel>
+
                                             </td>
                                         </tr>
                                     </table>
@@ -1532,8 +1567,8 @@
                                                                 Impression:</label>
                                                         </td>
                                                         <td style='width: 35%' align='left'>
-                                                            <asp:DropDownList runat="server" ID="ddlHAARTImpression" Width="180px">
-                                                            </asp:DropDownList>
+                                                            <asp:DropDownList runat="server" ID="ddlHAARTImpression" Width="180px"></asp:DropDownList>
+
                                                         </td>
                                                         <td style='width: 50%'>
                                                             <div id="divSpecifyHAART" style="display: none;">
@@ -1544,8 +1579,8 @@
                                                                                 Specify HAART patient impression:</label>
                                                                         </td>
                                                                         <td style='width: 50%' align='left'>
-                                                                            <asp:DropDownList runat="server" ID="ddlHAARTexperienced" Width="180px">
-                                                                            </asp:DropDownList>
+                                                                            <asp:DropDownList runat="server" ID="ddlHAARTexperienced" Width="180px"></asp:DropDownList>
+
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -1562,6 +1597,7 @@
                                                                         <td style='width: 50%'>
                                                                             <asp:TextBox ID="txtOtherHAARTImpression" Columns="20" Rows="6" Width="100%" TextMode="MultiLine"
                                                                                 runat="server"></asp:TextBox>
+
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -1582,8 +1618,9 @@
                                                         <td style='width: 50%' align='left'>
                                                             <asp:RadioButtonList ID="rdoReviewedPreviousResults" runat="server" RepeatDirection="Horizontal">
                                                                 <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
-                                                                <asp:ListItem Text="No" Value="0"></asp:ListItem>
-                                                            </asp:RadioButtonList>
+<asp:ListItem Text="No" Value="0"></asp:ListItem>
+</asp:RadioButtonList>
+
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -1602,6 +1639,7 @@
                                                         <td style='width: 100%'>
                                                             <asp:TextBox ID="txtResultsReviewComments" Columns="20" Rows="6" Width="100%" TextMode="MultiLine"
                                                                 runat="server"></asp:TextBox>
+
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -1619,15 +1657,17 @@
                                                                                     Diagnosis:</label>-->
                                                                         <asp:Label ID="lblDiagnosis" runat="server" CssClass="required" Font-Bold="True"
                                                                             Text="*Diagnosis:"></asp:Label>
+
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td align="left">
-                                                                        <div id="divcblDiagnosis2" enableviewstate="true" class="customdivbordermultiselect"
+                                                                        <div id="divcblDiagnosis2" class="customdivbordermultiselect"
                                                                             runat="server">
-                                                                            <asp:CheckBoxList ID="cblDiagnosis2" Width="100%" RepeatLayout="Flow" runat="server">
-                                                                            </asp:CheckBoxList>
+                                                                            <asp:CheckBoxList ID="cblDiagnosis2" Width="100%" RepeatLayout="Flow" runat="server"></asp:CheckBoxList>
+
                                                                         </div>
+
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -1644,6 +1684,7 @@
                                                                         </td>
                                                                         <td style='width: 60%' align='left'>
                                                                             <asp:TextBox runat="server" MaxLength="50" ID="txtHIVRelatedOI" Width="180px"></asp:TextBox>
+
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -1657,6 +1698,7 @@
                                                                         </td>
                                                                         <td style='width: 60%' align='left'>
                                                                             <asp:TextBox runat="server" MaxLength="50" ID="txtNonHIVRelatedOI" Width="180px"></asp:TextBox>
+
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -1668,49 +1710,58 @@
                                         </tr>
                                     </table>
                                 </asp:Panel>
+
                             </div>
                             <act:CollapsiblePanelExtender ID="CPPnlCurrentLongTermMedications" runat="server"
-                                SuppressPostBack="true" ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlCurrentLongTermMedicationsDetails"
+                                SuppressPostBack="True" ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlCurrentLongTermMedicationsDetails"
                                 CollapseControlID="PnlCurrentLongTermMedications" ExpandControlID="PnlCurrentLongTermMedications"
-                                CollapsedImage="~/images/arrow-up.gif" Collapsed="true" ImageControlID="ImgCurrentLongTermMedications">
-                            </act:CollapsiblePanelExtender>
-                            <act:CollapsiblePanelExtender ID="CPPnlMedicalConditions" runat="server" SuppressPostBack="true"
+                                CollapsedImage="~/images/arrow-up.gif" Collapsed="True" 
+                                ImageControlID="ImgCurrentLongTermMedications" Enabled="True"></act:CollapsiblePanelExtender>
+
+                            <act:CollapsiblePanelExtender ID="CPPnlMedicalConditions" runat="server" SuppressPostBack="True"
                                 ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlMedicalConditionsDetails"
                                 CollapseControlID="PnlMedicalConditions" ExpandControlID="PnlMedicalConditions"
-                                CollapsedImage="~/images/arrow-up.gif" Collapsed="true" ImageControlID="ImgMedicalConditions">
-                            </act:CollapsiblePanelExtender>
-                            <act:CollapsiblePanelExtender ID="CPPnlWHOStaging" runat="server" SuppressPostBack="true"
+                                CollapsedImage="~/images/arrow-up.gif" Collapsed="True" 
+                                ImageControlID="ImgMedicalConditions" Enabled="True"></act:CollapsiblePanelExtender>
+
+                            <act:CollapsiblePanelExtender ID="CPPnlWHOStaging" runat="server" SuppressPostBack="True"
                                 ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlWHOStagingDetails"
                                 CollapseControlID="PnlWHOStaging" ExpandControlID="PnlWHOStaging" CollapsedImage="~/images/arrow-up.gif"
-                                Collapsed="true" ImageControlID="ImgWHOStaging">
-                            </act:CollapsiblePanelExtender>
-                            <act:CollapsiblePanelExtender ID="CPPnlDiagnosis" runat="server" SuppressPostBack="true"
-                                ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlDiagnosisDetails" CollapseControlID="PnlDiagnosis"
-                                ExpandControlID="PnlDiagnosis" CollapsedImage="~/images/arrow-up.gif" Collapsed="true"
-                                ImageControlID="ImgDiagnosis">
-                            </act:CollapsiblePanelExtender>
+                                Collapsed="True" ImageControlID="ImgWHOStaging" Enabled="True"></act:CollapsiblePanelExtender>
+
+                            <act:CollapsiblePanelExtender ID="CPPnlDiagnosis" runat="server" SuppressPostBack="True"
+                                ExpandedImage="~/images/arrow-dn.gif" 
+                                TargetControlID="PnlDiagnosisDetails" CollapseControlID="PnlDiagnosis"
+                                ExpandControlID="PnlDiagnosis" CollapsedImage="~/images/arrow-up.gif" Collapsed="True"
+                                ImageControlID="ImgDiagnosis" Enabled="True"></act:CollapsiblePanelExtender>
+
                             <br />
                             <div class="border center formbg">
-                                <table cellspacing="6" cellpadding="0" width="100%" border="0" id="Table3" runat="server">
-                                    <tbody>
-                                        <tr align="center">
-                                            <td class="form">
-                                                <uc12:UserControlKNH_Signature ID="UserControlKNH_SignatureExam" runat="server" />
-                                            </td>
-                                        </tr>
-                                        <tr align="center">
-                                            <td class="form">
-                                                <asp:Button ID="btnExaminationSave" runat="server" Text="Save" OnClick="btnExaminationSave_Click" />
-                                                <%--<asp:Button ID="btnExaminationDQSave" runat="server" OnClick="btnExaminationDQSave_Click" Text="Data Quality Check" />--%>
-                                                <asp:Button ID="btncloseExam" Text="Close" runat="server" OnClick="btncloseExam_Click" />
-                                                <asp:Button ID="btnExaminationPrint" Text="Print" OnClientClick="WindowPrint()" runat="server" />
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <table cellspacing="6" cellpadding="0" width="100%" border="0" id="Table3" runat="server"><tr runat="server" align="center"><td runat="server" class="form">
+                                            <uc12:UserControlKNH_Signature ID="UserControlKNH_SignatureExam" 
+                                                runat="server" />
+
+                                        </td>
+</tr>
+<tr runat="server" align="center"><td runat="server" class="form">
+                                            <asp:Button ID="btnExaminationSave" runat="server" 
+                                                OnClick="btnExaminationSave_Click" Text="Save" />
+
+                                            <asp:Button ID="btncloseExam" runat="server" OnClick="btncloseExam_Click" 
+                                                Text="Close" />
+
+                                            <asp:Button ID="btnExaminationPrint" runat="server" 
+                                                OnClientClick="WindowPrint()" Text="Print" />
+
+                                        </td>
+</tr>
+</table>
+
                             </div>
-                        </ContentTemplate>
-                    </act:TabPanel>
+                        
+</ContentTemplate>
+                    
+</act:TabPanel>
                     <act:TabPanel ID="TabPanel4" runat="server" Font-Size="Medium" HeaderText="Management">
                         <ContentTemplate>
                             <div class="border center formbg">
@@ -1883,7 +1934,6 @@
                                             </tr>
                                             <tr>
                                                 <td class="border center pad5 whitebg" style="width: 50%;">
-                                                    <%--<div id="divshorttermeffects" style="display: none;">--%>
                                                     <table width="100%">
                                                         <tbody>
                                                             <tr>
@@ -1894,7 +1944,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td align="left">
-                                                                    <div id="divcblShorttermeffects" enableviewstate="true" class="customdivbordermultiselect"
+                                                                    <div id="divcblShorttermeffects" class="customdivbordermultiselect"
                                                                         runat="server">
                                                                         <asp:CheckBoxList ID="cblShorttermeffects" RepeatLayout="Flow" runat="server">
                                                                         </asp:CheckBoxList>
@@ -1934,7 +1984,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td align="left">
-                                                                    <div id="divchklistlongtermeffect" enableviewstate="true" class="customdivbordermultiselect"
+                                                                    <div id="divchklistlongtermeffect" class="customdivbordermultiselect"
                                                                         runat="server">
                                                                         <asp:CheckBoxList ID="chklistlongtermeffect" RepeatLayout="Flow" runat="server">
                                                                         </asp:CheckBoxList>
@@ -2155,78 +2205,104 @@
                                                     </table>
                                                 </td>
                                             </tr>
+                                           
                                         </tbody>
                                     </table>
                                 </asp:Panel>
+<<<<<<< HEAD
                                 <ucCRAFFT:UcCRAFFTScreening ID="UcCRAFFTScreening" runat="server" />
+=======
+                                
+                              
+>>>>>>> 573eba772f07ecc4072ebffcdc8854e99512be82
                             </div>
-                            <act:CollapsiblePanelExtender ID="CPPnlCurrentARTRegimen" runat="server" SuppressPostBack="true"
+                            <act:CollapsiblePanelExtender ID="CPPnlCurrentARTRegimen" runat="server" SuppressPostBack="True"
                                 ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlCurrentARTRegimenDetails"
                                 CollapseControlID="PnlCurrentARTRegimen" ExpandControlID="PnlCurrentARTRegimen"
-                                CollapsedImage="~/images/arrow-up.gif" Collapsed="true" ImageControlID="ImgCurrentARTRegimen">
+                                CollapsedImage="~/images/arrow-up.gif" Collapsed="True" 
+                                ImageControlID="ImgCurrentARTRegimen" Enabled="True">
                             </act:CollapsiblePanelExtender>
-                            <act:CollapsiblePanelExtender ID="CPPnlAdherenceAssessment" runat="server" SuppressPostBack="true"
+                            <act:CollapsiblePanelExtender ID="CPPnlAdherenceAssessment" runat="server" SuppressPostBack="True"
                                 ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlAdherenceAssessmentDetails"
                                 CollapseControlID="PnlAdherenceAssessment" ExpandControlID="PnlAdherenceAssessment"
-                                CollapsedImage="~/images/arrow-up.gif" Collapsed="true" ImageControlID="ImgAdherenceAssessment">
+                                CollapsedImage="~/images/arrow-up.gif" Collapsed="True" 
+                                ImageControlID="ImgAdherenceAssessment" Enabled="True">
                             </act:CollapsiblePanelExtender>
-                            <act:CollapsiblePanelExtender ID="CPPnlDrugAllergiesToxicities" runat="server" SuppressPostBack="true"
+                            <act:CollapsiblePanelExtender ID="CPPnlDrugAllergiesToxicities" runat="server" SuppressPostBack="True"
                                 ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlDrugAllergiesToxicitiesDetails"
                                 CollapseControlID="PnlDrugAllergiesToxicities" ExpandControlID="PnlDrugAllergiesToxicities"
-                                CollapsedImage="~/images/arrow-up.gif" Collapsed="true" ImageControlID="ImgDrugAllergiesToxicities">
+                                CollapsedImage="~/images/arrow-up.gif" Collapsed="True" 
+                                ImageControlID="ImgDrugAllergiesToxicities" Enabled="True">
                             </act:CollapsiblePanelExtender>
-                            <act:CollapsiblePanelExtender ID="CPPnlARVsideeffects" runat="server" SuppressPostBack="true"
+                            <act:CollapsiblePanelExtender ID="CPPnlARVsideeffects" runat="server" SuppressPostBack="True"
                                 ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlARVsideeffectsDetails"
                                 CollapseControlID="PnlARVsideeffects" ExpandControlID="PnlARVsideeffects" CollapsedImage="~/images/arrow-up.gif"
-                                Collapsed="true" ImageControlID="ImgARVsideeffects">
+                                Collapsed="True" ImageControlID="ImgARVsideeffects" Enabled="True">
                             </act:CollapsiblePanelExtender>
-                            <act:CollapsiblePanelExtender ID="CPPnlPlan" runat="server" SuppressPostBack="true"
+                            <act:CollapsiblePanelExtender ID="CPPnlPlan" runat="server" SuppressPostBack="True"
                                 ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlPlanDetails" CollapseControlID="PnlPlan"
-                                ExpandControlID="PnlPlan" CollapsedImage="~/images/arrow-up.gif" Collapsed="true"
-                                ImageControlID="ImgPlan">
+                                ExpandControlID="PnlPlan" CollapsedImage="~/images/arrow-up.gif" Collapsed="True"
+                                ImageControlID="ImgPlan" Enabled="True">
                             </act:CollapsiblePanelExtender>
-                            <act:CollapsiblePanelExtender ID="CPPnlWorkUpPlan" runat="server" SuppressPostBack="true"
-                                ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlWorkupplandetails" CollapseControlID="PnlWorkupplan"
-                                ExpandControlID="PnlWorkupplan" CollapsedImage="~/images/arrow-up.gif" Collapsed="true"
-                                ImageControlID="imgWorkUpPlan">
+                            <act:CollapsiblePanelExtender ID="CPPnlWorkUpPlan" runat="server" SuppressPostBack="True"
+                                ExpandedImage="~/images/arrow-dn.gif" 
+                                TargetControlID="PnlWorkupplandetails" CollapseControlID="PnlWorkupplan"
+                                ExpandControlID="PnlWorkupplan" CollapsedImage="~/images/arrow-up.gif" Collapsed="True"
+                                ImageControlID="imgWorkUpPlan" Enabled="True">
                             </act:CollapsiblePanelExtender>
+                            
                             <br />
                             <div class="border center formbg">
                                 <table cellspacing="6" cellpadding="0" width="100%" border="0" id="Table4" runat="server">
-                                    <tbody>
-                                        <tr align="center">
-                                            <td class="form">
-                                                <uc12:UserControlKNH_Signature ID="UserControlKNH_SignatureMgt" runat="server" />
-                                            </td>
-                                        </tr>
-                                        <tr align="center">
-                                            <td class="form">
-                                                <asp:Button ID="btnManagementSave" runat="server" Text="Save" OnClick="btnManagementSave_Click" />
-                                                <%--<asp:Button ID="btnManagementDQSave" runat="server" Text="Data Quality Check" OnClick="btnManagementDQSave_Click" />--%>
-                                                <asp:Button ID="btncloseMgt" Text="Close" runat="server" OnClick="btncloseMgt_Click" />
-                                                <asp:Button ID="btnManagementPrint" Text="Print" OnClientClick="WindowPrint()" runat="server" />
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </ContentTemplate>
-                    </act:TabPanel>
-                    <act:TabPanel ID="TabPanel5" runat="server" Font-Size="Medium" HeaderText="Prevention with Positives">
-                        <ContentTemplate>
-                            <div class="border center formbg">
-                                <table class="border center formbg" width="100%">
-                                    <tr>
-                                        <td>
-                                            <UcPWP:Uc9 ID="UcPwp" runat="server" />
+                                    <tr runat="server" align="center">
+                                        <td runat="server" class="form">
+                                            <asp:Button ID="btnManagementSave" runat="server" 
+                                                OnClick="btnManagementSave_Click" Text="Save" />
+                                            <asp:Button ID="btncloseMgt" runat="server" OnClick="btncloseMgt_Click" 
+                                                Text="Close" />
+                                            <asp:Button ID="btnManagementPrint" runat="server" 
+                                                OnClientClick="WindowPrint()" Text="Print" />
+                                        </td>
+                                    </tr>
+                                    <tr runat="server" align="center">
+                                        <td runat="server" class="form">
+                                            <uc12:UserControlKNH_Signature ID="UserControlKNH_SignatureMgt" 
+                                                runat="server" />
                                         </td>
                                     </tr>
                                 </table>
                             </div>
-                        </ContentTemplate>
-                    </act:TabPanel>
+                        
+</ContentTemplate>
+                    
+</act:TabPanel>
+                    <act:TabPanel ID="TabPanel5" runat="server" Font-Size="Medium" HeaderText="Prevention with Positives">
+                        <ContentTemplate>
+                        
+                        <table class="border center formbg" width="100%">
+                        <tr>
+                                        <td>
+                                            <UcPWP:Uc9 ID="UcPwp" runat="server" />
+
+                                        </td>
+                                        
+                                    </tr>
+                                </table>
+                            
+                          
+                       
+                           
+                            
+                          
+                       
+</ContentTemplate>
+                    
+</act:TabPanel>
+                    
+
                 </act:TabContainer>
             </div>
+
             <div style="display: none;">
                 <table cellspacing="6" cellpadding="0" width="100%">
                     <tbody>

@@ -21,7 +21,7 @@
     <link href="<%# ResolveUrl("~/Style/styles.css") %>" rel="Stylesheet" type="text/css"  />
     <link href="<%# ResolveUrl("~/Touch/Styles/custom-theme/jquery-ui-1.10.3.custom.min.css") %>" rel="Stylesheet" type="text/css" />
     <link href="<%# ResolveUrl("~/ClinicalForms/UserControl/mbExtruder.css") %>" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="<%#ResolveUrl("~/style/CustomStyle.css") %>" />
+    <link rel="stylesheet" href="<%#ResolveUrl("~/Style/CustomStyle.css") %>" />
     
     <script language="javascript" type="text/javascript" src="<%# ResolveUrl("~/Incl/menu.js") %>"></script>
     <script language="javascript" type="text/javascript" src="<%# ResolveUrl("~/Incl/jsCommon.js") %>"></script>
@@ -47,7 +47,7 @@
     <link href="<%# ResolveUrl("~/Incl/notification_center_plugin/css/uniform.css") %>" rel="stylesheet"  type="text/css" />
     <script language="javascript" type="text/javascript" src="<%# ResolveUrl("~/Incl/notification_center_plugin/js/jquery.uniform.min.js") %>"></script>
    
-   <link rel="stylesheet" href="<%#ResolveUrl("~/style/CustomStyle.css") %>" />
+
  
    
     
@@ -173,7 +173,7 @@
                 <uc2:levelTwoNavigationUserControl ID="levelTwoNavigationUserControl1" runat="server" />
             </div>
             <asp:Label ID="lblpntStatus" CssClass="textstylehidden" runat="server" Text="0"></asp:Label>
-            
+            <br />
             <div>
                 <asp:ContentPlaceHolder ID="IQCareContentPlaceHolder" runat="server">
                 </asp:ContentPlaceHolder>

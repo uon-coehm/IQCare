@@ -3145,13 +3145,13 @@ namespace PresentationApp.ClinicalForms {
         protected global::System.Web.UI.WebControls.Panel Pnl2TBScreening;
         
         /// <summary>
-        /// UCTBScreen control.
+        /// UcTBScreen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::PresentationApp.ClinicalForms.UserControl.UserControlKNH_TBScreening UCTBScreen;
+        protected global::PresentationApp.ClinicalForms.UserControl.UserControlKNH_TBScreening UcTBScreen;
         
         /// <summary>
         /// pnl1TreatmentPlan control.

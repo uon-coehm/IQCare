@@ -45,7 +45,7 @@ namespace PresentationApp.ClinicalForms
             HideControls();
             Authenticate();
 
-            this.UCTBScreen.tblsavebtn.Visible = false;
+            this.UcTBScreen.tblsavebtn.Visible = false;
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
@@ -132,12 +132,12 @@ namespace PresentationApp.ClinicalForms
             //ScriptManager.RegisterStartupScript(this, GetType(), "trPatientReferredto", "hide('trPatientReferredto');", true);
             ScriptManager.RegisterStartupScript(this, GetType(), "tblavailableTBResults", "hide('tblAvailableTBResultsBody');", true);
             ScriptManager.RegisterStartupScript(this, GetType(), "tblTBAssessment", "hide('tblTBAssessment');", true);
-            //ScriptManager.RegisterStartupScript(this, GetType(), "DivavailableTBResults", "hide('ctl00_IQCareContentPlaceHolder_tabControl_TabPnlProfile_UCTBScreen_AvailableTBResultsHeader');", true);
+            //ScriptManager.RegisterStartupScript(this, GetType(), "DivavailableTBResults", "hide('ctl00_IQCareContentPlaceHolder_tabControl_TabPnlProfile_UcTBScreen_AvailableTBResultsHeader');", true);
             ScriptManager.RegisterStartupScript(this, GetType(), "tblIPTBody", "hide('tblIPTBody');", true);
-            UCTBScreen.CollapsiblePanelExtender1.Collapsed = false;
-            //ScriptManager.RegisterStartupScript(this, GetType(), "IPTHeader", "hide('ctl00_IQCareContentPlaceHolder_tabControl_TabPnlProfile_UCTBScreen_IPTHeader');", true);
+            UcTBScreen.CollapsiblePanelExtender1.Collapsed = false;
+            //ScriptManager.RegisterStartupScript(this, GetType(), "IPTHeader", "hide('ctl00_IQCareContentPlaceHolder_tabControl_TabPnlProfile_UcTBScreen_IPTHeader');", true);
             ScriptManager.RegisterStartupScript(this, GetType(), "tblDiscontinueIPTBody", "hide('tblDiscontinueIPTBody');", true);
-            //ScriptManager.RegisterStartupScript(this, GetType(), "DiscontinueIPTHeader", "hide('ctl00_IQCareContentPlaceHolder_tabControl_TabPnlProfile_UCTBScreen_DiscontinueIPTHeader');", true);
+            //ScriptManager.RegisterStartupScript(this, GetType(), "DiscontinueIPTHeader", "hide('ctl00_IQCareContentPlaceHolder_tabControl_TabPnlProfile_UcTBScreen_DiscontinueIPTHeader');", true);
             ScriptManager.RegisterStartupScript(this, GetType(), "divTBSave", "hide('divTBSave');", true);
             ScriptManager.RegisterStartupScript(this, GetType(), "labresults", "SelectAllCheckboxes();", true);
         }
@@ -1322,27 +1322,27 @@ namespace PresentationApp.ClinicalForms
             {
                 if (theDS.Tables[6].Rows[0]["TBFindings"] != System.DBNull.Value)
                 {
-                    UCTBScreen.ddlTBFindings.SelectedValue = theDS.Tables[6].Rows[0]["TBFindings"].ToString();
+                    UcTBScreen.ddlTBFindings.SelectedValue = theDS.Tables[6].Rows[0]["TBFindings"].ToString();
                 }
                 if (theDS.Tables[6].Rows[0]["ContactsScreenedForTB"] != System.DBNull.Value)
                 {
                     if (theDS.Tables[6].Rows[0]["ContactsScreenedForTB"].ToString() == "1")
                     {
-                        UCTBScreen.rdoContactsScreenedForTBYes.Checked = true;
+                        UcTBScreen.rdoContactsScreenedForTBYes.Checked = true;
                     }
                     if (theDS.Tables[6].Rows[0]["ContactsScreenedForTB"].ToString() == "0")
                     {
-                        UCTBScreen.rdoContactsScreenedForTBNo.Checked = true;
+                        UcTBScreen.rdoContactsScreenedForTBNo.Checked = true;
                     }
                 }
                 if (theDS.Tables[6].Rows[0]["IfNoSpecifyWhy"] != System.DBNull.Value)
                 {
-                    UCTBScreen.txtSpecifyWhyContactNotScreenedForTB.Text = theDS.Tables[6].Rows[0]["IfNoSpecifyWhy"].ToString();
+                    UcTBScreen.txtSpecifyWhyContactNotScreenedForTB.Text = theDS.Tables[6].Rows[0]["IfNoSpecifyWhy"].ToString();
                 }
 
                 if (theDS.Tables[6].Rows[0]["FacilityPatientReferredTo"] != System.DBNull.Value)
                 {
-                    UCTBScreen.ddlPatientReferredForTreatment.SelectedValue = theDS.Tables[6].Rows[0]["FacilityPatientReferredTo"].ToString();
+                    UcTBScreen.ddlPatientReferredForTreatment.SelectedValue = theDS.Tables[6].Rows[0]["FacilityPatientReferredTo"].ToString();
                 }
             }
             //Table 7
@@ -1457,7 +1457,7 @@ namespace PresentationApp.ClinicalForms
 
                 for (int i = 0; i < theDS.Tables[9].Rows.Count; i++)
                 {
-                    ListItem currentCheckBox = UCTBScreen.cblTBAssessmentICF.Items.FindByValue(theDS.Tables[9].Rows[i]["ValueID"].ToString());
+                    ListItem currentCheckBox = UcTBScreen.cblTBAssessmentICF.Items.FindByValue(theDS.Tables[9].Rows[i]["ValueID"].ToString());
                     if (currentCheckBox != null)
                     {
                         currentCheckBox.Selected = true;
@@ -1881,7 +1881,7 @@ namespace PresentationApp.ClinicalForms
             //TB Assessment
             if (ddlFieldVisitType.SelectedItem.Text == "Follow Up" && ddlFieldVisitType.SelectedItem.Text == "Follow Up")
             {
-                foreach (ListItem LtItem in UCTBScreen.cblTBAssessmentICF.Items)
+                foreach (ListItem LtItem in UcTBScreen.cblTBAssessmentICF.Items)
                 {
                     if (LtItem.Selected == true)
                     {
@@ -2272,7 +2272,7 @@ namespace PresentationApp.ClinicalForms
         private void addAttributes()
         {
 
-            UCTBScreen.lblTBassessment.CssClass = "required";
+            UcTBScreen.lblTBassessment.CssClass = "required";
             txtGestation.Attributes.Add("onkeyup", "chkDecimal('" + txtGestation.ClientID + "');");
             rdoPatientaccPartnerYes.Attributes.Add("onclick", "show('pap1'), show('pap2');");
             rdoPatientaccPartnerNo.Attributes.Add("onclick", "hide('pap1'), hide('pap2');");
@@ -2820,10 +2820,10 @@ namespace PresentationApp.ClinicalForms
             theHTPMTCT.Add("WardAdmitted", ddlWardAdmitted.SelectedValue);
 
             // TB Screening
-            theHTPMTCT.Add("TBFindings", UCTBScreen.ddlTBFindings.SelectedValue);
-            theHTPMTCT.Add("ContactsScreenedForTB", UCTBScreen.rdoContactsScreenedForTBYes.Checked == true ? 1 : UCTBScreen.rdoContactsScreenedForTBNo.Checked == true ? 0 : 2);
-            theHTPMTCT.Add("txtSpecifyWhyContactNotScreenedForTB", UCTBScreen.txtSpecifyWhyContactNotScreenedForTB.Text);
-            theHTPMTCT.Add("PatientReferredForTreatment", UCTBScreen.ddlPatientReferredForTreatment.SelectedValue);
+            theHTPMTCT.Add("TBFindings", UcTBScreen.ddlTBFindings.SelectedValue);
+            theHTPMTCT.Add("ContactsScreenedForTB", UcTBScreen.rdoContactsScreenedForTBYes.Checked == true ? 1 : UcTBScreen.rdoContactsScreenedForTBNo.Checked == true ? 0 : 2);
+            theHTPMTCT.Add("txtSpecifyWhyContactNotScreenedForTB", UcTBScreen.txtSpecifyWhyContactNotScreenedForTB.Text);
+            theHTPMTCT.Add("PatientReferredForTreatment", UcTBScreen.ddlPatientReferredForTreatment.SelectedValue);
             theHTPMTCT.Add("tetanustoxoid", rdotetanustoxoidyes.Checked == true ? 1 : rdotetanustoxoidno.Checked == true ? 0 : 2);
             theHTPMTCT.Add("tetanustoxoidVaccine", ddlTTVaccine.SelectedValue);
             theHTPMTCT.Add("tetanustoxoidVaccineNo", txtNoTTReason.Value);
@@ -2845,7 +2845,7 @@ namespace PresentationApp.ClinicalForms
             Session["PatientVisitId"] = theDS.Tables[0].Rows[0]["VisitId"];
 
             //Save TB Data
-            this.UCTBScreen.btnTBSave_Click(null, null);
+            this.UcTBScreen.btnTBSave_Click(null, null);
 
             PMTCTSaveCancel("PMTCT");
         }
@@ -2924,7 +2924,7 @@ namespace PresentationApp.ClinicalForms
 
             //TBAssessment
             DataTable DTTBAssessment = new DataTable();
-            DTTBAssessment = getCheckBoxListItemValues(UCTBScreen.cblTBAssessmentICF);
+            DTTBAssessment = getCheckBoxListItemValues(UcTBScreen.cblTBAssessmentICF);
             DTTBAssessment.TableName = "TBAssessment";
             theDSMEI.Tables.Add(DTTBAssessment);
 

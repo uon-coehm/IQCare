@@ -2,7 +2,10 @@
     MaintainScrollPositionOnPostback="true" EnableEventValidation="false" Codebehind="frmClinical_CustomForm.aspx.cs" %>
 
 <%@ Register Assembly="AjaxControlToolkit" TagPrefix="act" Namespace="AjaxControlToolkit" %>
+<%@ Register Src="~/ClinicalForms/UserControl/UserControl_CRAFFTScreeningTool.ascx"
+    TagName="UserControlKNH_GRAFFTScreening" TagPrefix="ucGRAFFT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="IQCareContentPlaceHolder" runat="Server">
+
     <%--<head>--%>
     <%-- <link rel="stylesheet" type="text/css" href="../Style/StyleSheet.css" />
     <link type="text/css" href="../Style/_assets/css/grid.css" rel="stylesheet" />

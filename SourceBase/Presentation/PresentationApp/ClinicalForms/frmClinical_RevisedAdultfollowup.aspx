@@ -12,8 +12,10 @@
 <%@ Register TagPrefix="UcPWP" TagName="Uc9" Src="~/ClinicalForms/UserControl/UserControlKNH_PwP.ascx" %>
 
 <%@ Register Src="~/ClinicalForms/UserControl/UserControlKNH_PH9.ascx"
-    TagName="UserControlKNH_PH9" TagPrefix="uc13" %>
-    <%@ Register Src="~/ClinicalForms/UserControl/UserControlKNH_LabEvaluation.ascx"
+    TagName="UserControlPH9" TagPrefix="uc13" %>
+<%@ Register Src="~/ClinicalForms/UserControl/UserControl_MoriskyMedicationAdherenceScale.ascx"
+    TagName="UserControlMMAST" TagPrefix="ucMMAS" %>
+<%@ Register Src="~/ClinicalForms/UserControl/UserControlKNH_LabEvaluation.ascx"
     TagName="Uclabeval" TagPrefix="uc11" %>
 <%@ Register Src="~/ClinicalForms/UserControl/UserControlKNH_Signature.ascx" TagName="UserControlKNH_Signature"
     TagPrefix="uc12" %>
@@ -973,7 +975,7 @@
                                     </tr>
                                 </table>
                             </asp:Panel>
-                            <uc13:UserControlKNH_PH9 ID="UserControlKNH_PH9" runat="server" />
+                            <uc13:UserControlPH9 ID="UserControlPH9" runat="server" />
                         </div>
                         
                         <act:CollapsiblePanelExtender ID="CPPnlPresentingComplaint" runat="server" SuppressPostBack="true"
@@ -1746,6 +1748,7 @@
                                     </tbody>
                                 </table>
                             </asp:Panel>
+                            <ucMMAS:UserControlMMAST ID="UserControlMMAS" runat="server" />
                         </div>
                         <act:CollapsiblePanelExtender ID="CPPnlAdherence" runat="server" SuppressPostBack="true"
                             ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlAdherenceDetails" CollapseControlID="PnlAdherence"

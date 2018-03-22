@@ -62,6 +62,7 @@
     <Compile Include="IKNHMEI.cs" />
     <Compile Include="IKNHPaed.cs" />
     <Compile Include="IKNHPeadraticFollowup.cs" />
+    <Compile Include="IKNHPsychosocialAdherence.cs" />
     <Compile Include="IKNHRevisedAdult.cs.cs" />
     <Compile Include="IKNHStaticForms.cs" />
     <Compile Include="INonARTFollowUp.cs" />

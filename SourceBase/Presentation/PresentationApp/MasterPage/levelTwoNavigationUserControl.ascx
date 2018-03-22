@@ -127,6 +127,8 @@
         </asp:MenuItem>
         <asp:MenuItem Text="Adult Follow up" Value="mnuRvsdAdult">
         </asp:MenuItem>
+        <asp:MenuItem Text="Psychosocial & Adherence Enrollment" Value="mnuPAEnrollment">
+        </asp:MenuItem>
         <asp:MenuItem Text="Paediatric Follow up" Value="mnuPaediatricFollowup">
         </asp:MenuItem>
         <asp:MenuItem Text="Express" Value="mnuRvsdExpressForm">

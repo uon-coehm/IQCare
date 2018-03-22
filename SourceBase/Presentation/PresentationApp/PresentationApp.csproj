@@ -767,6 +767,13 @@
     <Compile Include="ClinicalForms\frmClinical_PatientRegistrationCTC.aspx.designer.cs">
       <DependentUpon>frmClinical_PatientRegistrationCTC.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ClinicalForms\frmClinical_PsychosocialAdherenceEnrollment.aspx.cs">
+      <DependentUpon>frmClinical_PsychosocialAdherenceEnrollment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\frmClinical_PsychosocialAdherenceEnrollment.aspx.designer.cs">
+      <DependentUpon>frmClinical_PsychosocialAdherenceEnrollment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClinicalForms\frmClinical_RevisedAdultfollowup.aspx.cs">
       <DependentUpon>frmClinical_RevisedAdultfollowup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1000,12 +1007,26 @@
     <Compile Include="ClinicalForms\UserControl\UserControl_ARVHistoryExtruder.ascx.designer.cs">
       <DependentUpon>UserControl_ARVHistoryExtruder.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControl_CRAFFTScreeningTool.ascx.cs">
+      <DependentUpon>UserControl_CRAFFTScreeningTool.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControl_CRAFFTScreeningTool.ascx.designer.cs">
+      <DependentUpon>UserControl_CRAFFTScreeningTool.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ClinicalForms\UserControl\UserControl_Loading.ascx.cs">
       <DependentUpon>UserControl_Loading.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ClinicalForms\UserControl\UserControl_Loading.ascx.designer.cs">
       <DependentUpon>UserControl_Loading.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControl_MoriskyMedicationAdherenceScale.ascx.cs">
+      <DependentUpon>UserControl_MoriskyMedicationAdherenceScale.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControl_MoriskyMedicationAdherenceScale.ascx.designer.cs">
+      <DependentUpon>UserControl_MoriskyMedicationAdherenceScale.ascx</DependentUpon>
     </Compile>
     <Compile Include="ClinicalForms\UserControl\UserControl_Nutrition.ascx.cs">
       <DependentUpon>UserControl_Nutrition.ascx</DependentUpon>
@@ -2935,6 +2956,7 @@
     <Content Include="ClinicalForms\frmClinical_KNH_Paediatric_IE.aspx" />
     <Content Include="ClinicalForms\frmClinical_KNH_PediatricFollowup.aspx" />
     <Content Include="ClinicalForms\frmClinical_KNH_PEP.aspx" />
+    <Content Include="ClinicalForms\frmClinical_PsychosocialAdherenceEnrollment.aspx" />
     <Content Include="ClinicalForms\frmClinical_RevisedAdultfollowup.aspx" />
     <Content Include="ClinicalForms\frmPaedsChecklist.aspx" />
     <Content Include="ClinicalForms\frm_ARTReadinessAssessment.aspx" />
@@ -2965,7 +2987,9 @@
     <Content Include="ClinicalForms\UserControl\UserControl_Alerts.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_AllergyExtruder.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_ARVHistoryExtruder.ascx" />
+    <Content Include="ClinicalForms\UserControl\UserControl_CRAFFTScreeningTool.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_Loading.ascx" />
+    <Content Include="ClinicalForms\UserControl\UserControl_MoriskyMedicationAdherenceScale.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_Nutrition.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_VitalsExtruder.ascx" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl.cab" />
@@ -5041,7 +5065,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="False" UseAjaxifiedTemplates="False" />
+      <UserProperties UseAjaxifiedTemplates="False" UseJQuerySupport="False" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

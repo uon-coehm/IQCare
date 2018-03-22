@@ -933,6 +933,8 @@ namespace PresentationApp.ClinicalForms
         protected void btnManagementSave_Click(object sender, EventArgs e)
         {
             Save(0);
+            this.UcCRAFFTScreening.save_CRAFFTSCreening_Data();
+
         }
         protected void btnManagementDQSave_Click(object sender, EventArgs e)
         {

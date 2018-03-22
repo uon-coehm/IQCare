@@ -70,6 +70,7 @@
     <Compile Include="BKNHMEI.cs" />
     <Compile Include="BKNHPaed.cs" />
     <Compile Include="BKNHPeadraticFollowup.cs" />
+    <Compile Include="BKNHPsychosocialAdherence.cs" />
     <Compile Include="BKNHRevisedAdult.cs" />
     <Compile Include="BKNHStaticForms.cs" />
     <Compile Include="BNonARTFollowUp.cs" />

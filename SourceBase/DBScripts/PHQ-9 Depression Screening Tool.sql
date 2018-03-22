@@ -5,7 +5,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 --- Create Table dtl_PH9Screening
-CREATE TABLE dtl_PHQDepressionScreening(
+CREATE TABLE dtl_PH9Screening(
 	ID int IDENTITY(1,1) PRIMARY KEY,
 	Ptn_pk int NOT NULL,
 	Visit_Pk int NOT NULL,

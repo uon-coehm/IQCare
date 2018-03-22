@@ -1,4 +1,5 @@
-
+use IQCare
+go
 
 alter table ord_Visit ADD 	[PatientClassification] [int] NULL
 alter table ord_Visit ADD [IsEnrolDifferenciatedCare] [int] NULL

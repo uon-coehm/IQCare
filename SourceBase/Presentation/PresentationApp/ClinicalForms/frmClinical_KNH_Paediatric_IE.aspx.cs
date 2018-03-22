@@ -160,6 +160,17 @@ namespace PresentationApp.ClinicalForms
             if(rblMotherReceivePMTCT.SelectedValue == "1")
                 visibleDiv("DivPMTCTOption");
 
+            //---------------------
+            if (rblTransferIn.SelectedValue == "1")
+            {
+                visibleDiv("divOnART");
+            }
+            if (rblOnART.SelectedValue == "1")
+            {
+                visibleDiv("divOnARTDetails");
+            }
+            //---------------------
+
             if(ddlMotherANCAttended.SelectedItem.Text.ToLower() == "gok facility")
                 visibleDiv("trANCGOK");
             else if(ddlMotherANCAttended.SelectedItem.Text.ToLower() == "private facility")
@@ -357,6 +368,32 @@ namespace PresentationApp.ClinicalForms
                     //------------------------------section client information
                     if (dsGet.Tables[0].Rows[0]["visitdate"] != DBNull.Value)
                         txtVisitDate.Value = String.Format("{0:dd-MMM-yyyy}", dsGet.Tables[0].Rows[0]["visitdate"]);
+
+
+                    //changes for Transfer In clients TransferIn, TransferInOnART, ARTStartDate, TransferInRegimen
+                    if (dsGet.Tables[0].Rows[0]["TransferIn"] != DBNull.Value)
+                    {
+                        if (dsGet.Tables[0].Rows[0]["TransferIn"].ToString() == "True")
+                            this.rblTransferIn.SelectedValue = "1";
+                        else
+                            this.rblTransferIn.SelectedValue = "0";
+                    }
+                    if (dsGet.Tables[0].Rows[0]["TransferInOnART"] != DBNull.Value)
+                    {
+                        if (dsGet.Tables[0].Rows[0]["TransferInOnART"].ToString() == "True")
+                            this.rblOnART.SelectedValue = "1";
+                        else
+                            this.rblOnART.SelectedValue = "0";
+                    }
+                    if (dsGet.Tables[0].Rows[0]["ARTStartDate"] != DBNull.Value)
+                    {
+                        txtARTStartDate.Value = String.Format("{0:dd-MMM-yyyy}", dsGet.Tables[0].Rows[0]["ARTStartDate"]);
+                    }
+                    if (dsGet.Tables[0].Rows[0]["TransferInRegimen"] != DBNull.Value)
+                    {
+                        this.txtRegimen.Text = dsGet.Tables[0].Rows[0]["TransferInRegimen"].ToString();
+                    }
+                    //-------------
 
                     txtchildaccompaniedby.Text = dsGet.Tables[0].Rows[0]["ChildAccompaniedBy"].ToString();
 
@@ -1239,6 +1276,13 @@ namespace PresentationApp.ClinicalForms
                 theHT.Add("patientID", Session["PatientId"]);
                 theHT.Add("visitID", Session["PatientVisitId"]);
                 theHT.Add("locationID", Session["AppLocationId"]);
+
+                //Transfer in information
+                theHT.Add("TransferIn", rblTransferIn.SelectedValue);
+                theHT.Add("TransferInOnART", rblOnART.SelectedValue);
+                theHT.Add("TransferInARTStartDate", Convert.ToDateTime(string.Format("{0:dd-MMM-yyyy}", txtARTStartDate.Value)));
+                theHT.Add("TransferInARTRegimen", this.txtRegimen.Text);
+
                 //Child accompanied by
                 theHT.Add("ChildAccompaniedBy", txtchildaccompaniedby.Text);
                 //Child Primary Caregiver

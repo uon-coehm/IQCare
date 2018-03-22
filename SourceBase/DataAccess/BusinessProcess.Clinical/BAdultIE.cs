@@ -419,8 +419,13 @@ namespace BusinessProcess.Clinical
                         oUtility.AddParameters("@SignatureID", SqlDbType.Int, ConverTotValue.NullToInt(adultIEFields.SignatureID).ToString());
                         oUtility.AddParameters("@VisitDate", SqlDbType.VarChar, String.Format("{0:dd-MMM-yyyy}",ConverTotValue.NullToDate(adultIEFields.VisitDate).ToString()));
                         oUtility.AddParameters("@StartTime", SqlDbType.VarChar, String.Format("{0:yyyy-MM-dd hh:mm:ss}", DateTime.Now));
+
+                        oUtility.AddParameters("@transferin", SqlDbType.Bit, ConverTotValue.NullToBoolean(adultIEFields.TransferIn).ToString());
+                        oUtility.AddParameters("@transferinonART", SqlDbType.Bit, ConverTotValue.NullToBoolean(adultIEFields.TransferInOnART).ToString());
+                        oUtility.AddParameters("@ARTStartDate", SqlDbType.VarChar, String.Format("{0:dd-MMM-yyyy}", ConverTotValue.NullToDate(adultIEFields.TransferInARTStartDate).ToString()));
+                        oUtility.AddParameters("@TransferInRegimen", SqlDbType.VarChar, ConverTotValue.NullToString(adultIEFields.TransferInARTRegimen).ToString());
+
                         theDT = (DataTable)expressManagerTest.ReturnObject(oUtility.theParams, "Pr_clinical_addadultie_triagetab", ClsUtility.ObjectEnum.DataTable);
-                        
                         
                         oUtility.Init_Hashtable();
                         

@@ -368,6 +368,87 @@
                                         <asp:Panel ID="pnlHivCareDetail" runat="server">
                                             <table id="Triage" cellspacing="6" cellpadding="0" width="100%" border="0">
                                                 <tr>
+                                                    <td colspan="2">
+                                                        <table class="border center whitebg" width="100%" style="margin-bottom: 6px;">
+                                                            <tr>
+                                                                <td style='width: 50%' colspan="2">
+                                                                    <table width='100%'>
+                                                                        <tr>
+                                                                            <td style='width: 60%' align='right'>
+                                                                                <label for="rblTransferIn" class="required">
+                                                                                    Transfer In:</label>
+                                                                            </td>
+                                                                            <td style='width: 40%' align='left'>
+                                                                                <asp:RadioButtonList ID="rblTransferIn" runat="server" onclick="rblSelectedValue(this,'divOnART');"
+                                                                                    RepeatDirection="Horizontal">
+                                                                                    <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                                                    <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                                                </asp:RadioButtonList>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                                <td style='width: 50%'>
+                                                                    <div id="divOnART" style="display: none;">
+                                                                        <table width='100%'>
+                                                                            <tr>
+                                                                                <td style='width: 50%' align='right'>
+                                                                                    <label class="required">
+                                                                                        On ART:</label>
+                                                                                </td>
+                                                                                <td style='width: 50%' align='left'>
+                                                                                    <asp:RadioButtonList ID="rblOnART" runat="server" onclick="rblSelectedValue(this,'divOnARTDetails');"
+                                                                                        RepeatDirection="Horizontal">
+                                                                                        <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                                                        <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                                                    </asp:RadioButtonList>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <div id="divOnARTDetails" style="display: none;">
+                                                            <table class="border center whitebg" width="100%" style="margin-bottom: 6px;">
+                                                                <tr>
+                                                                    <td style='width: 50%' colspan="2">
+                                                                        <table width='100%'>
+                                                                            <tr>
+                                                                                <td style='width: 50%' align='right'>
+                                                                                    <label>
+                                                                                        Date of ART Start:</label>
+                                                                                </td>
+                                                                                <td style='width: 50%' align='left'>
+                                                                                    <input id="txtARTStartDate" runat="server" maxlength="11" onblur="DateFormat(this,this.value,event,false,'3')"
+                                                                                        onfocus="javascript:vDateType='3'" onkeyup="DateFormat(this,this.value,event,false,'3')"
+                                                                                        size="11" type="text" />
+                                                                                    &nbsp; &nbsp; <img id="Img5" alt="Date Helper" border="0" height="22 " hspace="5" name="appDateimg"
+                                                                                        onclick="w_displayDatePicker('<%=txtARTStartDate.ClientID%>');" src="../images/cal_icon.gif"
+                                                                                        style="vertical-align: text-bottom;" width="22" /><span class="smallerlabel" id="Span5">(DD-MMM-YYYY)</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+                                                                    <td style='width: 50%'>
+                                                                        <table width='100%'>
+                                                                            <tr>
+                                                                                <td style='width: 50%' align='right'>
+                                                                                    <label>
+                                                                                        Start Regimen:</label>
+                                                                                </td>
+                                                                                <td style='width: 50%' align='left'>
+                                                                                    <asp:TextBox ID="txtRegimen" runat="server"></asp:TextBox>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
                                                     <td class="border center pad5 whitebg" style="width: 50%">
                                                         <table width="100%" border="0">
                                                             <tbody>
@@ -429,10 +510,11 @@
                                                                     <td align="left">
                                                                         <input id="txtdateofhivdiagnosis" runat="server" maxlength="11" onblur="DateFormat(this,this.value,event,false,'3')"
                                                                             onfocus="javascript:vDateType='3'" onkeyup="DateFormat(this,this.value,event,false,'3')"
-                                                                            size="11" type="text" />&nbsp;<img id="Img19" alt="Date Helper" border="0" height="22 "
-                                                                                hspace="5" name="appDateimg" onclick="w_displayDatePicker('<%=txtdateofhivdiagnosis.ClientID%>');"
-                                                                                src="../images/cal_icon.gif" style="vertical-align: text-bottom;" width="22" /><span
-                                                                                    id="Span19" class="smallerlabel">(DD-MMM-YYYY)</span>
+                                                                            size="11" type="text" />&nbsp;&nbsp;&nbsp;
+                                                                        &nbsp;
+                                                                        <img id="Img19" alt="Date Helper" border="0" height="22 " hspace="5" name="appDateimg"
+                                                                            onclick="w_displayDatePicker('<%=txtdateofhivdiagnosis.ClientID%>');" src="../images/cal_icon.gif"
+                                                                            style="vertical-align: text-bottom;" width="22" /><span id="Span19" class="smallerlabel">(DD-MMM-YYYY)</span>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -518,7 +600,7 @@
                                                                                         <td style="width: 60%" align="left">
                                                                                             <input id="txtdateoffatherdeath" runat="server" maxlength="11" onblur="DateFormat(this,this.value,event,false,'3')"
                                                                                                 onfocus="javascript:vDateType='3'" onkeyup="DateFormat(this,this.value,event,false,'3')"
-                                                                                                size="11" type="text" />&nbsp;&nbsp; &nbsp;
+                                                                                                size="11" type="text" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                                                                                             <img id="Img1" alt="Date Helper" border="0" height="22 " hspace="5" name="appDateimg"
                                                                                                 onclick="w_displayDatePicker('<%=txtdateoffatherdeath.ClientID%>');" src="../images/cal_icon.gif"
                                                                                                 style="vertical-align: text-bottom;" width="22" /><span class="smallerlabel" id="Span1">(DD-MMM-YYYY)</span>
@@ -561,7 +643,7 @@
                                                                                         <td align="left">
                                                                                             <input id="txtdateofmotherdeath" runat="server" maxlength="11" onblur="DateFormat(this,this.value,event,false,'3')"
                                                                                                 onfocus="javascript:vDateType='3'" onkeyup="DateFormat(this,this.value,event,false,'3')"
-                                                                                                size="11" type="text" />&nbsp;&nbsp; &nbsp;
+                                                                                                size="11" type="text" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                                                                                             <img id="Img22" alt="Date Helper" border="0" height="22 " hspace="5" name="appDateimg"
                                                                                                 onclick="w_displayDatePicker('<%=txtdateofmotherdeath.ClientID%>');" src="../images/cal_icon.gif"
                                                                                                 style="vertical-align: text-bottom;" width="22" /><span class="smallerlabel" id="Span22">(DD-MMM-YYYY)</span>
@@ -684,7 +766,9 @@
                                                                                                                 <input id="txtcurrentartregimendate" runat="server" maxlength="11" onblur="DateFormat(this,this.value,event,false,'3')"
                                                                                                                     onfocus="javascript:vDateType='3'" onkeyup="DateFormat(this,this.value,event,false,'3')"
                                                                                                                     size="11" type="text" />
-                                                                                                                &nbsp;<img id="Img20" alt="Date Helper" border="0" height="22 " hspace="5" name="appDateimg"
+                                                                                                                &nbsp;&nbsp;&nbsp;
+                                                                                                                &nbsp;
+                                                                                                                <img id="Img20" alt="Date Helper" border="0" height="22 " hspace="5" name="appDateimg"
                                                                                                                     onclick="w_displayDatePicker('<%=txtcurrentartregimendate.ClientID%>');" src="../images/cal_icon.gif"
                                                                                                                     style="vertical-align: text-bottom;" width="22" /><span class="smallerlabel" id="Span20">(DD-MMM-YYYY)</span>
                                                                                                             </td>
@@ -903,69 +987,69 @@
                                 <div class="border center formbg">
                                     <table class="center formbg" cellspacing="6" cellpadding="0" width="100%" border="0">
                                         <div class="center formbg">
-                                        <tr>
-                                            <td class="border leftallign formbg">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td>
-                                                            <asp:Panel ID="pnlpresenticomplains" runat="server">
-                                                                <table>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <asp:ImageButton ID="imgpresenticomplains" ImageUrl="~/images/arrow-up.gif" runat="server" />
-                                                                        </td>
-                                                                        <td>
-                                                                            <h2 class="forms" align="left">
-                                                                                <asp:Literal ID="literPresenting" Text="Presenting Complaints" runat="server"></asp:Literal></h2>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </asp:Panel>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="100%">
-                                                <asp:Panel ID="pnltargetpresentingcomplain" runat="server">
+                                            <tr>
+                                                <td class="border leftallign formbg">
                                                     <table width="100%">
                                                         <tr>
                                                             <td>
-                                                                <UcPresentingComplaints:Uc3 ID="UcPc" runat="server" />
-                                                            </td>
-                                                        </tr>
-                                                        <tr align="left">
-                                                            <td class="border pad5 whitebg">
-                                                                <div id="divschoolperformance">
-                                                                    <table width="100%" align="left">
-                                                                        <tr align="left">
+                                                                <asp:Panel ID="pnlpresenticomplains" runat="server">
+                                                                    <table>
+                                                                        <tr>
                                                                             <td>
-                                                                                <label id="Label155">
-                                                                                    If schooling,current school perfomance:
-                                                                                </label>
-                                                                                <asp:DropDownList ID="ddlschoolperfomance" runat="server">
-                                                                                </asp:DropDownList>
+                                                                                <asp:ImageButton ID="imgpresenticomplains" ImageUrl="~/images/arrow-up.gif" runat="server" />
+                                                                            </td>
+                                                                            <td>
+                                                                                <h2 class="forms" align="left">
+                                                                                    <asp:Literal ID="literPresenting" Text="Presenting Complaints" runat="server"></asp:Literal></h2>
                                                                             </td>
                                                                         </tr>
                                                                     </table>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr style="display: none;">
-                                                            <td style="padding-left: 12px;" class="border pad6 whitebg" width="100%" align="left"
-                                                                colspan="2">
-                                                                <label>
-                                                                    Presenting complaints additional notes:
-                                                                </label>
-                                                                <asp:TextBox ID="txtAdditionPresentingComplaints" runat="server" TextMode="MultiLine"
-                                                                    Width="98.5%"></asp:TextBox>
+                                                                </asp:Panel>
                                                             </td>
                                                         </tr>
                                                     </table>
-                                                </asp:Panel>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="100%">
+                                                    <asp:Panel ID="pnltargetpresentingcomplain" runat="server">
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td>
+                                                                    <UcPresentingComplaints:Uc3 ID="UcPc" runat="server" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr align="left">
+                                                                <td class="border pad5 whitebg">
+                                                                    <div id="divschoolperformance">
+                                                                        <table width="100%" align="left">
+                                                                            <tr align="left">
+                                                                                <td>
+                                                                                    <label id="Label155">
+                                                                                        If schooling,current school perfomance:
+                                                                                    </label>
+                                                                                    <asp:DropDownList ID="ddlschoolperfomance" runat="server">
+                                                                                    </asp:DropDownList>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr style="display: none;">
+                                                                <td style="padding-left: 12px;" class="border pad6 whitebg" width="100%" align="left"
+                                                                    colspan="2">
+                                                                    <label>
+                                                                        Presenting complaints additional notes:
+                                                                    </label>
+                                                                    <asp:TextBox ID="txtAdditionPresentingComplaints" runat="server" TextMode="MultiLine"
+                                                                        Width="98.5%"></asp:TextBox>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </asp:Panel>
+                                                </td>
+                                            </tr>
                                     </table>
                                     <div class="center formbg">
                                         <table class="center formbg" cellspacing="6" cellpadding="0" width="100%" border="0">
@@ -3014,7 +3098,7 @@
                                                     <h2 class="forms" align="left">
                                                         <asp:ImageButton ID="imgDiagnosis" ImageUrl="~/images/arrow-up.gif" runat="server" />
                                                         <asp:Label ID="lblDiagnosisHeader" runat="server" Text="Diagnosis"></asp:Label>
-                                                        </h2>
+                                                    </h2>
                                                 </asp:Panel>
                                             </td>
                                         </tr>
@@ -3027,7 +3111,7 @@
                                                         <tr class="border pad5 whitebg">
                                                             <td style="width: 50%" align="left">
                                                                 <asp:Label ID="lblDiagnosisAndCurrentIllness" runat="server" Text="Diagnosis and current illness at this visit:"
-                                                                CssClass ="required" Font-Bold="true" ></asp:Label>
+                                                                    CssClass="required" Font-Bold="true"></asp:Label>
                                                                 <div id="div1" class="customdivbordermultiselect">
                                                                     <asp:CheckBoxList ID="cblDiagnosis" RepeatLayout="Flow" runat="server" Width="100%"
                                                                         onclick="CheckBoxToggleShowHide('ctl00_IQCareContentPlaceHolder_tabControl_TabExamination_cblDiagnosis','divNonHIV','Non-HIV related illness','ctl00_IQCareContentPlaceHolder_tabControl_TabExamination_txtNonHIVRelatedOI');CheckBoxToggleShowHide('ctl00_IQCareContentPlaceHolder_tabControl_TabExamination_cblDiagnosis','divHIV','HIV-Related illness','ctl00_IQCareContentPlaceHolder_tabControl_TabExamination_txtHIVRelatedOI');">

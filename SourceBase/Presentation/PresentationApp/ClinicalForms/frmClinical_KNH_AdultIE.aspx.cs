@@ -99,6 +99,15 @@ namespace PresentationApp.ClinicalForms
         public void ShowHide()
         {
             string script = string.Empty;
+
+            if (rblTransferIn.SelectedValue == "1")
+            {
+                visibleDiv("divOnART");
+            }
+            if (rblOnART.SelectedValue == "1")
+            {
+                visibleDiv("divOnARTDetails");
+            }
             if (rblDiagnosisYesNo.SelectedValue == "1")
             {
                 visibleDiv("DIVHIVDiagnosis");
@@ -669,6 +678,31 @@ namespace PresentationApp.ClinicalForms
                 txtVisitDate.Value = String.Format("{0:dd-MMM-yyyy}", theDSData.Tables[0].Rows[0]["VisitDate"]);
                 if (theDSData.Tables[1].Rows.Count > 0)
                 {
+                    //changes for Transfer In clients TransferIn, TransferInOnART, ARTStartDate, TransferInRegimen
+                    if (theDSData.Tables[1].Rows[0]["TransferIn"] != DBNull.Value)
+                    {
+                        if (theDSData.Tables[1].Rows[0]["TransferIn"].ToString() == "True")
+                            this.rblTransferIn.SelectedValue = "1";
+                        else
+                            this.rblTransferIn.SelectedValue = "0";
+                    }
+                    if (theDSData.Tables[1].Rows[0]["TransferInOnART"] != DBNull.Value)
+                    {
+                        if (theDSData.Tables[1].Rows[0]["TransferInOnART"].ToString() == "True")
+                            this.rblOnART.SelectedValue = "1";
+                        else
+                            this.rblOnART.SelectedValue = "0";
+                    }
+                    if (theDSData.Tables[1].Rows[0]["ARTStartDate"] != DBNull.Value)
+                    {
+                        txtARTStartDate.Value = String.Format("{0:dd-MMM-yyyy}", theDSData.Tables[1].Rows[0]["ARTStartDate"]);
+                    }
+                    if (theDSData.Tables[1].Rows[0]["TransferInRegimen"] != DBNull.Value)
+                    {
+                        this.txtRegimen.Text = theDSData.Tables[1].Rows[0]["TransferInRegimen"].ToString();
+                    }
+                    //-------------
+
                     if (theDSData.Tables[1].Rows[0]["DiagnosisConfirmed"] != DBNull.Value)
                         if (theDSData.Tables[1].Rows[0]["DiagnosisConfirmed"].ToString() == "True")
                             rblDiagnosisYesNo.SelectedValue = "1";
@@ -2781,6 +2815,11 @@ namespace PresentationApp.ClinicalForms
                 objAdultIE.UserId = Int32.Parse(Session["AppUserId"].ToString());
                 objAdultIE.VisitDate = string.Format("{0:dd-MMM-yyyy}", txtVisitDate.Value);
                 //HIV Care and Support Evaluation
+                objAdultIE.TransferIn = this.rblTransferIn.SelectedValue == "1" ? 1 : 0;
+                objAdultIE.TransferInOnART = this.rblOnART.SelectedValue == "1" ? 1 : 0;
+                objAdultIE.TransferInARTStartDate = Convert.ToDateTime(string.Format("{0:dd-MMM-yyyy}", txtARTStartDate.Value));
+                objAdultIE.TransferInARTRegimen = this.txtRegimen.Text;
+
                 objAdultIE.DiagnosisConfirmed = this.rblDiagnosisYesNo.SelectedValue == "1" ? 1 : 0;
                 objAdultIE.ConfirmHIVPosDate = string.Format("{0:dd-MMM-yyyy}", txtdtConfirmHIVPosDate.Value);
                 objAdultIE.ChildAccompaniedByCaregiver = this.rblChildAccompaniedBy.SelectedValue == "1" ? 1 : 0;

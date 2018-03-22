@@ -2069,10 +2069,10 @@ DECLARE @SQLQuery AS NVARCHAR(2000)
  if(@Flag='LabTestID' and @LabName ='') 
   begin
   Print('Not All')
-     select a.SubTestID as LabTestID,a.SubTestName as LabName,
- ((select count(1) as CountVal from Dtl_PatientLabResults  where ParameterID=a.SubTestID and LabID=@labOrderID)
+     select a.SubTestID as LabTestID, a.SubTestName as LabName,
+ ((select count(1) as CountVal from Dtl_PatientLabResults  where ParameterID=a.SubTestID and LabID=@labOrderID)+
 			  (select count(1) as CountVal from Dtl_ArvMutations  where ParameterID=a.SubTestID and LabOrderID=@labOrderID)) As OrderCount
-	 from lnk_TestParameter a join lnk_PreDefinedLablist b on a.SubTestId=b.SubTestId where b.SystemId in(0,1) and (a.DeleteFlag=0 or a.DeleteFlag IS NULL)  order by b.SRNo 
+	 from lnk_TestParameter a join lnk_PreDefinedLablist b on a.SubTestId=b.SubTestId where b.SystemId in (0,1) and (a.DeleteFlag=0 or a.DeleteFlag IS NULL)  order by b.SRNo 
 end
 if(@Flag='LabTestID' and @LabName !='')
   begin
@@ -2236,6 +2236,7 @@ if @Flag='LAB_STATUS'
   end
 END
 GO
+
 CREATE FUNCTION [dbo].[fn_Lab_GetSpecimenID](@SpecimeNumber varchar(200)) RETURNS int
 
 AS

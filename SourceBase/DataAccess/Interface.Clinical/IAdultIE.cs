@@ -73,6 +73,11 @@ namespace Interface.Clinical
         ddlweightforage= 0;
         txtweightforheight = 0;
         //Triage-HIV Care and Support Evaluation
+        TransferIn = 0;
+        TransferInOnART = 0;
+        TransferInARTStartDate = Convert.ToDateTime("01-Jan-1900");
+        TransferInARTRegimen = "";
+
         DiagnosisConfirmed = 0;
         ConfirmHIVPosDate = "";
         ChildAccompaniedByCaregiver = 0;
@@ -315,6 +320,11 @@ namespace Interface.Clinical
          public int ddlweightforage { get; set;}
          public decimal txtweightforheight { get; set; }
          //Triage-HIV Care and Support Evaluation
+         public int TransferIn { get; set; }
+         public int TransferInOnART { get; set; }
+         public DateTime TransferInARTStartDate { get; set; }
+         public string TransferInARTRegimen { get; set; }
+
          public int DiagnosisConfirmed { get; set; }
          public String ConfirmHIVPosDate { get; set; }
          public int ChildAccompaniedByCaregiver { get; set; }

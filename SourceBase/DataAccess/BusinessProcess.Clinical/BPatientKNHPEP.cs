@@ -373,6 +373,11 @@ namespace BusinessProcess.Clinical
                 oUtility.AddParameters("@PatientReferredOtherSpecialistClinic", SqlDbType.VarChar, hashTable["PatientReferredOtherSpecialistClinic"].ToString());
                 oUtility.AddParameters("@PatientReferredOtherSpecify", SqlDbType.VarChar, hashTable["PatientReferredOtherSpecify"].ToString());
 
+                oUtility.AddParameters("@transferin", SqlDbType.Bit, hashTable["TransferIn"].ToString());
+                oUtility.AddParameters("@transferinonART", SqlDbType.Bit, hashTable["TransferInOnART"].ToString());
+                oUtility.AddParameters("@ARTStartDate", SqlDbType.VarChar, hashTable["TransferInARTStartDate"].ToString());
+                oUtility.AddParameters("@TransferInRegimen", SqlDbType.VarChar, hashTable["TransferInARTRegimen"].ToString());
+
                 ClsObject VisitManager = new ClsObject();
                 VisitManager.Connection = this.Connection;
                 VisitManager.Transaction = this.Transaction;
@@ -403,6 +408,7 @@ namespace BusinessProcess.Clinical
                         }
                         oUtility.AddParameters("@NumericField", SqlDbType.Int, tblMultiselect.Rows[i]["NumericField"].ToString());
                         oUtility.AddParameters("@other", SqlDbType.VarChar, tblMultiselect.Rows[i]["Other_Notes"].ToString());
+
                         int temp = (int)VisitManager.ReturnObject(oUtility.theParams, "pr_Clinical_Save_Multiselect_Paediatric_IE", ClsUtility.ObjectEnum.ExecuteNonQuery);
                     }
                 }

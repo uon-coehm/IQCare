@@ -76,6 +76,42 @@ namespace PresentationApp.ClinicalForms {
         protected global::System.Web.UI.WebControls.Panel pnlHivCareDetail;
         
         /// <summary>
+        /// rblTransferIn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblTransferIn;
+        
+        /// <summary>
+        /// rblOnART control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblOnART;
+        
+        /// <summary>
+        /// txtARTStartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtARTStartDate;
+        
+        /// <summary>
+        /// txtRegimen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRegimen;
+        
+        /// <summary>
         /// txtchildaccompaniedby control.
         /// </summary>
         /// <remarks>

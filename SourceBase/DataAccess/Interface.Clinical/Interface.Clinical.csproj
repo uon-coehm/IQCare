@@ -58,7 +58,9 @@
     <Compile Include="IInitialEval.cs" />
     <Compile Include="IinitialFollowupVisit.cs" />
     <Compile Include="IIQTouchVisit.cs" />
+    <Compile Include="IKNHARTReadiness.cs" />
     <Compile Include="IKNHHEI.cs" />
+    <Compile Include="IKNHHomeVisit.cs" />
     <Compile Include="IKNHMEI.cs" />
     <Compile Include="IKNHPaed.cs" />
     <Compile Include="IKNHPeadraticFollowup.cs" />

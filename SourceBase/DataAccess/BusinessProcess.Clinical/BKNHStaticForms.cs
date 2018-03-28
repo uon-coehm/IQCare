@@ -1021,7 +1021,6 @@ namespace BusinessProcess.Clinical
             }
         }
 
-<<<<<<< HEAD
         public DataSet SaveUpdateMMASData(Hashtable theHT)
         {
             lock (this)
@@ -1066,8 +1065,6 @@ namespace BusinessProcess.Clinical
                 return theDS;
             }
         }
-=======
->>>>>>> 573eba772f07ecc4072ebffcdc8854e99512be82
 
         public DataSet GetPH9ScreeningFormData(int ptn_pk, int visit_pk)
         {
@@ -1085,7 +1082,6 @@ namespace BusinessProcess.Clinical
             }
         }
 
-<<<<<<< HEAD
         public DataSet SaveUpdateCRAFFTScreeningData(Hashtable theHT)
         {
             lock (this)
@@ -1116,38 +1112,45 @@ namespace BusinessProcess.Clinical
         {
             lock (this)
             {
-=======
-        public DataSet GetCageScreeningData(int ptn_pk, int visit_pk)
-        {
-            lock (this)
-            {
-
-
->>>>>>> 573eba772f07ecc4072ebffcdc8854e99512be82
                 DataSet theDS;
                 ClsObject ClsObj = new ClsObject();
                 oUtility.Init_Hashtable();
                 oUtility.AddParameters("@Ptn_pk", SqlDbType.Int, ptn_pk.ToString());
-<<<<<<< HEAD
                 oUtility.AddParameters("@Visit_Pk", SqlDbType.Int, visit_pk.ToString());
 
                 theDS = (DataSet)ClsObj.ReturnObject(oUtility.theParams, "pr_Clinical_Get_CRAFFTScreening_UserControl", ClsUtility.ObjectEnum.DataSet);
 
                 return theDS;
-            }
-        }
-
-=======
+    
                 oUtility.AddParameters("@Visit_Id", SqlDbType.Int, visit_pk.ToString());
 
                 theDS = (DataSet)ClsObj.ReturnObject(oUtility.theParams, "Pr_HIVCE_GetAlcoholDepressionScreening", ClsUtility.ObjectEnum.DataSet);
 
                 return theDS;
-
-
-
             }
 
+        }
+
+        public DataSet GetCageScreeningData(int ptn_pk, int visit_pk)
+        {
+            lock (this)
+            {
+                                DataSet theDS;
+                ClsObject ClsObj = new ClsObject();
+                oUtility.Init_Hashtable();
+                oUtility.AddParameters("@Ptn_pk", SqlDbType.Int, ptn_pk.ToString());
+                oUtility.AddParameters("@Visit_Pk", SqlDbType.Int, visit_pk.ToString());
+
+                theDS = (DataSet)ClsObj.ReturnObject(oUtility.theParams, "pr_Clinical_Get_CRAFFTScreening_UserControl", ClsUtility.ObjectEnum.DataSet);
+
+                return theDS;
+    
+                oUtility.AddParameters("@Visit_Id", SqlDbType.Int, visit_pk.ToString());
+
+                theDS = (DataSet)ClsObj.ReturnObject(oUtility.theParams, "Pr_HIVCE_GetAlcoholDepressionScreening", ClsUtility.ObjectEnum.DataSet);
+
+                return theDS;
+            }
         }
         public int SaveUpdateCageScreeningData(Hashtable theHT)
         {
@@ -1184,8 +1187,6 @@ namespace BusinessProcess.Clinical
 
         }
 
-
->>>>>>> 573eba772f07ecc4072ebffcdc8854e99512be82
     }
 
 }

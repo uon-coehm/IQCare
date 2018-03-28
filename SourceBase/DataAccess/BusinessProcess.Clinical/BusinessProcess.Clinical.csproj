@@ -66,7 +66,9 @@
     <Compile Include="BIQTouchKNHAdultIE.cs" />
     <Compile Include="BIQTouchKNHExpress.cs" />
     <Compile Include="BIQTouchVisit.cs" />
+    <Compile Include="BKNHARTReadiness.cs" />
     <Compile Include="BKNHHEI.cs" />
+    <Compile Include="BKNHHomeVisit.cs" />
     <Compile Include="BKNHMEI.cs" />
     <Compile Include="BKNHPaed.cs" />
     <Compile Include="BKNHPeadraticFollowup.cs" />

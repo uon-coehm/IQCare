@@ -14,33 +14,18 @@ namespace BusinessProcess.Clinical
     class BKNHPaed : ProcessBase, IKNHPaed
     {
         ClsUtility oUtility = new ClsUtility();
-
-        public DataSet GetKNHMEI_Data(int PatientId, int VisitId)
-        {
-            lock (this)
-            {
-                oUtility.Init_Hashtable();
-                oUtility.AddParameters("@patientID", SqlDbType.Int, PatientId.ToString());
-                oUtility.AddParameters("@VisitId", SqlDbType.Int, VisitId.ToString());
-                ClsObject UserManager = new ClsObject();
-                return (DataSet)UserManager.ReturnObject(oUtility.theParams, "pr_KNH_GetPMTCTMEIPatientData", ClsUtility.ObjectEnum.DataSet);
-            }
-
-        }
-
-
-
         public int Save_Update_PaedsChecklist(int patientID, int VisitID, int LocationID, Hashtable ht, int userID)
         {
+            DataSet theDS;
             int retval = 0;
-            ClsObject KNHART = new ClsObject();
+            ClsObject KNHPaed = new ClsObject();
             try
             {
                 this.Connection = DataMgr.GetConnection();
                 this.Transaction = DataMgr.BeginTransaction(this.Connection);
 
-                KNHART.Connection = this.Connection;
-                KNHART.Transaction = this.Transaction;
+                KNHPaed.Connection = this.Connection;
+                KNHPaed.Transaction = this.Transaction;
 
                 oUtility.Init_Hashtable();
                 oUtility.AddParameters("@patientid", SqlDbType.Int, patientID.ToString());
@@ -73,10 +58,11 @@ namespace BusinessProcess.Clinical
                 oUtility.AddParameters("@adolescentsTransitionComplete", SqlDbType.Int, ht["AdolescentsTransitionComplete"].ToString());
                 oUtility.AddParameters("@actionTaken", SqlDbType.VarChar, ht["actionTaken"].ToString());
 
-                int temp = (int)KNHART.ReturnObject(oUtility.theParams, "pr_KNHPaedchecklist_SaveData", ClsUtility.ObjectEnum.ExecuteNonQuery);
+                theDS = (DataSet)KNHPaed.ReturnObject(oUtility.theParams, "pr_KNHPaedchecklist_SaveData", ClsUtility.ObjectEnum.DataSet);
+                int VisitId = Convert.ToInt32(theDS.Tables[0].Rows[0]["Visit_Id"]);
+                retval = VisitId;
                 DataMgr.CommitTransaction(this.Transaction);
                 DataMgr.ReleaseConnection(this.Connection);
-                retval = VisitID;
             }
             catch
             {
@@ -87,14 +73,15 @@ namespace BusinessProcess.Clinical
         }
 
 
-        public DataSet GetKNHMEIData_Autopopulate(int PatientId)
+        public DataSet GetPaedChecklistData(int patientID, int VisitID)
         {
             lock (this)
             {
                 oUtility.Init_Hashtable();
-                oUtility.AddParameters("@patientID", SqlDbType.Int, PatientId.ToString());
+                oUtility.AddParameters("@Ptn_pk", SqlDbType.Int, patientID.ToString());
+                oUtility.AddParameters("@Visit_Pk", SqlDbType.Int, VisitID.ToString());
                 ClsObject UserManager = new ClsObject();
-                return (DataSet)UserManager.ReturnObject(oUtility.theParams, "pr_Clinical_GetAutopopulateDataKNHMEI_Futures", ClsUtility.ObjectEnum.DataSet);
+                return (DataSet)UserManager.ReturnObject(oUtility.theParams, "pr_Clinical_Get_KNH_PeadChecklist_Data", ClsUtility.ObjectEnum.DataSet);
             }
 
         }

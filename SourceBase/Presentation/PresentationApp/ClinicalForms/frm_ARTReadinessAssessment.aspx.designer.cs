@@ -22,310 +22,157 @@ namespace PresentationApp.ClinicalForms {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtVisitDate;
         
         /// <summary>
-        /// rdoUnderstandHivyes control.
+        /// rdoUnderstandHiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoUnderstandHivyes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoUnderstandHiv;
         
         /// <summary>
-        /// rdoUnderstandHivno control.
+        /// rdoScreenDrug control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoUnderstandHivno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoScreenDrug;
         
         /// <summary>
-        /// rdoScreenDrugyes control.
+        /// rdoScreenDepression control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoScreenDrugyes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoScreenDepression;
         
         /// <summary>
-        /// rdoScreenDrugno control.
+        /// rdoDiscloseStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoScreenDrugno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoDiscloseStatus;
         
         /// <summary>
-        /// rdoScreenDepressionyes control.
+        /// rdoArtDemonstration control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoScreenDepressionyes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoArtDemonstration;
         
         /// <summary>
-        /// rdoScreenDepressionno control.
+        /// rdoReceivedInformation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoScreenDepressionno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoReceivedInformation;
         
         /// <summary>
-        /// rdoDiscloseStatusyes control.
+        /// rdoCaregiverDependant control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoDiscloseStatusyes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoCaregiverDependant;
         
         /// <summary>
-        /// rdoDiscloseStatusno control.
+        /// rdoIdentifiedBarrier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoDiscloseStatusno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoIdentifiedBarrier;
         
         /// <summary>
-        /// rdoArtDemonstrationyes control.
+        /// rdoCaregiverLocator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoArtDemonstrationyes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoCaregiverLocator;
         
         /// <summary>
-        /// rdoArtDemonstrationno control.
+        /// rdoCaregiverReady control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoArtDemonstrationno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoCaregiverReady;
         
         /// <summary>
-        /// rdoReceivedInformationyes control.
+        /// rdoTimeIdentified control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoReceivedInformationyes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoTimeIdentified;
         
         /// <summary>
-        /// rdoReceivedInformationno control.
+        /// rdoIdentifiedTreatmentSupporter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoReceivedInformationno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoIdentifiedTreatmentSupporter;
         
         /// <summary>
-        /// rdoCaregiverDependantyes control.
+        /// rdoGroupMeeting control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoCaregiverDependantyes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoGroupMeeting;
         
         /// <summary>
-        /// rdoCaregiverDependantno control.
+        /// rdoSmsReminder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoCaregiverDependantno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoSmsReminder;
         
         /// <summary>
-        /// rdoIdentifiedBarrieryes control.
+        /// rdoPlannedSupport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoIdentifiedBarrieryes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoPlannedSupport;
         
         /// <summary>
-        /// rdoIdentifiedBarrierno control.
+        /// rdoDeferArt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoIdentifiedBarrierno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoDeferArt;
         
         /// <summary>
-        /// rdoCaregiverLocatoryes control.
+        /// rdoMeningitisDiagnosed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoCaregiverLocatoryes;
-        
-        /// <summary>
-        /// rdoCaregiverLocatorno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoCaregiverLocatorno;
-        
-        /// <summary>
-        /// rdoCaregiverReadyyes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoCaregiverReadyyes;
-        
-        /// <summary>
-        /// rdoCaregiverReadyno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoCaregiverReadyno;
-        
-        /// <summary>
-        /// rdoTimeIdentifiedyes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoTimeIdentifiedyes;
-        
-        /// <summary>
-        /// rdoTimeIdentifiedno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoTimeIdentifiedno;
-        
-        /// <summary>
-        /// rdoIdentifiedTreatmentSupporteryes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoIdentifiedTreatmentSupporteryes;
-        
-        /// <summary>
-        /// rdoIdentifiedTreatmentSupporterno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoIdentifiedTreatmentSupporterno;
-        
-        /// <summary>
-        /// rdoGroupMeetingyes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoGroupMeetingyes;
-        
-        /// <summary>
-        /// rdoGroupMeetingno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoGroupMeetingno;
-        
-        /// <summary>
-        /// rdoSmsReminderyes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoSmsReminderyes;
-        
-        /// <summary>
-        /// rdoSmsReminderno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoSmsReminderno;
-        
-        /// <summary>
-        /// rdoPlannedSupportyes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoPlannedSupportyes;
-        
-        /// <summary>
-        /// rdoPlannedSupportno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoPlannedSupportno;
-        
-        /// <summary>
-        /// rdoDeferArtyes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoDeferArtyes;
-        
-        /// <summary>
-        /// rdoDeferArtno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoDeferArtno;
-        
-        /// <summary>
-        /// rdoMeningitisDiagnosedyes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoMeningitisDiagnosedyes;
-        
-        /// <summary>
-        /// rdoMeningitisDiagnosedno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rdoMeningitisDiagnosedno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoMeningitisDiagnosed;
         
         /// <summary>
         /// btnArtSave control.

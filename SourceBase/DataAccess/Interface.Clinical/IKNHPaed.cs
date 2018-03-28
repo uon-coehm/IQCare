@@ -9,5 +9,6 @@ namespace Interface.Clinical
     public interface IKNHPaed
     {
         int Save_Update_PaedsChecklist(int patientID, int VisitID, int LocationID, Hashtable ht, int userID);
+        DataSet GetPaedChecklistData(int ptn_pk, int visitpk);
     }
 }

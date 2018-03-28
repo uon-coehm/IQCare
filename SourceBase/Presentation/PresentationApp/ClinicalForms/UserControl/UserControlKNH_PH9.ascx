@@ -90,7 +90,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoLittleInterest" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -111,7 +111,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoFeelingDown" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -132,7 +132,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoTroubleFalling" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -153,7 +153,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoFeelingTired" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -174,7 +174,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoPoorAppetite" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -195,7 +195,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoFeelingBad" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -216,7 +216,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoTroubleConcentrating" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -237,7 +237,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoMovingSlowly" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -258,7 +258,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoThoughts" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>

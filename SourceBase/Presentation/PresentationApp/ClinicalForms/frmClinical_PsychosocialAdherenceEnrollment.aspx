@@ -5,6 +5,7 @@ CodeBehind="frmClinical_PsychosocialAdherenceEnrollment.aspx.cs" Inherits="Prese
 <%@ Register TagPrefix="UcPHQ9" TagName="UcPHQ9" Src="~/ClinicalForms/UserControl/UserControlKNH_PH9.ascx" %>
 <%@ Register TagPrefix="UcCAGE" TagName="UcCAGE" Src="~/ClinicalForms/UserControl/UserControlKNH_PwP.ascx" %>
 <%@ Register TagPrefix="UcCRAFFT" TagName="UcCRAFFT" Src="~/ClinicalForms/UserControl/UserControl_CRAFFTScreeningTool.ascx" %>
+<%@ Register TagPrefix="UcCAGEAID" TagName="UcCAGEAID" Src="~/ClinicalForms/UserControl/UserControl_CAGEAIDScreening.ascx" %>
 <%@ Register TagPrefix="UcMorisky" TagName="UcMorisky" Src="~/ClinicalForms/UserControl/UserControl_MoriskyMedicationAdherenceScale.ascx" %>
 <%@ Register Src="~/ClinicalForms/UserControl/UserControlKNH_Signature.ascx" TagName="UserControlKNH_Signature"
     TagPrefix="uc12" %>
@@ -13,6 +14,27 @@ CodeBehind="frmClinical_PsychosocialAdherenceEnrollment.aspx.cs" Inherits="Prese
 </asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="IQCareContentPlaceHolder" runat="server">
     <script type="text/javascript" language="javascript">
+        function PAFunctionShowHide(div, rdoname) {
+            var otherdiv = document.getElementsByClassName(div);
+            var radioname = rdoname.replace(/_/g, "$");
+            var val;
+            var radios = document.getElementsByName(radioname);
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    val = radios[i].value;
+                    if (val == "1") {
+                        for (var n = 0; n < otherdiv.length; n++) {
+                            otherdiv[n].style.display = "table-row";
+                        }
+                    }
+                    if (val == "0") {
+                        for (var n = 0; n < otherdiv.length; n++) {
+                            otherdiv[n].style.display = "none";
+                        }
+                    }
+                }
+            }
+        }
     </script>
     <style type="text/css">
     </style>
@@ -131,7 +153,7 @@ CodeBehind="frmClinical_PsychosocialAdherenceEnrollment.aspx.cs" Inherits="Prese
                                                     </td>
                                                     <td width="50%">
                                                         <table width="100%">
-                                                            <tr>
+                                                            <tr class="ralationshipdiv" style="display: none;">
                                                                 <td align="right" style="width: 50%;">
                                                                     <label id="lblCaregiver relationship-8888358" align="center">
                                                                         Caregiver relationship:</label>
@@ -193,7 +215,7 @@ CodeBehind="frmClinical_PsychosocialAdherenceEnrollment.aspx.cs" Inherits="Prese
                                                         </asp:RadioButtonList>
                                                     </td> 
                                                 </tr>
-                                                <tr>
+                                                <tr style="display:none" class="referraldiv">
                                                     <td width="50%">
                                                         <label id="Label4" align="center">Referral Point</label>    
                                                     </td>
@@ -227,7 +249,7 @@ CodeBehind="frmClinical_PsychosocialAdherenceEnrollment.aspx.cs" Inherits="Prese
                                                         </asp:RadioButtonList>
                                                     </td>
                                                 </tr>
-                                                <tr>
+                                                <tr style="display: none;" class="psychosocialservicesdiv">
                                                     <td width="50%">
                                                         <label id="Label7" align="center">Psychosocial Service Received</label>    
                                                     </td>
@@ -501,7 +523,7 @@ CodeBehind="frmClinical_PsychosocialAdherenceEnrollment.aspx.cs" Inherits="Prese
                                             </table>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr style="display: none" class="schoolleveldiv">
                                         <td class="border center pad5 whitebg" width="100%">
                                             <table width="100%">
                                                 <tr>
@@ -509,16 +531,14 @@ CodeBehind="frmClinical_PsychosocialAdherenceEnrollment.aspx.cs" Inherits="Prese
                                                         Specify
                                                     </td>
                                                     <td width="50%" class="leftallign">
-                                                        <div class="customdivbordermultiselect" nowrap="noWrap">
-                                                            <asp:DropDownList runat="server" ID="ddlSchoolLevel">
-                                                            </asp:DropDownList>
-                                                        </div>
+                                                        <asp:DropDownList runat="server" ID="ddlSchoolLevel">
+                                                        </asp:DropDownList>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr style="display: none" class="schoolleveldiv">
                                         <td class="border center pad5 whitebg" width="100%">
                                             <table width="100%">
                                                 <tr>
@@ -739,7 +759,7 @@ CodeBehind="frmClinical_PsychosocialAdherenceEnrollment.aspx.cs" Inherits="Prese
                                                     </asp:RadioButtonList>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <tr style="display:none" class="disclosedstatusdiv">
                                                 <td>
                                                     Disclosed HIV status to:
                                                 </td>
@@ -989,7 +1009,7 @@ CodeBehind="frmClinical_PsychosocialAdherenceEnrollment.aspx.cs" Inherits="Prese
                                                     </asp:RadioButtonList>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <tr style="display:none;" class="substanceusediv">
                                                 <td>
                                                     If yes for how long?
                                                 </td>
@@ -998,7 +1018,7 @@ CodeBehind="frmClinical_PsychosocialAdherenceEnrollment.aspx.cs" Inherits="Prese
                                                     </asp:DropDownList>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <tr style="display:none;" class="substanceusediv">
                                                 <td>
                                                     Specify substance
                                                 </td>
@@ -1013,6 +1033,7 @@ CodeBehind="frmClinical_PsychosocialAdherenceEnrollment.aspx.cs" Inherits="Prese
                                     </td>
                                 </tr>
                             </table>
+                            <UcCAGEAID:UcCAGEAID ID="UcCAGEAIDScreening" runat="server" />
                             <UcCRAFFT:UcCRAFFT ID="UcCRAFFTScreening" runat="server" />
                         </asp:Panel>
                         <div class="center formbg pad5">
@@ -1135,7 +1156,7 @@ CodeBehind="frmClinical_PsychosocialAdherenceEnrollment.aspx.cs" Inherits="Prese
                                                     </asp:RadioButtonList>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <tr style="display:none;" class="gbvdiv">
                                                 <td>
                                                     Specify
                                                 </td>

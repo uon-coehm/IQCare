@@ -45,13 +45,10 @@ namespace Interface.Clinical
         DataTable GetMEIFormExtruderData(int PatientId);
         DataSet SaveUpdatePH9Data(Hashtable HT);
         DataSet GetPH9ScreeningFormData(int ptn_pk, int visit_pk);
-<<<<<<< HEAD
         DataSet SaveUpdateMMASData(Hashtable HT);
         DataSet GetMMASFormData(int ptn_pk, int visit_pk);
         DataSet SaveUpdateCRAFFTScreeningData(Hashtable HT);
         DataSet GetCRAFFTScreeningFormData(int ptn_pk, int visit_pk);
-=======
        DataSet GetCageScreeningData(int ptn_pk, int visit_pk);
->>>>>>> 573eba772f07ecc4072ebffcdc8854e99512be82
     }
 }

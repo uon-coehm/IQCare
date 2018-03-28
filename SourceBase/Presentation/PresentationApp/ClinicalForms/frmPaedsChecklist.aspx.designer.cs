@@ -22,22 +22,13 @@ namespace PresentationApp.ClinicalForms {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtVisitDate;
         
         /// <summary>
-        /// patientOnArtyes control.
+        /// rdoPatientOnArt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton patientOnArtyes;
-        
-        /// <summary>
-        /// patientOnArtno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton patientOnArtno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoPatientOnArt;
         
         /// <summary>
         /// txtArtStartDate control.
@@ -58,94 +49,49 @@ namespace PresentationApp.ClinicalForms {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtCurrentARVRegimen;
         
         /// <summary>
-        /// doseAppropriateYes control.
+        /// rdoDoseAppropriate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton doseAppropriateYes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoDoseAppropriate;
         
         /// <summary>
-        /// doseAppropriateNo control.
+        /// rdoSixMonths control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton doseAppropriateNo;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoSixMonths;
         
         /// <summary>
-        /// sixMonthsYes control.
+        /// rdoZScore control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton sixMonthsYes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoZScore;
         
         /// <summary>
-        /// sixMonthsNo control.
+        /// rdoRoutineAdherence control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton sixMonthsNo;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoRoutineAdherence;
         
         /// <summary>
-        /// zScoreYes control.
+        /// rdoVLTest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton zScoreYes;
-        
-        /// <summary>
-        /// zScoreNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton zScoreNo;
-        
-        /// <summary>
-        /// routineAdherenceYes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton routineAdherenceYes;
-        
-        /// <summary>
-        /// routineAdherenceNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton routineAdherenceNo;
-        
-        /// <summary>
-        /// VLTestYes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton VLTestYes;
-        
-        /// <summary>
-        /// VLTestNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton VLTestNo;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoVLTest;
         
         /// <summary>
         /// txtLastVLResult control.
@@ -166,256 +112,121 @@ namespace PresentationApp.ClinicalForms {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
-        /// firstEACCyes control.
+        /// rdoFirstEACC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton firstEACCyes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoFirstEACC;
         
         /// <summary>
-        /// firstEACCno control.
+        /// rdoSecondEACC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton firstEACCno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoSecondEACC;
         
         /// <summary>
-        /// secondEACCyes control.
+        /// rdoThirdEACC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton secondEACCyes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoThirdEACC;
         
         /// <summary>
-        /// secondEACCno control.
+        /// rdoFacilityMDT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton secondEACCno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoFacilityMDT;
         
         /// <summary>
-        /// thirdEACCyes control.
+        /// rdoRepeatViral control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton thirdEACCyes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoRepeatViral;
         
         /// <summary>
-        /// thirdEACCno control.
+        /// rdoSwitchedToSecond control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton thirdEACCno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoSwitchedToSecond;
         
         /// <summary>
-        /// facilityMDTyes control.
+        /// rdoSwitchedToThird control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton facilityMDTyes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoSwitchedToThird;
         
         /// <summary>
-        /// facilityMDTno control.
+        /// rdoCounselling control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton facilityMDTno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoCounselling;
         
         /// <summary>
-        /// repeatViralyes control.
+        /// rdoFullDisclosure control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton repeatViralyes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoFullDisclosure;
         
         /// <summary>
-        /// repeatViralno control.
+        /// rdoIPT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton repeatViralno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoIPT;
         
         /// <summary>
-        /// switchedToSecondyes control.
+        /// rdoAdolescentsFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton switchedToSecondyes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoAdolescentsFile;
         
         /// <summary>
-        /// switchedToSecondno control.
+        /// rdoAdolescentsTransitionStarted control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton switchedToSecondno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoAdolescentsTransitionStarted;
         
         /// <summary>
-        /// switchedToThirdyes control.
+        /// rdoAdolescentTransitionComplete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton switchedToThirdyes;
-        
-        /// <summary>
-        /// switchedToThirdno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton switchedToThirdno;
-        
-        /// <summary>
-        /// counsellingOngoing control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton counsellingOngoing;
-        
-        /// <summary>
-        /// counsellingPost control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton counsellingPost;
-        
-        /// <summary>
-        /// counsellingNa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton counsellingNa;
-        
-        /// <summary>
-        /// fullDisclosureyes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton fullDisclosureyes;
-        
-        /// <summary>
-        /// fullDisclosureno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton fullDisclosureno;
-        
-        /// <summary>
-        /// IPTGiven control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton IPTGiven;
-        
-        /// <summary>
-        /// IPTOngoing control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton IPTOngoing;
-        
-        /// <summary>
-        /// IPTCompleted control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton IPTCompleted;
-        
-        /// <summary>
-        /// AdolescentsFileyes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton AdolescentsFileyes;
-        
-        /// <summary>
-        /// AdolescentsFileno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton AdolescentsFileno;
-        
-        /// <summary>
-        /// AdolescentsTransitionStartedyes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton AdolescentsTransitionStartedyes;
-        
-        /// <summary>
-        /// AdolescentsTransitionStartedno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton AdolescentsTransitionStartedno;
-        
-        /// <summary>
-        /// AdolescentTransitionCompleteyes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton AdolescentTransitionCompleteyes;
-        
-        /// <summary>
-        /// AdolescentTransitionCompleteno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton AdolescentTransitionCompleteno;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoAdolescentTransitionComplete;
         
         /// <summary>
         /// txtActionTaken control.

@@ -28,11 +28,16 @@ namespace PresentationApp.ClinicalForms
         IKNHStaticForms KNHStatic;
         protected void Page_Load(object sender, EventArgs e)
         {
+            (Master.FindControl("levelOneNavigationUserControl1").FindControl("lblRoot") as Label).Text = "Clinical Forms >> ";
+            (Master.FindControl("levelOneNavigationUserControl1").FindControl("lblheader") as Label).Text = "Psychosocial Adherence Enrollment";
+            (Master.FindControl("levelTwoNavigationUserControl1").FindControl("lblformname") as Label).Text = "Psychosocial Adherence Enrollment";
+
             KNHStatic = (IKNHStaticForms)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BKNHStaticForms, BusinessProcess.Clinical");
             if (IsPostBack != true)
             {
                 BindDropdown();
                 BindChkboxlst();
+                BindRdolst();
                 Session["startTime"] = DateTime.Now;
                 if (Convert.ToInt32(Session["PatientVisitId"]) == 0)
                 {
@@ -64,11 +69,124 @@ namespace PresentationApp.ClinicalForms
                 DataSet dsGet = KNHPA.GetKNHPsychosocialAdherenceData(Convert.ToInt32(Session["PatientId"].ToString()), Convert.ToInt32(Session["PatientVisitId"].ToString()));
                 if (dsGet.Tables[0].Rows.Count > 0)
                 {
+                    txtvisitDate.Value = dsGet.Tables[0].Rows[0]["VisitDate"].ToString();
                     if (dsGet.Tables[0].Rows[0]["PatientPregnant"].ToString() != "")
                     {
                         rdoPatientPregnant.SelectedValue = dsGet.Tables[0].Rows[0]["PatientPregnant"].ToString();
                     }
+                    ddlMaritalStatus.SelectedValue = dsGet.Tables[0].Rows[0]["MaritalStatus"].ToString();
+                    rdoCaregiverCompany.SelectedValue = dsGet.Tables[0].Rows[0]["CaregiverCompany"].ToString();
+                    ddlCaregiverRelationship.SelectedValue = dsGet.Tables[0].Rows[0]["CaregiverRelationship"].ToString();
+                    ddlMonthlyIncome.SelectedValue = dsGet.Tables[0].Rows[0]["MonthlyIncome"].ToString();
+                    rdoPhysicalStatus.SelectedValue = dsGet.Tables[0].Rows[0]["PhysicalStatus"].ToString();
+                    rdoReferred.SelectedValue = dsGet.Tables[0].Rows[0]["Referred"].ToString();
+                    ddlReferralPoint.SelectedValue = dsGet.Tables[0].Rows[0]["ReferralPoint"].ToString();
+                    txtSpecifyReferralPoint.Text = dsGet.Tables[0].Rows[0]["SpecifyReferralPoint"].ToString();
+                    rdoPsychosocialServices.SelectedValue = dsGet.Tables[0].Rows[0]["PsychosocialServices"].ToString();
+                    txtMedicineTime.Text = dsGet.Tables[0].Rows[0]["MedicineTime"].ToString();
+                    txtCaregiverName.Text = dsGet.Tables[0].Rows[0]["CaregiverName"].ToString();
+                    txtCaregiverRelationship.Text = dsGet.Tables[0].Rows[0]["CaregiverRelationship2"].ToString();
+                    txtCaregiverAge.Text = dsGet.Tables[0].Rows[0]["CaregiverAge"].ToString();
+                    txtCaregiverOccupation.Text = dsGet.Tables[0].Rows[0]["CaregiverOccupation"].ToString();
+                    txtCaregiverResidence.Text = dsGet.Tables[0].Rows[0]["CaregiverResidence"].ToString();
+                    txtCaregiverReligion.Text = dsGet.Tables[0].Rows[0]["CaregiverReligion"].ToString();
+                    txtCaregiverHousing.Text = dsGet.Tables[0].Rows[0]["CaregiverHousing"].ToString();
+                    txtCaregiverRoad.Text = dsGet.Tables[0].Rows[0]["CaregiverRoad"].ToString();
+                    txtCaregiverPhone.Text = dsGet.Tables[0].Rows[0]["CaregiverRoad"].ToString();
+                    txtClientSiblings.Text = dsGet.Tables[0].Rows[0]["ClientSiblings"].ToString();
+
+                    //Child Information
+                    rdoSchool.SelectedValue = dsGet.Tables[0].Rows[0]["School"].ToString();
+                    ddlSchoolLevel.SelectedValue = dsGet.Tables[0].Rows[0]["SchoolLevel"].ToString();
+                    txtSpecifySchoolReason.Text = dsGet.Tables[0].Rows[0]["SpecifySchoolReason"].ToString();
+                    ddlChildDwelling.SelectedValue = dsGet.Tables[0].Rows[0]["ChildDwelling"].ToString();
+                    ddlChildStatus.SelectedValue = dsGet.Tables[0].Rows[0]["ChildStatus"].ToString();
+                    txtSpecifyChildStatus.Text = dsGet.Tables[0].Rows[0]["SpecifyChildStatus"].ToString();
+
+                    //Buddy Information
+                    txtBuddyName.Text = dsGet.Tables[0].Rows[0]["BuddyName"].ToString();
+                    txtBuddyPhone.Text = dsGet.Tables[0].Rows[0]["BuddyPhone"].ToString();
+
+                    //Peer Mentor
+                    txtMentorName.Text = dsGet.Tables[0].Rows[0]["MentorName"].ToString();
+                    txtMentorResidence.Text = dsGet.Tables[0].Rows[0]["MentorResidence"].ToString();
+                    txtMentorPhone.Text = dsGet.Tables[0].Rows[0]["MentorPhone"].ToString();
+
+                    //Hiv Disclosure
+                    rdoDisclosedStatus.SelectedValue = dsGet.Tables[0].Rows[0]["DisclosedStatus"].ToString();
+                    rdoSupportGroupMember.SelectedValue = dsGet.Tables[0].Rows[0]["SupportGroupMember"].ToString();
+
+
+                    //ASSESSMENT
+                    rdoFeeling.SelectedValue = dsGet.Tables[0].Rows[0]["Feeling"].ToString();
+                    rdoLackPleasure.SelectedValue = dsGet.Tables[0].Rows[0]["LackPlaesure"].ToString();
+                    rdoSubstanceUse.SelectedValue = dsGet.Tables[0].Rows[0]["SubstanceUse"].ToString();
+                    ddlSubstanceUsePeriod.SelectedValue = dsGet.Tables[0].Rows[0]["SubstanceUsePeriod"].ToString();
+                    rdoSexuallyActive.SelectedValue = dsGet.Tables[0].Rows[0]["SexuallyActive"].ToString();
+                    rdoPartnersTestedHIV.SelectedValue = dsGet.Tables[0].Rows[0]["PartnersTestedHIV"].ToString();
+                    txtSexualPertnersNumber.Text = dsGet.Tables[0].Rows[0]["SexualPartnersNumber"].ToString();
+                    rdoPartnerTested.SelectedValue = dsGet.Tables[0].Rows[0]["PartnerTested"].ToString();
+                    rdoExperiencedGBV.SelectedValue = dsGet.Tables[0].Rows[0]["ExperiencedGBV"].ToString();
+                    rdoPhysicalAbuse.SelectedValue = dsGet.Tables[0].Rows[0]["PhysicalAbuse"].ToString();
+                    rdoThreatens.SelectedValue = dsGet.Tables[0].Rows[0]["Threatens"].ToString();
+                    rdoForcesSexualActivity.SelectedValue = dsGet.Tables[0].Rows[0]["ForcesSexualActivity"].ToString();
+                    rdoExperiencedAbove.SelectedValue = dsGet.Tables[0].Rows[0]["ExperiencedAbove"].ToString();
+
+                    //MANAGEMENT
+                    //support group
+                    rdoJoinedSupportGroup.SelectedValue = dsGet.Tables[0].Rows[0]["JoinedSupportGroup"].ToString();
+                    rdoUseFamilyPlanning.SelectedValue = dsGet.Tables[0].Rows[0]["UseFamilyPlanning"].ToString();
+                    rdoPWPMessages.SelectedValue = dsGet.Tables[0].Rows[0]["PWPMessages"].ToString();
+                    rdoCondomsIssued.SelectedValue = dsGet.Tables[0].Rows[0]["CondomsIssued"].ToString();
+                    txtSpecifyCondomReason.Text = dsGet.Tables[0].Rows[0]["SpecifyCondomsReason"].ToString();
+                    txtSessionNumber.Text = dsGet.Tables[0].Rows[0]["SessionNumber"].ToString();
+                    txtAdherence.Text = dsGet.Tables[0].Rows[0]["Adherence"].ToString();
+                    txtMmasScore.Text = dsGet.Tables[0].Rows[0]["MmasScore"].ToString();
+                    rdoPatientReferred.SelectedValue = dsGet.Tables[0].Rows[0]["PatientReferred"].ToString();
+                    ddlPatientReferredTo.SelectedValue = dsGet.Tables[0].Rows[0]["PatientReferredTo"].ToString();
+                    ddlAdherenceImpression.SelectedValue = dsGet.Tables[0].Rows[0]["AdherenceImpression"].ToString();
+                    txtAdherenceNotes.Text = dsGet.Tables[0].Rows[0]["AdherenceNotes"].ToString();
+
+                    //Checkboxes
+                    FillCheckboxlist(cbPsychosocialServicesReceived, dsGet.Tables[1], "PsychosocialServicesReceived");
+                    FillCheckboxlist(cbCounsellingReason, dsGet.Tables[1], "CounsellingReason");
+                    FillCheckboxlist(cbSchoolReason, dsGet.Tables[1], "SchoolReason");
+                    FillCheckboxlist(cbDisclosedStatusTo, dsGet.Tables[1], "DisclosedStatusTo");
+                    FillCheckboxlist(cbSupportHow, dsGet.Tables[1], "SuppoprtHow");
+                    FillCheckboxlist(cbComplaints, dsGet.Tables[1], "Complains");
+                    FillCheckboxlist(cbSpecifySubstance, dsGet.Tables[1], "SpecifySubstance");
+                    FillCheckboxlist(cbGenderPartners, dsGet.Tables[1], "GenderPartners");
+                    FillCheckboxlist(cbGBV, dsGet.Tables[1], "GBV");
+                    FillCheckboxlist(cbSupportGroupsJoined, dsGet.Tables[1], "SupportGroupsJoined");
+                    FillCheckboxlist(cbFamilyPlanningMethods, dsGet.Tables[1], "FamilyPlanningMethods");
+                    FillCheckboxlist(cbCondomsReason, dsGet.Tables[1], "CondomsReason");
+                    FillCheckboxlist(cbAdherenceBarriers, dsGet.Tables[1], "AdherenceBarriers");
+                    FillCheckboxlist(cbAdherencePlan, dsGet.Tables[1], "AdherencePlan");
                 }
+            }
+        }
+
+        public void FillCheckboxlist(CheckBoxList chk, DataTable thedt, string name)
+        {
+            IQCareUtils theUtils = new IQCareUtils();
+            DataView theDV = new DataView(thedt);
+            theDV.RowFilter = "FieldName='" + name + "'";
+            DataTable dt = (DataTable)theUtils.CreateTableFromDataView(theDV);
+            string script = string.Empty;
+            if (dt.Rows.Count > 0)
+            {
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    for (int j = 0; j < chk.Items.Count; j++)
+                    {
+                        if (chk.Items[j].Value == dt.Rows[i]["ValueID"].ToString())
+                        {
+                            chk.Items[j].Selected = true;
+                        }
+                    }
+                }
+
             }
         }
 
@@ -153,6 +271,24 @@ namespace PresentationApp.ClinicalForms
         protected void btnCloseProfile_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BindRdolst()
+        {
+            foreach (ListItem CaregiverCompanyList in rdoCaregiverCompany.Items)
+                CaregiverCompanyList.Attributes["onclick"] = "PAFunctionShowHide('ralationshipdiv','" + rdoCaregiverCompany.ClientID + "')";
+            foreach (ListItem ReferredList in rdoReferred.Items)
+                ReferredList.Attributes["onclick"] = "PAFunctionShowHide('referraldiv','" + rdoReferred.ClientID + "')";
+            foreach (ListItem PsychosocialServicesList in rdoPsychosocialServices.Items)
+                PsychosocialServicesList.Attributes["onclick"] = "PAFunctionShowHide('psychosocialservicesdiv','" + rdoPsychosocialServices.ClientID + "')";
+            foreach (ListItem SchoolList in rdoSchool.Items)
+                SchoolList.Attributes["onclick"] = "PAFunctionShowHide('schoolleveldiv','" + rdoSchool.ClientID + "')";
+            foreach (ListItem DisclosedStatusList in rdoDisclosedStatus.Items)
+                DisclosedStatusList.Attributes["onclick"] = "PAFunctionShowHide('disclosedstatusdiv','" + rdoDisclosedStatus.ClientID + "')";
+            foreach (ListItem SubstanceUseList in rdoSubstanceUse.Items)
+                SubstanceUseList.Attributes["onclick"] = "PAFunctionShowHide('substanceusediv','" + rdoSubstanceUse.ClientID + "')";
+            foreach (ListItem GbvList in rdoExperiencedGBV.Items)
+                GbvList.Attributes["onclick"] = "PAFunctionShowHide('gbvdiv','" + rdoExperiencedGBV.ClientID + "')";
         }
 
         private void BindDropdown()

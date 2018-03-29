@@ -30,7 +30,7 @@
         }
     </script>
     <div class="container-fluid">
-                <div class="border center formbg">
+        <div class="border center formbg">
             <table cellspacing="6" cellpadding="0" width="100%" border="0">
                 <tr>
                     <td class="border pad5 whitebg" width="100%">
@@ -67,10 +67,14 @@
                                                             Patient on ART
                                                         </td>
                                                         <td style="border-top: 0px;" width="50%">
-                                                            <input id="patientOnArtyes" type="radio" value="1" runat="server" name="rdoPatientOnArt" />
+                                                            <asp:RadioButtonList ID="rdoPatientOnArt" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                                <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                                <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                            </asp:RadioButtonList>
+                                                            <%--<input id="patientOnArtyes" type="radio" value="1" runat="server" name="rdoPatientOnArt" />
                                                             &nbsp;<label for="patientOnArt">Yes</label>
                                                             <input id="patientOnArtno" type="radio" value="0" runat="server" name="rdoPatientOnArt" />
-                                                            &nbsp;<label for="rdoUnderstandHivno">No</label>
+                                                            &nbsp;<label for="rdoUnderstandHivno">No</label>--%>
                                                         </td>   
                                                     </tr>
                                                 </table>
@@ -104,10 +108,14 @@
                                                 Is dose appropriate for age?
                                             </td>
                                             <td style="border-top: 0px;" width="30%">
-                                                <input id="doseAppropriateYes" type="radio" value="1" runat="server" name="rdoDoseAppropriate" />
+                                                <asp:RadioButtonList ID="rdoDoseAppropriate" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                    <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                    <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                </asp:RadioButtonList>
+                                                <%--<input id="doseAppropriateYes" type="radio" value="1" runat="server" name="rdoDoseAppropriate" />
                                                 &nbsp;<label for="rdoScreenDrugyes">Yes</label>
                                                 <input id="doseAppropriateNo" type="radio" value="0" runat="server" name="rdoDoseAppropriate" />
-                                                &nbsp;<label for="rdoScreenDrugNo">No</label>
+                                                &nbsp;<label for="rdoScreenDrugNo">No</label>--%>
                                             </td>
                                         </tr>
                                     </table>
@@ -121,10 +129,14 @@
                                                 On ART for more than 6 months?
                                             </td>
                                             <td style="border-top: 0px;" width="30%">
-                                                <input id="sixMonthsYes" type="radio" value="1" runat="server" name="rdoSixMonths" />
+                                                <asp:RadioButtonList ID="rdoSixMonths" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                    <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                    <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                </asp:RadioButtonList>
+                                                <%--<input id="sixMonthsYes" type="radio" value="1" runat="server" name="rdoSixMonths" />
                                                 &nbsp;<label for="rdoScreenDepressionyes">Yes</label>
                                                 <input id="sixMonthsNo" type="radio" value="0" runat="server" name="rdoSixMonths" />
-                                                &nbsp;<label for="rdoScreenDepressionno">No</label>
+                                                &nbsp;<label for="rdoScreenDepressionno">No</label>--%>
                                             </td>
                                         </tr>
                                     </table>
@@ -138,10 +150,14 @@
                                                 W/A Z-Score or BMI Zscore or  last visit?
                                             </td>
                                             <td style="border-top: 0px;" width="30%">
-                                                <label for="rdoDiscloseStatusyes"><input id="zScoreYes" type="radio" value="1" runat="server" name="rdoZScore" />
+                                                <asp:RadioButtonList ID="rdoZScore" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                    <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                    <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                </asp:RadioButtonList>
+                                                <%--<label for="rdoDiscloseStatusyes"><input id="zScoreYes" type="radio" value="1" runat="server" name="rdoZScore" />
                                                 &nbsp;Yes</label>
                                                 <label for="rdoDiscloseStatusno"><input id="zScoreNo" type="radio" value="0" runat="server" name="rdoZScore" />
-                                                &nbsp;No</label>
+                                                &nbsp;No</label>--%>
                                             </td>
                                         </tr>
                                     </table>
@@ -155,10 +171,14 @@
                                                 Has routine adherence been given in the  last 6 months 
                                             </td>
                                             <td style="border-top: 0px;" width="30%">
-                                                <input id="routineAdherenceYes" type="radio" value="1" runat="server" name="rdoroutineAdherence" />
+                                                <asp:RadioButtonList ID="rdoRoutineAdherence" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                    <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                    <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                </asp:RadioButtonList>
+                                                <%--<input id="routineAdherenceYes" type="radio" value="1" runat="server" name="rdoroutineAdherence" />
                                                 &nbsp;<label for="rdoDemonstrationYes">Yes</label>
                                                 <input id="routineAdherenceNo" type="radio" value="0" runat="server" name="rdoroutineAdherence" />
-                                                &nbsp;<label for="rdoArtDemonstrationno">No</label>
+                                                &nbsp;<label for="rdoArtDemonstrationno">No</label>--%>
                                             </td>
                                         </tr>
                                     </table>
@@ -175,10 +195,14 @@
                                                             At least 1 VL test done within last 12 months and results available
                                                         </td>
                                                         <td style="border-top: 0px;" width="30%">
-                                                            <input id="VLTestYes" type="radio" value="Yes" runat="server" name="rdoVLTest" />
+                                                            <asp:RadioButtonList ID="rdoVLTest" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                                <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                                <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                            </asp:RadioButtonList>
+                                                            <%--<input id="VLTestYes" type="radio" value="Yes" runat="server" name="rdoVLTest" />
                                                             &nbsp;<label for="rdoUnderstandHivyes">Yes</label>
                                                             <input id="VLTestNo" type="radio" value="No" runat="server" name="rdoVLTest" />
-                                                            &nbsp;<label for="rdoUnderstandHivno">No</label>
+                                                            &nbsp;<label for="rdoUnderstandHivno">No</label>--%>
                                                         </td>   
                                                     </tr>
                                                 </table>
@@ -209,10 +233,14 @@
                                                             if VL >1000cps/ml, has 1st EACC been offered
                                                         </td>
                                                         <td style="border-top: 0px;" width="30%">
-                                                            <input id="firstEACCyes" type="radio" value="Yes" runat="server" name="rdofirstEACC" />
+                                                            <asp:RadioButtonList ID="rdoFirstEACC" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                                <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                                <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                            </asp:RadioButtonList>
+                                                            <%--<input id="firstEACCyes" type="radio" value="Yes" runat="server" name="rdofirstEACC" />
                                                             &nbsp;<label for="rrdoIdentifiedBarrieryes">Yes</label>
                                                             <input id="firstEACCno" type="radio" value="No" runat="server" name="rdofirstEACC" />
-                                                            &nbsp;<label for="rdoIdentifiedBarrierno">No</label>
+                                                            &nbsp;<label for="rdoIdentifiedBarrierno">No</label>--%>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -224,10 +252,14 @@
                                                             if VL >1000cps/ml, has 2nd EACC been offered
                                                         </td>
                                                         <td style="border-top: 0px;" width="30%">
-                                                            <input id="secondEACCyes" type="radio" value="Yes" runat="server" name="rdosecondEACC" />
+                                                            <asp:RadioButtonList ID="rdoSecondEACC" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                                <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                                <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                            </asp:RadioButtonList>
+                                                            <%--<input id="secondEACCyes" type="radio" value="Yes" runat="server" name="rdosecondEACC" />
                                                             &nbsp;<label for="rdoCaregiverLocatoryes">Yes</label>
                                                             <input id="secondEACCno" type="radio" value="No" runat="server" name="rdosecondEACC" />
-                                                            &nbsp;<label for="rdoCaregiverLocatorno">No</label>
+                                                            &nbsp;<label for="rdoCaregiverLocatorno">No</label>--%>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -241,10 +273,14 @@
                                                             if VL >1000cps/ml, has 3rd  EACC been offered
                                                         </td>
                                                         <td style="border-top: 0px;" width="30%">
-                                                            <input id="thirdEACCyes" type="radio" value="Yes" runat="server" name="rdothirdEACC" />
+                                                            <asp:RadioButtonList ID="rdoThirdEACC" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                                <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                                <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                            </asp:RadioButtonList>
+                                                            <%--<input id="thirdEACCyes" type="radio" value="Yes" runat="server" name="rdothirdEACC" />
                                                             &nbsp;<label for="rdoUnderstandHivyes">Yes</label>
                                                             <input id="thirdEACCno" type="radio" value="No" runat="server" name="rdothirdEACC" />
-                                                            &nbsp;<label for="rdoCaregiverReadyno">No</label>
+                                                            &nbsp;<label for="rdoCaregiverReadyno">No</label>--%>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -256,10 +292,14 @@
                                                             If VL >1000cps/ml, Discussed in facilty MDT
                                                         </td>
                                                         <td style="border-top: 0px;" width="30%">
-                                                            <input id="facilityMDTyes" type="radio" value="Yes" runat="server" name="rdofacilityMDT" />
+                                                            <asp:RadioButtonList ID="rdoFacilityMDT" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                                <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                                <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                            </asp:RadioButtonList>
+                                                            <%--<input id="facilityMDTyes" type="radio" value="Yes" runat="server" name="rdofacilityMDT" />
                                                             &nbsp;<label for="rdoUnderstandHivyes">Yes</label>
                                                             <input id="facilityMDTno" type="radio" value="No" runat="server" name="rdofacilityMDT" />
-                                                            &nbsp;<label for="rdoCaregiverReadyno">No</label>
+                                                            &nbsp;<label for="rdoCaregiverReadyno">No</label>--%>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -276,10 +316,14 @@
                                                 Repeat viral load after EAC<1000copies/ml
                                             </td>
                                             <td style="border-top: 0px;" width="30%">
-                                                <input id="repeatViralyes" type="radio" value="Yes" runat="server" name="rdorepeatViral" />
+                                                <asp:RadioButtonList ID="rdoRepeatViral" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                    <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                    <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                </asp:RadioButtonList>
+                                                <%--<input id="repeatViralyes" type="radio" value="Yes" runat="server" name="rdorepeatViral" />
                                                 &nbsp;<label for="rdoUnderstandHivyes">Yes</label>
                                                 <input id="repeatViralno" type="radio" value="No" runat="server" name="rdorepeatViral" />
-                                                &nbsp;<label for="rdoCaregiverReadyno">No</label>
+                                                &nbsp;<label for="rdoCaregiverReadyno">No</label>--%>
                                             </td>
                                         </tr>
                                     </table>
@@ -293,10 +337,14 @@
                                                 Switched to 2nd 
                                             </td>
                                             <td style="border-top: 0px;" width="30%">
-                                                <input id="switchedToSecondyes" type="radio" value="Yes" runat="server" name="rdoswitchedtoSecond" />
+                                                <asp:RadioButtonList ID="rdoSwitchedToSecond" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                    <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                    <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                </asp:RadioButtonList>
+                                                <%--<input id="switchedToSecondyes" type="radio" value="Yes" runat="server" name="rdoswitchedtoSecond" />
                                                 &nbsp;<label for="rdoUnderstandHivyes">Yes</label>
                                                 <input id="switchedToSecondno" type="radio" value="No" runat="server" name="rdoswitchedtoSecond" />
-                                                &nbsp;<label for="rdoCaregiverReadyno">No</label>
+                                                &nbsp;<label for="rdoCaregiverReadyno">No</label>--%>
                                             </td>
                                         </tr>
                                     </table>
@@ -310,10 +358,14 @@
                                                 Switched to 3rd  line 
                                             </td>
                                             <td style="border-top: 0px;" width="30%">
-                                                <input id="switchedToThirdyes" type="radio" value="Yes" runat="server" name="rdoswitchedToThird" />
+                                                <asp:RadioButtonList ID="rdoSwitchedToThird" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                    <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                    <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                </asp:RadioButtonList>
+                                                <%--<input id="switchedToThirdyes" type="radio" value="Yes" runat="server" name="rdoswitchedToThird" />
                                                 &nbsp;<label for="rdoUnderstandHivyes">Yes</label>
                                                 <input id="switchedToThirdno" type="radio" value="No" runat="server" name="rdoswitchedToThird" />
-                                                &nbsp;<label for="rdoCaregiverReadyno">No</label>
+                                                &nbsp;<label for="rdoCaregiverReadyno">No</label>--%>
                                             </td>
                                         </tr>
                                     </table>
@@ -327,12 +379,17 @@
                                                 Disclosure counselling 
                                             </td>
                                             <td style="border-top: 0px;" width="40%">
-                                                <input id="counsellingOngoing" type="radio" value="Ongoing" runat="server" name="rdoCounselling" />
+                                                <asp:RadioButtonList ID="rdoCounselling" runat="server" RepeatColumns = "3" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                    <asp:ListItem Text="Ongoing" Value="2"></asp:ListItem>
+                                                    <asp:ListItem Text="Post Disclosure" Value="1"></asp:ListItem>
+                                                    <asp:ListItem Text="Npot Applicable" Value="0"></asp:ListItem>
+                                                </asp:RadioButtonList>
+                                                <%--<input id="counsellingOngoing" type="radio" value="Ongoing" runat="server" name="rdoCounselling" />
                                                 &nbsp;<label for="rdoUnderstandHivyes">Ongoing</label>
                                                 <input id="counsellingPost" type="radio" value="Post Disclosure" runat="server" name="rdoCounselling" />
                                                 &nbsp;<label for="rdoCaregiverReadyno">Post Disclosure</label>
                                                 <input id="counsellingNa" type="radio" value="Not Applicable" runat="server" name="rdoCounselling" />
-                                                &nbsp;<label for="rdoCaregiverReadyno">Not Applicable</label>
+                                                &nbsp;<label for="rdoCaregiverReadyno">Not Applicable</label>--%>
                                             </td>
                                         </tr>
                                     </table>
@@ -346,10 +403,14 @@
                                                 Does the patient have full discolsure? 
                                             </td>
                                             <td style="border-top: 0px;" width="30%">
-                                                <input id="fullDisclosureyes" type="radio" value="Yes" runat="server" name="rdofullDisclosure" />
+                                                <asp:RadioButtonList ID="rdoFullDisclosure" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                    <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                    <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                </asp:RadioButtonList>
+                                                <%--<input id="fullDisclosureyes" type="radio" value="Yes" runat="server" name="rdofullDisclosure" />
                                                 &nbsp;<label for="rdoUnderstandHivyes">Yes</label>
                                                 <input id="fullDisclosureno" type="radio" value="No" runat="server" name="rdofullDisclosure" />
-                                                &nbsp;<label for="rdoCaregiverReadyno">No</label>
+                                                &nbsp;<label for="rdoCaregiverReadyno">No</label>--%>
                                             </td>
                                         </tr>
                                     </table>
@@ -363,12 +424,17 @@
                                                 IPT
                                             </td>
                                             <td style="border-top: 0px;" width="40%">
-                                                <input id="IPTGiven" type="radio" value="Not Given" runat="server" name="rdoIPT" />
+                                                <asp:RadioButtonList ID="rdoIPT" runat="server" RepeatColumns = "3" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                    <asp:ListItem Text="Not Given" Value="0"></asp:ListItem>
+                                                    <asp:ListItem Text="Ongoing" Value="1"></asp:ListItem>
+                                                    <asp:ListItem Text="Completed" Value="2"></asp:ListItem>
+                                                </asp:RadioButtonList>
+                                                <%--<input id="IPTGiven" type="radio" value="Not Given" runat="server" name="rdoIPT" />
                                                 &nbsp;<label for="rdoUnderstandHivyes">Not Given</label>
                                                 <input id="IPTOngoing" type="radio" value="Ongoing" runat="server" name="rdoIPT" />
                                                 &nbsp;<label for="rdoCaregiverReadyno">Ongoing</label>
                                                  <input id="IPTCompleted" type="radio" value="Completed" runat="server" name="rdoIPT" />
-                                                &nbsp;<label for="rdoCaregiverReadyno">Completed</label>
+                                                &nbsp;<label for="rdoCaregiverReadyno">Completed</label>--%>
                                             </td>
                                         </tr>
                                     </table>
@@ -382,10 +448,14 @@
                                                 Adolescents Checklist in the file duly filled
                                             </td>
                                             <td style="border-top: 0px;" width="30%">
-                                                <input id="AdolescentsFileyes" type="radio" value="Yes" runat="server" name="rdoAdolescentsFile" />
+                                                <asp:RadioButtonList ID="rdoAdolescentsFile" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                    <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                    <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                </asp:RadioButtonList>
+                                                <%--<input id="AdolescentsFileyes" type="radio" value="Yes" runat="server" name="rdoAdolescentsFile" />
                                                 &nbsp;<label for="rdoUnderstandHivyes">Yes</label>
                                                 <input id="AdolescentsFileno" type="radio" value="No" runat="server" name="rdoAdolescentsFile" />
-                                                &nbsp;<label for="rdoCaregiverReadyno">No</label>
+                                                &nbsp;<label for="rdoCaregiverReadyno">No</label>--%>
                                             </td>
                                         </tr>
                                     </table>
@@ -399,10 +469,14 @@
                                                 Adolescents transition started
                                             </td>
                                             <td style="border-top: 0px;" width="30%">
-                                                <input id="AdolescentsTransitionStartedyes" type="radio" value="Yes" runat="server" name="rdoAdolescentsTransitionStarted" />
+                                                <asp:RadioButtonList ID="rdoAdolescentsTransitionStarted" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                    <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                    <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                </asp:RadioButtonList>
+                                                <%--<input id="AdolescentsTransitionStartedyes" type="radio" value="Yes" runat="server" name="rdoAdolescentsTransitionStarted" />
                                                 &nbsp;<label for="rdoUnderstandHivyes">Yes</label>
                                                 <input id="AdolescentsTransitionStartedno" type="radio" value="No" runat="server" name="rdoAdolescentsTransitionStarted" />
-                                                &nbsp;<label for="rdoCaregiverReadyno">No</label>
+                                                &nbsp;<label for="rdoCaregiverReadyno">No</label>--%>
                                             </td>
                                         </tr>
                                     </table>
@@ -416,10 +490,14 @@
                                                 Adolescent  transition complete
                                             </td>
                                             <td style="border-top: 0px;" width="30%">
-                                                <input id="AdolescentTransitionCompleteyes" type="radio" value="Yes" runat="server" name="rdoAdolescentTransitionComplete" />
+                                                <asp:RadioButtonList ID="rdoAdolescentTransitionComplete" runat="server" RepeatColumns = "2" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                    <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                    <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                </asp:RadioButtonList>
+                                                <%--<input id="AdolescentTransitionCompleteyes" type="radio" value="Yes" runat="server" name="rdoAdolescentTransitionComplete" />
                                                 &nbsp;<label for="rdoUnderstandHivyes">Yes</label>
                                                 <input id="AdolescentTransitionCompleteno" type="radio" value="No" runat="server" name="rdoAdolescentTransitionComplete" />
-                                                &nbsp;<label for="rdoCaregiverReadyno">No</label>
+                                                &nbsp;<label for="rdoCaregiverReadyno">No</label>--%>
                                             </td>
                                         </tr>
                                     </table>

@@ -22,6 +22,7 @@ namespace PresentationApp.ClinicalForms
 {
     public partial class frmPaedsChecklist : System.Web.UI.Page
     {
+        IKNHPaed KNHPaed;
         int PatientID, LocationID, visitPK = 0;
         Hashtable ARTParameters;
         protected void Page_Load(object sender, EventArgs e)
@@ -29,6 +30,58 @@ namespace PresentationApp.ClinicalForms
             (Master.FindControl("levelOneNavigationUserControl1").FindControl("lblRoot") as Label).Text = "Clinical Forms >> ";
             (Master.FindControl("levelOneNavigationUserControl1").FindControl("lblheader") as Label).Text = "Paeds Checklist";
             (Master.FindControl("levelTwoNavigationUserControl1").FindControl("lblformname") as Label).Text = "Paeds Checklist";
+        }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            if (IsPostBack != true)
+            {
+                if (Convert.ToInt32(Session["PatientVisitId"]) > 0)
+                {
+                    BindExistingData();
+                    //ErrorLoad();
+                }
+                else
+                    txtVisitDate.Value = DateTime.Now.ToString("dd-MMM-yyyy");
+            }
+        }
+
+        public void BindExistingData()
+        {
+            if (Convert.ToInt32(Session["PatientVisitId"].ToString()) > 0)
+            {
+                KNHPaed = (IKNHPaed)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BKNHPaed, BusinessProcess.Clinical");
+                DataSet dsGet = KNHPaed.GetPaedChecklistData(Convert.ToInt32(Session["PatientId"].ToString()), Convert.ToInt32(Session["PatientVisitId"].ToString()));
+
+                if (dsGet.Tables[0].Rows.Count > 0)
+                {
+                    txtVisitDate.Value = dsGet.Tables[0].Rows[0]["VisitDate"].ToString();
+                    txtArtStartDate.Value = dsGet.Tables[0].Rows[0]["ArtStartDate"].ToString();
+                    txtCurrentARVRegimen.Value = dsGet.Tables[0].Rows[0]["CurrentRegimen"].ToString();
+                    txtLastVLResult.Value = dsGet.Tables[0].Rows[0]["LastVLResult"].ToString();
+                    txtActionTaken.Text = dsGet.Tables[0].Rows[0]["actionTaken"].ToString();
+
+                    rdoPatientOnArt.SelectedValue = dsGet.Tables[0].Rows[0]["PatientOnART"].ToString();
+                    rdoDoseAppropriate.SelectedValue = dsGet.Tables[0].Rows[0]["DoseAppropriate"].ToString();
+                    rdoSixMonths.SelectedValue = dsGet.Tables[0].Rows[0]["SixMonths"].ToString();
+                    rdoZScore.SelectedValue = dsGet.Tables[0].Rows[0]["zScore"].ToString();
+                    rdoRoutineAdherence.SelectedValue = dsGet.Tables[0].Rows[0]["routineAdherence"].ToString();
+                    rdoVLTest.SelectedValue = dsGet.Tables[0].Rows[0]["vlTest"].ToString();
+                    rdoFirstEACC.SelectedValue = dsGet.Tables[0].Rows[0]["firstEACC"].ToString();
+                    rdoSecondEACC.SelectedValue = dsGet.Tables[0].Rows[0]["secondEACC"].ToString();
+                    rdoThirdEACC.SelectedValue = dsGet.Tables[0].Rows[0]["thirdEACC"].ToString();
+                    rdoFacilityMDT.SelectedValue = dsGet.Tables[0].Rows[0]["facilityMDT"].ToString();
+                    rdoRepeatViral.SelectedValue = dsGet.Tables[0].Rows[0]["repeatViral"].ToString();
+                    rdoSwitchedToSecond.SelectedValue = dsGet.Tables[0].Rows[0]["switchedToSecond"].ToString();
+                    rdoSwitchedToThird.SelectedValue = dsGet.Tables[0].Rows[0]["switchedToThird"].ToString();
+                    rdoCounselling.SelectedValue = dsGet.Tables[0].Rows[0]["counselling"].ToString();
+                    rdoFullDisclosure.SelectedValue = dsGet.Tables[0].Rows[0]["fullDisclosure"].ToString();
+                    rdoIPT.SelectedValue = dsGet.Tables[0].Rows[0]["IPT"].ToString();
+                    rdoAdolescentsFile.SelectedValue = dsGet.Tables[0].Rows[0]["adolescentsFile"].ToString();
+                    rdoAdolescentsTransitionStarted.SelectedValue = dsGet.Tables[0].Rows[0]["adolescentsTransitionStart"].ToString();
+                    rdoAdolescentTransitionComplete.SelectedValue = dsGet.Tables[0].Rows[0]["adolescentsTransitionComplete"].ToString();
+                }
+            }
         }
 
         private Hashtable htableARTParameters()
@@ -39,212 +92,47 @@ namespace PresentationApp.ClinicalForms
             //Visit Date
             ARTParameters.Add("visitDate", txtVisitDate.Value);
             //Patient on ART
-            int patientOnART = 0;
-            if(patientOnArtyes.Checked){
-                patientOnART = 1;
-            }
-            if (patientOnArtno.Checked)
-            {
-                patientOnART = 0;
-            }
-            ARTParameters.Add("patientOnART", patientOnART);
+            ARTParameters.Add("patientOnART", rdoPatientOnArt.SelectedValue);
             //ART Start Date
             ARTParameters.Add("ArtStartDate", txtArtStartDate.Value);
             //Current Regimen
             ARTParameters.Add("CurrentRegimen", txtCurrentARVRegimen.Value);
             //Dose Appropriate
-            int doseAppropriate = 0;
-            if(doseAppropriateYes.Checked){
-                doseAppropriate = 1;
-            }
-            if(doseAppropriateNo.Checked){
-                doseAppropriate = 0;
-            }
-            ARTParameters.Add("DoseAppropriate", doseAppropriate);
+            ARTParameters.Add("DoseAppropriate", rdoDoseAppropriate.SelectedValue);
             //six months
-            int sixMonths = 0;
-            if (sixMonthsYes.Checked)
-            {
-                sixMonths = 1;
-            }
-            if (sixMonthsNo.Checked)
-            {
-                sixMonths = 0;
-            }
-            ARTParameters.Add("SixMonths", sixMonths);
+            ARTParameters.Add("SixMonths", rdoSixMonths.SelectedValue);
             //zScore
-            int zScore = 0;
-            if (zScoreYes.Checked)
-            {
-                zScore = 1;
-            }
-            if (zScoreNo.Checked)
-            {
-                zScore = 0;
-            }
-            ARTParameters.Add("zScore", zScore);
+            ARTParameters.Add("zScore", rdoZScore.SelectedValue);
             //routine adherence
-            int routineAdherence = 0;
-            if(routineAdherenceYes.Checked){
-                routineAdherence =1;
-            }
-            if(routineAdherenceNo.Checked){
-                routineAdherence =0;
-            }
-            ARTParameters.Add("routineAdherence", routineAdherence);
+            ARTParameters.Add("routineAdherence", rdoRoutineAdherence.SelectedValue);
             //VL Test
-            int vltest = 0;
-            if (VLTestYes.Checked)
-            {
-                vltest = 1;
-            }
-            if (VLTestNo.Checked)
-            {
-                vltest = 0;
-            }
-            ARTParameters.Add("vltest", vltest);
+            ARTParameters.Add("vltest", rdoVLTest.SelectedValue);
             //Last VL Result
             ARTParameters.Add("LastVLResult", txtLastVLResult.Value);
             //first EACC
-            int firstEACC = 0;
-            if (firstEACCyes.Checked)
-            {
-                firstEACC = 1;
-            }
-            if (firstEACCno.Checked)
-            {
-                firstEACC = 0;
-            }
-            ARTParameters.Add("firstEACC", firstEACC);
+            ARTParameters.Add("firstEACC", rdoFirstEACC.SelectedValue);
             //Second EACC
-            int secondEACC = 0;
-            if (secondEACCyes.Checked)
-            {
-                secondEACC = 1;
-            }
-            if (secondEACCno.Checked)
-            {
-                secondEACC = 0;
-            }
-            ARTParameters.Add("secondEACC", secondEACC);
+            ARTParameters.Add("secondEACC", rdoSecondEACC.SelectedValue);
             //thirdEACC
-            int thirdEACC = 0;
-            if (thirdEACCyes.Checked)
-            {
-                thirdEACC = 1;
-            }
-            if (thirdEACCno.Checked)
-            {
-                thirdEACC = 0;
-            }
-            ARTParameters.Add("thirdEACC", thirdEACC);
+            ARTParameters.Add("thirdEACC", rdoThirdEACC.SelectedValue);
             //facilityMDT
-            int facilityMDT = 0;
-            if (facilityMDTyes.Checked)
-            {
-                facilityMDT = 1;
-            }
-            if (facilityMDTno.Checked)
-            {
-                facilityMDT = 0;
-            }
-            ARTParameters.Add("facilityMDT", facilityMDT);
+            ARTParameters.Add("facilityMDT", rdoFacilityMDT.SelectedValue);
             //repeatViral
-            int repeatViral = 0;
-            if (repeatViralyes.Checked)
-            {
-                repeatViral = 1;
-            }
-            if (repeatViralno.Checked)
-            {
-                repeatViral = 0;
-            }
-            ARTParameters.Add("repeatViral", repeatViral);
+            ARTParameters.Add("repeatViral", rdoRepeatViral.SelectedValue);
             //switched to second
-            int switchedToSecond = 0;
-            if (switchedToSecondyes.Checked)
-            {
-                switchedToSecond = 1;
-            }
-            if (switchedToSecondno.Checked)
-            {
-                switchedToSecond = 0;
-            }
-            ARTParameters.Add("switchedToSecond", switchedToSecond);
+            ARTParameters.Add("switchedToSecond", rdoSwitchedToSecond.SelectedValue);
             //counselling
-            string counselling = "";
-            if (counsellingOngoing.Checked)
-            {
-                counselling = "Ongoing";
-            }
-            if (counsellingPost.Checked)
-            {
-                counselling = "Post";
-            }
-            if (counsellingNa.Checked)
-            {
-                counselling = "NA";
-            }
-            ARTParameters.Add("counselling", counselling);
+            ARTParameters.Add("counselling", rdoCounselling.SelectedValue);
             //Disclosure
-            int fullDisclosure = 0;
-            if (fullDisclosureyes.Checked)
-            {
-                fullDisclosure = 1;
-            }
-            if (fullDisclosureno.Checked)
-            {
-                fullDisclosure = 0;
-            }
-            ARTParameters.Add("fullDisclosure", fullDisclosure);
+            ARTParameters.Add("fullDisclosure", rdoFullDisclosure.SelectedValue);
             //IPT Given
-            string IPT = "";
-            if (IPTGiven.Checked)
-            {
-                IPT = "Given";
-            }
-            if (IPTOngoing.Checked)
-            {
-                IPT = "Ongoing";
-            }
-            if (IPTCompleted.Checked)
-            {
-                IPT = "Completed";
-            }
-            ARTParameters.Add("IPT", IPT);
+            ARTParameters.Add("IPT", rdoIPT.SelectedValue);
             //Adolescents file
-            int adolescentsFile = 0;
-            if (AdolescentsFileyes.Checked)
-            {
-                adolescentsFile = 1;
-            }
-            if (AdolescentsFileno.Checked)
-            {
-                adolescentsFile = 0;
-            }
-            ARTParameters.Add("adolescentsFile", adolescentsFile);
+            ARTParameters.Add("adolescentsFile", rdoAdolescentsFile.SelectedValue);
             //Adolescents transition start
-            int adolescentsTransitionStart = 0;
-            if (AdolescentsTransitionStartedyes.Checked)
-            {
-                adolescentsTransitionStart = 1;
-            }
-            if (AdolescentsTransitionStartedno.Checked)
-            {
-                adolescentsTransitionStart = 0;
-            }
-            ARTParameters.Add("adolescentsTransitionStart", adolescentsTransitionStart);
+            ARTParameters.Add("adolescentsTransitionStart", rdoAdolescentsTransitionStarted.SelectedValue);
             //Adolescent transtion complete
-            int AdolescentsTransitionComplete = 0;
-            if (AdolescentTransitionCompleteyes.Checked)
-            {
-                AdolescentsTransitionComplete = 1;
-            }
-            if (AdolescentTransitionCompleteno.Checked)
-            {
-                AdolescentsTransitionComplete = 0;
-            }
-            ARTParameters.Add("AdolescentsTransitionComplete", AdolescentsTransitionComplete);
+            ARTParameters.Add("AdolescentsTransitionComplete", rdoAdolescentTransitionComplete.SelectedValue);
             //Action taken
             ARTParameters.Add("actionTaken", txtActionTaken.Text);
             return ARTParameters;
@@ -259,7 +147,20 @@ namespace PresentationApp.ClinicalForms
             visitPK = Convert.ToInt32(Session["PatientVisitId"]);
             Hashtable htparam = htableARTParameters();
             visitPK = KNHHEIManager.Save_Update_PaedsChecklist(PatientID, visitPK, LocationID, htparam, Convert.ToInt32(Session["AppUserId"]));
-            Session["PatientVisitId"] = visitPK;
+            
+            if (visitPK > 0)
+            {
+                Session["PatientVisitId"] = visitPK;
+                SaveCancel("Paeds Checklist Form");
+            }
+        }
+
+        private void SaveCancel(string formname)
+        {
+            int PatientID = Convert.ToInt32(Session["PatientId"]);
+            MsgBuilder totalMsgBuilder = new MsgBuilder();
+            totalMsgBuilder.DataElements["MessageText"] = formname + " saved successfully.";
+            IQCareMsgBox.Show("#C1", totalMsgBuilder, this);
         }
     }
 }

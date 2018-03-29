@@ -1579,6 +1579,15 @@ namespace PresentationApp.ClinicalForms {
         protected global::System.Web.UI.WebControls.TextBox txtOthertreatment;
         
         /// <summary>
+        /// UcCRAFFTScreening control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PresentationApp.ClinicalForms.UserControl.UserControl_CRAFFTScreeningTool UcCRAFFTScreening;
+        
+        /// <summary>
         /// CPPnlCurrentARTRegimen control.
         /// </summary>
         /// <remarks>

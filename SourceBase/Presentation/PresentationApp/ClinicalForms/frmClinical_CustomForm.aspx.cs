@@ -85,6 +85,7 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
             OnBlur();
         }
 
+        
         //tabcontainer.AutoPostBack = true;
         //tabcontainer.ActiveTabChanged += new EventHandler(tabcontainer_ActiveTabChanged);
         //if (!(ViewState["ActiveTabIndex"] == null) && (!(sender == null)))
@@ -3707,6 +3708,9 @@ public partial class frmClinical_CustomForm : BasePage, ICallbackEventHandler
         DataSet theDS = CustomFormMgr.GetFieldName_and_Label(FeatureID, PatientID);
         ViewState["ICD10"] = theDS.Tables[22];
         DIVCustomItem.Controls.Clear();
+
+        UserControl uc = (UserControl)Page.LoadControl("~/ClinicalForms/UserControl/UserControl_CRAFFTScreeningTool.ascx");
+        DIVCustomItem.Controls.Add(uc);
 
         if (theDS.Tables[19].Rows.Count > 0)
         {

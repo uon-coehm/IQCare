@@ -19,8 +19,12 @@
 <%@ Register Src="UserControl/UserControlKNH_BackToTop.ascx" TagName="UserControlKNH_BackToTop"
     TagPrefix="uc13" %>
 <%@ Register Assembly="AjaxControlToolkit" TagPrefix="act" Namespace="AjaxControlToolkit" %>
+<<<<<<< HEAD
+<%@ Register Src="~/ClinicalForms/UserControl/UserControl_CRAFFTScreeningTool.ascx" TagName="UcCRAFFTScreening" TagPrefix="ucCRAFFT" %>
+=======
 
 
+>>>>>>> 573eba772f07ecc4072ebffcdc8854e99512be82
 <asp:Content ID="Content1" ContentPlaceHolderID="IQCareContentPlaceHolder" runat="server">
     <br />
     <div style="padding-left: 8px; padding-right: 8px; padding-top: 2px;">
@@ -2205,8 +2209,12 @@
                                         </tbody>
                                     </table>
                                 </asp:Panel>
+<<<<<<< HEAD
+                                <ucCRAFFT:UcCRAFFTScreening ID="UcCRAFFTScreening" runat="server" />
+=======
                                 
                               
+>>>>>>> 573eba772f07ecc4072ebffcdc8854e99512be82
                             </div>
                             <act:CollapsiblePanelExtender ID="CPPnlCurrentARTRegimen" runat="server" SuppressPostBack="True"
                                 ExpandedImage="~/images/arrow-dn.gif" TargetControlID="PnlCurrentARTRegimenDetails"

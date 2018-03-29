@@ -26,8 +26,7 @@
                 totCAGEAIDScore += parseInt(arrD.Val);
             }
         });
-
-        //totPHQ9 = parseInt(totPHQ9) + parseInt(val);
+           //totPHQ9 = parseInt(totPHQ9) + parseInt(val);
         $("#<%=txtCageAIDScore.ClientID%>").val(totCAGEAIDScore);
         $("#<%=txtCageAIDScore.ClientID%>").attr('Text', totCAGEAIDScore);
           $("#<%=hfCageAIDScoreValue.ClientID%>").attr('value',totCAGEAIDScore);

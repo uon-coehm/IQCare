@@ -1,27 +1,29 @@
 ﻿using System;
-using System.Data;
-using System.Configuration;
 using System.Collections;
-using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using Interface.Clinical;
 using Interface.Security;
 using Application.Presentation;
 using Application.Common;
-using Application.Interface;
+using Interface.Clinical;
 using System.Text;
 using Interface.Administration;
 using System.Linq;
+using System.Drawing;
+using PresentationApp.ClinicalForms.UserControl;
 
 namespace PresentationApp.ClinicalForms
 {
     public partial class frm_ARTReadinessAssessment : System.Web.UI.Page
     {
+        IKNHARTReadiness KNHARTReadiness;
+        IKNHStaticForms KNHStatic;
         int PatientID, LocationID, visitPK = 0;
         Hashtable ARTParameters;
         protected void Page_Load(object sender, EventArgs e)
@@ -30,215 +32,107 @@ namespace PresentationApp.ClinicalForms
             (Master.FindControl("levelOneNavigationUserControl1").FindControl("lblheader") as Label).Text = "ART Readiness Assessment Checklist";
             (Master.FindControl("levelTwoNavigationUserControl1").FindControl("lblformname") as Label).Text = "ART Readiness Assessment Checklist";
         }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            if (IsPostBack != true)
+            {
+                if (Convert.ToInt32(Session["PatientVisitId"]) > 0)
+                {
+                    BindExistingData();
+                    //ErrorLoad();
+                }
+                else
+                    txtVisitDate.Value = DateTime.Now.ToString("dd-MMM-yyyy");
+            }
+        }
+
+        public void BindExistingData()
+        {
+            if (Convert.ToInt32(Session["PatientVisitId"].ToString()) > 0)
+            {
+                KNHARTReadiness = (IKNHARTReadiness)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BKNHARTReadiness, BusinessProcess.Clinical");
+                DataSet dsGet = KNHARTReadiness.GetARTReadinessData(Convert.ToInt32(Session["PatientId"].ToString()), Convert.ToInt32(Session["PatientVisitId"].ToString()));
+
+                if (dsGet.Tables[0].Rows.Count > 0)
+                {
+                    rdoUnderstandHiv.SelectedValue = dsGet.Tables[0].Rows[0]["UnderstandHiv"].ToString();
+                    rdoScreenDrug.SelectedValue = dsGet.Tables[0].Rows[0]["ScreenDrug"].ToString();
+                    rdoScreenDepression.SelectedValue = dsGet.Tables[0].Rows[0]["ScreenDepression"].ToString();
+                    rdoDiscloseStatus.SelectedValue = dsGet.Tables[0].Rows[0]["DiscloseStatus"].ToString();
+                    rdoArtDemonstration.SelectedValue = dsGet.Tables[0].Rows[0]["ArtDemonstration"].ToString();
+                    rdoReceivedInformation.SelectedValue = dsGet.Tables[0].Rows[0]["ReceivedInformation"].ToString();
+                    rdoCaregiverDependant.SelectedValue = dsGet.Tables[0].Rows[0]["CaregiverDependant"].ToString();
+                    rdoIdentifiedBarrier.SelectedValue = dsGet.Tables[0].Rows[0]["IdentifiedBarrier"].ToString();
+                    rdoCaregiverLocator.SelectedValue = dsGet.Tables[0].Rows[0]["CaregiverLocator"].ToString();
+                    rdoCaregiverReady.SelectedValue = dsGet.Tables[0].Rows[0]["CaregiverReady"].ToString();
+                    rdoTimeIdentified.SelectedValue = dsGet.Tables[0].Rows[0]["TimeIdentified"].ToString();
+                    rdoIdentifiedTreatmentSupporter.SelectedValue = dsGet.Tables[0].Rows[0]["IdentifiedTreatmentSupporter"].ToString();
+                    rdoGroupMeeting.SelectedValue = dsGet.Tables[0].Rows[0]["GroupMeeting"].ToString();
+                    rdoSmsReminder.SelectedValue = dsGet.Tables[0].Rows[0]["SmsReminder"].ToString();
+                    rdoPlannedSupport.SelectedValue = dsGet.Tables[0].Rows[0]["PlannedSupporter"].ToString();
+                    rdoDeferArt.SelectedValue = dsGet.Tables[0].Rows[0]["DeferArt"].ToString();
+                    rdoMeningitisDiagnosed.SelectedValue = dsGet.Tables[0].Rows[0]["MeningitisDiagnosed"].ToString();
+                }
+            }
+        }
+
         private Hashtable htableARTParameters()
         {
             ARTParameters = new Hashtable();
-            
+            ARTParameters.Add("visitDate", txtVisitDate.Value);
 
             /*** Understand HIV ***/
-            string understandhiv = "";
-            if (rdoUnderstandHivyes.Checked)
-            {
-                understandhiv = "Yes";
-            }
-            if (rdoUnderstandHivno.Checked)
-            {
-                understandhiv = "No";
-            }
-            ARTParameters.Add("UnderstandHiv", understandhiv);
+            ARTParameters.Add("UnderstandHiv", rdoUnderstandHiv.SelectedValue);
 
             /*** screen drug ***/
-            string ScreenDrug = "";
-            if (rdoScreenDrugyes.Checked)
-            {
-                ScreenDrug = "Yes";
-            }
-            if (rdoScreenDrugno.Checked)
-            {
-                ScreenDrug = "No";
-            }
-            ARTParameters.Add("ScreenDrug", ScreenDrug);
+            ARTParameters.Add("ScreenDrug", rdoScreenDrug.SelectedValue);
 
             /*** screen depression ***/
-            string ScreenDepression = "";
-            if (rdoScreenDepressionyes.Checked)
-            {
-                ScreenDepression = "Yes";
-            }
-            if (rdoScreenDepressionno.Checked)
-            {
-                ScreenDepression = "No";
-            }
-            ARTParameters.Add("ScreenDepression", ScreenDepression);
+            ARTParameters.Add("ScreenDepression", rdoScreenDepression.SelectedValue);
 
             /*** disclose status **/
-            string DiscloseStatus = "";
-            if (rdoDiscloseStatusyes.Checked)
-            {
-                DiscloseStatus = "Yes";
-            }
-            if (rdoDiscloseStatusno.Checked)
-            {
-                DiscloseStatus = "No";
-            }
-            ARTParameters.Add("DiscloseStatus", DiscloseStatus);
+            ARTParameters.Add("DiscloseStatus", rdoDiscloseStatus.SelectedValue);
 
             /*** ART Demonstration ***/
-            string ArtDemonstration = "";
-            if (rdoArtDemonstrationyes.Checked)
-            {
-                ArtDemonstration = "Yes";
-            }
-            if (rdoArtDemonstrationno.Checked)
-            {
-                ArtDemonstration = "No";
-            }
-            ARTParameters.Add("ArtDemonstration", ArtDemonstration);
+            ARTParameters.Add("ArtDemonstration", rdoArtDemonstration.SelectedValue);
 
             /*** Received Information ***/
-            string ReceivedInformation = "";
-            if (rdoReceivedInformationyes.Checked)
-            {
-                ReceivedInformation = "Yes";
-            }
-            if (rdoReceivedInformationno.Checked)
-            {
-                ReceivedInformation = "No";
-            }
-            ARTParameters.Add("ReceivedInformation", ReceivedInformation);
+            ARTParameters.Add("ReceivedInformation", rdoReceivedInformation.SelectedValue);
 
             /*** Caregiver Dependant ***/
-            string CaregiverDependant = "";
-            if (rdoCaregiverDependantyes.Checked)
-            {
-                CaregiverDependant = "Yes";
-            }
-            if (rdoCaregiverDependantno.Checked)
-            {
-                CaregiverDependant = "No";
-            }
-            ARTParameters.Add("CaregiverDependant", CaregiverDependant);
+            ARTParameters.Add("CaregiverDependant", rdoCaregiverDependant.SelectedValue);
 
             /*** identified barrier ***/
-            string IdentifiedBarrier = "";
-            if (rdoIdentifiedBarrieryes.Checked)
-            {
-                IdentifiedBarrier = "Yes";
-            }
-            if (rdoIdentifiedBarrierno.Checked)
-            {
-                IdentifiedBarrier = "No";
-            }
-            ARTParameters.Add("IdentifiedBarrier", IdentifiedBarrier);
+            ARTParameters.Add("IdentifiedBarrier", rdoIdentifiedBarrier.SelectedValue);
 
             /*** Caregiver Locator ***/
-            string CaregiverLocator = "";
-            if (rdoCaregiverLocatoryes.Checked)
-            {
-                CaregiverLocator = "Yes";
-            }
-            if (rdoCaregiverLocatorno.Checked)
-            {
-                CaregiverLocator = "No";
-            }
-            ARTParameters.Add("CaregiverLocator", CaregiverLocator);
+            ARTParameters.Add("CaregiverLocator", rdoCaregiverLocator.SelectedValue);
 
 
             /*** Caregiver Ready ***/
-            string CaregiverReady = "";
-            if (rdoCaregiverReadyyes.Checked)
-            {
-                CaregiverReady = "Yes";
-            }
-            if (rdoCaregiverReadyno.Checked)
-            {
-                CaregiverReady = "No";
-            }
-            ARTParameters.Add("CaregiverReady", CaregiverReady);
+            ARTParameters.Add("CaregiverReady", rdoCaregiverReady.SelectedValue);
 
             /*** Time Identified ***/
-            string TimeIdentified = "";
-            if (rdoTimeIdentifiedyes.Checked)
-            {
-                TimeIdentified = "Yes";
-            }
-            if (rdoTimeIdentifiedno.Checked)
-            {
-                TimeIdentified = "No";
-            }
-            ARTParameters.Add("TimeIdentified", TimeIdentified);
+            ARTParameters.Add("TimeIdentified", rdoTimeIdentified.SelectedValue);
 
             /*** Treatment Supporter ***/
-            string IdentifiedTreatmentSupporter = "";
-            if (rdoIdentifiedTreatmentSupporteryes.Checked)
-            {
-                IdentifiedTreatmentSupporter = "Yes";
-            }
-            if (rdoIdentifiedTreatmentSupporterno.Checked)
-            {
-                IdentifiedTreatmentSupporter = "No";
-            }
-            ARTParameters.Add("IdentifiedTreatmentSupporter", IdentifiedTreatmentSupporter);
+            ARTParameters.Add("IdentifiedTreatmentSupporter", rdoIdentifiedTreatmentSupporter.SelectedValue);
 
             /*** Group Meeting ***/
-            string GroupMeeting = "";
-            if (rdoGroupMeetingyes.Checked)
-            {
-                GroupMeeting = "Yes";
-            }
-            if (rdoGroupMeetingno.Checked)
-            {
-                GroupMeeting = "No";
-            }
-            ARTParameters.Add("GroupMeeting", GroupMeeting);
+            ARTParameters.Add("GroupMeeting", rdoGroupMeeting.SelectedValue);
 
             /*** Sms Reminder **/
-            string SmsReminder = "";
-            if (rdoSmsReminderyes.Checked)
-            {
-                SmsReminder = "Yes";
-            }
-            if (rdoSmsReminderno.Checked)
-            {
-                SmsReminder = "No";
-            }
-            ARTParameters.Add("SmsReminder", SmsReminder);
+            ARTParameters.Add("SmsReminder", rdoSmsReminder.SelectedValue);
 
             /*** Planned Support ***/
-            string PlannedSupport = "";
-            if (rdoPlannedSupportyes.Checked)
-            {
-                PlannedSupport = "Yes";
-            }
-            if (rdoPlannedSupportno.Checked)
-            {
-                PlannedSupport = "No";
-            }
-            ARTParameters.Add("PlannedSupport", PlannedSupport);
+            ARTParameters.Add("PlannedSupport", rdoPlannedSupport.SelectedValue);
 
             /*** Defer ART ***/
-            string DeferArt = "";
-            if (rdoDeferArtyes.Checked)
-            {
-                DeferArt = "Yes";
-            }
-            if (rdoDeferArtno.Checked)
-            {
-                DeferArt = "No";
-            }
-            ARTParameters.Add("DeferArt", DeferArt);
+            ARTParameters.Add("DeferArt", rdoDeferArt.SelectedValue);
 
             /**** Meningitis Diagnosed ***/
-            string MeningitisDiagnosed = "";
-            if (rdoMeningitisDiagnosedyes.Checked)
-            {
-                MeningitisDiagnosed = "Yes";
-            }
-            if (rdoMeningitisDiagnosedno.Checked)
-            {
-                MeningitisDiagnosed = "No";
-            }
-            ARTParameters.Add("MeningitisDiagnosed", MeningitisDiagnosed);
+            ARTParameters.Add("MeningitisDiagnosed", rdoMeningitisDiagnosed.SelectedValue);
             ARTParameters.Add("visitDate", txtVisitDate.Value);
 
             return ARTParameters;
@@ -246,14 +140,26 @@ namespace PresentationApp.ClinicalForms
 
         protected void btnArtSave_Click(object sender, EventArgs e)
         {
-            IKNHHEI KNHHEIManager;
-            KNHHEIManager = (IKNHHEI)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BKNHHEI, BusinessProcess.Clinical");
+            IKNHARTReadiness KNHARTReadiness;
+            KNHARTReadiness = (IKNHARTReadiness)ObjectFactory.CreateInstance("BusinessProcess.Clinical.BKNHARTReadiness, BusinessProcess.Clinical");
             LocationID = Convert.ToInt32(Session["AppLocationId"]);
             PatientID = Convert.ToInt32(Session["PatientId"]);
             visitPK = Convert.ToInt32(Session["PatientVisitId"]);
             Hashtable htparam = htableARTParameters();
-            visitPK = KNHHEIManager.Save_Update_ART(PatientID, visitPK, LocationID, htparam, Convert.ToInt32(Session["AppUserId"]));
-            Session["PatientVisitId"] = visitPK;
+            visitPK = KNHARTReadiness.SaveUpdateARTReadinessForm(PatientID, visitPK, LocationID, htparam, Convert.ToInt32(Session["AppUserId"]));
+            if (visitPK > 0)
+            {
+                Session["PatientVisitId"] = visitPK;
+                SaveCancel("ART Readiness Assessment Form");
+            }
+        }
+
+        private void SaveCancel(string formname)
+        {
+            int PatientID = Convert.ToInt32(Session["PatientId"]);
+            MsgBuilder totalMsgBuilder = new MsgBuilder();
+            totalMsgBuilder.DataElements["MessageText"] = formname + " saved successfully.";
+            IQCareMsgBox.Show("#C1", totalMsgBuilder, this);
         }
     }
 }

@@ -144,7 +144,7 @@ public partial class frmPatient_History : BasePage
                                 theFrmRoot.SelectAction = TreeNodeSelectAction.None;
                             }
                         }
-                        else if (Convert.ToString(Session["TechnicalAreaId"]) == Convert.ToString(theDR["Module"]) || (theDR["FormName"].ToString() == "Pharmacy") || (theDR["FormName"].ToString() == "Laboratory") || (theDR["FormName"].ToString() == "Paediatric Pharmacy") || (theDR["FormName"].ToString() == "ART Readiness Assessment Checklist"))
+                        else if (Convert.ToString(Session["TechnicalAreaId"]) == Convert.ToString(theDR["Module"]) || (theDR["FormName"].ToString() == "Pharmacy") || (theDR["FormName"].ToString() == "Laboratory") || (theDR["FormName"].ToString() == "Paediatric Pharmacy"))
                         {
                             if (Session["Paperless"].ToString() == "1")
                             {
@@ -322,15 +322,6 @@ public partial class frmPatient_History : BasePage
                 }
                 break;
 
-            case "Paeds Checklist":
-                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 2)
-                {
-                    url = string.Format("{0}", "./frmpaedschecklist.aspx");
-                    Response.Redirect(url);
-                }
-                break;
-
-
             case "Prior ART/HIV Care":
                 if (Convert.ToInt32(Session["TechnicalAreaId"]) == 202)
                 {
@@ -339,13 +330,6 @@ public partial class frmPatient_History : BasePage
                 }
                 break;
 
-            case "ART Readiness Assessment Checklist":
-                if (Convert.ToInt32(Session["TechnicalAreaId"]) == 204)
-                {
-                    url = string.Format("{0}", "./frm_ARTReadinessAssessment.aspx");
-                    Response.Redirect(url);
-                }
-                break;
 
             case "ART Care":
                 if (Convert.ToInt32(Session["TechnicalAreaId"]) == 202)
@@ -509,7 +493,21 @@ public partial class frmPatient_History : BasePage
                     Response.Redirect(url);
                 }
                 break;
+            case "Psychosocial Adherence Form":
+                url = string.Format("{0}", "./frmClinical_PsychosocialAdherenceEnrollment.aspx");
+                Response.Redirect(url);
+                // theFrmRoot.NavigateUrl = url;
+                break;
+
+            case "ART Readiness Assessment Checklist":
+                    url = string.Format("{0}", "./frm_ARTReadinessAssessment.aspx");
+                    Response.Redirect(url);
+                break;
             //default: break;
+            case "Paeds Checklist":
+                    url = string.Format("{0}", "./frmpaedschecklist.aspx");
+                    Response.Redirect(url);
+                break;
 
         }
 

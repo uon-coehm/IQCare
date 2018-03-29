@@ -644,8 +644,12 @@
         /*** rowsputumsmear,cellsputsmearvalue, cellsputumsmeardate,  rowgenexpert,cellgenvalue,cellgendate,  rowsputumfordst,rowsputfordstvalue,
         cellsputfordstdate,   rowchestxray,cellchestxrayvalue,cellchestxraydate,  rowtissuebiopsy,celltissuevalue,celltissuedate,
         rowlam,celllamvalue,celllamdate,   rowother,cellothervalue,cellotherdate****/
-        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
-        /*** update sputum values ***/ 
+        var activetab = document.getElementsByClassName('ajax__tab_active')[0].id;
+        var lastIndex = activetab.lastIndexOf("tab");
+        var userControlID = "UcTBScreen_";
+        var inputprefix = activetab.substring(0, lastIndex) + userControlID;
+
+        /*** update sputum values ***/
         var sputumsmearid = inputprefix + "ddlSputumSmear";
         var sputumsmeartext = document.getElementById(sputumsmearid).options[document.getElementById(sputumsmearid).selectedIndex].text;
         var sputumsmearvalue = document.getElementById(sputumsmearid).options[document.getElementById(sputumsmearid).selectedIndex].value;
@@ -757,100 +761,113 @@
 
     window.addEventListener("load", function () {
         /*** input prefix **/
-        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
-
-        /*** sputum smear row, display if there pre-existing values ***/
-        var sputumsmearid = inputprefix + "ddlSputumSmear";
-        var sputumsmeartext = document.querySelector('#' + inputprefix + "hdnsputumsmear").value;
-        var sputumsmearvalue = document.getElementById(sputumsmearid).options[document.getElementById(sputumsmearid).selectedIndex].value;
-        var cellsputumsmeartext = document.getElementById(sputumsmearid).options[document.getElementById(sputumsmearid).selectedIndex].text;
-        var sputrow = document.getElementById('rowsputumsmear');
-        var sputsmeardate = document.querySelector('#' + inputprefix + "txtSputumSmearDate").value;
-        if (sputumsmeartext != "") {
-            sputrow.style.display = "table-row";
-            document.getElementById(inputprefix + "hdnsputumsmear").value = sputumsmearvalue;
-            document.getElementById(inputprefix + "hdnsputumsmeardate").value = sputsmeardate;
-            document.getElementById("cellsputsmearvalue").innerHTML = cellsputumsmeartext;
-            document.getElementById("cellsputumsmeardate").innerHTML = sputsmeardate;
+        //var inputprefix = "";
+        var tabs = document.getElementsByClassName("ajax__tab_tab");
+        var childdiv = document.querySelector("#AvailableTBResultsBodyDiv");
+        for (var i = 0; i < tabs.length; i++) {
+            var tbtabid = tabs[i].id;
+            var newid = tbtabid.replace("__tab_", "");
+            var parent = document.querySelector('#'+newid);
+            if (parent.contains(childdiv)) {
+                var inputprefix = newid + "_UcTBScreen_";
+            }
         }
 
-        /**** gene expert row ***/
-        var geneexpertvalue = document.querySelector('#' + inputprefix + "hdngeneexpert").value;
-        var geneexpertid = inputprefix + "ddlGeneExpert";
-        var geneexperttext = document.getElementById(geneexpertid).options[document.getElementById(geneexpertid).selectedIndex].text;
-        var genexpertrow = document.getElementById('rowgeneexpert');
-        var geneexpertdate = document.querySelector('#' + inputprefix + "txtGeneExpertDate").value;
-        if (geneexpertvalue != "") {
-            genexpertrow.style.display = "table-row";
-            document.getElementById("cellgenvalue").innerHTML = geneexperttext;
-            document.getElementById("cellgendate").innerHTML = geneexpertdate;
-        }
+                /*** sputum smear row, display if there pre-existing values ***/
+                var sputumsmearid = inputprefix + "ddlSputumSmear";
+                var sputumsmeartext = document.querySelector('#' + inputprefix + "hdnsputumsmear").value;
+                var sputumsmearvalue = document.getElementById(sputumsmearid).options[document.getElementById(sputumsmearid).selectedIndex].value;
+                var cellsputumsmeartext = document.getElementById(sputumsmearid).options[document.getElementById(sputumsmearid).selectedIndex].text;
+                var sputrow = document.getElementById('rowsputumsmear');
+                var sputsmeardate = document.querySelector('#' + inputprefix + "txtSputumSmearDate").value;
+                if (sputumsmeartext != "") {
+                    sputrow.style.display = "table-row";
+                    document.getElementById(inputprefix + "hdnsputumsmear").value = sputumsmearvalue;
+                    document.getElementById(inputprefix + "hdnsputumsmeardate").value = sputsmeardate;
+                    document.getElementById("cellsputsmearvalue").innerHTML = cellsputumsmeartext;
+                    document.getElementById("cellsputumsmeardate").innerHTML = sputsmeardate;
+                }
 
-        /*** sputum for dst row ***/
-        var sputumdstvalue = document.querySelector('#' + inputprefix + "hdnsputumfordst").value;
-        var sputumdstid = inputprefix + "ddlSputumDST";
-        var sputumdsttext = document.getElementById(sputumdstid).options[document.getElementById(sputumdstid).selectedIndex].text;
-        var sputumdstrow = document.getElementById('rowsputumfordst');
-        var sputumdstdate = document.querySelector('#' + inputprefix + "txtSputumDSTDate").value;
-        if (sputumdstvalue != "") {
-            sputumdstrow.style.display = "table-row";
-            document.getElementById("cellsputfordstvalue").innerHTML = sputumdsttext;
-            document.getElementById("cellsputfordstdate").innerHTML = sputumdstdate;
-        }
-        /*** chest xray row **/
-        var chestxrayvalue = document.querySelector('#' + inputprefix + "hdnchestxray").value;
-        var chestxrayid = inputprefix + "ddlCXRResults";
-        var chestxraytext = document.getElementById(chestxrayid).options[document.getElementById(chestxrayid).selectedIndex].text;
-        var chestxrayrow = document.getElementById('rowchestxray');
-        var chestxraydate = document.querySelector('#' + inputprefix + "txtChestXrayDate").value;
-        if (chestxrayvalue != "") {
-            chestxrayrow.style.display = "table-row";
-            document.getElementById("cellchestxrayvalue").innerHTML = chestxraytext;
-            document.getElementById(inputprefix + "hdnchestxraydate").value = chestxraydate;
-        }
-        /*** tissue biopsy row **/
-        var tissuebiopsyvalue = document.querySelector('#' + inputprefix + "hdntissuebiopsy").value;
-        var tissuebiopsyrow = document.getElementById('rowtissuebiopsy');
-        var biopsydate = document.querySelector('#' + inputprefix + "txtTissueBiopsyDate").value;
-        if (tissuebiopsyvalue == 1) {
-            tissuebiopsyrow.style.display = "table-row";
-            document.getElementById("celltissuevalue").innerHTML = "Yes";
-            document.getElementById("celltissuedate").innerHTML = biopsydate;
-        }
-        else if (tissuebiopsyvalue == 0) {
-            tissuebiopsyrow.style.display = "table-row";
-            document.getElementById("celltissuevalue").innerHTML = "No";
-            document.getElementById("celltissuedate").innerHTML = biopsydate;
-        }
-        else {
-            tissuebiopsyrow.style.display = "none";
-            document.getElementById("celltissuevalue").innerHTML = "";
-            document.getElementById("celltissuedate").innerHTML = "";
-        }
+                /**** gene expert row ***/
+                var geneexpertvalue = document.querySelector('#' + inputprefix + "hdngeneexpert").value;
+                var geneexpertid = inputprefix + "ddlGeneExpert";
+                var geneexperttext = document.getElementById(geneexpertid).options[document.getElementById(geneexpertid).selectedIndex].text;
+                var genexpertrow = document.getElementById('rowgeneexpert');
+                var geneexpertdate = document.querySelector('#' + inputprefix + "txtGeneExpertDate").value;
+                if (geneexpertvalue != "") {
+                    genexpertrow.style.display = "table-row";
+                    document.getElementById("cellgenvalue").innerHTML = geneexperttext;
+                    document.getElementById("cellgendate").innerHTML = geneexpertdate;
+                }
 
-        /*** lam row ***/
-        var lamvalue = document.querySelector('#' + inputprefix + "hdnlam").value;
-        var lamtext = document.querySelector('#' + inputprefix + "txtLam").value;
-        var lamdate = document.querySelector('#' + inputprefix + "txtLamDate").value;
-        if (lamvalue != "") {
-            lamrow.style.display = "table-row";
-            document.getElementById("celllamvalue").innerHTML = lamtext;
-            document.getElementById(inputprefix + "hdnlamdate").value = lamdate;
-        }
+                /*** sputum for dst row ***/
+                var sputumdstvalue = document.querySelector('#' + inputprefix + "hdnsputumfordst").value;
+                var sputumdstid = inputprefix + "ddlSputumDST";
+                var sputumdsttext = document.getElementById(sputumdstid).options[document.getElementById(sputumdstid).selectedIndex].text;
+                var sputumdstrow = document.getElementById('rowsputumfordst');
+                var sputumdstdate = document.querySelector('#' + inputprefix + "txtSputumDSTDate").value;
+                if (sputumdstvalue != "") {
+                    sputumdstrow.style.display = "table-row";
+                    document.getElementById("cellsputfordstvalue").innerHTML = sputumdsttext;
+                    document.getElementById("cellsputfordstdate").innerHTML = sputumdstdate;
+                }
+                /*** chest xray row **/
+                var chestxrayvalue = document.querySelector('#' + inputprefix + "hdnchestxray").value;
+                var chestxrayid = inputprefix + "ddlCXRResults";
+                var chestxraytext = document.getElementById(chestxrayid).options[document.getElementById(chestxrayid).selectedIndex].text;
+                var chestxrayrow = document.getElementById('rowchestxray');
+                var chestxraydate = document.querySelector('#' + inputprefix + "txtChestXrayDate").value;
+                if (chestxrayvalue != "") {
+                    chestxrayrow.style.display = "table-row";
+                    document.getElementById("cellchestxrayvalue").innerHTML = chestxraytext;
+                    document.getElementById(inputprefix + "hdnchestxraydate").value = chestxraydate;
+                }
+                /*** tissue biopsy row **/
+                var tissuebiopsyvalue = document.querySelector('#' + inputprefix + "hdntissuebiopsy").value;
+                var tissuebiopsyrow = document.getElementById('rowtissuebiopsy');
+                var biopsydate = document.querySelector('#' + inputprefix + "txtTissueBiopsyDate").value;
+                if (tissuebiopsyvalue == 1) {
+                    tissuebiopsyrow.style.display = "table-row";
+                    document.getElementById("celltissuevalue").innerHTML = "Yes";
+                    document.getElementById("celltissuedate").innerHTML = biopsydate;
+                }
+                else if (tissuebiopsyvalue == 0) {
+                    tissuebiopsyrow.style.display = "table-row";
+                    document.getElementById("celltissuevalue").innerHTML = "No";
+                    document.getElementById("celltissuedate").innerHTML = biopsydate;
+                }
+                else {
+                    tissuebiopsyrow.style.display = "none";
+                    document.getElementById("celltissuevalue").innerHTML = "";
+                    document.getElementById("celltissuedate").innerHTML = "";
+                }
 
-        /*** other row ***/
-        var othervalue = document.querySelector('#' + inputprefix + "hdnother").value;
-        var othertext = document.querySelector('#' + inputprefix + "txtTestOther").value;
-        var otherdate = document.querySelector('#' + inputprefix + "txtOtherDate").value;
-        if (othervalue != "") {
-            otherrow.style.display = "table-row";
-            document.getElementById("cellothervalue").innerHTML = othertext;
-            document.getElementById("cellotherdate").innerHTML = otherdate;
-        }
+                /*** lam row ***/
+                var lamvalue = document.querySelector('#' + inputprefix + "hdnlam").value;
+                var lamtext = document.querySelector('#' + inputprefix + "txtLam").value;
+                var lamdate = document.querySelector('#' + inputprefix + "txtLamDate").value;
+                if (lamvalue != "") {
+                    lamrow.style.display = "table-row";
+                    document.getElementById("celllamvalue").innerHTML = lamtext;
+                    document.getElementById(inputprefix + "hdnlamdate").value = lamdate;
+                }
+
+                /*** other row ***/
+                var othervalue = document.querySelector('#' + inputprefix + "hdnother").value;
+                var othertext = document.querySelector('#' + inputprefix + "txtTestOther").value;
+                var otherdate = document.querySelector('#' + inputprefix + "txtOtherDate").value;
+                if (othervalue != "") {
+                    otherrow.style.display = "table-row";
+                    document.getElementById("cellothervalue").innerHTML = othertext;
+                    document.getElementById("cellotherdate").innerHTML = otherdate;
+                }
     });
 
     function functionDelSputumSmear() {
-        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
+        var activetab = document.getElementsByClassName('ajax__tab_active')[0].id;
+        var lastIndex = activetab.lastIndexOf("tab");
+        var userControlID = "UcTBScreen_";
+        var inputprefix = activetab.substring(0, lastIndex) + userControlID;
         document.getElementById(inputprefix + "hdnsputumsmear").value = "";
         document.getElementById(inputprefix + "hdnsputumsmeardate").value = "";
         var sputrow = document.getElementById('rowsputumsmear');
@@ -858,7 +875,10 @@
     }
 
     function fnDelGenExpert() {
-        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
+        var activetab = document.getElementsByClassName('ajax__tab_active')[0].id;
+        var lastIndex = activetab.lastIndexOf("tab");
+        var userControlID = "UcTBScreen_";
+        var inputprefix = activetab.substring(0, lastIndex) + userControlID;
         document.getElementById(inputprefix + "hdngeneexpert").value = "";
         document.getElementById(inputprefix + "hdngeneexpertdate").value = "";
         var genexpertrow = document.getElementById('rowgeneexpert');
@@ -866,7 +886,10 @@
     }
 
     function fnDelSputumDst() {
-        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
+        var activetab = document.getElementsByClassName('ajax__tab_active')[0].id;
+        var lastIndex = activetab.lastIndexOf("tab");
+        var userControlID = "UcTBScreen_";
+        var inputprefix = activetab.substring(0, lastIndex) + userControlID;
         document.getElementById(inputprefix + "hdnsputumfordst").value = "";
         document.getElementById(inputprefix + "hdnsputumfordstdate").value = "";
         var sputumdstrow = document.getElementById('rowsputumfordst');
@@ -874,7 +897,10 @@
     }
 
     function fnDelTissueBiopsy() {
-        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
+        var activetab = document.getElementsByClassName('ajax__tab_active')[0].id;
+        var lastIndex = activetab.lastIndexOf("tab");
+        var userControlID = "UcTBScreen_";
+        var inputprefix = activetab.substring(0, lastIndex) + userControlID;
         document.getElementById(inputprefix + "hdnchestxray").value = "";
         document.getElementById(inputprefix + "hdnchestxraydate").value = "";
         var chestxrayrow = document.getElementById('rowchestxray');
@@ -882,7 +908,10 @@
     }
 
     function fnDelLam() {
-        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
+        var activetab = document.getElementsByClassName('ajax__tab_active')[0].id;
+        var lastIndex = activetab.lastIndexOf("tab");
+        var userControlID = "UcTBScreen_";
+        var inputprefix = activetab.substring(0, lastIndex) + userControlID;
         document.getElementById(inputprefix + "hdnlam").value = "";
         document.getElementById(inputprefix + "hdnlamdate").value = "";
         var lamrow = document.getElementById('rowlam');
@@ -890,7 +919,10 @@
     }
 
     function fnDelOther() {
-        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPnlPMTCT_UCTBScreen_";
+        var activetab = document.getElementsByClassName('ajax__tab_active')[0].id;
+        var lastIndex = activetab.lastIndexOf("tab");
+        var userControlID = "UcTBScreen_";
+        var inputprefix = activetab.substring(0, lastIndex) + userControlID;
         document.getElementById(inputprefix + "hdnother").value = "";
         document.getElementById(inputprefix + "hdnotherdate").value = "";
         var otherrow = document.getElementById('rowother');

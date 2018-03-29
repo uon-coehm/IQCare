@@ -3,6 +3,8 @@
 
 <%@ MasterType VirtualPath="~/MasterPage/IQCare.master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="IQCareContentPlaceHolder" runat="Server">
+<%@ Register Src="~/ClinicalForms/UserControl/UserControl_GRAFFTScreening.ascx"
+    TagName="UserControlKNH_GRAFFTScreening" TagPrefix="uc1" %>
     <script language="javascript" type="text/javascript">
         function addDays(id) { 
 

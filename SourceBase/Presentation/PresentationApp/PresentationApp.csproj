@@ -767,6 +767,13 @@
     <Compile Include="ClinicalForms\frmClinical_PatientRegistrationCTC.aspx.designer.cs">
       <DependentUpon>frmClinical_PatientRegistrationCTC.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ClinicalForms\frmClinical_PsychosocialAdherenceEnrollment.aspx.cs">
+      <DependentUpon>frmClinical_PsychosocialAdherenceEnrollment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\frmClinical_PsychosocialAdherenceEnrollment.aspx.designer.cs">
+      <DependentUpon>frmClinical_PsychosocialAdherenceEnrollment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClinicalForms\frmClinical_RevisedAdultfollowup.aspx.cs">
       <DependentUpon>frmClinical_RevisedAdultfollowup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -788,6 +795,13 @@
     </Compile>
     <Compile Include="ClinicalForms\frmFollowUpEducationCTC.aspx.designer.cs">
       <DependentUpon>frmFollowUpEducationCTC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalForms\frmHomeVisitChecklist.aspx.cs">
+      <DependentUpon>frmHomeVisitChecklist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\frmHomeVisitChecklist.aspx.designer.cs">
+      <DependentUpon>frmHomeVisitChecklist.aspx</DependentUpon>
     </Compile>
     <Compile Include="ClinicalForms\frmPaedsChecklist.aspx.cs">
       <DependentUpon>frmPaedsChecklist.aspx</DependentUpon>
@@ -1007,6 +1021,13 @@
     <Compile Include="ClinicalForms\UserControl\UserControl_CAGEAIDScreening.ascx.designer.cs">
       <DependentUpon>UserControl_CAGEAIDScreening.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControl_CRAFFTScreeningTool.ascx.cs">
+      <DependentUpon>UserControl_CRAFFTScreeningTool.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControl_CRAFFTScreeningTool.ascx.designer.cs">
+      <DependentUpon>UserControl_CRAFFTScreeningTool.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ClinicalForms\UserControl\UserControl_DiffCare.ascx.cs">
       <DependentUpon>UserControl_DiffCare.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1020,6 +1041,13 @@
     </Compile>
     <Compile Include="ClinicalForms\UserControl\UserControl_Loading.ascx.designer.cs">
       <DependentUpon>UserControl_Loading.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControl_MoriskyMedicationAdherenceScale.ascx.cs">
+      <DependentUpon>UserControl_MoriskyMedicationAdherenceScale.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClinicalForms\UserControl\UserControl_MoriskyMedicationAdherenceScale.ascx.designer.cs">
+      <DependentUpon>UserControl_MoriskyMedicationAdherenceScale.ascx</DependentUpon>
     </Compile>
     <Compile Include="ClinicalForms\UserControl\UserControl_Nutrition.ascx.cs">
       <DependentUpon>UserControl_Nutrition.ascx</DependentUpon>
@@ -2949,7 +2977,9 @@
     <Content Include="ClinicalForms\frmClinical_KNH_Paediatric_IE.aspx" />
     <Content Include="ClinicalForms\frmClinical_KNH_PediatricFollowup.aspx" />
     <Content Include="ClinicalForms\frmClinical_KNH_PEP.aspx" />
+    <Content Include="ClinicalForms\frmClinical_PsychosocialAdherenceEnrollment.aspx" />
     <Content Include="ClinicalForms\frmClinical_RevisedAdultfollowup.aspx" />
+    <Content Include="ClinicalForms\frmHomeVisitChecklist.aspx" />
     <Content Include="ClinicalForms\frmPaedsChecklist.aspx" />
     <Content Include="ClinicalForms\frm_ARTReadinessAssessment.aspx" />
     <Content Include="ClinicalForms\UserControl\mbExtruder.css" />
@@ -2980,8 +3010,10 @@
     <Content Include="ClinicalForms\UserControl\UserControl_AllergyExtruder.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_ARVHistoryExtruder.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_CAGEAIDScreening.ascx" />
+    <Content Include="ClinicalForms\UserControl\UserControl_CRAFFTScreeningTool.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_DiffCare.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_Loading.ascx" />
+    <Content Include="ClinicalForms\UserControl\UserControl_MoriskyMedicationAdherenceScale.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_Nutrition.ascx" />
     <Content Include="ClinicalForms\UserControl\UserControl_VitalsExtruder.ascx" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl.cab" />

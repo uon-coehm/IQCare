@@ -2283,7 +2283,7 @@
                                                     <table cellspacing="6" cellpadding="0" width="100%" border="0">
                                                         <tr>
                                                             <td class="border pad5 whitebg">
-                                                                <UcTBScreening:Uc1 ID="UCTBScreen" runat="server" />
+                                                                <UcTBScreening:Uc1 ID="UcTBScreen" runat="server" />
                                                             </td>
                                                         </tr>
                                                     </table>

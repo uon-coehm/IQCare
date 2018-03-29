@@ -2616,7 +2616,7 @@ namespace PresentationApp.ClinicalForms
         protected void btnClinicalHistorySave_Click(object sender, EventArgs e)
         {
             Save(0);
-            this.UserControlKNH_PH9.savePH9Data(null, null);
+            this.UserControlPH9.savePH9Data(null, null);
         }
         protected void btnClinicalHistoryDQSave_Click(object sender, EventArgs e)
         {
@@ -2633,6 +2633,7 @@ namespace PresentationApp.ClinicalForms
         protected void btnManagementSave_Click(object sender, EventArgs e)
         {
             Save(0);
+            this.UserControlMMAS.save_MMAS_Data();
         }
         protected void btnManagementDQSave_Click(object sender, EventArgs e)
         {

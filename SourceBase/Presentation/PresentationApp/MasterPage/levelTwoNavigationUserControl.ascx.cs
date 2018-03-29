@@ -483,6 +483,7 @@ public partial class MasterPage_levelTwoNavigationUserControl : System.Web.UI.Us
         RemoveMenuItemByValue(patientLevelMenu.Items, "mnuLabOrder");
         RemoveMenuItemByValue(patientLevelMenu.Items, "mnuOrderLabTest");
         RemoveMenuItemByValue(patientLevelMenu.Items, "mnuHomeVisit");
+
         //RemoveMenuItemByValue(patientLevelMenu.Items, "mnuAdultPharmacy");
     }
 
@@ -1386,6 +1387,12 @@ public partial class MasterPage_levelTwoNavigationUserControl : System.Web.UI.Us
 
         theUrl = string.Format("{0}?PatientId={1}", "../ClinicalForms/frmClinical_RevisedAdultfollowup.aspx", PatientId.ToString());
         AssignUrl(patientLevelMenu.Items, "mnuRvsdAdult", theUrl);
+
+        theUrl = string.Format("{0}?PatientId={1}", "../ClinicalForms/frmClinical_PsychosocialAdherenceEnrollment.aspx", PatientId.ToString());
+        AssignUrl(patientLevelMenu.Items, "mnuPAEnrollment", theUrl);
+
+        theUrl = string.Format("{0}?PatientId={1}", "../ClinicalForms/frm_ARTReadinessAssessment.aspx", PatientId.ToString());
+        AssignUrl(patientLevelMenu.Items, "mnuChecklistART", theUrl);
 
         theUrl = string.Format("{0}?PatientId={1}", "../ClinicalForms/frmClinical_KNH_PediatricFollowup.aspx", PatientId.ToString());
         AssignUrl(patientLevelMenu.Items, "mnuPaediatricFollowup", theUrl);

@@ -3,105 +3,20 @@
 <%@ Register Src="UserControlKNH_Signature.ascx" TagName="UserControlKNH_Signature"
     TagPrefix="uc1" %>
 <script type="text/javascript">
-    document.onclick = function (event) {
-        if (event === undefined) event = window.event;
-        var target = 'target' in event ? event.target : event.srcElement;
-        if (target.type == "radio") {
-            var idprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPanel1_UserControlKNH_PH9_";
-            var nameprefix = "ctl00$IQCareContentPlaceHolder$tabControl$TabPanel1$UserControlKNH_PH9$";
-            var hdnDiagnosisValue = document.querySelector('#' + idprefix + "hdnDiagnosisValue").value;
-            var diagnosisvalue = 0;
-            if (target.name == nameprefix + "rdoLittleInterest" || target.name == nameprefix + "rdoFeelingDown" || target.name == nameprefix + "rdoTroubleFalling" || target.name == nameprefix + "rdoFeelingTired" || target.name == nameprefix + "rdoPoorAppetite" || target.name == nameprefix + "rdoFeelingBad" || target.name == nameprefix + "rdoTroubleConcentrating" || target.name == nameprefix + "rdoMovingSlowly" || target.name == nameprefix + "rdoThoughts") {
-                var radios = document.getElementsByTagName('input');
-                var value;
-                var totalvalue = 0;
-                for (var i = 0; i < radios.length; i++) {
-                    if (radios[i].type === 'radio' && radios[i].checked) {
-                        // get value, set checked flag or do whatever you need to
-                        if (radios[i].name == nameprefix + "rdoLittleInterest") {
-                            value = radios[i].value;
-                            totalvalue = parseInt(totalvalue) + parseInt(value);
-                        }
-                        if (radios[i].name == nameprefix + "rdoFeelingDown") {
-                            value = radios[i].value;
-                            totalvalue = parseInt(totalvalue) + parseInt(value);
-                        }
-                        if (radios[i].name == nameprefix + "rdoFeelingTired") {
-                            value = radios[i].value;
-                            totalvalue = parseInt(totalvalue) + parseInt(value);
-                        }
-                        if (radios[i].name == nameprefix + "rdoTroubleFalling") {
-                            value = radios[i].value;
-                            totalvalue = parseInt(totalvalue) + parseInt(value);
-                        }
-                        if (radios[i].name == nameprefix + "rdoPoorAppetite") {
-                            value = radios[i].value;
-                            totalvalue = parseInt(totalvalue) + parseInt(value);
-                        }
-                        if (radios[i].name == nameprefix + "rdoFeelingBad") {
-                            value = radios[i].value;
-                            totalvalue = parseInt(totalvalue) + parseInt(value);
-                        }
-                        if (radios[i].name == nameprefix + "rdoTroubleConcentrating") {
-                            value = radios[i].value;
-                            totalvalue = parseInt(totalvalue) + parseInt(value);
-                        }
-                        if (radios[i].name == nameprefix + "rdoMovingSlowly") {
-                            value = radios[i].value;
-                            totalvalue = parseInt(totalvalue) + parseInt(value);
-                        }
-                        if (radios[i].name == nameprefix + "rdoThoughts") {
-                            value = radios[i].value;
-                            totalvalue = parseInt(totalvalue) + parseInt(value);
-                        }
-                    }
-
-                }
-                document.getElementById(idprefix + "hdnDiagnosisValue").value = totalvalue;
-                document.getElementById("depressionscreeningtotal").innerHTML = totalvalue;
-                if (totalvalue >= 0 && totalvalue <= 5) {
-                    document.getElementById("provisionaldiagnosis").innerHTML = "Depression Unlikely";
-                    document.getElementById("rmanagement1").style.display = "block";
-                    document.getElementById("rmanagement2").style.display = "none";
-                    document.getElementById("rmanagement3").style.display = "none";
-                }
-                else if (totalvalue >= 5 && totalvalue <= 9) {
-                    document.getElementById("provisionaldiagnosis").innerHTML = "Mild Depression";
-                    document.getElementById("rmanagement1").style.display = "none";
-                    document.getElementById("rmanagement2").style.display = "block";
-                    document.getElementById("rmanagement3").style.display = "none";
-                }
-                else if (totalvalue >= 10 && totalvalue <= 14) {
-                    document.getElementById("provisionaldiagnosis").innerHTML = "Moderate Depression";
-                    document.getElementById("rmanagement1").style.display = "none";
-                    document.getElementById("rmanagement2").style.display = "none";
-                    document.getElementById("rmanagement3").style.display = "block";
-                }
-                else if (totalvalue >= 15 && totalvalue <= 19) {
-                    document.getElementById("provisionaldiagnosis").innerHTML = "Moderate-Severe Depression";
-                    document.getElementById("rmanagement1").style.display = "none";
-                    document.getElementById("rmanagement2").style.display = "none";
-                    document.getElementById("rmanagement3").style.display = "block";
-                }
-                else if (totalvalue >= 20 && totalvalue <= 27) {
-                    document.getElementById("provisionaldiagnosis").innerHTML = "Severe Depression";
-                    document.getElementById("rmanagement1").style.display = "none";
-                    document.getElementById("rmanagement2").style.display = "none";
-                    document.getElementById("rmanagement3").style.display = "block";
-                }
-                else {
-                    document.getElementById("provisionaldiagnosis").style.display = "none";
-                    document.getElementById("rmanagement1").style.display = "none";
-                    document.getElementById("rmanagement2").style.display = "none";
-                    document.getElementById("rmanagement3").style.display = "none";
-                }
+    window.addEventListener("load", function () {
+        var tabs = document.getElementsByClassName("ajax__tab_tab");
+        var childdiv = document.querySelector("#phq9wrap");
+        for (var i = 0; i < tabs.length; i++) {
+            var tbtabid = tabs[i].id;
+            var newid = tbtabid.replace("__tab_", "");
+            var parent = document.querySelector('#' + newid);
+            if (parent.contains(childdiv)) {
+                var inputprefix = newid + "_UserControlPH9_";
             }
         }
-    };
-
-    window.addEventListener("load", function () {
-        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPanel1_UserControlKNH_PH9_";
+        //        var inputprefix = "ctl00_IQCareContentPlaceHolder_tabControl_TabPanel1_UserControlKNH_PH9_";
         var diganosisTotalValue = document.querySelector('#' + inputprefix + "hdnDiagnosisValue").value;
+
         if (diganosisTotalValue >= 0) {
             document.getElementById("depressionscreeningtotal").innerHTML = diganosisTotalValue;
             if (diganosisTotalValue >= 0 && diganosisTotalValue <= 5) {
@@ -161,7 +76,7 @@
 <asp:Panel ID="PH9Body" runat="server">
     <table cellspacing="6" cellpadding="0" width="100%" border="0">
         <tr>
-            <td>
+            <td id="phq9wrap">
                 <table width='100%'>
                     <tr>
                         <td class="border whitebg leftallign">
@@ -175,7 +90,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoLittleInterest" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -196,7 +111,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoFeelingDown" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -217,7 +132,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoTroubleFalling" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -238,7 +153,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoFeelingTired" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -259,7 +174,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoPoorAppetite" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -280,7 +195,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoFeelingBad" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -301,7 +216,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoTroubleConcentrating" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -322,7 +237,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoMovingSlowly" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -343,7 +258,7 @@
                                     <td>
                                         <asp:RadioButtonList ID="rdoThoughts" runat="server" RepeatColumns = "4" RepeatDirection="Horizontal" RepeatLayout="Table">
                                             <asp:ListItem Text="Not at All" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Seceral Days" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Several Days" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="More than Half the Days" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="Nearly Every Day" Value="3"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -387,6 +302,106 @@
             </td>
         </tr>
     </table>
+    <script type="text/javascript">
+        document.getElementById("phq9wrap").onclick = function (event) {
+            if (event === undefined) event = window.event;
+            var target = 'target' in event ? event.target : event.srcElement;
+            if (target.type == "radio") {
+                var activetab = document.getElementsByClassName('ajax__tab_active')[0].id;
+                var lastIndex = activetab.lastIndexOf("tab");
+                var userControlID = "UserControlPH9_";
+                var idprefix = activetab.substring(0, lastIndex) + userControlID;
+                var nameprefix = idprefix.replace(/_/g, "$");
+                //var hdnDiagnosisValue = document.querySelector('#' + idprefix + "hdnDiagnosisValue").value;
+                var diagnosisvalue = 0;
+                if (target.name == nameprefix + "rdoLittleInterest" || target.name == nameprefix + "rdoFeelingDown" || target.name == nameprefix + "rdoTroubleFalling" || target.name == nameprefix + "rdoFeelingTired" || target.name == nameprefix + "rdoPoorAppetite" || target.name == nameprefix + "rdoFeelingBad" || target.name == nameprefix + "rdoTroubleConcentrating" || target.name == nameprefix + "rdoMovingSlowly" || target.name == nameprefix + "rdoThoughts") {
+                    var radios = document.getElementsByTagName('input');
+                    var value;
+                    var totalvalue = 0;
+                    for (var i = 0; i < radios.length; i++) {
+                        if (radios[i].type === 'radio' && radios[i].checked) {
+                            // get value, set checked flag or do whatever you need to
+                            if (radios[i].name == nameprefix + "rdoLittleInterest") {
+                                value = radios[i].value;
+                                totalvalue = parseInt(totalvalue) + parseInt(value);
+                            }
+                            if (radios[i].name == nameprefix + "rdoFeelingDown") {
+                                value = radios[i].value;
+                                totalvalue = parseInt(totalvalue) + parseInt(value);
+                            }
+                            if (radios[i].name == nameprefix + "rdoFeelingTired") {
+                                value = radios[i].value;
+                                totalvalue = parseInt(totalvalue) + parseInt(value);
+                            }
+                            if (radios[i].name == nameprefix + "rdoTroubleFalling") {
+                                value = radios[i].value;
+                                totalvalue = parseInt(totalvalue) + parseInt(value);
+                            }
+                            if (radios[i].name == nameprefix + "rdoPoorAppetite") {
+                                value = radios[i].value;
+                                totalvalue = parseInt(totalvalue) + parseInt(value);
+                            }
+                            if (radios[i].name == nameprefix + "rdoFeelingBad") {
+                                value = radios[i].value;
+                                totalvalue = parseInt(totalvalue) + parseInt(value);
+                            }
+                            if (radios[i].name == nameprefix + "rdoTroubleConcentrating") {
+                                value = radios[i].value;
+                                totalvalue = parseInt(totalvalue) + parseInt(value);
+                            }
+                            if (radios[i].name == nameprefix + "rdoMovingSlowly") {
+                                value = radios[i].value;
+                                totalvalue = parseInt(totalvalue) + parseInt(value);
+                            }
+                            if (radios[i].name == nameprefix + "rdoThoughts") {
+                                value = radios[i].value;
+                                totalvalue = parseInt(totalvalue) + parseInt(value);
+                            }
+                        }
+
+                    }
+                    document.getElementById(idprefix + "hdnDiagnosisValue").value = totalvalue;
+                    document.getElementById("depressionscreeningtotal").innerHTML = totalvalue;
+                    if (totalvalue >= 0 && totalvalue <= 5) {
+                        document.getElementById("provisionaldiagnosis").innerHTML = "Depression Unlikely";
+                        document.getElementById("rmanagement1").style.display = "block";
+                        document.getElementById("rmanagement2").style.display = "none";
+                        document.getElementById("rmanagement3").style.display = "none";
+                    }
+                    else if (totalvalue >= 5 && totalvalue <= 9) {
+                        document.getElementById("provisionaldiagnosis").innerHTML = "Mild Depression";
+                        document.getElementById("rmanagement1").style.display = "none";
+                        document.getElementById("rmanagement2").style.display = "block";
+                        document.getElementById("rmanagement3").style.display = "none";
+                    }
+                    else if (totalvalue >= 10 && totalvalue <= 14) {
+                        document.getElementById("provisionaldiagnosis").innerHTML = "Moderate Depression";
+                        document.getElementById("rmanagement1").style.display = "none";
+                        document.getElementById("rmanagement2").style.display = "none";
+                        document.getElementById("rmanagement3").style.display = "block";
+                    }
+                    else if (totalvalue >= 15 && totalvalue <= 19) {
+                        document.getElementById("provisionaldiagnosis").innerHTML = "Moderate-Severe Depression";
+                        document.getElementById("rmanagement1").style.display = "none";
+                        document.getElementById("rmanagement2").style.display = "none";
+                        document.getElementById("rmanagement3").style.display = "block";
+                    }
+                    else if (totalvalue >= 20 && totalvalue <= 27) {
+                        document.getElementById("provisionaldiagnosis").innerHTML = "Severe Depression";
+                        document.getElementById("rmanagement1").style.display = "none";
+                        document.getElementById("rmanagement2").style.display = "none";
+                        document.getElementById("rmanagement3").style.display = "block";
+                    }
+                    else {
+                        document.getElementById("provisionaldiagnosis").style.display = "none";
+                        document.getElementById("rmanagement1").style.display = "none";
+                        document.getElementById("rmanagement2").style.display = "none";
+                        document.getElementById("rmanagement3").style.display = "none";
+                    }
+                }
+            }
+        };
+</script>
 </asp:Panel>
 
 <act:CollapsiblePanelExtender ID="CollapsiblePanelExtender1" runat="server" SuppressPostBack="true"

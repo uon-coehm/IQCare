@@ -58,10 +58,13 @@
     <Compile Include="IInitialEval.cs" />
     <Compile Include="IinitialFollowupVisit.cs" />
     <Compile Include="IIQTouchVisit.cs" />
+    <Compile Include="IKNHARTReadiness.cs" />
     <Compile Include="IKNHHEI.cs" />
+    <Compile Include="IKNHHomeVisit.cs" />
     <Compile Include="IKNHMEI.cs" />
     <Compile Include="IKNHPaed.cs" />
     <Compile Include="IKNHPeadraticFollowup.cs" />
+    <Compile Include="IKNHPsychosocialAdherence.cs" />
     <Compile Include="IKNHRevisedAdult.cs.cs" />
     <Compile Include="IKNHStaticForms.cs" />
     <Compile Include="INonARTFollowUp.cs" />

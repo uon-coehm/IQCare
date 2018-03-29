@@ -28,15 +28,6 @@ MeningitisDiagnosed varchar(50)
 go
 
 
-GO
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
---=============================================
--- Author:		<Darius Kirui>
--- Modify date: <27-02-2018>
---==============================================
 
 CREATE PROCEDURE [dbo].[pr_KNHPMTCTART_SaveData] 
 	@patientID INT,
